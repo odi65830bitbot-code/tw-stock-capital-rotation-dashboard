@@ -16,6 +16,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,11 +40,13 @@ jobs:
           else
             python scripts/update_daily.py
           fi
+          python scripts/fetch_sectorrotation_reference.py
           if [ -n "$FINMIND_TOKEN" ]; then
             python scripts/update_finmind_data.py
           else
             echo "FINMIND_TOKEN secret is not set; skipped supplemental FinMind update."
           fi
+          python scripts/build_formal_json_outputs.py
 
       - name: Commit updated data
         run: |
