@@ -340,20 +340,17 @@
     "trend_scope": "recommendation_top_10_only"
   },
   "futures_after_hours": {
-    "status": "warning",
-    "generated_at": "2026-06-10T07:49:59",
+    "status": "ok",
+    "generated_at": "2026-06-10T18:23:55",
     "dataset": "TaiwanFuturesDaily",
     "futures_id": "TX",
     "trading_session": "after_market",
     "row_count": 283,
     "latest_date": "2026-06-10",
     "warnings": [
-      "used existing futures_after_hours.parquet fallback",
       "institutional after-hours unavailable: RuntimeError: FinMind request failed after retries: 400 Client Error: Bad Request for url: https://api.finmindtrade.com/api/v4/data?dataset=TaiwanFuturesInstitutionalInvestorsAfterHours&data_id=TX&start_date=2026-05-11&end_date=2026-06-10"
     ],
-    "errors": [
-      "RuntimeError: FinMind request failed after retries: 402 Client Error: Payment Required for url: https://api.finmindtrade.com/api/v4/data?dataset=TaiwanFuturesDaily&data_id=TX&start_date=2026-05-11&end_date=2026-06-10&trading_session=after_market"
-    ]
+    "errors": []
   },
   "formal_dashboard_json": {
     "status": "ok",
