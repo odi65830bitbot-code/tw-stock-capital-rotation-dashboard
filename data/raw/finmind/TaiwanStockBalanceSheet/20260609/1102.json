@@ -1,0 +1,5438 @@
+{
+  "msg": "success",
+  "status": 200,
+  "data": [
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents",
+      "value": 18026398000.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents_per",
+      "value": 5.27,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss",
+      "value": 38769228000.0,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss_per",
+      "value": 11.33,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome",
+      "value": 4823974000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome_per",
+      "value": 1.41,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent",
+      "value": 14786380000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent_per",
+      "value": 4.32,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost",
+      "value": 36294274000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost_per",
+      "value": 10.61,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent",
+      "value": 52866000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent_per",
+      "value": 0.02,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet",
+      "value": 2035375000.0,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet_per",
+      "value": 0.6,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherReceivable",
+      "value": 5010448000.0,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherReceivable_per",
+      "value": 1.46,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "Prepayments",
+      "value": 993030000.0,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "Prepayments_per",
+      "value": 0.29,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet",
+      "value": 9533273000.0,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet_per",
+      "value": 2.79,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet",
+      "value": 613209000.0,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet_per",
+      "value": 0.18,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "Inventories",
+      "value": 7698364000.0,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "Inventories_per",
+      "value": 2.25,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets",
+      "value": 489205000.0,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets_per",
+      "value": 0.14,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentAssets",
+      "value": 124423684000.0,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentAssets_per",
+      "value": 36.38,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod",
+      "value": 94044860000.0,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod_per",
+      "value": 27.49,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment",
+      "value": 40457224000.0,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment_per",
+      "value": 11.83,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset",
+      "value": 4559189000.0,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset_per",
+      "value": 1.33,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "IntangibleAssets",
+      "value": 6618185000.0,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "IntangibleAssets_per",
+      "value": 1.93,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets",
+      "value": 850355000.0,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets_per",
+      "value": 0.25,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets",
+      "value": 18115593000.0,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets_per",
+      "value": 5.3,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets",
+      "value": 217626419000.0,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets_per",
+      "value": 63.62,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "TotalAssets",
+      "value": 342050103000.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "TotalAssets_per",
+      "value": 100.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings",
+      "value": 28568724000.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings_per",
+      "value": 8.35,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "AccountsPayable",
+      "value": 11025072000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "AccountsPayable_per",
+      "value": 3.22,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties",
+      "value": 334571000.0,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties_per",
+      "value": 0.1,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherPayables",
+      "value": 7883777000.0,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherPayables_per",
+      "value": 2.3,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities",
+      "value": 1281929000.0,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities_per",
+      "value": 0.37,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentProvisions",
+      "value": 46989000.0,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentProvisions_per",
+      "value": 0.01,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities",
+      "value": 14336318000.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities_per",
+      "value": 4.19,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities",
+      "value": 84680479000.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities_per",
+      "value": 24.76,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "BondsPayable",
+      "value": 32300000000.0,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "BondsPayable_per",
+      "value": 9.44,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings",
+      "value": 10083382000.0,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings_per",
+      "value": 2.95,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities",
+      "value": 975367000.0,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities_per",
+      "value": 0.29,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities",
+      "value": 56375010000.0,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities_per",
+      "value": 16.48,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OrdinaryShare",
+      "value": 35465629000.0,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OrdinaryShare_per",
+      "value": 10.37,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CapitalStock",
+      "value": 35465629000.0,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CapitalStock_per",
+      "value": 10.37,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CapitalSurplus",
+      "value": 8356437000.0,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CapitalSurplus_per",
+      "value": 2.44,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "LegalReserve",
+      "value": 23671390000.0,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "LegalReserve_per",
+      "value": 6.92,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit",
+      "value": 26959082000.0,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit_per",
+      "value": 7.88,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "RetainedEarnings",
+      "value": 117970303000.0,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "RetainedEarnings_per",
+      "value": 34.49,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest",
+      "value": 15992040000.0,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest_per",
+      "value": 4.68,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent",
+      "value": 177784409000.0,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent_per",
+      "value": 51.98,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests",
+      "value": 23210205000.0,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests_per",
+      "value": 6.79,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity",
+      "value": 342050103000.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity_per",
+      "value": 100.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries",
+      "value": 0.0,
+      "origin_name": "母公司暨子公司所持有之母公司庫藏股股數"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets",
+      "value": 9340000.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets_per",
+      "value": 0.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "Equity",
+      "value": 200994614000.0,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "Equity_per",
+      "value": 58.76,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "Liabilities",
+      "value": 141055489000.0,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "Liabilities_per",
+      "value": 41.24,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities",
+      "value": 763809000.0,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities_per",
+      "value": 0.22,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents",
+      "value": 15151261000.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents_per",
+      "value": 4.61,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss",
+      "value": 32504631000.0,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss_per",
+      "value": 9.89,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome",
+      "value": 4836410000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome_per",
+      "value": 1.47,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent",
+      "value": 13931850000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent_per",
+      "value": 4.24,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost",
+      "value": 38516849000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost_per",
+      "value": 11.71,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent",
+      "value": 71216000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent_per",
+      "value": 0.02,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet",
+      "value": 2269631000.0,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet_per",
+      "value": 0.69,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherReceivable",
+      "value": 1372383000.0,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherReceivable_per",
+      "value": 0.42,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "Prepayments",
+      "value": 939644000.0,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "Prepayments_per",
+      "value": 0.29,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet",
+      "value": 9594789000.0,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet_per",
+      "value": 2.92,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet",
+      "value": 644393000.0,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet_per",
+      "value": 0.2,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "Inventories",
+      "value": 7113845000.0,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "Inventories_per",
+      "value": 2.16,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets",
+      "value": 344085000.0,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets_per",
+      "value": 0.1,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentAssets",
+      "value": 113444327000.0,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentAssets_per",
+      "value": 34.5,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod",
+      "value": 93118211000.0,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod_per",
+      "value": 28.32,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment",
+      "value": 40312373000.0,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment_per",
+      "value": 12.26,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset",
+      "value": 4418806000.0,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset_per",
+      "value": 1.34,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "IntangibleAssets",
+      "value": 6495765000.0,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "IntangibleAssets_per",
+      "value": 1.98,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets",
+      "value": 862302000.0,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets_per",
+      "value": 0.26,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets",
+      "value": 17975400000.0,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets_per",
+      "value": 5.47,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets",
+      "value": 215347270000.0,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets_per",
+      "value": 65.5,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "TotalAssets",
+      "value": 328791597000.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "TotalAssets_per",
+      "value": 100.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings",
+      "value": 25752596000.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings_per",
+      "value": 7.83,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "AccountsPayable",
+      "value": 10185375000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "AccountsPayable_per",
+      "value": 3.1,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties",
+      "value": 292735000.0,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties_per",
+      "value": 0.09,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherPayables",
+      "value": 300562000.0,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherPayables_per",
+      "value": 0.09,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities",
+      "value": 766608000.0,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities_per",
+      "value": 0.23,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentProvisions",
+      "value": 40092000.0,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentProvisions_per",
+      "value": 0.01,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities",
+      "value": 14824378000.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities_per",
+      "value": 4.51,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities",
+      "value": 77548186000.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities_per",
+      "value": 23.59,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "BondsPayable",
+      "value": 28300000000.0,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "BondsPayable_per",
+      "value": 8.61,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings",
+      "value": 8386079000.0,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings_per",
+      "value": 2.55,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities",
+      "value": 943329000.0,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities_per",
+      "value": 0.29,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities",
+      "value": 50505442000.0,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities_per",
+      "value": 15.36,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OrdinaryShare",
+      "value": 35465629000.0,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OrdinaryShare_per",
+      "value": 10.79,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CapitalStock",
+      "value": 35465629000.0,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CapitalStock_per",
+      "value": 10.79,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CapitalSurplus",
+      "value": 8249087000.0,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CapitalSurplus_per",
+      "value": 2.51,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "LegalReserve",
+      "value": 23671390000.0,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "LegalReserve_per",
+      "value": 7.2,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit",
+      "value": 30377273000.0,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit_per",
+      "value": 9.24,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "RetainedEarnings",
+      "value": 120421718000.0,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "RetainedEarnings_per",
+      "value": 36.63,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest",
+      "value": 13615934000.0,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest_per",
+      "value": 4.14,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent",
+      "value": 177752368000.0,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent_per",
+      "value": 54.06,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests",
+      "value": 22985601000.0,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests_per",
+      "value": 6.99,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity",
+      "value": 328791597000.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity_per",
+      "value": 100.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries",
+      "value": 0.0,
+      "origin_name": "母公司暨子公司所持有之母公司庫藏股股數"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets",
+      "value": 12498000.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets_per",
+      "value": 0.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "Equity",
+      "value": 200737969000.0,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "Equity_per",
+      "value": 61.05,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "Liabilities",
+      "value": 128053628000.0,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "Liabilities_per",
+      "value": 38.95,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities",
+      "value": 967668000.0,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities_per",
+      "value": 0.29,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents",
+      "value": 13259732000.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents_per",
+      "value": 4.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss",
+      "value": 32406410000.0,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss_per",
+      "value": 9.77,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome",
+      "value": 5008346000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome_per",
+      "value": 1.51,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent",
+      "value": 12819151000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent_per",
+      "value": 3.86,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost",
+      "value": 42795903000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost_per",
+      "value": 12.9,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent",
+      "value": 101563000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent_per",
+      "value": 0.03,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet",
+      "value": 2390995000.0,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet_per",
+      "value": 0.72,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherReceivable",
+      "value": 1412020000.0,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherReceivable_per",
+      "value": 0.43,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "Prepayments",
+      "value": 745500000.0,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "Prepayments_per",
+      "value": 0.22,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet",
+      "value": 9995532000.0,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet_per",
+      "value": 3.01,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet",
+      "value": 701368000.0,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet_per",
+      "value": 0.21,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "Inventories",
+      "value": 7464327000.0,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "Inventories_per",
+      "value": 2.25,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets",
+      "value": 270473000.0,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets_per",
+      "value": 0.08,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentAssets",
+      "value": 116609749000.0,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentAssets_per",
+      "value": 35.14,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod",
+      "value": 94236118000.0,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod_per",
+      "value": 28.4,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment",
+      "value": 40651924000.0,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment_per",
+      "value": 12.25,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset",
+      "value": 4350309000.0,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset_per",
+      "value": 1.31,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "IntangibleAssets",
+      "value": 6493704000.0,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "IntangibleAssets_per",
+      "value": 1.96,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets",
+      "value": 881306000.0,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets_per",
+      "value": 0.27,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets",
+      "value": 17222986000.0,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets_per",
+      "value": 5.19,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets",
+      "value": 215217475000.0,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets_per",
+      "value": 64.86,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "TotalAssets",
+      "value": 331827224000.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "TotalAssets_per",
+      "value": 100.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings",
+      "value": 26488506000.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings_per",
+      "value": 7.98,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "AccountsPayable",
+      "value": 10816628000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "AccountsPayable_per",
+      "value": 3.26,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties",
+      "value": 319198000.0,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties_per",
+      "value": 0.1,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherPayables",
+      "value": 292120000.0,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherPayables_per",
+      "value": 0.09,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities",
+      "value": 1461714000.0,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities_per",
+      "value": 0.44,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentProvisions",
+      "value": 47071000.0,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentProvisions_per",
+      "value": 0.01,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities",
+      "value": 18911104000.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities_per",
+      "value": 5.7,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities",
+      "value": 79652998000.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities_per",
+      "value": 24.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "BondsPayable",
+      "value": 24200000000.0,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "BondsPayable_per",
+      "value": 7.29,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings",
+      "value": 8926787000.0,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings_per",
+      "value": 2.69,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities",
+      "value": 1003953000.0,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities_per",
+      "value": 0.3,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities",
+      "value": 47322542000.0,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities_per",
+      "value": 14.26,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OrdinaryShare",
+      "value": 35465629000.0,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OrdinaryShare_per",
+      "value": 10.69,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CapitalStock",
+      "value": 35465629000.0,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CapitalStock_per",
+      "value": 10.69,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CapitalSurplus",
+      "value": 8239344000.0,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CapitalSurplus_per",
+      "value": 2.48,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "LegalReserve",
+      "value": 23671390000.0,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "LegalReserve_per",
+      "value": 7.13,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit",
+      "value": 34444618000.0,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit_per",
+      "value": 10.38,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "RetainedEarnings",
+      "value": 124445142000.0,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "RetainedEarnings_per",
+      "value": 37.5,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest",
+      "value": 13197332000.0,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest_per",
+      "value": 3.98,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent",
+      "value": 181347447000.0,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent_per",
+      "value": 54.65,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests",
+      "value": 23504237000.0,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests_per",
+      "value": 7.08,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity",
+      "value": 331827224000.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity_per",
+      "value": 100.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries",
+      "value": 0.0,
+      "origin_name": "母公司暨子公司所持有之母公司庫藏股股數"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets",
+      "value": 16858000.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets_per",
+      "value": 0.01,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "Liabilities",
+      "value": 126975540000.0,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "Liabilities_per",
+      "value": 38.27,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "Equity",
+      "value": 204851684000.0,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "Equity_per",
+      "value": 61.73,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities",
+      "value": 573638000.0,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities_per",
+      "value": 0.17,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents",
+      "value": 16353804000.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents_per",
+      "value": 4.92,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss",
+      "value": 32023818000.0,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss_per",
+      "value": 9.63,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome",
+      "value": 5396203000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome_per",
+      "value": 1.62,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent",
+      "value": 13157654000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent_per",
+      "value": 3.96,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost",
+      "value": 29542066000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost_per",
+      "value": 8.89,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent",
+      "value": 10277620000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent_per",
+      "value": 3.09,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet",
+      "value": 2341277000.0,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet_per",
+      "value": 0.7,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherReceivable",
+      "value": 1315359000.0,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherReceivable_per",
+      "value": 0.4,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "Prepayments",
+      "value": 905406000.0,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "Prepayments_per",
+      "value": 0.27,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet",
+      "value": 9453289000.0,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet_per",
+      "value": 2.84,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet",
+      "value": 718485000.0,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet_per",
+      "value": 0.22,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "Inventories",
+      "value": 7168256000.0,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "Inventories_per",
+      "value": 2.16,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets",
+      "value": 259811000.0,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets_per",
+      "value": 0.08,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentAssets",
+      "value": 105584063000.0,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentAssets_per",
+      "value": 31.76,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod",
+      "value": 95611718000.0,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod_per",
+      "value": 28.76,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment",
+      "value": 40641616000.0,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment_per",
+      "value": 12.22,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset",
+      "value": 4393413000.0,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset_per",
+      "value": 1.32,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "IntangibleAssets",
+      "value": 6529775000.0,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "IntangibleAssets_per",
+      "value": 1.96,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets",
+      "value": 900330000.0,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets_per",
+      "value": 0.27,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets",
+      "value": 16862130000.0,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets_per",
+      "value": 5.07,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets",
+      "value": 226906545000.0,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets_per",
+      "value": 68.24,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "TotalAssets",
+      "value": 332490608000.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "TotalAssets_per",
+      "value": 100.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings",
+      "value": 28085998000.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings_per",
+      "value": 8.45,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "AccountsPayable",
+      "value": 9685616000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "AccountsPayable_per",
+      "value": 2.91,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties",
+      "value": 246333000.0,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties_per",
+      "value": 0.07,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherPayables",
+      "value": 8106111000.0,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherPayables_per",
+      "value": 2.44,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities",
+      "value": 1641828000.0,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities_per",
+      "value": 0.49,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentProvisions",
+      "value": 49227000.0,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentProvisions_per",
+      "value": 0.01,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities",
+      "value": 18920382000.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities_per",
+      "value": 5.69,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities",
+      "value": 86802096000.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities_per",
+      "value": 26.11,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "BondsPayable",
+      "value": 24200000000.0,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "BondsPayable_per",
+      "value": 7.28,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings",
+      "value": 6038583000.0,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings_per",
+      "value": 1.82,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities",
+      "value": 921320000.0,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities_per",
+      "value": 0.28,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities",
+      "value": 44331949000.0,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities_per",
+      "value": 13.33,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OrdinaryShare",
+      "value": 35465629000.0,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OrdinaryShare_per",
+      "value": 10.67,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CapitalStock",
+      "value": 35465629000.0,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CapitalStock_per",
+      "value": 10.67,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CapitalSurplus",
+      "value": 8239331000.0,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CapitalSurplus_per",
+      "value": 2.48,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "LegalReserve",
+      "value": 23671390000.0,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "LegalReserve_per",
+      "value": 7.12,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit",
+      "value": 28040530000.0,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit_per",
+      "value": 8.43,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "RetainedEarnings",
+      "value": 118025079000.0,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "RetainedEarnings_per",
+      "value": 35.5,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest",
+      "value": 15772783000.0,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest_per",
+      "value": 4.74,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent",
+      "value": 177502822000.0,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent_per",
+      "value": 53.39,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests",
+      "value": 23853741000.0,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests_per",
+      "value": 7.17,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity",
+      "value": 332490608000.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity_per",
+      "value": 100.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries",
+      "value": 0.0,
+      "origin_name": "母公司暨子公司所持有之母公司庫藏股股數"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets",
+      "value": 3363000.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets_per",
+      "value": 0.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "Liabilities",
+      "value": 131134045000.0,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "Liabilities_per",
+      "value": 39.44,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "Equity",
+      "value": 201356563000.0,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "Equity_per",
+      "value": 60.56,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities",
+      "value": 703553000.0,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities_per",
+      "value": 0.21,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents",
+      "value": 17272793000.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents_per",
+      "value": 5.49,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss",
+      "value": 32290263000.0,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss_per",
+      "value": 10.26,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome",
+      "value": 5025051000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome_per",
+      "value": 1.6,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent",
+      "value": 12235971000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent_per",
+      "value": 3.89,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost",
+      "value": 22162882000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost_per",
+      "value": 7.04,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent",
+      "value": 12133699000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent_per",
+      "value": 3.85,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet",
+      "value": 1407379000.0,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet_per",
+      "value": 0.45,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherReceivable",
+      "value": 5521891000.0,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherReceivable_per",
+      "value": 1.75,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "Prepayments",
+      "value": 905443000.0,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "Prepayments_per",
+      "value": 0.29,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet",
+      "value": 9999519000.0,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet_per",
+      "value": 3.18,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet",
+      "value": 681732000.0,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet_per",
+      "value": 0.22,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "Inventories",
+      "value": 6700154000.0,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "Inventories_per",
+      "value": 2.13,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets",
+      "value": 262684000.0,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets_per",
+      "value": 0.08,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentAssets",
+      "value": 102355154000.0,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentAssets_per",
+      "value": 32.51,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod",
+      "value": 84779013000.0,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod_per",
+      "value": 26.93,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment",
+      "value": 37493731000.0,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment_per",
+      "value": 11.91,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset",
+      "value": 4213460000.0,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset_per",
+      "value": 1.34,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "IntangibleAssets",
+      "value": 5770410000.0,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "IntangibleAssets_per",
+      "value": 1.83,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets",
+      "value": 865326000.0,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets_per",
+      "value": 0.27,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets",
+      "value": 16488401000.0,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets_per",
+      "value": 5.24,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets",
+      "value": 212493596000.0,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets_per",
+      "value": 67.49,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "TotalAssets",
+      "value": 314848750000.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "TotalAssets_per",
+      "value": 100.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings",
+      "value": 25197664000.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings_per",
+      "value": 8.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "AccountsPayable",
+      "value": 8879728000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "AccountsPayable_per",
+      "value": 2.82,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties",
+      "value": 289155000.0,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties_per",
+      "value": 0.09,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherPayables",
+      "value": 7953867000.0,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherPayables_per",
+      "value": 2.53,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities",
+      "value": 1192224000.0,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities_per",
+      "value": 0.38,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentProvisions",
+      "value": 83092000.0,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentProvisions_per",
+      "value": 0.03,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities",
+      "value": 10020352000.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities_per",
+      "value": 3.18,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities",
+      "value": 82033956000.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities_per",
+      "value": 26.06,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "BondsPayable",
+      "value": 28500000000.0,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "BondsPayable_per",
+      "value": 9.05,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings",
+      "value": 4179329000.0,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings_per",
+      "value": 1.33,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities",
+      "value": 861122000.0,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities_per",
+      "value": 0.27,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities",
+      "value": 46617352000.0,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities_per",
+      "value": 14.81,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "Liabilities",
+      "value": 128651308000.0,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "Liabilities_per",
+      "value": 40.86,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OrdinaryShare",
+      "value": 35465629000.0,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OrdinaryShare_per",
+      "value": 11.26,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CapitalStock",
+      "value": 35465629000.0,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CapitalStock_per",
+      "value": 11.26,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CapitalSurplus",
+      "value": 8239390000.0,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CapitalSurplus_per",
+      "value": 2.62,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "LegalReserve",
+      "value": 25205413000.0,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "LegalReserve_per",
+      "value": 8.01,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit",
+      "value": 28422437000.0,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit_per",
+      "value": 9.03,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "RetainedEarnings",
+      "value": 120976670000.0,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "RetainedEarnings_per",
+      "value": 38.42,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest",
+      "value": 258935000.0,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest_per",
+      "value": 0.08,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent",
+      "value": 164940624000.0,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent_per",
+      "value": 52.39,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests",
+      "value": 21256818000.0,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests_per",
+      "value": 6.75,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "Equity",
+      "value": 186197442000.0,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "Equity_per",
+      "value": 59.14,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity",
+      "value": 314848750000.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity_per",
+      "value": 100.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries",
+      "value": 0.0,
+      "origin_name": "母公司暨子公司所持有之母公司庫藏股股數"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets",
+      "value": 1269000.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets_per",
+      "value": 0.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities",
+      "value": 608015000.0,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities_per",
+      "value": 0.19,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents",
+      "value": 12967573000.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents_per",
+      "value": 4.09,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss",
+      "value": 32438917000.0,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss_per",
+      "value": 10.22,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome",
+      "value": 5211897000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome_per",
+      "value": 1.64,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent",
+      "value": 13276381000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent_per",
+      "value": 4.18,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost",
+      "value": 22396453000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost_per",
+      "value": 7.06,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent",
+      "value": 15886046000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent_per",
+      "value": 5.01,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet",
+      "value": 1296692000.0,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet_per",
+      "value": 0.41,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherReceivable",
+      "value": 1563945000.0,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherReceivable_per",
+      "value": 0.49,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "Prepayments",
+      "value": 834380000.0,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "Prepayments_per",
+      "value": 0.26,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet",
+      "value": 10138429000.0,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet_per",
+      "value": 3.19,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet",
+      "value": 697548000.0,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet_per",
+      "value": 0.22,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "Inventories",
+      "value": 7008974000.0,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "Inventories_per",
+      "value": 2.21,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets",
+      "value": 216074000.0,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets_per",
+      "value": 0.07,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentAssets",
+      "value": 94826165000.0,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentAssets_per",
+      "value": 29.88,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod",
+      "value": 88351952000.0,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod_per",
+      "value": 27.84,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment",
+      "value": 39056795000.0,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment_per",
+      "value": 12.31,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset",
+      "value": 4425837000.0,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset_per",
+      "value": 1.39,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "IntangibleAssets",
+      "value": 5956005000.0,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "IntangibleAssets_per",
+      "value": 1.88,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets",
+      "value": 876407000.0,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets_per",
+      "value": 0.28,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets",
+      "value": 16109083000.0,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets_per",
+      "value": 5.08,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets",
+      "value": 222549037000.0,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets_per",
+      "value": 70.12,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "TotalAssets",
+      "value": 317375202000.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "TotalAssets_per",
+      "value": 100.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings",
+      "value": 24734089000.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings_per",
+      "value": 7.79,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "AccountsPayable",
+      "value": 9160601000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "AccountsPayable_per",
+      "value": 2.89,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties",
+      "value": 288311000.0,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties_per",
+      "value": 0.09,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherPayables",
+      "value": 100692000.0,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherPayables_per",
+      "value": 0.03,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities",
+      "value": 850748000.0,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities_per",
+      "value": 0.27,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentProvisions",
+      "value": 103395000.0,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentProvisions_per",
+      "value": 0.03,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities",
+      "value": 13547811000.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities_per",
+      "value": 4.27,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities",
+      "value": 71858751000.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities_per",
+      "value": 22.64,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "BondsPayable",
+      "value": 31200000000.0,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "BondsPayable_per",
+      "value": 9.83,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings",
+      "value": 4161333000.0,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings_per",
+      "value": 1.31,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities",
+      "value": 910896000.0,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities_per",
+      "value": 0.29,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities",
+      "value": 49193442000.0,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities_per",
+      "value": 15.5,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "Liabilities",
+      "value": 121052193000.0,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "Liabilities_per",
+      "value": 38.14,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OrdinaryShare",
+      "value": 35465629000.0,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OrdinaryShare_per",
+      "value": 11.17,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CapitalStock",
+      "value": 35465629000.0,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CapitalStock_per",
+      "value": 11.17,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CapitalSurplus",
+      "value": 8240452000.0,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CapitalSurplus_per",
+      "value": 2.6,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "LegalReserve",
+      "value": 25205413000.0,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "LegalReserve_per",
+      "value": 7.94,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit",
+      "value": 32357653000.0,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit_per",
+      "value": 10.2,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "RetainedEarnings",
+      "value": 124892733000.0,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "RetainedEarnings_per",
+      "value": 39.35,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest",
+      "value": 5413245000.0,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest_per",
+      "value": 1.71,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent",
+      "value": 174012059000.0,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent_per",
+      "value": 54.83,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests",
+      "value": 22310950000.0,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests_per",
+      "value": 7.03,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "Equity",
+      "value": 196323009000.0,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "Equity_per",
+      "value": 61.86,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity",
+      "value": 317375202000.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity_per",
+      "value": 100.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries",
+      "value": 0.0,
+      "origin_name": "母公司暨子公司所持有之母公司庫藏股股數"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets",
+      "value": 1522000.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets_per",
+      "value": 0.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities",
+      "value": 785877000.0,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities_per",
+      "value": 0.25,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents",
+      "value": 12981458000.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents_per",
+      "value": 4.01,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss",
+      "value": 31986186000.0,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss_per",
+      "value": 9.87,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome",
+      "value": 5605684000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome_per",
+      "value": 1.73,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent",
+      "value": 13313910000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent_per",
+      "value": 4.11,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost",
+      "value": 22555372000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost_per",
+      "value": 6.96,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent",
+      "value": 18948632000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent_per",
+      "value": 5.85,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet",
+      "value": 1327296000.0,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet_per",
+      "value": 0.41,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherReceivable",
+      "value": 963338000.0,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherReceivable_per",
+      "value": 0.3,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "Prepayments",
+      "value": 1178948000.0,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "Prepayments_per",
+      "value": 0.36,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet",
+      "value": 9857361000.0,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet_per",
+      "value": 3.04,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet",
+      "value": 727441000.0,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet_per",
+      "value": 0.22,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "Inventories",
+      "value": 7330618000.0,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "Inventories_per",
+      "value": 2.26,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets",
+      "value": 672298000.0,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets_per",
+      "value": 0.21,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentAssets",
+      "value": 95233368000.0,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentAssets_per",
+      "value": 29.39,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod",
+      "value": 90480768000.0,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod_per",
+      "value": 27.92,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment",
+      "value": 39601520000.0,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment_per",
+      "value": 12.22,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset",
+      "value": 4989029000.0,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset_per",
+      "value": 1.54,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "IntangibleAssets",
+      "value": 6188694000.0,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "IntangibleAssets_per",
+      "value": 1.91,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets",
+      "value": 797662000.0,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets_per",
+      "value": 0.25,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets",
+      "value": 15452446000.0,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets_per",
+      "value": 4.77,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets",
+      "value": 228807091000.0,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets_per",
+      "value": 70.61,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "TotalAssets",
+      "value": 324040459000.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "TotalAssets_per",
+      "value": 100.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings",
+      "value": 28680511000.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings_per",
+      "value": 8.85,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "AccountsPayable",
+      "value": 8994060000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "AccountsPayable_per",
+      "value": 2.78,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties",
+      "value": 321889000.0,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties_per",
+      "value": 0.1,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherPayables",
+      "value": 101843000.0,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherPayables_per",
+      "value": 0.03,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities",
+      "value": 1252749000.0,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities_per",
+      "value": 0.39,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentProvisions",
+      "value": 123173000.0,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentProvisions_per",
+      "value": 0.04,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities",
+      "value": 6623379000.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities_per",
+      "value": 2.04,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities",
+      "value": 59418487000.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities_per",
+      "value": 18.34,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "BondsPayable",
+      "value": 36700000000.0,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "BondsPayable_per",
+      "value": 11.33,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings",
+      "value": 10844999000.0,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings_per",
+      "value": 3.35,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities",
+      "value": 902188000.0,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities_per",
+      "value": 0.28,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities",
+      "value": 61200112000.0,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities_per",
+      "value": 18.89,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "Liabilities",
+      "value": 120618599000.0,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "Liabilities_per",
+      "value": 37.22,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OrdinaryShare",
+      "value": 35465629000.0,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OrdinaryShare_per",
+      "value": 10.94,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CapitalStock",
+      "value": 35465629000.0,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CapitalStock_per",
+      "value": 10.94,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CapitalSurplus",
+      "value": 8240767000.0,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CapitalSurplus_per",
+      "value": 2.54,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "LegalReserve",
+      "value": 25205413000.0,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "LegalReserve_per",
+      "value": 7.78,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit",
+      "value": 34271257000.0,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit_per",
+      "value": 10.58,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "RetainedEarnings",
+      "value": 126642400000.0,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "RetainedEarnings_per",
+      "value": 39.08,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest",
+      "value": 9928497000.0,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest_per",
+      "value": 3.06,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent",
+      "value": 180277293000.0,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent_per",
+      "value": 55.63,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests",
+      "value": 23144567000.0,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests_per",
+      "value": 7.14,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "Equity",
+      "value": 203421860000.0,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "Equity_per",
+      "value": 62.78,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity",
+      "value": 324040459000.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity_per",
+      "value": 100.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries",
+      "value": 0.0,
+      "origin_name": "母公司暨子公司所持有之母公司庫藏股股數"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets",
+      "value": 7333000.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets_per",
+      "value": 0.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities",
+      "value": 879886000.0,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities_per",
+      "value": 0.27,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents",
+      "value": 15235953000.0,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CashAndCashEquivalents_per",
+      "value": 4.62,
+      "origin_name": "現金及約當現金"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss",
+      "value": 32510930000.0,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentFinancialAssetsAtFairvalueThroughProfitOrLoss_per",
+      "value": 9.86,
+      "origin_name": "透過損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome",
+      "value": 6200061000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncome_per",
+      "value": 1.88,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent",
+      "value": 13238999000.0,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtFairvalueThroughOtherComprehensiveIncomeNonCurrent_per",
+      "value": 4.02,
+      "origin_name": "透過其他綜合損益按公允價值衡量之金融資產－非流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost",
+      "value": 20058381000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCost_per",
+      "value": 6.08,
+      "origin_name": "按攤銷後成本衡量之金融資產－流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent",
+      "value": 20701580000.0,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "FinancialAssetsAtAmortizedCostNonCurrent_per",
+      "value": 6.28,
+      "origin_name": "按攤銷後成本衡量之金融資產－非流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet",
+      "value": 1371647000.0,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "BillsReceivableNet_per",
+      "value": 0.42,
+      "origin_name": "應收票據淨額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherReceivable",
+      "value": 1029192000.0,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherReceivable_per",
+      "value": 0.31,
+      "origin_name": "其他應收款淨額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "Prepayments",
+      "value": 738274000.0,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "Prepayments_per",
+      "value": 0.22,
+      "origin_name": "預付款項"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet",
+      "value": 9021461000.0,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableNet_per",
+      "value": 2.74,
+      "origin_name": "應收帳款淨額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet",
+      "value": 805501000.0,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "AccountsReceivableDuefromRelatedPartiesNet_per",
+      "value": 0.24,
+      "origin_name": "應收帳款－關係人淨額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "Inventories",
+      "value": 7196154000.0,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "Inventories_per",
+      "value": 2.18,
+      "origin_name": "存貨"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets",
+      "value": 352283000.0,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentAssets_per",
+      "value": 0.11,
+      "origin_name": "其他流動資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentAssets",
+      "value": 94593171000.0,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentAssets_per",
+      "value": 28.69,
+      "origin_name": "流動資產合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod",
+      "value": 92355829000.0,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "InvestmentAccountedForUsingEquityMethod_per",
+      "value": 28.01,
+      "origin_name": "採用權益法之投資"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment",
+      "value": 40532522000.0,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "PropertyPlantAndEquipment_per",
+      "value": 12.29,
+      "origin_name": "不動產、廠房及設備"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset",
+      "value": 5059226000.0,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "RightOfUseAsset_per",
+      "value": 1.53,
+      "origin_name": "使用權資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "IntangibleAssets",
+      "value": 8286061000.0,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "IntangibleAssets_per",
+      "value": 2.51,
+      "origin_name": "無形資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets",
+      "value": 816868000.0,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "DeferredTaxAssets_per",
+      "value": 0.25,
+      "origin_name": "遞延所得稅資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets",
+      "value": 15085450000.0,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentAssets_per",
+      "value": 4.58,
+      "origin_name": "其他非流動資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets",
+      "value": 235138085000.0,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "NoncurrentAssets_per",
+      "value": 71.31,
+      "origin_name": "非流動資產合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "TotalAssets",
+      "value": 329731256000.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "TotalAssets_per",
+      "value": 100.0,
+      "origin_name": "資產總額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings",
+      "value": 28787827000.0,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "ShorttermBorrowings_per",
+      "value": 8.73,
+      "origin_name": "短期借款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "AccountsPayable",
+      "value": 8082143000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "AccountsPayable_per",
+      "value": 2.45,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties",
+      "value": 278796000.0,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "AccountsPayableToRelatedParties_per",
+      "value": 0.08,
+      "origin_name": "應付帳款－關係人"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherPayables",
+      "value": 8274723000.0,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherPayables_per",
+      "value": 2.51,
+      "origin_name": "其他應付款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities",
+      "value": 1546497000.0,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentTaxLiabilities_per",
+      "value": 0.47,
+      "origin_name": "本期所得稅負債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentProvisions",
+      "value": 122708000.0,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentProvisions_per",
+      "value": 0.04,
+      "origin_name": "負債準備－流動"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities",
+      "value": 6607102000.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherCurrentLiabilities_per",
+      "value": 2.0,
+      "origin_name": "其他流動負債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities",
+      "value": 73132379000.0,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentLiabilities_per",
+      "value": 22.18,
+      "origin_name": "流動負債合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "BondsPayable",
+      "value": 36700000000.0,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "BondsPayable_per",
+      "value": 11.13,
+      "origin_name": "應付公司債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings",
+      "value": 4255757000.0,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "LongtermBorrowings_per",
+      "value": 1.29,
+      "origin_name": "長期借款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities",
+      "value": 1913989000.0,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherNoncurrentLiabilities_per",
+      "value": 0.58,
+      "origin_name": "其他非流動負債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities",
+      "value": 55652518000.0,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "NoncurrentLiabilities_per",
+      "value": 16.88,
+      "origin_name": "非流動負債合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "Liabilities",
+      "value": 128784897000.0,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "Liabilities_per",
+      "value": 39.06,
+      "origin_name": "負債總額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OrdinaryShare",
+      "value": 35465629000.0,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OrdinaryShare_per",
+      "value": 10.76,
+      "origin_name": "普通股股本"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CapitalStock",
+      "value": 35465629000.0,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CapitalStock_per",
+      "value": 10.76,
+      "origin_name": "股本合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CapitalSurplus",
+      "value": 8245290000.0,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CapitalSurplus_per",
+      "value": 2.5,
+      "origin_name": "資本公積合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "LegalReserve",
+      "value": 25205413000.0,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "LegalReserve_per",
+      "value": 7.64,
+      "origin_name": "法定盈餘公積"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit",
+      "value": 28002058000.0,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "UnappropriatedRetainedEarningsAaccumulatedDeficit_per",
+      "value": 8.49,
+      "origin_name": "未分配盈餘"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "RetainedEarnings",
+      "value": 120372322000.0,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "RetainedEarnings_per",
+      "value": 36.51,
+      "origin_name": "保留盈餘合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest",
+      "value": 13057985000.0,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "OtherEquityInterest_per",
+      "value": 3.96,
+      "origin_name": "其他權益合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent",
+      "value": 177141226000.0,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "EquityAttributableToOwnersOfParent_per",
+      "value": 53.72,
+      "origin_name": "歸屬於母公司業主之權益合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests",
+      "value": 23805133000.0,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "NoncontrollingInterests_per",
+      "value": 7.22,
+      "origin_name": "非控制權益"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "Equity",
+      "value": 200946359000.0,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "Equity_per",
+      "value": 60.94,
+      "origin_name": "權益總額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity",
+      "value": 329731256000.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "TotalLiabilitiesEquity_per",
+      "value": 100.0,
+      "origin_name": "負債及權益總計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries",
+      "value": 0.0,
+      "origin_name": "母公司暨子公司所持有之母公司庫藏股股數"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets",
+      "value": 31289000.0,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentIncomeTaxAssets_per",
+      "value": 0.01,
+      "origin_name": "本期所得稅資產"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities",
+      "value": 849250000.0,
+      "origin_name": "合約負債"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1102",
+      "type": "CurrentContractLiabilities_per",
+      "value": 0.26,
+      "origin_name": "合約負債"
+    }
+  ]
+}

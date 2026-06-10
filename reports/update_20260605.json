@@ -1,0 +1,54 @@
+{
+  "target_date": "2026-06-05",
+  "status": "warning",
+  "log_path": "/Users/maxyu/Documents/台股資金網站/logs/update_20260605.log",
+  "processed_outputs": [
+    "daily_price.parquet",
+    "index.parquet",
+    "institutional_amount.parquet",
+    "institutional_flow.parquet",
+    "moneydj_sector_indicators.parquet",
+    "recommendation_backtest.parquet",
+    "recommendation_summary.parquet",
+    "recommendations.parquet",
+    "sector_alpha.parquet",
+    "sector_classification.parquet",
+    "sector_flow.parquet",
+    "stock_alpha.parquet",
+    "stock_alpha_breakdown.parquet"
+  ],
+  "public_outputs": [
+    "data/market_latest.json",
+    "data/recommendations_latest.json",
+    "data/sector_latest.json",
+    "data/stock_alpha_latest.json"
+  ],
+  "trend_files": [
+    "data/trends/2492.json",
+    "data/trends/2501.json",
+    "data/trends/2548.json",
+    "data/trends/2606.json",
+    "data/trends/2615.json",
+    "data/trends/2637.json",
+    "data/trends/2887.json",
+    "data/trends/2903.json",
+    "data/trends/5534.json",
+    "data/trends/9933.json"
+  ],
+  "result_keys": [
+    "daily_price",
+    "index",
+    "institutional_amount",
+    "institutional_flow",
+    "moneydj_sector_indicators",
+    "quality",
+    "recommendation_backtest",
+    "recommendation_summary",
+    "recommendations",
+    "sector_alpha",
+    "sector_classification",
+    "sector_flow",
+    "stock_alpha",
+    "stock_alpha_breakdown"
+  ]
+}

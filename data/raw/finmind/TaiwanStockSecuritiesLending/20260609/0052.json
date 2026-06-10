@@ -1,0 +1,266 @@
+{
+  "msg": "success",
+  "status": 200,
+  "data": [
+    {
+      "date": "2025-07-07",
+      "stock_id": "0052",
+      "transaction_type": "議借",
+      "volume": 32,
+      "fee_rate": 0.05,
+      "close": 188.95,
+      "original_return_date": "2026-01-07",
+      "original_lending_period": 184
+    },
+    {
+      "date": "2025-07-22",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 128,
+      "fee_rate": 1.0,
+      "close": 197.9,
+      "original_return_date": "2026-01-22",
+      "original_lending_period": 184
+    },
+    {
+      "date": "2025-10-20",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 100,
+      "fee_rate": 1.0,
+      "close": 252.85,
+      "original_return_date": "2026-04-20",
+      "original_lending_period": 182
+    },
+    {
+      "date": "2025-11-26",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 21,
+      "fee_rate": 1.0,
+      "close": 35.35,
+      "original_return_date": "2026-05-26",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2025-11-26",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 47,
+      "fee_rate": 1.0,
+      "close": 35.35,
+      "original_return_date": "2026-05-26",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2025-11-27",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 601,
+      "fee_rate": 1.0,
+      "close": 35.68,
+      "original_return_date": "2026-05-27",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2025-11-28",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 135,
+      "fee_rate": 1.0,
+      "close": 36.01,
+      "original_return_date": "2026-05-28",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2025-12-01",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 55,
+      "fee_rate": 1.0,
+      "close": 35.36,
+      "original_return_date": "2026-06-01",
+      "original_lending_period": 182
+    },
+    {
+      "date": "2025-12-01",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 1500,
+      "fee_rate": 1.0,
+      "close": 35.36,
+      "original_return_date": "2026-06-01",
+      "original_lending_period": 182
+    },
+    {
+      "date": "2026-01-12",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 110,
+      "fee_rate": 1.0,
+      "close": 40.9,
+      "original_return_date": "2026-07-10",
+      "original_lending_period": 179
+    },
+    {
+      "date": "2026-01-19",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 1107,
+      "fee_rate": 1.0,
+      "close": 42.48,
+      "original_return_date": "2026-07-17",
+      "original_lending_period": 179
+    },
+    {
+      "date": "2026-01-21",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 178,
+      "fee_rate": 1.5,
+      "close": 42.11,
+      "original_return_date": "2026-07-21",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-01-21",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 20,
+      "fee_rate": 1.0,
+      "close": 42.11,
+      "original_return_date": "2026-07-21",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-01-21",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 16,
+      "fee_rate": 1.0,
+      "close": 42.11,
+      "original_return_date": "2026-07-21",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-01-22",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 7,
+      "fee_rate": 0.6,
+      "close": 42.42,
+      "original_return_date": "2026-07-22",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-01-23",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 42,
+      "fee_rate": 1.0,
+      "close": 42.81,
+      "original_return_date": "2026-07-23",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-01-26",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 19,
+      "fee_rate": 1.0,
+      "close": 42.85,
+      "original_return_date": "2026-07-24",
+      "original_lending_period": 179
+    },
+    {
+      "date": "2026-01-26",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 4,
+      "fee_rate": 1.0,
+      "close": 42.85,
+      "original_return_date": "2026-07-24",
+      "original_lending_period": 179
+    },
+    {
+      "date": "2026-01-27",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 36,
+      "fee_rate": 1.0,
+      "close": 43.42,
+      "original_return_date": "2026-07-27",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-02-25",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 2500,
+      "fee_rate": 1.0,
+      "close": 48.38,
+      "original_return_date": "2026-08-25",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-02-26",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 770,
+      "fee_rate": 1.0,
+      "close": 48.42,
+      "original_return_date": "2026-08-26",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-03-09",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 49,
+      "fee_rate": 1.0,
+      "close": 43.38,
+      "original_return_date": "2026-09-09",
+      "original_lending_period": 184
+    },
+    {
+      "date": "2026-03-24",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 21,
+      "fee_rate": 1.0,
+      "close": 44.13,
+      "original_return_date": "2026-09-24",
+      "original_lending_period": 184
+    },
+    {
+      "date": "2026-03-25",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 330,
+      "fee_rate": 1.0,
+      "close": 45.08,
+      "original_return_date": "2026-09-24",
+      "original_lending_period": 183
+    },
+    {
+      "date": "2026-03-25",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 25,
+      "fee_rate": 0.5,
+      "close": 45.08,
+      "original_return_date": "2026-09-24",
+      "original_lending_period": 183
+    },
+    {
+      "date": "2026-04-02",
+      "stock_id": "0052",
+      "transaction_type": "競價",
+      "volume": 200,
+      "fee_rate": 1.0,
+      "close": 43.82,
+      "original_return_date": "2026-10-02",
+      "original_lending_period": 183
+    }
+  ]
+}

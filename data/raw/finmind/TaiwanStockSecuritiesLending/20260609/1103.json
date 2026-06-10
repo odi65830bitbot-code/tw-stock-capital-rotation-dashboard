@@ -1,0 +1,146 @@
+{
+  "msg": "success",
+  "status": 200,
+  "data": [
+    {
+      "date": "2025-06-12",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 1500,
+      "fee_rate": 3.5,
+      "close": 14.75,
+      "original_return_date": "2025-12-12",
+      "original_lending_period": 183
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 1,
+      "fee_rate": 2.1,
+      "close": 14.65,
+      "original_return_date": "2025-12-30",
+      "original_lending_period": 183
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 243,
+      "fee_rate": 4.2,
+      "close": 14.65,
+      "original_return_date": "2025-12-30",
+      "original_lending_period": 183
+    },
+    {
+      "date": "2025-07-16",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 55,
+      "fee_rate": 0.05,
+      "close": 14.2,
+      "original_return_date": "2026-01-16",
+      "original_lending_period": 184
+    },
+    {
+      "date": "2025-07-20",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 122,
+      "fee_rate": 4.0,
+      "close": 14.45,
+      "original_return_date": "2026-01-21",
+      "original_lending_period": 184
+    },
+    {
+      "date": "2025-07-21",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 122,
+      "fee_rate": 4.0,
+      "close": 14.45,
+      "original_return_date": "2026-01-21",
+      "original_lending_period": 184
+    },
+    {
+      "date": "2025-07-21",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 250,
+      "fee_rate": 0.5,
+      "close": 14.45,
+      "original_return_date": "2026-01-21",
+      "original_lending_period": 184
+    },
+    {
+      "date": "2025-08-01",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 647,
+      "fee_rate": 0.37,
+      "close": 13.9,
+      "original_return_date": "2026-01-30",
+      "original_lending_period": 182
+    },
+    {
+      "date": "2025-11-06",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 250,
+      "fee_rate": 3.6,
+      "close": 13.15,
+      "original_return_date": "2026-05-06",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2025-12-30",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 9,
+      "fee_rate": 0.75,
+      "close": 14.0,
+      "original_return_date": "2026-06-30",
+      "original_lending_period": 182
+    },
+    {
+      "date": "2026-01-22",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 1,
+      "fee_rate": 1.0,
+      "close": 14.0,
+      "original_return_date": "2026-07-22",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-01-28",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 1,
+      "fee_rate": 1.0,
+      "close": 14.3,
+      "original_return_date": "2026-07-28",
+      "original_lending_period": 181
+    },
+    {
+      "date": "2026-04-22",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 285,
+      "fee_rate": 0.25,
+      "close": 13.8,
+      "original_return_date": "2026-10-22",
+      "original_lending_period": 183
+    },
+    {
+      "date": "2026-06-01",
+      "stock_id": "1103",
+      "transaction_type": "議借",
+      "volume": 298,
+      "fee_rate": 0.25,
+      "close": 13.3,
+      "original_return_date": "2026-12-01",
+      "original_lending_period": 183
+    }
+  ]
+}

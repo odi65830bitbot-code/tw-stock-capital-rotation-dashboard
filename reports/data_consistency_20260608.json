@@ -1,0 +1,66 @@
+{
+  "target_date": "2026-06-08",
+  "status": "pass",
+  "checks": [
+    {
+      "name": "raw_vs_processed_daily_price",
+      "left_rows": 11570,
+      "right_rows": 11570,
+      "status": "pass",
+      "messages": []
+    },
+    {
+      "name": "raw_vs_processed_institutional_flow",
+      "left_rows": 13698,
+      "right_rows": 13698,
+      "status": "pass",
+      "messages": []
+    },
+    {
+      "name": "raw_vs_processed_institutional_amount",
+      "left_rows": 2,
+      "right_rows": 2,
+      "status": "pass",
+      "messages": []
+    },
+    {
+      "name": "raw_vs_processed_index",
+      "left_rows": 269,
+      "right_rows": 269,
+      "status": "pass",
+      "messages": []
+    },
+    {
+      "name": "public_market_latest",
+      "left_rows": 269,
+      "right_rows": 269,
+      "status": "pass",
+      "messages": [],
+      "public_as_of_date": "2026-06-08"
+    },
+    {
+      "name": "public_sector_latest",
+      "left_rows": 43,
+      "right_rows": 43,
+      "status": "pass",
+      "messages": [],
+      "public_as_of_date": "2026-06-08"
+    },
+    {
+      "name": "public_stock_alpha_latest",
+      "left_rows": 11570,
+      "right_rows": 11570,
+      "status": "pass",
+      "messages": [],
+      "public_as_of_date": "2026-06-08"
+    },
+    {
+      "name": "public_recommendations_latest",
+      "left_rows": 282,
+      "right_rows": 282,
+      "status": "pass",
+      "messages": [],
+      "public_as_of_date": "2026-06-08"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+finmind:
+  enabled: true
+  token_env: FINMIND_TOKEN
+  cache_enabled: true
+  request_timeout: 30
+  retry: 3
+  update_price_days: 370
+  update_revenue_months: 18
+  update_financial_quarters: 8
+  batch_size: 20
+  sleep_seconds: 0.5
+  premium_optional:
+    - TaiwanStockTradingDailyReport
+    - TaiwanStockHoldingSharesPer
+    - TaiwanStockDispositionSecuritiesPeriod

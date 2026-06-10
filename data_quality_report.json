@@ -1,0 +1,411 @@
+{
+  "generated_at": "2026-06-09",
+  "expected_trade_date": "2026-06-09",
+  "status": "fail",
+  "checks": [
+    {
+      "name": "recent_trading_date",
+      "status": "pass",
+      "message": "最新資料日為 2026-06-09",
+      "details": {
+        "latest_date": "2026-06-09",
+        "expected_date": "2026-06-09"
+      }
+    },
+    {
+      "name": "market_date_alignment",
+      "status": "fail",
+      "message": "daily_price: TWSE/TPEX 最新資料日期不一致",
+      "details": {
+        "latest_by_market": {
+          "TWSE": "2017-12-18",
+          "TPEX": "2026-06-09"
+        },
+        "expected_date": "2026-06-09"
+      }
+    },
+    {
+      "name": "reasonable_row_count",
+      "status": "pass",
+      "message": "daily_price 筆數合理：11229",
+      "details": {
+        "rows": 11229
+      }
+    },
+    {
+      "name": "non_null_metrics",
+      "status": "pass",
+      "message": "daily_price: 有效資料比例 100.00%",
+      "details": {
+        "ratio": 1.0
+      }
+    },
+    {
+      "name": "stock_code_format",
+      "status": "pass",
+      "message": "daily_price: TWSE 代號格式正確率 100%",
+      "details": {
+        "market": "TWSE",
+        "valid_ratio": 1.0
+      }
+    },
+    {
+      "name": "stock_code_format",
+      "status": "pass",
+      "message": "daily_price: TPEX 代號格式正確率 100%",
+      "details": {
+        "market": "TPEX",
+        "valid_ratio": 1.0
+      }
+    },
+    {
+      "name": "market_mixed_check",
+      "status": "pass",
+      "message": "daily_price_twse: 市場欄位一致 (TWSE)",
+      "details": {
+        "expected_market": "TWSE",
+        "match_ratio": 1.0
+      }
+    },
+    {
+      "name": "market_mixed_check",
+      "status": "pass",
+      "message": "daily_price_tpex: 市場欄位一致 (TPEX)",
+      "details": {
+        "expected_market": "TPEX",
+        "match_ratio": 1.0
+      }
+    },
+    {
+      "name": "recent_trading_date",
+      "status": "pass",
+      "message": "最新資料日為 2026-06-09",
+      "details": {
+        "latest_date": "2026-06-09",
+        "expected_date": "2026-06-09"
+      }
+    },
+    {
+      "name": "market_date_alignment",
+      "status": "pass",
+      "message": "institutional_flow: TWSE/TPEX 同步日期 2026-06-09",
+      "details": {
+        "latest_by_market": {
+          "TWSE": "2026-06-09",
+          "TPEX": "2026-06-09"
+        },
+        "expected_date": "2026-06-09"
+      }
+    },
+    {
+      "name": "reasonable_row_count",
+      "status": "pass",
+      "message": "institutional_flow 筆數合理：14429",
+      "details": {
+        "rows": 14429
+      }
+    },
+    {
+      "name": "non_null_metrics",
+      "status": "pass",
+      "message": "institutional_flow: 有效資料比例 100.00%",
+      "details": {
+        "ratio": 1.0
+      }
+    },
+    {
+      "name": "unit_consistency",
+      "status": "pass",
+      "message": "institutional_flow: 單位檢核完成",
+      "details": {
+        "amount_columns": [
+          "three_party_net_shares"
+        ],
+        "volume_columns": [],
+        "three_party_net_shares_all_zero": false,
+        "three_party_net_shares_negative_allowed": true
+      }
+    },
+    {
+      "name": "stock_code_format",
+      "status": "pass",
+      "message": "institutional_flow: TWSE 代號格式正確率 100%",
+      "details": {
+        "market": "TWSE",
+        "valid_ratio": 1.0
+      }
+    },
+    {
+      "name": "stock_code_format",
+      "status": "pass",
+      "message": "institutional_flow: TPEX 代號格式正確率 100%",
+      "details": {
+        "market": "TPEX",
+        "valid_ratio": 1.0
+      }
+    },
+    {
+      "name": "market_mixed_check",
+      "status": "pass",
+      "message": "institutional_flow_twse: 市場欄位一致 (TWSE)",
+      "details": {
+        "expected_market": "TWSE",
+        "match_ratio": 1.0
+      }
+    },
+    {
+      "name": "market_mixed_check",
+      "status": "pass",
+      "message": "institutional_flow_tpex: 市場欄位一致 (TPEX)",
+      "details": {
+        "expected_market": "TPEX",
+        "match_ratio": 1.0
+      }
+    },
+    {
+      "name": "recent_trading_date",
+      "status": "pass",
+      "message": "最新資料日為 2026-06-09",
+      "details": {
+        "latest_date": "2026-06-09",
+        "expected_date": "2026-06-09"
+      }
+    },
+    {
+      "name": "market_date_alignment",
+      "status": "pass",
+      "message": "institutional_amount: TWSE/TPEX 同步日期 2026-06-09",
+      "details": {
+        "latest_by_market": {
+          "TWSE": "2026-06-09",
+          "TPEX": "2026-06-09"
+        },
+        "expected_date": "2026-06-09"
+      }
+    },
+    {
+      "name": "reasonable_row_count",
+      "status": "pass",
+      "message": "institutional_amount 筆數合理：14",
+      "details": {
+        "rows": 14
+      }
+    },
+    {
+      "name": "non_null_metrics",
+      "status": "pass",
+      "message": "institutional_amount: 有效資料比例 100.00%",
+      "details": {
+        "ratio": 1.0
+      }
+    },
+    {
+      "name": "unit_consistency",
+      "status": "pass",
+      "message": "institutional_amount: 單位檢核完成",
+      "details": {
+        "amount_columns": [
+          "purchase_amount_twd",
+          "sale_amount_twd",
+          "net_amount_twd"
+        ],
+        "volume_columns": [],
+        "purchase_amount_twd_all_zero": false,
+        "purchase_amount_twd_negative_allowed": false,
+        "sale_amount_twd_all_zero": false,
+        "sale_amount_twd_negative_allowed": false,
+        "net_amount_twd_all_zero": false,
+        "net_amount_twd_negative_allowed": true
+      }
+    },
+    {
+      "name": "reasonable_row_count",
+      "status": "pass",
+      "message": "sector_classification 筆數合理：1965",
+      "details": {
+        "rows": 1965
+      }
+    },
+    {
+      "name": "stock_code_format",
+      "status": "pass",
+      "message": "sector_classification: TWSE 代號格式正確率 100%",
+      "details": {
+        "market": "TWSE",
+        "valid_ratio": 1.0
+      }
+    },
+    {
+      "name": "stock_code_format",
+      "status": "pass",
+      "message": "sector_classification: TPEX 代號格式正確率 100%",
+      "details": {
+        "market": "TPEX",
+        "valid_ratio": 1.0
+      }
+    },
+    {
+      "name": "non_null_metrics",
+      "status": "pass",
+      "message": "sector_classification: 有效資料比例 100.00%",
+      "details": {
+        "ratio": 1.0
+      }
+    },
+    {
+      "name": "reasonable_row_count",
+      "status": "pass",
+      "message": "sector_flow 筆數合理：44",
+      "details": {
+        "rows": 44
+      }
+    },
+    {
+      "name": "non_null_metrics",
+      "status": "pass",
+      "message": "sector_flow: 有效資料比例 100.00%",
+      "details": {
+        "ratio": 1.0
+      }
+    },
+    {
+      "name": "moneydj_supplemental_quality",
+      "status": "pass",
+      "message": "MoneyDJ 補充指標 56 類股，歷史明細 3360 筆，驗證通過率 100.00%",
+      "details": {
+        "rows": 56,
+        "history_rows": 3360,
+        "validation_pass_ratio": 1.0,
+        "history_coverage_ratio": 1.0
+      }
+    },
+    {
+      "name": "recommendation_engine",
+      "status": "pass",
+      "message": "推薦引擎候選清單 74 筆，Alpha 拆解 10211 筆",
+      "details": {
+        "recommendation_rows": 74,
+        "alpha_breakdown_rows": 10211,
+        "backtest_rows": 2,
+        "revenue_data_available": false,
+        "financial_quality_data_available": false,
+        "finmind_indicator_rows": 0,
+        "disposition_data_available": false,
+        "full_delivery_data_available": false,
+        "note": "FinMind 用於月營收、PER/PBR 與殖利率補充指標；處置股與全額交割股尚未接入官方公告日資料。"
+      }
+    }
+  ],
+  "raw_sources": {
+    "twse": {
+      "daily_price": "twse_daily_price.json",
+      "institutional_flow": "twse_institutional_flow.json",
+      "institutional_amount": "twse_institutional_amount.json",
+      "sector_classification": "twse_sector_classification.json",
+      "index": "twse_index.json"
+    },
+    "tpex": {
+      "daily_price": "tpex_daily_price.json",
+      "institutional_flow": "tpex_institutional_flow.json",
+      "institutional_amount": "tpex_institutional_amount.json",
+      "sector_classification": "tpex_sector_classification.json",
+      "index": "tpex_index.json",
+      "index_50": "tpex_50_index.json"
+    },
+    "supplemental": {
+      "moneydj": {
+        "moneydj_market_fund_flow": "moneydj_market_fund_flow.json"
+      },
+      "finmind": {
+        "enabled": true,
+        "indicator_rows": 0
+      }
+    }
+  },
+  "source_policy": {
+    "primary": [
+      "TWSE official OpenAPI/CSV",
+      "TPEX official OpenAPI/CSV"
+    ],
+    "supplemental_only": [
+      "MoneyDJ",
+      "FinMind"
+    ],
+    "note": "MoneyDJ and FinMind are stored and displayed only as supplemental context; they do not replace failed official data."
+  },
+  "daily_update": {
+    "target_date": "2026-06-09",
+    "log_path": "/Users/maxyu/Documents/台股資金網站/logs/update_20260609.log",
+    "public_data_root": "/Users/maxyu/Documents/台股資金網站/public/data",
+    "trend_scope": "recommendation_top_10_only"
+  },
+  "futures_after_hours": {
+    "status": "ok",
+    "generated_at": "2026-06-10T07:52:50",
+    "dataset": "TaiwanFuturesDaily",
+    "futures_id": "TX",
+    "trading_session": "after_market",
+    "row_count": 283,
+    "latest_date": "2026-06-10",
+    "warnings": [
+      "institutional after-hours unavailable: RuntimeError: FinMind request failed after retries: 400 Client Error: Bad Request for url: https://api.finmindtrade.com/api/v4/data?dataset=TaiwanFuturesInstitutionalInvestorsAfterHours&data_id=TX&start_date=2026-05-11&end_date=2026-06-10"
+    ],
+    "errors": []
+  },
+  "formal_dashboard_json": {
+    "status": "ok",
+    "generated_at": "2026-06-10T08:06:22+08:00",
+    "files": {
+      "sector_rotation_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 78
+      },
+      "cp_ranking_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 78
+      },
+      "bottom_fishing_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 78
+      },
+      "sector_alpha_score.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 78
+      },
+      "stock_alpha_v4_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 10211
+      },
+      "recommendations_v4_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 50
+      },
+      "backtest_v4_summary.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 3
+      },
+      "chip_analysis_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 50
+      },
+      "watchlist_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-09",
+        "records": 20
+      },
+      "futures_after_hours_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-10",
+        "records": 23
+      }
+    }
+  }
+}

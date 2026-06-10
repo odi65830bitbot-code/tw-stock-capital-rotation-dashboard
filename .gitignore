@@ -1,0 +1,26 @@
+.env
+.env.*
+!.env.example
+secrets-local/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Dependencies / build outputs
+node_modules/
+web/node_modules/
+dist/
+build/
+web/dist/
+.vite/
+
+# Local caches / test artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+coverage/
+*.log
+
+# Local browser/tool artifacts
+.playwright-mcp/

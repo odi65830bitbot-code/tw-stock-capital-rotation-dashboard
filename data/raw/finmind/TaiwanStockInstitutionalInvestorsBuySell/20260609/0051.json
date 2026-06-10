@@ -1,0 +1,8651 @@
+{
+  "msg": "success",
+  "status": 200,
+  "data": [
+    {
+      "date": "2025-06-04",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Foreign_Investor",
+      "sell": 9000
+    },
+    {
+      "date": "2025-06-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 3000
+    },
+    {
+      "date": "2025-06-04",
+      "stock_id": "0051",
+      "buy": 7000,
+      "name": "Dealer_Hedging",
+      "sell": 29044
+    },
+    {
+      "date": "2025-06-05",
+      "stock_id": "0051",
+      "buy": 20207,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2025-06-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 1000
+    },
+    {
+      "date": "2025-06-05",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Dealer_Hedging",
+      "sell": 555
+    },
+    {
+      "date": "2025-06-06",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-06",
+      "stock_id": "0051",
+      "buy": 539,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-06-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-09",
+      "stock_id": "0051",
+      "buy": 10783,
+      "name": "Dealer_Hedging",
+      "sell": 3000
+    },
+    {
+      "date": "2025-06-10",
+      "stock_id": "0051",
+      "buy": 12020,
+      "name": "Foreign_Investor",
+      "sell": 4000
+    },
+    {
+      "date": "2025-06-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-10",
+      "stock_id": "0051",
+      "buy": 14000,
+      "name": "Dealer_self",
+      "sell": 5000
+    },
+    {
+      "date": "2025-06-10",
+      "stock_id": "0051",
+      "buy": 6082,
+      "name": "Dealer_Hedging",
+      "sell": 1298
+    },
+    {
+      "date": "2025-06-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-11",
+      "stock_id": "0051",
+      "buy": 20000,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-06-11",
+      "stock_id": "0051",
+      "buy": 8474,
+      "name": "Dealer_Hedging",
+      "sell": 34060
+    },
+    {
+      "date": "2025-06-12",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Foreign_Investor",
+      "sell": 8000
+    },
+    {
+      "date": "2025-06-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-06-12",
+      "stock_id": "0051",
+      "buy": 9034,
+      "name": "Dealer_Hedging",
+      "sell": 6476
+    },
+    {
+      "date": "2025-06-13",
+      "stock_id": "0051",
+      "buy": 48,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2025-06-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-13",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-13",
+      "stock_id": "0051",
+      "buy": 1138,
+      "name": "Dealer_Hedging",
+      "sell": 20752
+    },
+    {
+      "date": "2025-06-16",
+      "stock_id": "0051",
+      "buy": 6033,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2025-06-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-16",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-16",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_Hedging",
+      "sell": 13549
+    },
+    {
+      "date": "2025-06-17",
+      "stock_id": "0051",
+      "buy": 2470,
+      "name": "Foreign_Investor",
+      "sell": 4000
+    },
+    {
+      "date": "2025-06-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-06-17",
+      "stock_id": "0051",
+      "buy": 98996,
+      "name": "Dealer_Hedging",
+      "sell": 12733
+    },
+    {
+      "date": "2025-06-18",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-06-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-18",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-18",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_Hedging",
+      "sell": 6406
+    },
+    {
+      "date": "2025-06-19",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2025-06-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-19",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_Hedging",
+      "sell": 7783
+    },
+    {
+      "date": "2025-06-20",
+      "stock_id": "0051",
+      "buy": 6150,
+      "name": "Foreign_Investor",
+      "sell": 4000
+    },
+    {
+      "date": "2025-06-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 10000
+    },
+    {
+      "date": "2025-06-20",
+      "stock_id": "0051",
+      "buy": 11000,
+      "name": "Dealer_Hedging",
+      "sell": 3167
+    },
+    {
+      "date": "2025-06-23",
+      "stock_id": "0051",
+      "buy": 23300,
+      "name": "Foreign_Investor",
+      "sell": 7000
+    },
+    {
+      "date": "2025-06-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 33000
+    },
+    {
+      "date": "2025-06-23",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_Hedging",
+      "sell": 10945
+    },
+    {
+      "date": "2025-06-24",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2025-06-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-24",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-24",
+      "stock_id": "0051",
+      "buy": 25104,
+      "name": "Dealer_Hedging",
+      "sell": 1000
+    },
+    {
+      "date": "2025-06-25",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2025-06-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 1000
+    },
+    {
+      "date": "2025-06-25",
+      "stock_id": "0051",
+      "buy": 9592,
+      "name": "Dealer_Hedging",
+      "sell": 1030
+    },
+    {
+      "date": "2025-06-26",
+      "stock_id": "0051",
+      "buy": 15000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-06-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-06-26",
+      "stock_id": "0051",
+      "buy": 39000,
+      "name": "Dealer_Hedging",
+      "sell": 8630
+    },
+    {
+      "date": "2025-06-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-06-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 4000
+    },
+    {
+      "date": "2025-06-27",
+      "stock_id": "0051",
+      "buy": 22100,
+      "name": "Dealer_Hedging",
+      "sell": 8002
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "0051",
+      "buy": 4013,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "0051",
+      "buy": 27000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "0051",
+      "buy": 4099,
+      "name": "Dealer_Hedging",
+      "sell": 10426
+    },
+    {
+      "date": "2025-07-01",
+      "stock_id": "0051",
+      "buy": 7000,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2025-07-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-01",
+      "stock_id": "0051",
+      "buy": 10000,
+      "name": "Dealer_self",
+      "sell": 1000
+    },
+    {
+      "date": "2025-07-01",
+      "stock_id": "0051",
+      "buy": 26429,
+      "name": "Dealer_Hedging",
+      "sell": 6629
+    },
+    {
+      "date": "2025-07-02",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-02",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-02",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-03",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 5000
+    },
+    {
+      "date": "2025-07-03",
+      "stock_id": "0051",
+      "buy": 25926,
+      "name": "Dealer_Hedging",
+      "sell": 10003
+    },
+    {
+      "date": "2025-07-04",
+      "stock_id": "0051",
+      "buy": 8000,
+      "name": "Foreign_Investor",
+      "sell": 25000
+    },
+    {
+      "date": "2025-07-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-04",
+      "stock_id": "0051",
+      "buy": 33000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-04",
+      "stock_id": "0051",
+      "buy": 4037,
+      "name": "Dealer_Hedging",
+      "sell": 486
+    },
+    {
+      "date": "2025-07-07",
+      "stock_id": "0051",
+      "buy": 9000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-07-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 26000
+    },
+    {
+      "date": "2025-07-07",
+      "stock_id": "0051",
+      "buy": 17031,
+      "name": "Dealer_Hedging",
+      "sell": 13290
+    },
+    {
+      "date": "2025-07-08",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2025-07-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 11000
+    },
+    {
+      "date": "2025-07-08",
+      "stock_id": "0051",
+      "buy": 24661,
+      "name": "Dealer_Hedging",
+      "sell": 7493
+    },
+    {
+      "date": "2025-07-09",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 39000
+    },
+    {
+      "date": "2025-07-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 66000
+    },
+    {
+      "date": "2025-07-09",
+      "stock_id": "0051",
+      "buy": 121781,
+      "name": "Dealer_Hedging",
+      "sell": 20458
+    },
+    {
+      "date": "2025-07-10",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-07-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-07-10",
+      "stock_id": "0051",
+      "buy": 20267,
+      "name": "Dealer_Hedging",
+      "sell": 2261
+    },
+    {
+      "date": "2025-07-11",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2025-07-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-11",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-11",
+      "stock_id": "0051",
+      "buy": 1587,
+      "name": "Dealer_Hedging",
+      "sell": 1003
+    },
+    {
+      "date": "2025-07-14",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 22000
+    },
+    {
+      "date": "2025-07-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-14",
+      "stock_id": "0051",
+      "buy": 31000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_Hedging",
+      "sell": 6107
+    },
+    {
+      "date": "2025-07-15",
+      "stock_id": "0051",
+      "buy": 14000,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2025-07-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-15",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-15",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-16",
+      "stock_id": "0051",
+      "buy": 1032,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-16",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-16",
+      "stock_id": "0051",
+      "buy": 10288,
+      "name": "Dealer_Hedging",
+      "sell": 1000
+    },
+    {
+      "date": "2025-07-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2025-07-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-17",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-17",
+      "stock_id": "0051",
+      "buy": 31900,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-18",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-18",
+      "stock_id": "0051",
+      "buy": 20000,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-07-18",
+      "stock_id": "0051",
+      "buy": 33858,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2025-07-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-21",
+      "stock_id": "0051",
+      "buy": 14000,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-07-21",
+      "stock_id": "0051",
+      "buy": 92931,
+      "name": "Dealer_Hedging",
+      "sell": 41299
+    },
+    {
+      "date": "2025-07-22",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-07-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-22",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-22",
+      "stock_id": "0051",
+      "buy": 20515,
+      "name": "Dealer_Hedging",
+      "sell": 11458
+    },
+    {
+      "date": "2025-07-23",
+      "stock_id": "0051",
+      "buy": 7000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 15000
+    },
+    {
+      "date": "2025-07-23",
+      "stock_id": "0051",
+      "buy": 57158,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2025-07-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-24",
+      "stock_id": "0051",
+      "buy": 10000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-24",
+      "stock_id": "0051",
+      "buy": 45178,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-25",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-25",
+      "stock_id": "0051",
+      "buy": 18589,
+      "name": "Dealer_Hedging",
+      "sell": 1
+    },
+    {
+      "date": "2025-07-28",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-28",
+      "stock_id": "0051",
+      "buy": 10000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-28",
+      "stock_id": "0051",
+      "buy": 74548,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-29",
+      "stock_id": "0051",
+      "buy": 100,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-07-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-29",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-29",
+      "stock_id": "0051",
+      "buy": 12874,
+      "name": "Dealer_Hedging",
+      "sell": 8458
+    },
+    {
+      "date": "2025-07-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2025-07-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 1000
+    },
+    {
+      "date": "2025-07-30",
+      "stock_id": "0051",
+      "buy": 43000,
+      "name": "Dealer_Hedging",
+      "sell": 340
+    },
+    {
+      "date": "2025-07-31",
+      "stock_id": "0051",
+      "buy": 420,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-07-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-07-31",
+      "stock_id": "0051",
+      "buy": 12677,
+      "name": "Dealer_Hedging",
+      "sell": 15000
+    },
+    {
+      "date": "2025-08-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-01",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-01",
+      "stock_id": "0051",
+      "buy": 21720,
+      "name": "Dealer_Hedging",
+      "sell": 6094
+    },
+    {
+      "date": "2025-08-04",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2025-08-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-04",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-04",
+      "stock_id": "0051",
+      "buy": 37050,
+      "name": "Dealer_Hedging",
+      "sell": 1013
+    },
+    {
+      "date": "2025-08-05",
+      "stock_id": "0051",
+      "buy": 65,
+      "name": "Foreign_Investor",
+      "sell": 4000
+    },
+    {
+      "date": "2025-08-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-05",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-05",
+      "stock_id": "0051",
+      "buy": 134000,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2025-08-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-06",
+      "stock_id": "0051",
+      "buy": 12000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-06",
+      "stock_id": "0051",
+      "buy": 18001,
+      "name": "Dealer_Hedging",
+      "sell": 108000
+    },
+    {
+      "date": "2025-08-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2025-08-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-07",
+      "stock_id": "0051",
+      "buy": 23000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-07",
+      "stock_id": "0051",
+      "buy": 47148,
+      "name": "Dealer_Hedging",
+      "sell": 1000
+    },
+    {
+      "date": "2025-08-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 3011
+    },
+    {
+      "date": "2025-08-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 4000
+    },
+    {
+      "date": "2025-08-08",
+      "stock_id": "0051",
+      "buy": 33174,
+      "name": "Dealer_Hedging",
+      "sell": 6022
+    },
+    {
+      "date": "2025-08-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 1000
+    },
+    {
+      "date": "2025-08-11",
+      "stock_id": "0051",
+      "buy": 29568,
+      "name": "Dealer_Hedging",
+      "sell": 721
+    },
+    {
+      "date": "2025-08-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-12",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-12",
+      "stock_id": "0051",
+      "buy": 47148,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-13",
+      "stock_id": "0051",
+      "buy": 18,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-13",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-13",
+      "stock_id": "0051",
+      "buy": 29262,
+      "name": "Dealer_Hedging",
+      "sell": 2505
+    },
+    {
+      "date": "2025-08-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-14",
+      "stock_id": "0051",
+      "buy": 9000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-14",
+      "stock_id": "0051",
+      "buy": 46416,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-15",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-15",
+      "stock_id": "0051",
+      "buy": 30806,
+      "name": "Dealer_Hedging",
+      "sell": 2451
+    },
+    {
+      "date": "2025-08-18",
+      "stock_id": "0051",
+      "buy": 30,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-08-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-18",
+      "stock_id": "0051",
+      "buy": 21000,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-08-18",
+      "stock_id": "0051",
+      "buy": 56512,
+      "name": "Dealer_Hedging",
+      "sell": 2148
+    },
+    {
+      "date": "2025-08-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 6000
+    },
+    {
+      "date": "2025-08-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-19",
+      "stock_id": "0051",
+      "buy": 37000,
+      "name": "Dealer_self",
+      "sell": 6000
+    },
+    {
+      "date": "2025-08-19",
+      "stock_id": "0051",
+      "buy": 25002,
+      "name": "Dealer_Hedging",
+      "sell": 65454
+    },
+    {
+      "date": "2025-08-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-08-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-20",
+      "stock_id": "0051",
+      "buy": 8000,
+      "name": "Dealer_self",
+      "sell": 47000
+    },
+    {
+      "date": "2025-08-20",
+      "stock_id": "0051",
+      "buy": 70000,
+      "name": "Dealer_Hedging",
+      "sell": 63517
+    },
+    {
+      "date": "2025-08-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 33000
+    },
+    {
+      "date": "2025-08-21",
+      "stock_id": "0051",
+      "buy": 67631,
+      "name": "Dealer_Hedging",
+      "sell": 182
+    },
+    {
+      "date": "2025-08-22",
+      "stock_id": "0051",
+      "buy": 10,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 15000
+    },
+    {
+      "date": "2025-08-22",
+      "stock_id": "0051",
+      "buy": 40593,
+      "name": "Dealer_Hedging",
+      "sell": 27000
+    },
+    {
+      "date": "2025-08-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 1000
+    },
+    {
+      "date": "2025-08-25",
+      "stock_id": "0051",
+      "buy": 33970,
+      "name": "Dealer_Hedging",
+      "sell": 34
+    },
+    {
+      "date": "2025-08-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-26",
+      "stock_id": "0051",
+      "buy": 8000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-26",
+      "stock_id": "0051",
+      "buy": 23235,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-08-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-27",
+      "stock_id": "0051",
+      "buy": 33000,
+      "name": "Dealer_self",
+      "sell": 25000
+    },
+    {
+      "date": "2025-08-27",
+      "stock_id": "0051",
+      "buy": 40859,
+      "name": "Dealer_Hedging",
+      "sell": 23000
+    },
+    {
+      "date": "2025-08-28",
+      "stock_id": "0051",
+      "buy": 1061,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 21000
+    },
+    {
+      "date": "2025-08-28",
+      "stock_id": "0051",
+      "buy": 34031,
+      "name": "Dealer_Hedging",
+      "sell": 7005
+    },
+    {
+      "date": "2025-08-29",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-08-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-08-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 6000
+    },
+    {
+      "date": "2025-08-29",
+      "stock_id": "0051",
+      "buy": 23313,
+      "name": "Dealer_Hedging",
+      "sell": 2671
+    },
+    {
+      "date": "2025-09-01",
+      "stock_id": "0051",
+      "buy": 1075,
+      "name": "Foreign_Investor",
+      "sell": 4000
+    },
+    {
+      "date": "2025-09-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 4000
+    },
+    {
+      "date": "2025-09-01",
+      "stock_id": "0051",
+      "buy": 31000,
+      "name": "Dealer_Hedging",
+      "sell": 26713
+    },
+    {
+      "date": "2025-09-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 4000
+    },
+    {
+      "date": "2025-09-02",
+      "stock_id": "0051",
+      "buy": 53537,
+      "name": "Dealer_Hedging",
+      "sell": 107676
+    },
+    {
+      "date": "2025-09-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-09-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-03",
+      "stock_id": "0051",
+      "buy": 13000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-03",
+      "stock_id": "0051",
+      "buy": 13000,
+      "name": "Dealer_Hedging",
+      "sell": 54014
+    },
+    {
+      "date": "2025-09-04",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-09-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 4000
+    },
+    {
+      "date": "2025-09-04",
+      "stock_id": "0051",
+      "buy": 8689,
+      "name": "Dealer_Hedging",
+      "sell": 10000
+    },
+    {
+      "date": "2025-09-05",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-09-05",
+      "stock_id": "0051",
+      "buy": 27400,
+      "name": "Dealer_Hedging",
+      "sell": 1167
+    },
+    {
+      "date": "2025-09-08",
+      "stock_id": "0051",
+      "buy": 11,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-09-08",
+      "stock_id": "0051",
+      "buy": 36710,
+      "name": "Dealer_Hedging",
+      "sell": 5456
+    },
+    {
+      "date": "2025-09-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 16000
+    },
+    {
+      "date": "2025-09-09",
+      "stock_id": "0051",
+      "buy": 76513,
+      "name": "Dealer_Hedging",
+      "sell": 11507
+    },
+    {
+      "date": "2025-09-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 7000
+    },
+    {
+      "date": "2025-09-10",
+      "stock_id": "0051",
+      "buy": 78607,
+      "name": "Dealer_Hedging",
+      "sell": 11007
+    },
+    {
+      "date": "2025-09-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 3000
+    },
+    {
+      "date": "2025-09-11",
+      "stock_id": "0051",
+      "buy": 38919,
+      "name": "Dealer_Hedging",
+      "sell": 11138
+    },
+    {
+      "date": "2025-09-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-12",
+      "stock_id": "0051",
+      "buy": 92000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-12",
+      "stock_id": "0051",
+      "buy": 397404,
+      "name": "Dealer_Hedging",
+      "sell": 11833
+    },
+    {
+      "date": "2025-09-15",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2025-09-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 30000
+    },
+    {
+      "date": "2025-09-15",
+      "stock_id": "0051",
+      "buy": 265168,
+      "name": "Dealer_Hedging",
+      "sell": 3993
+    },
+    {
+      "date": "2025-09-16",
+      "stock_id": "0051",
+      "buy": 29,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-09-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 2000
+    },
+    {
+      "date": "2025-09-16",
+      "stock_id": "0051",
+      "buy": 28380,
+      "name": "Dealer_Hedging",
+      "sell": 8406
+    },
+    {
+      "date": "2025-09-17",
+      "stock_id": "0051",
+      "buy": 17,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 9000
+    },
+    {
+      "date": "2025-09-17",
+      "stock_id": "0051",
+      "buy": 13000,
+      "name": "Dealer_Hedging",
+      "sell": 1807
+    },
+    {
+      "date": "2025-09-18",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-09-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 15000
+    },
+    {
+      "date": "2025-09-18",
+      "stock_id": "0051",
+      "buy": 56016,
+      "name": "Dealer_Hedging",
+      "sell": 1
+    },
+    {
+      "date": "2025-09-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-09-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 21000
+    },
+    {
+      "date": "2025-09-19",
+      "stock_id": "0051",
+      "buy": 12345,
+      "name": "Dealer_Hedging",
+      "sell": 14137
+    },
+    {
+      "date": "2025-09-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 60000
+    },
+    {
+      "date": "2025-09-22",
+      "stock_id": "0051",
+      "buy": 66468,
+      "name": "Dealer_Hedging",
+      "sell": 191
+    },
+    {
+      "date": "2025-09-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 125000
+    },
+    {
+      "date": "2025-09-23",
+      "stock_id": "0051",
+      "buy": 122000,
+      "name": "Dealer_Hedging",
+      "sell": 2294
+    },
+    {
+      "date": "2025-09-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 210000
+    },
+    {
+      "date": "2025-09-24",
+      "stock_id": "0051",
+      "buy": 279000,
+      "name": "Dealer_Hedging",
+      "sell": 14829
+    },
+    {
+      "date": "2025-09-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-09-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 26000
+    },
+    {
+      "date": "2025-09-25",
+      "stock_id": "0051",
+      "buy": 32000,
+      "name": "Dealer_Hedging",
+      "sell": 8352
+    },
+    {
+      "date": "2025-09-26",
+      "stock_id": "0051",
+      "buy": 1184,
+      "name": "Foreign_Investor",
+      "sell": 6000
+    },
+    {
+      "date": "2025-09-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 651000
+    },
+    {
+      "date": "2025-09-26",
+      "stock_id": "0051",
+      "buy": 611000,
+      "name": "Dealer_Hedging",
+      "sell": 36338
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "0051",
+      "buy": 8000,
+      "name": "Foreign_Investor",
+      "sell": 1250
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "0051",
+      "buy": 38699,
+      "name": "Dealer_Hedging",
+      "sell": 984
+    },
+    {
+      "date": "2025-10-01",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-10-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-01",
+      "stock_id": "0051",
+      "buy": 17000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-01",
+      "stock_id": "0051",
+      "buy": 11146,
+      "name": "Dealer_Hedging",
+      "sell": 13053
+    },
+    {
+      "date": "2025-10-02",
+      "stock_id": "0051",
+      "buy": 1034,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 28000
+    },
+    {
+      "date": "2025-10-02",
+      "stock_id": "0051",
+      "buy": 48788,
+      "name": "Dealer_Hedging",
+      "sell": 2560
+    },
+    {
+      "date": "2025-10-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-03",
+      "stock_id": "0051",
+      "buy": 45359,
+      "name": "Dealer_Hedging",
+      "sell": 427
+    },
+    {
+      "date": "2025-10-07",
+      "stock_id": "0051",
+      "buy": 11,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-07",
+      "stock_id": "0051",
+      "buy": 74904,
+      "name": "Dealer_Hedging",
+      "sell": 3391
+    },
+    {
+      "date": "2025-10-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-08",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-08",
+      "stock_id": "0051",
+      "buy": 37000,
+      "name": "Dealer_Hedging",
+      "sell": 14165
+    },
+    {
+      "date": "2025-10-09",
+      "stock_id": "0051",
+      "buy": 17,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-10-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-09",
+      "stock_id": "0051",
+      "buy": 9368,
+      "name": "Dealer_Hedging",
+      "sell": 9025
+    },
+    {
+      "date": "2025-10-13",
+      "stock_id": "0051",
+      "buy": 33,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2025-10-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-13",
+      "stock_id": "0051",
+      "buy": 6036,
+      "name": "Dealer_Hedging",
+      "sell": 17667
+    },
+    {
+      "date": "2025-10-14",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2025-10-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-14",
+      "stock_id": "0051",
+      "buy": 8000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-14",
+      "stock_id": "0051",
+      "buy": 7580,
+      "name": "Dealer_Hedging",
+      "sell": 52151
+    },
+    {
+      "date": "2025-10-15",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-10-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 66000
+    },
+    {
+      "date": "2025-10-15",
+      "stock_id": "0051",
+      "buy": 72864,
+      "name": "Dealer_Hedging",
+      "sell": 3517
+    },
+    {
+      "date": "2025-10-16",
+      "stock_id": "0051",
+      "buy": 1028,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-16",
+      "stock_id": "0051",
+      "buy": 25000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-16",
+      "stock_id": "0051",
+      "buy": 18092,
+      "name": "Dealer_Hedging",
+      "sell": 20484
+    },
+    {
+      "date": "2025-10-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-17",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Dealer_Hedging",
+      "sell": 8301
+    },
+    {
+      "date": "2025-10-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-20",
+      "stock_id": "0051",
+      "buy": 15020,
+      "name": "Dealer_Hedging",
+      "sell": 2286
+    },
+    {
+      "date": "2025-10-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-21",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-21",
+      "stock_id": "0051",
+      "buy": 40683,
+      "name": "Dealer_Hedging",
+      "sell": 13401
+    },
+    {
+      "date": "2025-10-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-10-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-22",
+      "stock_id": "0051",
+      "buy": 49000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-22",
+      "stock_id": "0051",
+      "buy": 9000,
+      "name": "Dealer_Hedging",
+      "sell": 29733
+    },
+    {
+      "date": "2025-10-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_Hedging",
+      "sell": 10414
+    },
+    {
+      "date": "2025-10-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 45
+    },
+    {
+      "date": "2025-10-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-27",
+      "stock_id": "0051",
+      "buy": 45964,
+      "name": "Dealer_Hedging",
+      "sell": 1327
+    },
+    {
+      "date": "2025-10-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-28",
+      "stock_id": "0051",
+      "buy": 17000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-28",
+      "stock_id": "0051",
+      "buy": 16776,
+      "name": "Dealer_Hedging",
+      "sell": 17585
+    },
+    {
+      "date": "2025-10-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-10-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-29",
+      "stock_id": "0051",
+      "buy": 11000,
+      "name": "Dealer_Hedging",
+      "sell": 7077
+    },
+    {
+      "date": "2025-10-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-30",
+      "stock_id": "0051",
+      "buy": 11333,
+      "name": "Dealer_Hedging",
+      "sell": 34373
+    },
+    {
+      "date": "2025-10-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-10-31",
+      "stock_id": "0051",
+      "buy": 7072,
+      "name": "Dealer_Hedging",
+      "sell": 121000
+    },
+    {
+      "date": "2025-11-03",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1129
+    },
+    {
+      "date": "2025-11-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-03",
+      "stock_id": "0051",
+      "buy": 1760,
+      "name": "Dealer_Hedging",
+      "sell": 54736
+    },
+    {
+      "date": "2025-11-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-04",
+      "stock_id": "0051",
+      "buy": 26000,
+      "name": "Dealer_Hedging",
+      "sell": 110739
+    },
+    {
+      "date": "2025-11-05",
+      "stock_id": "0051",
+      "buy": 200,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-05",
+      "stock_id": "0051",
+      "buy": 9338,
+      "name": "Dealer_Hedging",
+      "sell": 66084
+    },
+    {
+      "date": "2025-11-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-11-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-06",
+      "stock_id": "0051",
+      "buy": 38000,
+      "name": "Dealer_Hedging",
+      "sell": 10521
+    },
+    {
+      "date": "2025-11-07",
+      "stock_id": "0051",
+      "buy": 137,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-07",
+      "stock_id": "0051",
+      "buy": 12075,
+      "name": "Dealer_Hedging",
+      "sell": 26873
+    },
+    {
+      "date": "2025-11-10",
+      "stock_id": "0051",
+      "buy": 32,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-10",
+      "stock_id": "0051",
+      "buy": 8000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-10",
+      "stock_id": "0051",
+      "buy": 16704,
+      "name": "Dealer_Hedging",
+      "sell": 8662
+    },
+    {
+      "date": "2025-11-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-11-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-11",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-11",
+      "stock_id": "0051",
+      "buy": 8471,
+      "name": "Dealer_Hedging",
+      "sell": 30496
+    },
+    {
+      "date": "2025-11-12",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-11-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-12",
+      "stock_id": "0051",
+      "buy": 30477,
+      "name": "Dealer_Hedging",
+      "sell": 2333
+    },
+    {
+      "date": "2025-11-13",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-11-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-13",
+      "stock_id": "0051",
+      "buy": 54504,
+      "name": "Dealer_Hedging",
+      "sell": 26029
+    },
+    {
+      "date": "2025-11-14",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-14",
+      "stock_id": "0051",
+      "buy": 4696,
+      "name": "Dealer_Hedging",
+      "sell": 54759
+    },
+    {
+      "date": "2025-11-17",
+      "stock_id": "0051",
+      "buy": 27,
+      "name": "Foreign_Investor",
+      "sell": 4000
+    },
+    {
+      "date": "2025-11-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-17",
+      "stock_id": "0051",
+      "buy": 17000,
+      "name": "Dealer_Hedging",
+      "sell": 21233
+    },
+    {
+      "date": "2025-11-18",
+      "stock_id": "0051",
+      "buy": 5100,
+      "name": "Foreign_Investor",
+      "sell": 8000
+    },
+    {
+      "date": "2025-11-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 46000
+    },
+    {
+      "date": "2025-11-18",
+      "stock_id": "0051",
+      "buy": 18000,
+      "name": "Dealer_Hedging",
+      "sell": 24614
+    },
+    {
+      "date": "2025-11-19",
+      "stock_id": "0051",
+      "buy": 17000,
+      "name": "Foreign_Investor",
+      "sell": 12000
+    },
+    {
+      "date": "2025-11-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 53000
+    },
+    {
+      "date": "2025-11-19",
+      "stock_id": "0051",
+      "buy": 13001,
+      "name": "Dealer_Hedging",
+      "sell": 32321
+    },
+    {
+      "date": "2025-11-20",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2025-11-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-20",
+      "stock_id": "0051",
+      "buy": 41693,
+      "name": "Dealer_Hedging",
+      "sell": 36950
+    },
+    {
+      "date": "2025-11-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 31000
+    },
+    {
+      "date": "2025-11-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-21",
+      "stock_id": "0051",
+      "buy": 38000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-21",
+      "stock_id": "0051",
+      "buy": 11000,
+      "name": "Dealer_Hedging",
+      "sell": 134248
+    },
+    {
+      "date": "2025-11-24",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-11-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 34000
+    },
+    {
+      "date": "2025-11-24",
+      "stock_id": "0051",
+      "buy": 7355,
+      "name": "Dealer_Hedging",
+      "sell": 31329
+    },
+    {
+      "date": "2025-11-25",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-25",
+      "stock_id": "0051",
+      "buy": 9000,
+      "name": "Dealer_Hedging",
+      "sell": 11140
+    },
+    {
+      "date": "2025-11-26",
+      "stock_id": "0051",
+      "buy": 9034,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-26",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Dealer_Hedging",
+      "sell": 14242
+    },
+    {
+      "date": "2025-11-27",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-11-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 3000
+    },
+    {
+      "date": "2025-11-27",
+      "stock_id": "0051",
+      "buy": 11000,
+      "name": "Dealer_Hedging",
+      "sell": 21464
+    },
+    {
+      "date": "2025-11-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-28",
+      "stock_id": "0051",
+      "buy": 31000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-11-28",
+      "stock_id": "0051",
+      "buy": 12107,
+      "name": "Dealer_Hedging",
+      "sell": 14011
+    },
+    {
+      "date": "2025-12-01",
+      "stock_id": "0051",
+      "buy": 16,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-01",
+      "stock_id": "0051",
+      "buy": 77000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_Hedging",
+      "sell": 70030
+    },
+    {
+      "date": "2025-12-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-02",
+      "stock_id": "0051",
+      "buy": 6246,
+      "name": "Dealer_Hedging",
+      "sell": 19812
+    },
+    {
+      "date": "2025-12-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-03",
+      "stock_id": "0051",
+      "buy": 1002,
+      "name": "Dealer_Hedging",
+      "sell": 23679
+    },
+    {
+      "date": "2025-12-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-04",
+      "stock_id": "0051",
+      "buy": 20000,
+      "name": "Dealer_Hedging",
+      "sell": 5336
+    },
+    {
+      "date": "2025-12-05",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-05",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_Hedging",
+      "sell": 8674
+    },
+    {
+      "date": "2025-12-08",
+      "stock_id": "0051",
+      "buy": 2012,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-08",
+      "stock_id": "0051",
+      "buy": 11000,
+      "name": "Dealer_Hedging",
+      "sell": 4010
+    },
+    {
+      "date": "2025-12-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-09",
+      "stock_id": "0051",
+      "buy": 390,
+      "name": "Dealer_Hedging",
+      "sell": 14454
+    },
+    {
+      "date": "2025-12-10",
+      "stock_id": "0051",
+      "buy": 32,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_Hedging",
+      "sell": 2488
+    },
+    {
+      "date": "2025-12-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-11",
+      "stock_id": "0051",
+      "buy": 15000,
+      "name": "Dealer_Hedging",
+      "sell": 3963
+    },
+    {
+      "date": "2025-12-12",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2025-12-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-12",
+      "stock_id": "0051",
+      "buy": 1022,
+      "name": "Dealer_Hedging",
+      "sell": 9479
+    },
+    {
+      "date": "2025-12-15",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-15",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_Hedging",
+      "sell": 76864
+    },
+    {
+      "date": "2025-12-16",
+      "stock_id": "0051",
+      "buy": 1027,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_Hedging",
+      "sell": 105591
+    },
+    {
+      "date": "2025-12-17",
+      "stock_id": "0051",
+      "buy": 12,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 89000
+    },
+    {
+      "date": "2025-12-17",
+      "stock_id": "0051",
+      "buy": 52000,
+      "name": "Dealer_Hedging",
+      "sell": 5956
+    },
+    {
+      "date": "2025-12-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 14000
+    },
+    {
+      "date": "2025-12-18",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_Hedging",
+      "sell": 22159
+    },
+    {
+      "date": "2025-12-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-19",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_Hedging",
+      "sell": 5356
+    },
+    {
+      "date": "2025-12-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-22",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-22",
+      "stock_id": "0051",
+      "buy": 10107,
+      "name": "Dealer_Hedging",
+      "sell": 11406
+    },
+    {
+      "date": "2025-12-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-23",
+      "stock_id": "0051",
+      "buy": 44000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-23",
+      "stock_id": "0051",
+      "buy": 63,
+      "name": "Dealer_Hedging",
+      "sell": 81672
+    },
+    {
+      "date": "2025-12-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-24",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-24",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_Hedging",
+      "sell": 905
+    },
+    {
+      "date": "2025-12-26",
+      "stock_id": "0051",
+      "buy": 32,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-26",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-26",
+      "stock_id": "0051",
+      "buy": 6222,
+      "name": "Dealer_Hedging",
+      "sell": 1170
+    },
+    {
+      "date": "2025-12-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-29",
+      "stock_id": "0051",
+      "buy": 15393,
+      "name": "Dealer_Hedging",
+      "sell": 538
+    },
+    {
+      "date": "2025-12-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-30",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_self",
+      "sell": 34000
+    },
+    {
+      "date": "2025-12-30",
+      "stock_id": "0051",
+      "buy": 58980,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "0051",
+      "buy": 59210,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-02",
+      "stock_id": "0051",
+      "buy": 61186,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-05",
+      "stock_id": "0051",
+      "buy": 50000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-05",
+      "stock_id": "0051",
+      "buy": 27877,
+      "name": "Dealer_Hedging",
+      "sell": 24720
+    },
+    {
+      "date": "2026-01-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-06",
+      "stock_id": "0051",
+      "buy": 49879,
+      "name": "Dealer_Hedging",
+      "sell": 15119
+    },
+    {
+      "date": "2026-01-07",
+      "stock_id": "0051",
+      "buy": 110,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-07",
+      "stock_id": "0051",
+      "buy": 18537,
+      "name": "Dealer_Hedging",
+      "sell": 57617
+    },
+    {
+      "date": "2026-01-08",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-08",
+      "stock_id": "0051",
+      "buy": 41101,
+      "name": "Dealer_Hedging",
+      "sell": 13132
+    },
+    {
+      "date": "2026-01-09",
+      "stock_id": "0051",
+      "buy": 10000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-09",
+      "stock_id": "0051",
+      "buy": 8000,
+      "name": "Dealer_Hedging",
+      "sell": 7040
+    },
+    {
+      "date": "2026-01-12",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-01-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-12",
+      "stock_id": "0051",
+      "buy": 22158,
+      "name": "Dealer_Hedging",
+      "sell": 10000
+    },
+    {
+      "date": "2026-01-13",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-13",
+      "stock_id": "0051",
+      "buy": 4047,
+      "name": "Dealer_Hedging",
+      "sell": 20789
+    },
+    {
+      "date": "2026-01-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-01-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 3000
+    },
+    {
+      "date": "2026-01-14",
+      "stock_id": "0051",
+      "buy": 11377,
+      "name": "Dealer_Hedging",
+      "sell": 14308
+    },
+    {
+      "date": "2026-01-15",
+      "stock_id": "0051",
+      "buy": 1228,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-15",
+      "stock_id": "0051",
+      "buy": 1600,
+      "name": "Dealer_Hedging",
+      "sell": 11874
+    },
+    {
+      "date": "2026-01-16",
+      "stock_id": "0051",
+      "buy": 1053,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-01-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-16",
+      "stock_id": "0051",
+      "buy": 131047,
+      "name": "Dealer_Hedging",
+      "sell": 5356
+    },
+    {
+      "date": "2026-01-19",
+      "stock_id": "0051",
+      "buy": 2500,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2026-01-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 91261
+    },
+    {
+      "date": "2026-01-19",
+      "stock_id": "0051",
+      "buy": 48310,
+      "name": "Dealer_Hedging",
+      "sell": 29894
+    },
+    {
+      "date": "2026-01-20",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-01-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 485
+    },
+    {
+      "date": "2026-01-20",
+      "stock_id": "0051",
+      "buy": 1186,
+      "name": "Dealer_Hedging",
+      "sell": 37915
+    },
+    {
+      "date": "2026-01-21",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2026-01-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 6254
+    },
+    {
+      "date": "2026-01-21",
+      "stock_id": "0051",
+      "buy": 31000,
+      "name": "Dealer_Hedging",
+      "sell": 43395
+    },
+    {
+      "date": "2026-01-22",
+      "stock_id": "0051",
+      "buy": 3064,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-01-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-22",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Dealer_Hedging",
+      "sell": 42871
+    },
+    {
+      "date": "2026-01-23",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-01-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-23",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Dealer_Hedging",
+      "sell": 64543
+    },
+    {
+      "date": "2026-01-26",
+      "stock_id": "0051",
+      "buy": 2028,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-26",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_Hedging",
+      "sell": 37749
+    },
+    {
+      "date": "2026-01-27",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-27",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_Hedging",
+      "sell": 49000
+    },
+    {
+      "date": "2026-01-28",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-01-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-28",
+      "stock_id": "0051",
+      "buy": 6000,
+      "name": "Dealer_Hedging",
+      "sell": 78792
+    },
+    {
+      "date": "2026-01-29",
+      "stock_id": "0051",
+      "buy": 543,
+      "name": "Foreign_Investor",
+      "sell": 9000
+    },
+    {
+      "date": "2026-01-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-29",
+      "stock_id": "0051",
+      "buy": 62000,
+      "name": "Dealer_Hedging",
+      "sell": 113866
+    },
+    {
+      "date": "2026-01-30",
+      "stock_id": "0051",
+      "buy": 4057,
+      "name": "Foreign_Investor",
+      "sell": 6000
+    },
+    {
+      "date": "2026-01-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-01-30",
+      "stock_id": "0051",
+      "buy": 16000,
+      "name": "Dealer_Hedging",
+      "sell": 36705
+    },
+    {
+      "date": "2026-02-02",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Foreign_Investor",
+      "sell": 20523
+    },
+    {
+      "date": "2026-02-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-02",
+      "stock_id": "0051",
+      "buy": 19001,
+      "name": "Dealer_Hedging",
+      "sell": 113344
+    },
+    {
+      "date": "2026-02-03",
+      "stock_id": "0051",
+      "buy": 1083,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-02-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-03",
+      "stock_id": "0051",
+      "buy": 26000,
+      "name": "Dealer_Hedging",
+      "sell": 46343
+    },
+    {
+      "date": "2026-02-04",
+      "stock_id": "0051",
+      "buy": 16002,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-04",
+      "stock_id": "0051",
+      "buy": 1170,
+      "name": "Dealer_Hedging",
+      "sell": 87150
+    },
+    {
+      "date": "2026-02-05",
+      "stock_id": "0051",
+      "buy": 30,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-05",
+      "stock_id": "0051",
+      "buy": 12000,
+      "name": "Dealer_Hedging",
+      "sell": 62452
+    },
+    {
+      "date": "2026-02-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 15000
+    },
+    {
+      "date": "2026-02-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-06",
+      "stock_id": "0051",
+      "buy": 18000,
+      "name": "Dealer_Hedging",
+      "sell": 67962
+    },
+    {
+      "date": "2026-02-09",
+      "stock_id": "0051",
+      "buy": 6287,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-02-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 21000
+    },
+    {
+      "date": "2026-02-09",
+      "stock_id": "0051",
+      "buy": 37210,
+      "name": "Dealer_Hedging",
+      "sell": 6036
+    },
+    {
+      "date": "2026-02-10",
+      "stock_id": "0051",
+      "buy": 5003,
+      "name": "Foreign_Investor",
+      "sell": 1010
+    },
+    {
+      "date": "2026-02-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-10",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-10",
+      "stock_id": "0051",
+      "buy": 17250,
+      "name": "Dealer_Hedging",
+      "sell": 6007
+    },
+    {
+      "date": "2026-02-11",
+      "stock_id": "0051",
+      "buy": 16004,
+      "name": "Foreign_Investor",
+      "sell": 3022
+    },
+    {
+      "date": "2026-02-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-11",
+      "stock_id": "0051",
+      "buy": 17000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-11",
+      "stock_id": "0051",
+      "buy": 27000,
+      "name": "Dealer_Hedging",
+      "sell": 100
+    },
+    {
+      "date": "2026-02-23",
+      "stock_id": "0051",
+      "buy": 126,
+      "name": "Foreign_Investor",
+      "sell": 4
+    },
+    {
+      "date": "2026-02-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-23",
+      "stock_id": "0051",
+      "buy": 48997,
+      "name": "Dealer_Hedging",
+      "sell": 42817
+    },
+    {
+      "date": "2026-02-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 4
+    },
+    {
+      "date": "2026-02-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-24",
+      "stock_id": "0051",
+      "buy": 37532,
+      "name": "Dealer_Hedging",
+      "sell": 699
+    },
+    {
+      "date": "2026-02-25",
+      "stock_id": "0051",
+      "buy": 50,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-02-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-25",
+      "stock_id": "0051",
+      "buy": 16342,
+      "name": "Dealer_Hedging",
+      "sell": 53375
+    },
+    {
+      "date": "2026-02-26",
+      "stock_id": "0051",
+      "buy": 1034,
+      "name": "Foreign_Investor",
+      "sell": 79
+    },
+    {
+      "date": "2026-02-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-02-26",
+      "stock_id": "0051",
+      "buy": 11470,
+      "name": "Dealer_Hedging",
+      "sell": 34974
+    },
+    {
+      "date": "2026-03-02",
+      "stock_id": "0051",
+      "buy": 150,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-02",
+      "stock_id": "0051",
+      "buy": 41000,
+      "name": "Dealer_Hedging",
+      "sell": 43659
+    },
+    {
+      "date": "2026-03-03",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-03",
+      "stock_id": "0051",
+      "buy": 1489,
+      "name": "Dealer_Hedging",
+      "sell": 94777
+    },
+    {
+      "date": "2026-03-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-04",
+      "stock_id": "0051",
+      "buy": 22000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-04",
+      "stock_id": "0051",
+      "buy": 13000,
+      "name": "Dealer_Hedging",
+      "sell": 158537
+    },
+    {
+      "date": "2026-03-05",
+      "stock_id": "0051",
+      "buy": 1050,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-05",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-05",
+      "stock_id": "0051",
+      "buy": 24043,
+      "name": "Dealer_Hedging",
+      "sell": 19728
+    },
+    {
+      "date": "2026-03-06",
+      "stock_id": "0051",
+      "buy": 57,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 3000
+    },
+    {
+      "date": "2026-03-06",
+      "stock_id": "0051",
+      "buy": 8000,
+      "name": "Dealer_Hedging",
+      "sell": 82200
+    },
+    {
+      "date": "2026-03-09",
+      "stock_id": "0051",
+      "buy": 38015,
+      "name": "Foreign_Investor",
+      "sell": 38000
+    },
+    {
+      "date": "2026-03-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 44000
+    },
+    {
+      "date": "2026-03-09",
+      "stock_id": "0051",
+      "buy": 10000,
+      "name": "Dealer_Hedging",
+      "sell": 97871
+    },
+    {
+      "date": "2026-03-10",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Foreign_Investor",
+      "sell": 15000
+    },
+    {
+      "date": "2026-03-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-10",
+      "stock_id": "0051",
+      "buy": 22006,
+      "name": "Dealer_Hedging",
+      "sell": 18636
+    },
+    {
+      "date": "2026-03-11",
+      "stock_id": "0051",
+      "buy": 9000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-11",
+      "stock_id": "0051",
+      "buy": 15605,
+      "name": "Dealer_Hedging",
+      "sell": 2091
+    },
+    {
+      "date": "2026-03-12",
+      "stock_id": "0051",
+      "buy": 1036,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2026-03-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-12",
+      "stock_id": "0051",
+      "buy": 8194,
+      "name": "Dealer_Hedging",
+      "sell": 14300
+    },
+    {
+      "date": "2026-03-13",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2026-03-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-13",
+      "stock_id": "0051",
+      "buy": 14001,
+      "name": "Dealer_Hedging",
+      "sell": 9780
+    },
+    {
+      "date": "2026-03-16",
+      "stock_id": "0051",
+      "buy": 49,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2026-03-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-16",
+      "stock_id": "0051",
+      "buy": 81000,
+      "name": "Dealer_Hedging",
+      "sell": 25926
+    },
+    {
+      "date": "2026-03-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1254
+    },
+    {
+      "date": "2026-03-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-17",
+      "stock_id": "0051",
+      "buy": 29000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-17",
+      "stock_id": "0051",
+      "buy": 21993,
+      "name": "Dealer_Hedging",
+      "sell": 55112
+    },
+    {
+      "date": "2026-03-18",
+      "stock_id": "0051",
+      "buy": 9000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-18",
+      "stock_id": "0051",
+      "buy": 28000,
+      "name": "Dealer_Hedging",
+      "sell": 5399
+    },
+    {
+      "date": "2026-03-19",
+      "stock_id": "0051",
+      "buy": 121,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-19",
+      "stock_id": "0051",
+      "buy": 12258,
+      "name": "Dealer_Hedging",
+      "sell": 15287
+    },
+    {
+      "date": "2026-03-20",
+      "stock_id": "0051",
+      "buy": 4100,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-20",
+      "stock_id": "0051",
+      "buy": 24000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-20",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_Hedging",
+      "sell": 74751
+    },
+    {
+      "date": "2026-03-23",
+      "stock_id": "0051",
+      "buy": 200,
+      "name": "Foreign_Investor",
+      "sell": 1002
+    },
+    {
+      "date": "2026-03-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-23",
+      "stock_id": "0051",
+      "buy": 14000,
+      "name": "Dealer_Hedging",
+      "sell": 58550
+    },
+    {
+      "date": "2026-03-24",
+      "stock_id": "0051",
+      "buy": 1200,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-24",
+      "stock_id": "0051",
+      "buy": 109,
+      "name": "Dealer_Hedging",
+      "sell": 38997
+    },
+    {
+      "date": "2026-03-25",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-25",
+      "stock_id": "0051",
+      "buy": 38000,
+      "name": "Dealer_Hedging",
+      "sell": 2263
+    },
+    {
+      "date": "2026-03-26",
+      "stock_id": "0051",
+      "buy": 108,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-26",
+      "stock_id": "0051",
+      "buy": 17676,
+      "name": "Dealer_Hedging",
+      "sell": 8983
+    },
+    {
+      "date": "2026-03-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-27",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Dealer_Hedging",
+      "sell": 14515
+    },
+    {
+      "date": "2026-03-30",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-30",
+      "stock_id": "0051",
+      "buy": 4000,
+      "name": "Dealer_Hedging",
+      "sell": 22922
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "0051",
+      "buy": 21000,
+      "name": "Dealer_Hedging",
+      "sell": 95726
+    },
+    {
+      "date": "2026-04-01",
+      "stock_id": "0051",
+      "buy": 1165,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-04-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-01",
+      "stock_id": "0051",
+      "buy": 19000,
+      "name": "Dealer_Hedging",
+      "sell": 43750
+    },
+    {
+      "date": "2026-04-02",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-02",
+      "stock_id": "0051",
+      "buy": 18727,
+      "name": "Dealer_Hedging",
+      "sell": 58381
+    },
+    {
+      "date": "2026-04-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-07",
+      "stock_id": "0051",
+      "buy": 15421,
+      "name": "Dealer_Hedging",
+      "sell": 7062
+    },
+    {
+      "date": "2026-04-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-04-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-08",
+      "stock_id": "0051",
+      "buy": 68542,
+      "name": "Dealer_Hedging",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-09",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-09",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-09",
+      "stock_id": "0051",
+      "buy": 53774,
+      "name": "Dealer_Hedging",
+      "sell": 15000
+    },
+    {
+      "date": "2026-04-10",
+      "stock_id": "0051",
+      "buy": 200,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-10",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-10",
+      "stock_id": "0051",
+      "buy": 21000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-10",
+      "stock_id": "0051",
+      "buy": 14244,
+      "name": "Dealer_Hedging",
+      "sell": 13568
+    },
+    {
+      "date": "2026-04-13",
+      "stock_id": "0051",
+      "buy": 33,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-13",
+      "stock_id": "0051",
+      "buy": 13000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-13",
+      "stock_id": "0051",
+      "buy": 60000,
+      "name": "Dealer_Hedging",
+      "sell": 5277
+    },
+    {
+      "date": "2026-04-14",
+      "stock_id": "0051",
+      "buy": 4035,
+      "name": "Foreign_Investor",
+      "sell": 1050
+    },
+    {
+      "date": "2026-04-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-14",
+      "stock_id": "0051",
+      "buy": 12000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-14",
+      "stock_id": "0051",
+      "buy": 129000,
+      "name": "Dealer_Hedging",
+      "sell": 24549
+    },
+    {
+      "date": "2026-04-15",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2026-04-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-15",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-15",
+      "stock_id": "0051",
+      "buy": 29720,
+      "name": "Dealer_Hedging",
+      "sell": 15471
+    },
+    {
+      "date": "2026-04-16",
+      "stock_id": "0051",
+      "buy": 45,
+      "name": "Foreign_Investor",
+      "sell": 1200
+    },
+    {
+      "date": "2026-04-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-16",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-16",
+      "stock_id": "0051",
+      "buy": 15167,
+      "name": "Dealer_Hedging",
+      "sell": 13000
+    },
+    {
+      "date": "2026-04-17",
+      "stock_id": "0051",
+      "buy": 1045,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-17",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-17",
+      "stock_id": "0051",
+      "buy": 34029,
+      "name": "Dealer_Hedging",
+      "sell": 6056
+    },
+    {
+      "date": "2026-04-20",
+      "stock_id": "0051",
+      "buy": 1104,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-20",
+      "stock_id": "0051",
+      "buy": 73000,
+      "name": "Dealer_Hedging",
+      "sell": 47812
+    },
+    {
+      "date": "2026-04-21",
+      "stock_id": "0051",
+      "buy": 3,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-04-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-21",
+      "stock_id": "0051",
+      "buy": 6276,
+      "name": "Dealer_Hedging",
+      "sell": 17262
+    },
+    {
+      "date": "2026-04-22",
+      "stock_id": "0051",
+      "buy": 24,
+      "name": "Foreign_Investor",
+      "sell": 1026
+    },
+    {
+      "date": "2026-04-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 70000
+    },
+    {
+      "date": "2026-04-22",
+      "stock_id": "0051",
+      "buy": 29194,
+      "name": "Dealer_Hedging",
+      "sell": 21627
+    },
+    {
+      "date": "2026-04-23",
+      "stock_id": "0051",
+      "buy": 5000,
+      "name": "Foreign_Investor",
+      "sell": 3000
+    },
+    {
+      "date": "2026-04-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-23",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 6000
+    },
+    {
+      "date": "2026-04-23",
+      "stock_id": "0051",
+      "buy": 67865,
+      "name": "Dealer_Hedging",
+      "sell": 56951
+    },
+    {
+      "date": "2026-04-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-24",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-24",
+      "stock_id": "0051",
+      "buy": 65000,
+      "name": "Dealer_Hedging",
+      "sell": 28117
+    },
+    {
+      "date": "2026-04-27",
+      "stock_id": "0051",
+      "buy": 1035,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-27",
+      "stock_id": "0051",
+      "buy": 87842,
+      "name": "Dealer_Hedging",
+      "sell": 40114
+    },
+    {
+      "date": "2026-04-28",
+      "stock_id": "0051",
+      "buy": 100,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-28",
+      "stock_id": "0051",
+      "buy": 41142,
+      "name": "Dealer_Hedging",
+      "sell": 5424
+    },
+    {
+      "date": "2026-04-29",
+      "stock_id": "0051",
+      "buy": 130,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-04-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-29",
+      "stock_id": "0051",
+      "buy": 22475,
+      "name": "Dealer_Hedging",
+      "sell": 3000
+    },
+    {
+      "date": "2026-04-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 51
+    },
+    {
+      "date": "2026-04-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-30",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-04-30",
+      "stock_id": "0051",
+      "buy": 23219,
+      "name": "Dealer_Hedging",
+      "sell": 64358
+    },
+    {
+      "date": "2026-05-04",
+      "stock_id": "0051",
+      "buy": 4,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-04",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Dealer_Hedging",
+      "sell": 7467
+    },
+    {
+      "date": "2026-05-05",
+      "stock_id": "0051",
+      "buy": 1000,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-05",
+      "stock_id": "0051",
+      "buy": 15863,
+      "name": "Dealer_Hedging",
+      "sell": 6008
+    },
+    {
+      "date": "2026-05-06",
+      "stock_id": "0051",
+      "buy": 3000,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-05-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-06",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-06",
+      "stock_id": "0051",
+      "buy": 10444,
+      "name": "Dealer_Hedging",
+      "sell": 34090
+    },
+    {
+      "date": "2026-05-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-05-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-07",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-07",
+      "stock_id": "0051",
+      "buy": 11339,
+      "name": "Dealer_Hedging",
+      "sell": 7000
+    },
+    {
+      "date": "2026-05-08",
+      "stock_id": "0051",
+      "buy": 2001,
+      "name": "Foreign_Investor",
+      "sell": 30000
+    },
+    {
+      "date": "2026-05-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-08",
+      "stock_id": "0051",
+      "buy": 36171,
+      "name": "Dealer_Hedging",
+      "sell": 44040
+    },
+    {
+      "date": "2026-05-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Investor",
+      "sell": 1
+    },
+    {
+      "date": "2026-05-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-11",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-11",
+      "stock_id": "0051",
+      "buy": 28439,
+      "name": "Dealer_Hedging",
+      "sell": 8293
+    },
+    {
+      "date": "2026-05-12",
+      "stock_id": "0051",
+      "buy": 1551,
+      "name": "Foreign_Investor",
+      "sell": 2100
+    },
+    {
+      "date": "2026-05-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-12",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-12",
+      "stock_id": "0051",
+      "buy": 12498,
+      "name": "Dealer_Hedging",
+      "sell": 41643
+    },
+    {
+      "date": "2026-05-13",
+      "stock_id": "0051",
+      "buy": 15,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-13",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-13",
+      "stock_id": "0051",
+      "buy": 15000,
+      "name": "Dealer_Hedging",
+      "sell": 15191
+    },
+    {
+      "date": "2026-05-14",
+      "stock_id": "0051",
+      "buy": 8,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-14",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-14",
+      "stock_id": "0051",
+      "buy": 14151,
+      "name": "Dealer_Hedging",
+      "sell": 65153
+    },
+    {
+      "date": "2026-05-15",
+      "stock_id": "0051",
+      "buy": 1020,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-15",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-15",
+      "stock_id": "0051",
+      "buy": 13000,
+      "name": "Dealer_Hedging",
+      "sell": 70217
+    },
+    {
+      "date": "2026-05-18",
+      "stock_id": "0051",
+      "buy": 4043,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-18",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-18",
+      "stock_id": "0051",
+      "buy": 81702,
+      "name": "Dealer_Hedging",
+      "sell": 13299
+    },
+    {
+      "date": "2026-05-19",
+      "stock_id": "0051",
+      "buy": 5001,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2026-05-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-19",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-19",
+      "stock_id": "0051",
+      "buy": 30084,
+      "name": "Dealer_Hedging",
+      "sell": 20045
+    },
+    {
+      "date": "2026-05-20",
+      "stock_id": "0051",
+      "buy": 12000,
+      "name": "Foreign_Investor",
+      "sell": 2000
+    },
+    {
+      "date": "2026-05-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-20",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-20",
+      "stock_id": "0051",
+      "buy": 35076,
+      "name": "Dealer_Hedging",
+      "sell": 9269
+    },
+    {
+      "date": "2026-05-21",
+      "stock_id": "0051",
+      "buy": 15000,
+      "name": "Foreign_Investor",
+      "sell": 2
+    },
+    {
+      "date": "2026-05-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-21",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-21",
+      "stock_id": "0051",
+      "buy": 18103,
+      "name": "Dealer_Hedging",
+      "sell": 4034
+    },
+    {
+      "date": "2026-05-22",
+      "stock_id": "0051",
+      "buy": 3,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-05-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-22",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 25000
+    },
+    {
+      "date": "2026-05-22",
+      "stock_id": "0051",
+      "buy": 50620,
+      "name": "Dealer_Hedging",
+      "sell": 52
+    },
+    {
+      "date": "2026-05-25",
+      "stock_id": "0051",
+      "buy": 53,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-05-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-25",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-25",
+      "stock_id": "0051",
+      "buy": 5419,
+      "name": "Dealer_Hedging",
+      "sell": 57699
+    },
+    {
+      "date": "2026-05-26",
+      "stock_id": "0051",
+      "buy": 152,
+      "name": "Foreign_Investor",
+      "sell": 6000
+    },
+    {
+      "date": "2026-05-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-26",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-26",
+      "stock_id": "0051",
+      "buy": 64000,
+      "name": "Dealer_Hedging",
+      "sell": 64953
+    },
+    {
+      "date": "2026-05-27",
+      "stock_id": "0051",
+      "buy": 1409,
+      "name": "Foreign_Investor",
+      "sell": 20000
+    },
+    {
+      "date": "2026-05-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-27",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-27",
+      "stock_id": "0051",
+      "buy": 14000,
+      "name": "Dealer_Hedging",
+      "sell": 75279
+    },
+    {
+      "date": "2026-05-28",
+      "stock_id": "0051",
+      "buy": 2274,
+      "name": "Foreign_Investor",
+      "sell": 5000
+    },
+    {
+      "date": "2026-05-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-28",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-28",
+      "stock_id": "0051",
+      "buy": 50000,
+      "name": "Dealer_Hedging",
+      "sell": 35259
+    },
+    {
+      "date": "2026-05-29",
+      "stock_id": "0051",
+      "buy": 9025,
+      "name": "Foreign_Investor",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-29",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-05-29",
+      "stock_id": "0051",
+      "buy": 10423,
+      "name": "Dealer_Hedging",
+      "sell": 7341
+    },
+    {
+      "date": "2026-06-01",
+      "stock_id": "0051",
+      "buy": 14101,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-06-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-01",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-01",
+      "stock_id": "0051",
+      "buy": 46329,
+      "name": "Dealer_Hedging",
+      "sell": 14112
+    },
+    {
+      "date": "2026-06-02",
+      "stock_id": "0051",
+      "buy": 51,
+      "name": "Foreign_Investor",
+      "sell": 16000
+    },
+    {
+      "date": "2026-06-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-02",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-02",
+      "stock_id": "0051",
+      "buy": 16000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-02",
+      "stock_id": "0051",
+      "buy": 10208,
+      "name": "Dealer_Hedging",
+      "sell": 33312
+    },
+    {
+      "date": "2026-06-03",
+      "stock_id": "0051",
+      "buy": 1618,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-06-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-03",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-03",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-03",
+      "stock_id": "0051",
+      "buy": 43047,
+      "name": "Dealer_Hedging",
+      "sell": 1450
+    },
+    {
+      "date": "2026-06-04",
+      "stock_id": "0051",
+      "buy": 445,
+      "name": "Foreign_Investor",
+      "sell": 2100
+    },
+    {
+      "date": "2026-06-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-04",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-04",
+      "stock_id": "0051",
+      "buy": 2000,
+      "name": "Dealer_Hedging",
+      "sell": 20440
+    },
+    {
+      "date": "2026-06-05",
+      "stock_id": "0051",
+      "buy": 9011,
+      "name": "Foreign_Investor",
+      "sell": 1000
+    },
+    {
+      "date": "2026-06-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-05",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-05",
+      "stock_id": "0051",
+      "buy": 23000,
+      "name": "Dealer_Hedging",
+      "sell": 62478
+    },
+    {
+      "date": "2026-06-08",
+      "stock_id": "0051",
+      "buy": 3729,
+      "name": "Foreign_Investor",
+      "sell": 10000
+    },
+    {
+      "date": "2026-06-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Foreign_Dealer_Self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Investment_Trust",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-08",
+      "stock_id": "0051",
+      "buy": 0,
+      "name": "Dealer_self",
+      "sell": 0
+    },
+    {
+      "date": "2026-06-08",
+      "stock_id": "0051",
+      "buy": 11000,
+      "name": "Dealer_Hedging",
+      "sell": 145699
+    }
+  ]
+}

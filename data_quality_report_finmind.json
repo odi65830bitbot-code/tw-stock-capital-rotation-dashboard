@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-06-09T11:49:31",
+  "status": "warning",
+  "stock_pool_size": 3,
+  "source_policy": {
+    "primary": [
+      "TWSE official OpenAPI/CSV",
+      "TPEX official OpenAPI/CSV"
+    ],
+    "supplemental_only": [
+      "FinMind"
+    ],
+    "note": "FinMind is supplemental and must not replace official daily facts."
+  },
+  "datasets": [
+    {
+      "dataset": "TaiwanStockPrice",
+      "rows": 741,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockInstitutionalInvestorsBuySell",
+      "rows": 3700,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockMarginPurchaseShortSale",
+      "rows": 741,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockMonthRevenue",
+      "rows": 51,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockFinancialStatements",
+      "rows": 384,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockBalanceSheet",
+      "rows": 2330,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockCashFlowsStatement",
+      "rows": 633,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockShareholding",
+      "rows": 747,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockSecuritiesLending",
+      "rows": 1415,
+      "unavailable": []
+    },
+    {
+      "dataset": "TaiwanStockTradingDailyReport",
+      "rows": 0,
+      "unavailable": [
+        "1101",
+        "1102",
+        "1103"
+      ]
+    },
+    {
+      "dataset": "TaiwanStockPER",
+      "rows": 0,
+      "unavailable": [
+        "all"
+      ]
+    }
+  ],
+  "outputs": {
+    "finmind_price": 741,
+    "finmind_institutional": 3700,
+    "finmind_margin": 741,
+    "finmind_revenue": 51,
+    "finmind_financials": 3347,
+    "factors_finmind": 3,
+    "stock_alpha_v3": 3,
+    "factor_effectiveness": 176,
+    "backtest_alpha_v3": 3,
+    "recommendations_v3": 3,
+    "trend_files": 3
+  }
+}

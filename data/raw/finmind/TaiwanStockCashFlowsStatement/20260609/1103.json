@@ -1,0 +1,1378 @@
+{
+  "msg": "success",
+  "status": 200,
+  "data": [
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "CashBalancesIncrease",
+      "value": 235382000.0,
+      "origin_name": "本期現金及約當現金增加（減少）數"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "CashBalancesEndOfPeriod",
+      "value": 2289721000.0,
+      "origin_name": "期末現金及約當現金餘額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "PropertyAndPlantAndEquipment",
+      "value": -12863000.0,
+      "origin_name": "取得不動產、廠房及設備"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "PayTheInterest",
+      "value": -93107000.0,
+      "origin_name": "支付之利息"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "CashBalancesBeginningOfPeriod",
+      "value": 2054339000.0,
+      "origin_name": "期初現金及約當現金餘額"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "RentalPrincipalRepayments",
+      "value": -48413000.0,
+      "origin_name": "租賃本金償還"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "CashProvidedByInvestingActivities",
+      "value": 92892000.0,
+      "origin_name": "投資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "IncomeBeforeIncomeTaxFromContinuingOperations",
+      "value": 62073000.0,
+      "origin_name": "繼續營業單位稅前淨利（淨損）"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "ProceedsFromLongTermDebt",
+      "value": 980000000.0,
+      "origin_name": "舉借長期借款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "InterestIncome",
+      "value": -89062000.0,
+      "origin_name": "利息收入"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "CashFlowsProvidedFromFinancingActivities",
+      "value": 13314000.0,
+      "origin_name": "籌資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "InventoryIncrease",
+      "value": -38535000.0,
+      "origin_name": "存貨（增加）減少"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "ReceivableIncrease",
+      "value": 10208000.0,
+      "origin_name": "應收帳款（增加）減少"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "TotalIncomeLossItems",
+      "value": 165199000.0,
+      "origin_name": "收益費損項目合計"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "InterestExpense",
+      "value": 104602000.0,
+      "origin_name": "利息費用"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "NetCashInflowFromOperatingActivities",
+      "value": 153284000.0,
+      "origin_name": "營業活動之淨現金流入"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "AccountsPayable",
+      "value": 62944000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "AmortizationExpense",
+      "value": 1306000.0,
+      "origin_name": "攤銷費用"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "Depreciation",
+      "value": 216881000.0,
+      "origin_name": "折舊費用"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "CashFlowsFromOperatingActivities",
+      "value": 153284000.0,
+      "origin_name": "營業活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "NetIncomeBeforeTax",
+      "value": 62073000.0,
+      "origin_name": "本期稅前淨利（淨損）"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "RepaymentOfLongTermDebt",
+      "value": -593699000.0,
+      "origin_name": "償還長期借款"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "CashReceivedThroughOperations",
+      "value": 287191000.0,
+      "origin_name": "營運產生之現金流入（流出）"
+    },
+    {
+      "date": "2024-06-30",
+      "stock_id": "1103",
+      "type": "DecreaseInDepositDeposit",
+      "value": 0.0,
+      "origin_name": "存出保證金減少"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "CashProvidedByInvestingActivities",
+      "value": 652739000.0,
+      "origin_name": "投資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "PayTheInterest",
+      "value": -140985000.0,
+      "origin_name": "支付之利息"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "PropertyAndPlantAndEquipment",
+      "value": -14568000.0,
+      "origin_name": "取得不動產、廠房及設備"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "CashBalancesBeginningOfPeriod",
+      "value": 2054339000.0,
+      "origin_name": "期初現金及約當現金餘額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "RentalPrincipalRepayments",
+      "value": -69845000.0,
+      "origin_name": "租賃本金償還"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "CashBalancesIncrease",
+      "value": -82810000.0,
+      "origin_name": "本期現金及約當現金增加（減少）數"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "CashBalancesEndOfPeriod",
+      "value": 1971529000.0,
+      "origin_name": "期末現金及約當現金餘額"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "IncomeBeforeIncomeTaxFromContinuingOperations",
+      "value": 599445000.0,
+      "origin_name": "繼續營業單位稅前淨利（淨損）"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "ProceedsFromLongTermDebt",
+      "value": 1580000000.0,
+      "origin_name": "舉借長期借款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "NetIncomeBeforeTax",
+      "value": 599445000.0,
+      "origin_name": "本期稅前淨利（淨損）"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "CashFlowsFromOperatingActivities",
+      "value": 184029000.0,
+      "origin_name": "營業活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "Depreciation",
+      "value": 324345000.0,
+      "origin_name": "折舊費用"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "AmortizationExpense",
+      "value": 1944000.0,
+      "origin_name": "攤銷費用"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "AccountsPayable",
+      "value": -3744000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "NetCashInflowFromOperatingActivities",
+      "value": 184029000.0,
+      "origin_name": "營業活動之淨現金流入"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "RepaymentOfLongTermDebt",
+      "value": -1149989000.0,
+      "origin_name": "償還長期借款"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "DecreaseInDepositDeposit",
+      "value": 16744000.0,
+      "origin_name": "存出保證金減少"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "TotalIncomeLossItems",
+      "value": -298999000.0,
+      "origin_name": "收益費損項目合計"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "ReceivableIncrease",
+      "value": 32777000.0,
+      "origin_name": "應收帳款（增加）減少"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "InventoryIncrease",
+      "value": -35580000.0,
+      "origin_name": "存貨（增加）減少"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "CashFlowsProvidedFromFinancingActivities",
+      "value": -942827000.0,
+      "origin_name": "籌資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "InterestIncome",
+      "value": -134523000.0,
+      "origin_name": "利息收入"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "DecreaseInShortTermLoans",
+      "value": -226583000.0,
+      "origin_name": "短期借款減少"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "InterestExpense",
+      "value": 158527000.0,
+      "origin_name": "利息費用"
+    },
+    {
+      "date": "2024-09-30",
+      "stock_id": "1103",
+      "type": "CashReceivedThroughOperations",
+      "value": 377821000.0,
+      "origin_name": "營運產生之現金流入（流出）"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "PayTheInterest",
+      "value": -193930000.0,
+      "origin_name": "支付之利息"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "PropertyAndPlantAndEquipment",
+      "value": -23996000.0,
+      "origin_name": "取得不動產、廠房及設備"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "CashBalancesBeginningOfPeriod",
+      "value": 2054339000.0,
+      "origin_name": "期初現金及約當現金餘額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "RentalPrincipalRepayments",
+      "value": -111109000.0,
+      "origin_name": "租賃本金償還"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "CashBalancesIncrease",
+      "value": 258864000.0,
+      "origin_name": "本期現金及約當現金增加（減少）數"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "CashBalancesEndOfPeriod",
+      "value": 2313203000.0,
+      "origin_name": "期末現金及約當現金餘額"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "IncomeBeforeIncomeTaxFromContinuingOperations",
+      "value": 385784000.0,
+      "origin_name": "繼續營業單位稅前淨利（淨損）"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "ProceedsFromLongTermDebt",
+      "value": 1580000000.0,
+      "origin_name": "舉借長期借款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "NetIncomeBeforeTax",
+      "value": 385784000.0,
+      "origin_name": "本期稅前淨利（淨損）"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "Depreciation",
+      "value": 445864000.0,
+      "origin_name": "折舊費用"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "AmortizationExpense",
+      "value": 2399000.0,
+      "origin_name": "攤銷費用"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "AccountsPayable",
+      "value": 123686000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "RepaymentOfLongTermDebt",
+      "value": -1518020000.0,
+      "origin_name": "償還長期借款"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "DecreaseInDepositDeposit",
+      "value": 11380000.0,
+      "origin_name": "存出保證金減少"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "TotalIncomeLossItems",
+      "value": -23873000.0,
+      "origin_name": "收益費損項目合計"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "ReceivableIncrease",
+      "value": 16780000.0,
+      "origin_name": "應收帳款（增加）減少"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "InventoryIncrease",
+      "value": -56928000.0,
+      "origin_name": "存貨（增加）減少"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "CashFlowsProvidedFromFinancingActivities",
+      "value": -1407131000.0,
+      "origin_name": "籌資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "InterestIncome",
+      "value": -177410000.0,
+      "origin_name": "利息收入"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "DecreaseInShortTermLoans",
+      "value": -467470000.0,
+      "origin_name": "短期借款減少"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "InterestExpense",
+      "value": 215764000.0,
+      "origin_name": "利息費用"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "CashReceivedThroughOperations",
+      "value": 659203000.0,
+      "origin_name": "營運產生之現金流入（流出）"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "CashProvidedByInvestingActivities",
+      "value": 1209048000.0,
+      "origin_name": "投資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "CashFlowsFromOperatingActivities",
+      "value": 410628000.0,
+      "origin_name": "營業活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2024-12-31",
+      "stock_id": "1103",
+      "type": "NetCashInflowFromOperatingActivities",
+      "value": 410628000.0,
+      "origin_name": "營業活動之淨現金流入"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "CashBalancesIncrease",
+      "value": -486544000.0,
+      "origin_name": "本期現金及約當現金增加（減少）數"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "CashBalancesEndOfPeriod",
+      "value": 1826659000.0,
+      "origin_name": "期末現金及約當現金餘額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "PropertyAndPlantAndEquipment",
+      "value": -4232000.0,
+      "origin_name": "取得不動產、廠房及設備"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "PayTheInterest",
+      "value": -49431000.0,
+      "origin_name": "支付之利息"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "CashBalancesBeginningOfPeriod",
+      "value": 2313203000.0,
+      "origin_name": "期初現金及約當現金餘額"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "RentalPrincipalRepayments",
+      "value": -21972000.0,
+      "origin_name": "租賃本金償還"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "CashProvidedByInvestingActivities",
+      "value": -747934000.0,
+      "origin_name": "投資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "IncomeBeforeIncomeTaxFromContinuingOperations",
+      "value": 95085000.0,
+      "origin_name": "繼續營業單位稅前淨利（淨損）"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "ProceedsFromLongTermDebt",
+      "value": 480357000.0,
+      "origin_name": "舉借長期借款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "InterestIncome",
+      "value": -41588000.0,
+      "origin_name": "利息收入"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "CashFlowsProvidedFromFinancingActivities",
+      "value": 133516000.0,
+      "origin_name": "籌資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "InventoryIncrease",
+      "value": 33750000.0,
+      "origin_name": "存貨（增加）減少"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "ReceivableIncrease",
+      "value": 34342000.0,
+      "origin_name": "應收帳款（增加）減少"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "TotalIncomeLossItems",
+      "value": 15998000.0,
+      "origin_name": "收益費損項目合計"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "InterestExpense",
+      "value": 55967000.0,
+      "origin_name": "利息費用"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "NetCashInflowFromOperatingActivities",
+      "value": 94199000.0,
+      "origin_name": "營業活動之淨現金流入"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "AccountsPayable",
+      "value": -75669000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "AmortizationExpense",
+      "value": 374000.0,
+      "origin_name": "攤銷費用"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "Depreciation",
+      "value": 114460000.0,
+      "origin_name": "折舊費用"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "CashFlowsFromOperatingActivities",
+      "value": 94199000.0,
+      "origin_name": "營業活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "NetIncomeBeforeTax",
+      "value": 95085000.0,
+      "origin_name": "本期稅前淨利（淨損）"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "RepaymentOfLongTermDebt",
+      "value": -482513000.0,
+      "origin_name": "償還長期借款"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "CashReceivedThroughOperations",
+      "value": 147569000.0,
+      "origin_name": "營運產生之現金流入（流出）"
+    },
+    {
+      "date": "2025-03-31",
+      "stock_id": "1103",
+      "type": "DecreaseInDepositDeposit",
+      "value": 0.0,
+      "origin_name": "存出保證金減少"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "Depreciation",
+      "value": 227532000.0,
+      "origin_name": "折舊費用"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "CashBalancesIncrease",
+      "value": -219988000.0,
+      "origin_name": "本期現金及約當現金增加（減少）數"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "InterestExpense",
+      "value": 113342000.0,
+      "origin_name": "利息費用"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "PayTheInterest",
+      "value": -102828000.0,
+      "origin_name": "支付之利息"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "CashBalancesEndOfPeriod",
+      "value": 2093215000.0,
+      "origin_name": "期末現金及約當現金餘額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "CashProvidedByInvestingActivities",
+      "value": -590188000.0,
+      "origin_name": "投資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "NetIncomeBeforeTax",
+      "value": -231948000.0,
+      "origin_name": "本期稅前淨利（淨損）"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "PropertyAndPlantAndEquipment",
+      "value": -60054000.0,
+      "origin_name": "取得不動產、廠房及設備"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "CashBalancesBeginningOfPeriod",
+      "value": 2313203000.0,
+      "origin_name": "期初現金及約當現金餘額"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "CashFlowsFromOperatingActivities",
+      "value": 177047000.0,
+      "origin_name": "營業活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "AmortizationExpense",
+      "value": 493000.0,
+      "origin_name": "攤銷費用"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "RepaymentOfLongTermDebt",
+      "value": -564781000.0,
+      "origin_name": "償還長期借款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "ProceedsFromLongTermDebt",
+      "value": 437520000.0,
+      "origin_name": "舉借長期借款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "AccountsPayable",
+      "value": -122989000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "InterestIncome",
+      "value": -80877000.0,
+      "origin_name": "利息收入"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "CashReceivedThroughOperations",
+      "value": 295903000.0,
+      "origin_name": "營運產生之現金流入（流出）"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "CashFlowsProvidedFromFinancingActivities",
+      "value": 344386000.0,
+      "origin_name": "籌資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "InventoryIncrease",
+      "value": 42275000.0,
+      "origin_name": "存貨（增加）減少"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "NetCashInflowFromOperatingActivities",
+      "value": 177047000.0,
+      "origin_name": "營業活動之淨現金流入"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "ReceivableIncrease",
+      "value": 26626000.0,
+      "origin_name": "應收帳款（增加）減少"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "TotalIncomeLossItems",
+      "value": 486309000.0,
+      "origin_name": "收益費損項目合計"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "DecreaseInDepositDeposit",
+      "value": 13000.0,
+      "origin_name": "存出保證金減少"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "RentalPrincipalRepayments",
+      "value": -72576000.0,
+      "origin_name": "租賃本金償還"
+    },
+    {
+      "date": "2025-06-30",
+      "stock_id": "1103",
+      "type": "IncomeBeforeIncomeTaxFromContinuingOperations",
+      "value": -231948000.0,
+      "origin_name": "繼續營業單位稅前淨利（淨損）"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "CashProvidedByInvestingActivities",
+      "value": -480421000.0,
+      "origin_name": "投資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "PayTheInterest",
+      "value": -157769000.0,
+      "origin_name": "支付之利息"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "PropertyAndPlantAndEquipment",
+      "value": -154250000.0,
+      "origin_name": "取得不動產、廠房及設備"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "CashBalancesBeginningOfPeriod",
+      "value": 2313203000.0,
+      "origin_name": "期初現金及約當現金餘額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "RentalPrincipalRepayments",
+      "value": -102414000.0,
+      "origin_name": "租賃本金償還"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "CashBalancesIncrease",
+      "value": -114348000.0,
+      "origin_name": "本期現金及約當現金增加（減少）數"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "CashBalancesEndOfPeriod",
+      "value": 2198855000.0,
+      "origin_name": "期末現金及約當現金餘額"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "IncomeBeforeIncomeTaxFromContinuingOperations",
+      "value": 489343000.0,
+      "origin_name": "繼續營業單位稅前淨利（淨損）"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "ProceedsFromLongTermDebt",
+      "value": 572960000.0,
+      "origin_name": "舉借長期借款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "NetIncomeBeforeTax",
+      "value": 489343000.0,
+      "origin_name": "本期稅前淨利（淨損）"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "CashFlowsFromOperatingActivities",
+      "value": 329261000.0,
+      "origin_name": "營業活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "Depreciation",
+      "value": 346329000.0,
+      "origin_name": "折舊費用"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "AmortizationExpense",
+      "value": 608000.0,
+      "origin_name": "攤銷費用"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "AccountsPayable",
+      "value": -69670000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "NetCashInflowFromOperatingActivities",
+      "value": 329261000.0,
+      "origin_name": "營業活動之淨現金流入"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "RepaymentOfLongTermDebt",
+      "value": -640421000.0,
+      "origin_name": "償還長期借款"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "DecreaseInDepositDeposit",
+      "value": 70000.0,
+      "origin_name": "存出保證金減少"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "TotalIncomeLossItems",
+      "value": -142574000.0,
+      "origin_name": "收益費損項目合計"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "ReceivableIncrease",
+      "value": 29269000.0,
+      "origin_name": "應收帳款（增加）減少"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "InventoryIncrease",
+      "value": -29816000.0,
+      "origin_name": "存貨（增加）減少"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "CashFlowsProvidedFromFinancingActivities",
+      "value": 136681000.0,
+      "origin_name": "籌資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "InterestIncome",
+      "value": -119990000.0,
+      "origin_name": "利息收入"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "DecreaseInShortTermLoans",
+      "value": 0.0,
+      "origin_name": "短期借款減少"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "InterestExpense",
+      "value": 174014000.0,
+      "origin_name": "利息費用"
+    },
+    {
+      "date": "2025-09-30",
+      "stock_id": "1103",
+      "type": "CashReceivedThroughOperations",
+      "value": 511711000.0,
+      "origin_name": "營運產生之現金流入（流出）"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "CashProvidedByInvestingActivities",
+      "value": -668825000.0,
+      "origin_name": "投資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "PayTheInterest",
+      "value": -212689000.0,
+      "origin_name": "支付之利息"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "PropertyAndPlantAndEquipment",
+      "value": -167714000.0,
+      "origin_name": "取得不動產、廠房及設備"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "CashBalancesBeginningOfPeriod",
+      "value": 2313203000.0,
+      "origin_name": "期初現金及約當現金餘額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "RentalPrincipalRepayments",
+      "value": -155670000.0,
+      "origin_name": "租賃本金償還"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "CashBalancesIncrease",
+      "value": -438142000.0,
+      "origin_name": "本期現金及約當現金增加（減少）數"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "CashBalancesEndOfPeriod",
+      "value": 1875061000.0,
+      "origin_name": "期末現金及約當現金餘額"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "IncomeBeforeIncomeTaxFromContinuingOperations",
+      "value": 559376000.0,
+      "origin_name": "繼續營業單位稅前淨利（淨損）"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "ProceedsFromLongTermDebt",
+      "value": 866062000.0,
+      "origin_name": "舉借長期借款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "NetIncomeBeforeTax",
+      "value": 559376000.0,
+      "origin_name": "本期稅前淨利（淨損）"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "CashFlowsFromOperatingActivities",
+      "value": 281150000.0,
+      "origin_name": "營業活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "Depreciation",
+      "value": 462226000.0,
+      "origin_name": "折舊費用"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "AmortizationExpense",
+      "value": 732000.0,
+      "origin_name": "攤銷費用"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "AccountsPayable",
+      "value": -119705000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "NetCashInflowFromOperatingActivities",
+      "value": 281150000.0,
+      "origin_name": "營業活動之淨現金流入"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "RepaymentOfLongTermDebt",
+      "value": -1227595000.0,
+      "origin_name": "償還長期借款"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "DecreaseInDepositDeposit",
+      "value": 281000.0,
+      "origin_name": "存出保證金減少"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "TotalIncomeLossItems",
+      "value": -130343000.0,
+      "origin_name": "收益費損項目合計"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "ReceivableIncrease",
+      "value": 3746000.0,
+      "origin_name": "應收帳款（增加）減少"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "InventoryIncrease",
+      "value": 6381000.0,
+      "origin_name": "存貨（增加）減少"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "CashFlowsProvidedFromFinancingActivities",
+      "value": 6402000.0,
+      "origin_name": "籌資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "InterestIncome",
+      "value": -162593000.0,
+      "origin_name": "利息收入"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "DecreaseInShortTermLoans",
+      "value": 0.0,
+      "origin_name": "短期借款減少"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "InterestExpense",
+      "value": 233445000.0,
+      "origin_name": "利息費用"
+    },
+    {
+      "date": "2025-12-31",
+      "stock_id": "1103",
+      "type": "CashReceivedThroughOperations",
+      "value": 520257000.0,
+      "origin_name": "營運產生之現金流入（流出）"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "Depreciation",
+      "value": 103751000.0,
+      "origin_name": "折舊費用"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "CashBalancesIncrease",
+      "value": 95685000.0,
+      "origin_name": "本期現金及約當現金增加（減少）數"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "InterestExpense",
+      "value": 58484000.0,
+      "origin_name": "利息費用"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "PayTheInterest",
+      "value": -52813000.0,
+      "origin_name": "支付之利息"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "CashBalancesEndOfPeriod",
+      "value": 1970746000.0,
+      "origin_name": "期末現金及約當現金餘額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "CashProvidedByInvestingActivities",
+      "value": -235190000.0,
+      "origin_name": "投資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "NetIncomeBeforeTax",
+      "value": 68393000.0,
+      "origin_name": "本期稅前淨利（淨損）"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "PropertyAndPlantAndEquipment",
+      "value": -5610000.0,
+      "origin_name": "取得不動產、廠房及設備"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "CashBalancesBeginningOfPeriod",
+      "value": 1875061000.0,
+      "origin_name": "期初現金及約當現金餘額"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "CashFlowsFromOperatingActivities",
+      "value": 159842000.0,
+      "origin_name": "營業活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "AmortizationExpense",
+      "value": 132000.0,
+      "origin_name": "攤銷費用"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "RepaymentOfLongTermDebt",
+      "value": -79032000.0,
+      "origin_name": "償還長期借款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "ProceedsFromLongTermDebt",
+      "value": 1411000.0,
+      "origin_name": "舉借長期借款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "AccountsPayable",
+      "value": -9303000.0,
+      "origin_name": "應付帳款"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "InterestIncome",
+      "value": -37800000.0,
+      "origin_name": "利息收入"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "CashReceivedThroughOperations",
+      "value": 216602000.0,
+      "origin_name": "營運產生之現金流入（流出）"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "CashFlowsProvidedFromFinancingActivities",
+      "value": 151130000.0,
+      "origin_name": "籌資活動之淨現金流入（流出）"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "InventoryIncrease",
+      "value": 53675000.0,
+      "origin_name": "存貨（增加）減少"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "NetCashInflowFromOperatingActivities",
+      "value": 159842000.0,
+      "origin_name": "營業活動之淨現金流入"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "ReceivableIncrease",
+      "value": 22592000.0,
+      "origin_name": "應收帳款（增加）減少"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "TotalIncomeLossItems",
+      "value": 58329000.0,
+      "origin_name": "收益費損項目合計"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "DecreaseInDepositDeposit",
+      "value": 5336000.0,
+      "origin_name": "存出保證金減少"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "RentalPrincipalRepayments",
+      "value": -31648000.0,
+      "origin_name": "租賃本金償還"
+    },
+    {
+      "date": "2026-03-31",
+      "stock_id": "1103",
+      "type": "IncomeBeforeIncomeTaxFromContinuingOperations",
+      "value": 68393000.0,
+      "origin_name": "繼續營業單位稅前淨利（淨損）"
+    }
+  ]
+}

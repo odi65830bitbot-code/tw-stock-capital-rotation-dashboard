@@ -1,0 +1,19 @@
+{
+  "records": [
+    {
+      "model": "Stock Alpha v3",
+      "top_n": 5,
+      "status": "insufficient_history"
+    },
+    {
+      "model": "Stock Alpha v3",
+      "top_n": 10,
+      "status": "insufficient_history"
+    },
+    {
+      "model": "Stock Alpha v3",
+      "top_n": 20,
+      "status": "insufficient_history"
+    }
+  ]
+}
