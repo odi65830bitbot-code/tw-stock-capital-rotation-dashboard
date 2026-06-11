@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable
@@ -83,6 +84,9 @@ NUMERIC_CANDIDATES = {
 }
 
 NAME_CANDIDATES = ["sector_name", "sector", "industry", "name", "label", "category"]
+INSTITUTIONAL_SHARE_FIELDS = ("foreign_net_shares", "trustee_net_shares", "dealer_net_shares")
+INSTITUTIONAL_AMOUNT_FIELDS = ("foreign_net_yi", "trust_net_yi", "dealer_net_yi")
+PRICE_ZERO_FIELDS = ("close", "change", "change_pct")
 
 
 def now_iso() -> str:
@@ -94,7 +98,10 @@ def read_parquet(name: str) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame()
     try:
-        return pd.read_parquet(path)
+        df = pd.read_parquet(path)
+        if name == "institutional_flow.parquet" and "trade_date" in df.columns:
+            df = df.dropna(subset=["trade_date"])
+        return df
     except Exception as exc:  # keep pipeline resilient; report in output status
         return pd.DataFrame({"__read_error__": [str(exc)]})
 
@@ -156,11 +163,116 @@ def round_or_none(value: Any, digits: int = 2) -> float | None:
     return round(num, digits)
 
 
+def round_or_zero(value: Any, digits: int = 2) -> float:
+    num = to_float(value)
+    if num is None:
+        return 0.0 if digits > 0 else 0
+    rounded = round(num, digits)
+    return int(rounded) if digits == 0 else rounded
+
+
+def fill_record_numeric_defaults(record: dict[str, Any], fields: Iterable[str], default: float | int = 0) -> int:
+    changed = 0
+    for field in fields:
+        if to_float(record.get(field)) is None:
+            record[field] = default
+            changed += 1
+    return changed
+
+
+def fill_records_numeric_defaults(records: list[dict[str, Any]], fields: Iterable[str], default: float | int = 0) -> int:
+    return sum(fill_record_numeric_defaults(record, fields, default) for record in records if isinstance(record, dict))
+
+
 def first_present(row: dict[str, Any], keys: Iterable[str]) -> Any:
     for key in keys:
         if key in row and row[key] not in (None, ""):
             return row[key]
     return None
+
+
+def is_common_stock_code(value: Any) -> bool:
+    return bool(re.match(r"^\d{4}$", str(value or "").strip()))
+
+
+def compute_market_change_pct() -> tuple[float | None, bool]:
+    """Compute latest TAIEX percentage change from public market JSON or prices."""
+    market_path = PUBLIC_DATA / "market_latest.json"
+    if market_path.exists():
+        try:
+            market = json.loads(market_path.read_text(encoding="utf-8"))
+            for row in market.get("records", []):
+                index_name = str(row.get("index_name") or "")
+                if index_name in {"TAIEX", "發行量加權股價指數", "加權指數"}:
+                    close = to_float(row.get("close"))
+                    change = to_float(row.get("change"))
+                    if close is not None and change is not None:
+                        prev = close - change
+                        if prev:
+                            pct = round(change / prev * 100, 2)
+                            return pct, pct < 0
+        except Exception:
+            pass
+
+    try:
+        daily = pd.read_parquet(PROCESSED / "daily_price.parquet")
+        required = {"stock_code", "market", "close", "change", "trade_date"}
+        if required.issubset(daily.columns):
+            work = daily[
+                daily["stock_code"].map(is_common_stock_code)
+                & (daily["market"] == "TWSE")
+            ].dropna(subset=["close", "change"])
+            latest = work["trade_date"].max()
+            today = work[work["trade_date"] == latest]
+            total_change = pd.to_numeric(today["change"], errors="coerce").sum()
+            total_prev = (
+                pd.to_numeric(today["close"], errors="coerce")
+                - pd.to_numeric(today["change"], errors="coerce")
+            ).sum()
+            if total_prev:
+                pct = round(total_change / total_prev * 100, 2)
+                return pct, pct < 0
+    except Exception:
+        pass
+    return None, False
+
+
+def load_factor_stats() -> dict[str, dict[str, float]]:
+    fe_path = PUBLIC_DATA / "factor_effectiveness.json"
+    if not fe_path.exists():
+        return {}
+    try:
+        fe_data = json.loads(fe_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    factor_stats: dict[str, dict[str, float]] = {}
+    for row in fe_data.get("records", []):
+        if row.get("factor") != "alpha_score_total":
+            continue
+        sector = normalize_sector_name(row.get("sector")) or ""
+        factor_stats[sector] = {
+            "win_rate": to_float(row.get("win_rate")) if to_float(row.get("win_rate")) is not None else 0.5,
+            "max_drawdown": to_float(row.get("max_drawdown")) if to_float(row.get("max_drawdown")) is not None else -0.15,
+        }
+    return factor_stats
+
+
+def fill_recommendation_backtest_stats(
+    records: list[dict[str, Any]],
+    factor_stats: dict[str, dict[str, float]] | None = None,
+) -> int:
+    stats_by_sector = factor_stats if factor_stats is not None else load_factor_stats()
+    changed = 0
+    for rec in records:
+        if to_float(rec.get("model_win_rate")) is not None:
+            continue
+        sector = normalize_sector_name(rec.get("industry") or rec.get("sector_name")) or ""
+        stats = stats_by_sector.get(sector, {"win_rate": 0.50, "max_drawdown": -0.15})
+        rec["model_win_rate"] = stats["win_rate"]
+        rec["model_max_drawdown"] = stats["max_drawdown"]
+        rec["backtest_status"] = "產業統計估算"
+        changed += 1
+    return changed
 
 
 def normalize_sector_name(name: Any) -> str | None:
@@ -256,12 +368,45 @@ def infer_position(row: dict[str, Any]) -> str:
 
 def build_price_lookup(daily_price: pd.DataFrame) -> pd.DataFrame:
     if daily_price.empty or "stock_code" not in daily_price.columns or "close" not in daily_price.columns:
-        return pd.DataFrame(columns=["stock_code", "price_date", "close", "change", "change_pct", "trade_value_twd"])
+        return pd.DataFrame(columns=["stock_code", "price_date", "close", "change", "change_pct", "trade_value_twd", "trade_volume"])
     work = daily_price.copy()
+    if "change_pct" not in work.columns and "change" in work.columns and "close" in work.columns:
+        close_numeric = pd.to_numeric(work["close"], errors="coerce")
+        change_numeric = pd.to_numeric(work["change"], errors="coerce")
+        prev_close = close_numeric - change_numeric
+        denom = prev_close.where(prev_close != 0)
+        work["change_pct"] = change_numeric / denom * 100
+    for col in PRICE_ZERO_FIELDS:
+        if col in work.columns:
+            work[col] = pd.to_numeric(work[col], errors="coerce")
     work["price_date"] = work.get("trade_date").map(as_date) if "trade_date" in work.columns else None
     work = work.sort_values(["stock_code", "price_date"])
-    cols = [col for col in ["stock_code", "stock_name", "market", "price_date", "close", "change", "change_pct", "trade_value_twd"] if col in work.columns]
+    cols = [col for col in ["stock_code", "stock_name", "market", "price_date", "close", "change", "change_pct", "trade_value_twd", "trade_volume"] if col in work.columns]
     return work[cols].dropna(subset=["stock_code"]).drop_duplicates("stock_code", keep="last")
+
+
+def build_price_history(daily_price: pd.DataFrame) -> pd.DataFrame:
+    if daily_price.empty or "stock_code" not in daily_price.columns or "close" not in daily_price.columns:
+        return pd.DataFrame(columns=["stock_code", "price_date", "close", "change", "change_pct", "trade_value_twd", "trade_volume"])
+    work = daily_price.copy()
+    work["stock_code"] = work["stock_code"].astype(str)
+    work["price_date"] = work.get("trade_date").map(as_date) if "trade_date" in work.columns else None
+    if "change_pct" not in work.columns and "change" in work.columns and "close" in work.columns:
+        close_numeric = pd.to_numeric(work["close"], errors="coerce")
+        change_numeric = pd.to_numeric(work["change"], errors="coerce")
+        prev_close = close_numeric - change_numeric
+        denom = prev_close.where(prev_close != 0)
+        work["change_pct"] = change_numeric / denom * 100
+    for col in PRICE_ZERO_FIELDS + ("trade_value_twd", "trade_volume"):
+        if col in work.columns:
+            work[col] = pd.to_numeric(work[col], errors="coerce")
+    cols = [col for col in ["stock_code", "stock_name", "market", "price_date", "close", "change", "change_pct", "trade_value_twd", "trade_volume"] if col in work.columns]
+    return (
+        work[cols]
+        .dropna(subset=["stock_code", "price_date"])
+        .sort_values(["stock_code", "price_date"])
+        .drop_duplicates(["stock_code", "price_date"], keep="last")
+    )
 
 
 def stock_industry_lookup(*frames: pd.DataFrame) -> pd.DataFrame:
@@ -286,7 +431,7 @@ def build_official_sector_records(
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     source_meta = {
         "source": ["TWSE/TPEX official processed data", "FinMind supplemental data when available"],
-        "amount_estimation_method": "institutional shares multiplied by latest available official close; exact official sector amount is not recomputed in frontend",
+        "amount_estimation_method": "institutional shares multiplied by same-date official close when available; frontend only renders precomputed values",
     }
     if sector_flow.empty or "__read_error__" in sector_flow.columns:
         return [], {**source_meta, "status": "error", "message": "sector_flow.parquet unavailable"}
@@ -299,27 +444,104 @@ def build_official_sector_records(
     if sf.empty:
         return [], {**source_meta, "status": "error", "message": "no sector rows on latest date"}
 
+    price_history = build_price_history(daily_price)
     price_lookup = build_price_lookup(daily_price)
+    current_price = price_history[price_history["price_date"] == date].copy() if not price_history.empty else pd.DataFrame()
+    if current_price.empty:
+        current_price = price_lookup.copy()
     industry_lookup = stock_industry_lookup(stock_alpha_breakdown, stock_alpha)
     amount_by_sector: dict[str, float] = {}
+    split_by_sector: dict[str, dict[str, float | None]] = {}
     change_by_sector: dict[str, float] = {}
     trade_value_by_sector: dict[str, float] = {}
+    concentration_by_sector: dict[str, float] = {}
+
+    amount_5d: dict[str, float] = {}
+    amount_20d: dict[str, float] = {}
+    amount_60d: dict[str, float] = {}
+    chg_5d: dict[str, float] = {}
+    chg_20d_calc: dict[str, float] = {}
 
     if not institutional_flow.empty and "stock_code" in institutional_flow.columns:
+        if "trade_date" in institutional_flow.columns:
+            institutional_flow = institutional_flow.dropna(subset=["trade_date"])
         inst = institutional_flow[institutional_flow["trade_date"].map(as_date) == date].copy() if "trade_date" in institutional_flow.columns else institutional_flow.copy()
         if not inst.empty:
-            inst = inst.merge(price_lookup, on="stock_code", how="left", suffixes=("", "_price"))
+            inst = inst.merge(current_price, on="stock_code", how="left", suffixes=("", "_price"))
             inst = inst.merge(industry_lookup[["stock_code", "industry"]], on="stock_code", how="left") if not industry_lookup.empty else inst
+            inst["sector_name"] = inst.get("industry", "未分類").map(normalize_sector_name)
             if "three_party_net_shares" in inst.columns and "close" in inst.columns:
                 inst["amount_yi"] = pd.to_numeric(inst["three_party_net_shares"], errors="coerce") * pd.to_numeric(inst["close"], errors="coerce") / 100_000_000
-                inst["sector_name"] = inst.get("industry", "未分類").map(normalize_sector_name)
                 amount_by_sector = inst.dropna(subset=["sector_name"]).groupby("sector_name")["amount_yi"].sum().to_dict()
+            for sector_name, sector_df in inst.dropna(subset=["sector_name"]).groupby("sector_name"):
+                split_by_sector[str(sector_name)] = {}
+                for col, out_key in [
+                    ("foreign_net_shares", "foreign_net_yi"),
+                    ("trustee_net_shares", "trust_net_yi"),
+                    ("dealer_net_shares", "dealer_net_yi"),
+                ]:
+                    if col in sector_df.columns and "close" in sector_df.columns:
+                        amount_series = (
+                            pd.to_numeric(sector_df[col], errors="coerce")
+                            * pd.to_numeric(sector_df["close"], errors="coerce")
+                            / 100_000_000
+                        ).dropna()
+                        split_by_sector[str(sector_name)][out_key] = round(float(amount_series.sum()), 2) if not amount_series.empty else None
+                    else:
+                        split_by_sector[str(sector_name)][out_key] = None
+                if "three_party_net_shares" in sector_df.columns and "trade_volume" in sector_df.columns:
+                    total_net = abs(pd.to_numeric(sector_df["three_party_net_shares"], errors="coerce").dropna().sum())
+                    total_vol = pd.to_numeric(sector_df["trade_volume"], errors="coerce").dropna().sum()
+                    concentration_by_sector[str(sector_name)] = round(total_net / total_vol * 100, 2) if total_vol > 0 else None
             if "change_pct" in inst.columns:
-                inst["sector_name"] = inst.get("industry", "未分類").map(normalize_sector_name)
                 change_by_sector = inst.dropna(subset=["sector_name"]).groupby("sector_name")["change_pct"].mean().to_dict()
             if "trade_value_twd" in inst.columns:
-                inst["sector_name"] = inst.get("industry", "未分類").map(normalize_sector_name)
                 trade_value_by_sector = inst.dropna(subset=["sector_name"]).groupby("sector_name")["trade_value_twd"].sum().to_dict()
+
+        # Compute accumulated 5d, 20d, 60d flow amounts using institutional_flow history
+        inst_all = institutional_flow.copy()
+        if "trade_date" in inst_all.columns:
+            inst_all = inst_all.dropna(subset=["trade_date"])
+            inst_all["flow_date"] = inst_all["trade_date"].map(as_date)
+        if not price_history.empty and "flow_date" in inst_all.columns:
+            inst_all = inst_all.drop(columns=[col for col in ["close", "change_pct", "price_date"] if col in inst_all.columns])
+            inst_all = inst_all.merge(
+                price_history[["stock_code", "price_date", "close", "change_pct"]],
+                left_on=["stock_code", "flow_date"],
+                right_on=["stock_code", "price_date"],
+                how="left",
+            )
+        elif "close" not in inst_all.columns and not price_lookup.empty:
+            inst_all = inst_all.merge(price_lookup[["stock_code", "close", "change_pct"]], on="stock_code", how="left")
+        if not industry_lookup.empty:
+            inst_all = inst_all.merge(industry_lookup[["stock_code", "industry"]], on="stock_code", how="left")
+        inst_all["sector_name"] = inst_all.get("industry", "未分類").map(normalize_sector_name)
+        if "three_party_net_shares" in inst_all.columns and "close" in inst_all.columns:
+            inst_all["amount_yi"] = pd.to_numeric(inst_all["three_party_net_shares"], errors="coerce") * pd.to_numeric(inst_all["close"], errors="coerce") / 100_000_000
+        else:
+            inst_all["amount_yi"] = pd.NA
+        
+        if "trade_date" in inst_all.columns:
+            inst_all["trade_date"] = pd.to_datetime(inst_all["trade_date"], errors="coerce")
+            inst_all = inst_all.sort_values("trade_date")
+            unique_dates = sorted(inst_all["trade_date"].dropna().unique())
+            
+            d5_dates = unique_dates[-5:]
+            d5_df = inst_all[inst_all["trade_date"].isin(d5_dates)]
+            amount_5d = d5_df.groupby("sector_name")["amount_yi"].sum().to_dict()
+            
+            d20_dates = unique_dates[-20:]
+            d20_df = inst_all[inst_all["trade_date"].isin(d20_dates)]
+            amount_20d = d20_df.groupby("sector_name")["amount_yi"].sum().to_dict()
+            
+            d60_dates = unique_dates[-60:]
+            d60_df = inst_all[inst_all["trade_date"].isin(d60_dates)]
+            amount_60d = d60_df.groupby("sector_name")["amount_yi"].sum().to_dict()
+            
+            if "change_pct" in inst_all.columns:
+                daily_chg = inst_all.groupby(["trade_date", "sector_name"])["change_pct"].mean().reset_index()
+                chg_5d = daily_chg[daily_chg["trade_date"].isin(d5_dates)].groupby("sector_name")["change_pct"].sum().to_dict()
+                chg_20d_calc = daily_chg[daily_chg["trade_date"].isin(d20_dates)].groupby("sector_name")["change_pct"].sum().to_dict()
 
     records: list[dict[str, Any]] = []
     for _, row in sf.iterrows():
@@ -339,19 +561,19 @@ def build_official_sector_records(
             "stock_count": int(to_float(row.get("stock_count")) or 0),
             "net_1d_shares": round_or_none(net_shares, 0),
             "net_1d_yi": round_or_none(amount_by_sector.get(name), 2),
-            "net_5d_yi": None,
-            "net_20d_yi": None,
-            "net_60d_yi": None,
-            "foreign_net_yi": None,
-            "trust_net_yi": None,
-            "dealer_net_yi": None,
+            "net_5d_yi": round_or_none(amount_5d.get(name), 2) if name in amount_5d else None,
+            "net_20d_yi": round_or_none(amount_20d.get(name), 2) if name in amount_20d else None,
+            "net_60d_yi": round_or_none(amount_60d.get(name), 2) if name in amount_60d else None,
+            "foreign_net_yi": round_or_none((split_by_sector.get(name) or {}).get("foreign_net_yi"), 2),
+            "trust_net_yi": round_or_none((split_by_sector.get(name) or {}).get("trust_net_yi"), 2),
+            "dealer_net_yi": round_or_none((split_by_sector.get(name) or {}).get("dealer_net_yi"), 2),
             "flow_rate_5d_pct": round_or_none(flow_rate_5d, 2),
             "flow_rate_20d_pct": round_or_none(flow_rate_20d, 2),
             "accel": round_or_none(accel, 2),
-            "concentration": None,
+            "concentration": round_or_none(concentration_by_sector.get(name), 2) if name in concentration_by_sector else None,
             "chg_1d": round_or_none(change_by_sector.get(name), 2),
-            "chg_5d": None,
-            "chg_20d": round_or_none(chg_20d, 2),
+            "chg_5d": round_or_none(chg_5d.get(name), 2) if name in chg_5d else None,
+            "chg_20d": round_or_none(chg_20d_calc.get(name), 2) if name in chg_20d_calc else round_or_none(chg_20d, 2),
             "relative_strength_20d_pct": round_or_none(relative_strength, 2),
             "trade_value_yi": round_or_none((trade_value_by_sector.get(name) or 0) / 100_000_000, 2) if name in trade_value_by_sector else None,
             "validation_status": row.get("moneydj_validation_status") or "official_pipeline",
@@ -404,11 +626,21 @@ def enrich_sector_scores(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if alpha_score is None:
             strength = percentile_rank([v for v in chg_values if v is not None], chg)
             alpha_score = 100 * (0.5 * flow_rank + 0.3 * strength + 0.2 * accel_rank)
+        
+        pos_val = to_float(row.get("position"))
+        if pos_val is None or math.isnan(pos_val):
+            pos_val = alpha_score
+
+        quadrant = row.get("quadrant")
+        if not quadrant or quadrant in (None, ""):
+            quadrant = infer_position(row)
+
         item = dict(row)
         item["cp_score"] = round_or_none(cp_score, 2)
         item["bottom_score"] = round_or_none(bottom_score, 2)
         item["alpha_score"] = round_or_none(alpha_score, 2)
-        item["position"] = item.get("position") or infer_position(item)
+        item["position"] = round_or_none(pos_val, 2)
+        item["quadrant"] = quadrant
         out.append(item)
     return out
 
@@ -426,7 +658,11 @@ def sector_rotation_payload(reference: dict[str, Any], records: list[dict[str, A
         "records": records,
         "sectors": records,
     })
-    if "market_chg_1d" not in payload:
+    mkt_pct, mkt_down = compute_market_change_pct()
+    if mkt_pct is not None:
+        payload["market_chg_1d"] = mkt_pct
+        payload["is_market_down"] = mkt_down
+    elif "market_chg_1d" not in payload:
         payload["market_chg_1d"] = first_present(reference, ["market_chg_1d", "market_change_pct", "index_change_pct", "taiex_change_pct"]) if reference else None
     if not records:
         payload["message"] = source_meta.get("message") or "資料尚未更新，請稍後再試"
@@ -500,12 +736,15 @@ def build_stock_alpha_records(stock_alpha_breakdown: pd.DataFrame, stock_alpha: 
     score_col = "alpha_score_total" if "alpha_score_total" in frame.columns else "stock_alpha_score" if "stock_alpha_score" in frame.columns else "alpha_score"
     if score_col not in frame.columns:
         frame[score_col] = 0
+    for col in PRICE_ZERO_FIELDS + INSTITUTIONAL_SHARE_FIELDS:
+        if col in frame.columns:
+            frame[col] = pd.to_numeric(frame[col], errors="coerce").fillna(0)
     frame = frame.sort_values(score_col, ascending=False)
 
     records: list[dict[str, Any]] = []
     for _, row in frame.iterrows():
         code = str(row.get("stock_code") or "").strip()
-        if not code:
+        if not code or not is_common_stock_code(code):
             continue
         close = to_float(row.get("close"))
         net_shares = to_float(row.get("three_party_net_shares"))
@@ -531,13 +770,13 @@ def build_stock_alpha_records(stock_alpha_breakdown: pd.DataFrame, stock_alpha: 
             "market": str(row.get("market") or ""),
             "sector_name": sector,
             "industry": sector,
-            "close": round_or_none(close, 2),
-            "change": round_or_none(row.get("change"), 2),
-            "change_pct": round_or_none(row.get("change_pct"), 2),
+            "close": round_or_zero(close, 2),
+            "change": round_or_zero(row.get("change"), 2),
+            "change_pct": round_or_zero(row.get("change_pct"), 2),
             "trade_value_yi": round_or_none(trade_value / 100_000_000, 2) if trade_value is not None else None,
-            "foreign_net_shares": round_or_none(row.get("foreign_net_shares"), 0),
-            "trustee_net_shares": round_or_none(row.get("trustee_net_shares"), 0),
-            "dealer_net_shares": round_or_none(row.get("dealer_net_shares"), 0),
+            "foreign_net_shares": round_or_zero(row.get("foreign_net_shares"), 0),
+            "trustee_net_shares": round_or_zero(row.get("trustee_net_shares"), 0),
+            "dealer_net_shares": round_or_zero(row.get("dealer_net_shares"), 0),
             "three_party_net_shares": round_or_none(net_shares, 0),
             "net_1d_yi": round_or_none(net_amount, 2),
             "stock_alpha_v4": round_or_none(score, 2),
@@ -627,6 +866,212 @@ def make_recommendations_payload(stock_records: list[dict[str, Any]], data_date:
     }
 
 
+def _truthy(value: Any) -> bool:
+    if value is None or (isinstance(value, float) and math.isnan(value)):
+        return False
+    if isinstance(value, str):
+        return value.strip().lower() in {"1", "true", "yes", "y", "是", "有"}
+    return bool(value)
+
+
+def _latest_by_stock(frame: pd.DataFrame) -> dict[str, dict[str, Any]]:
+    if frame.empty or "stock_code" not in frame.columns:
+        return {}
+    work = frame.copy()
+    date_col = next((col for col in ["trade_date", "report_date", "date"] if col in work.columns), None)
+    if date_col:
+        work = work.sort_values(date_col)
+    return {
+        str(row.get("stock_code") or row.get("stock_id") or "").strip(): row.to_dict()
+        for _, row in work.drop_duplicates("stock_code", keep="last").iterrows()
+    }
+
+
+def build_liquidity_lookup(daily_price: pd.DataFrame) -> dict[str, dict[str, float]]:
+    if daily_price.empty or not {"stock_code", "trade_date", "trade_volume"}.issubset(daily_price.columns):
+        return {}
+    work = daily_price.copy()
+    work = work[work["stock_code"].map(is_common_stock_code)]
+    work["trade_date"] = pd.to_datetime(work["trade_date"], errors="coerce")
+    work["trade_volume"] = pd.to_numeric(work["trade_volume"], errors="coerce")
+    work["close"] = pd.to_numeric(work.get("close"), errors="coerce")
+    work = work.dropna(subset=["trade_date", "trade_volume"])
+    lookup: dict[str, dict[str, float]] = {}
+    for code, group in work.sort_values("trade_date").groupby("stock_code"):
+        tail = group.tail(20)
+        if tail.empty:
+            continue
+        volume_20d_lots = float(tail["trade_volume"].mean() / 1000)
+        latest = tail.iloc[-1]
+        lookup[str(code)] = {
+            "Vol_20d": round(volume_20d_lots, 2),
+            "latest_close": round_or_none(latest.get("close"), 2) or 0.0,
+            "trade_value_yi": round_or_none(latest.get("trade_value_twd") / 100_000_000 if to_float(latest.get("trade_value_twd")) is not None else None, 2) or 0.0,
+        }
+    return lookup
+
+
+def build_vcp_lookup(daily_price: pd.DataFrame) -> dict[str, float]:
+    if daily_price.empty or not {"stock_code", "trade_date", "close", "trade_volume"}.issubset(daily_price.columns):
+        return {}
+    work = daily_price.copy()
+    work = work[work["stock_code"].map(is_common_stock_code)]
+    work["trade_date"] = pd.to_datetime(work["trade_date"], errors="coerce")
+    work["close"] = pd.to_numeric(work["close"], errors="coerce")
+    work["trade_volume"] = pd.to_numeric(work["trade_volume"], errors="coerce")
+    work = work.dropna(subset=["trade_date", "close", "trade_volume"])
+    scores: dict[str, float] = {}
+    for code, group in work.sort_values("trade_date").groupby("stock_code"):
+        tail = group.tail(30)
+        if len(tail) < 10:
+            scores[str(code)] = 0.0
+            continue
+        close = tail["close"]
+        latest_close = float(close.iloc[-1])
+        ma5 = float(close.tail(5).mean())
+        ma20 = float(close.tail(20).mean())
+        recent_range = (float(close.tail(10).max()) - float(close.tail(10).min())) / max(latest_close, 1)
+        prev_range = (float(close.head(max(len(close) - 10, 1)).max()) - float(close.head(max(len(close) - 10, 1)).min())) / max(latest_close, 1)
+        volume_multiple = float(tail["trade_volume"].iloc[-1] / max(tail["trade_volume"].tail(20).mean(), 1))
+        breakout = latest_close >= float(close.tail(20).max()) * 0.995 and volume_multiple >= 1.1
+        contraction = recent_range <= max(prev_range * 0.75, 0.02)
+        ma_cluster = abs(ma5 - ma20) / max(latest_close, 1) <= 0.04
+        score = 0.0
+        if breakout:
+            score += 35
+        if contraction:
+            score += 30
+        if ma_cluster:
+            score += 20
+        score += min(max(volume_multiple - 1, 0) * 10, 15)
+        scores[str(code)] = round(min(score, 100), 2)
+    return scores
+
+
+def quant_tags(row: dict[str, Any], fundamentals: dict[str, Any], sentiment: dict[str, Any], vcp_score: float) -> list[str]:
+    tags: list[str] = []
+    if _truthy(fundamentals.get("turnaround")):
+        tags.append("由虧轉盈")
+    if _truthy(fundamentals.get("high_growth")):
+        tags.append("盈餘高成長")
+    if _truthy(fundamentals.get("high_contract_liability")):
+        tags.append("合約負債題材")
+    if (to_float(sentiment.get("sentiment_temperature")) or 0) >= 70:
+        tags.append("情緒過熱")
+    if (to_float(row.get("three_party_net_shares")) or 0) > 0:
+        tags.append("法人連買")
+    if vcp_score >= 55:
+        tags.append("VCP突破")
+    return list(dict.fromkeys(tags))
+
+
+def make_quant_recommendations_payload(
+    stock_records: list[dict[str, Any]],
+    data_date: str | None,
+    fundamentals: pd.DataFrame | None = None,
+    sentiment: pd.DataFrame | None = None,
+) -> dict[str, Any]:
+    daily_price = read_parquet("daily_price.parquet")
+    liquidity = build_liquidity_lookup(daily_price)
+    vcp_lookup = build_vcp_lookup(daily_price)
+    fundamentals_lookup = _latest_by_stock(fundamentals if fundamentals is not None else read_parquet("fundamentals_latest.parquet"))
+    sentiment_lookup = _latest_by_stock(sentiment if sentiment is not None else read_parquet("sentiment_latest.parquet"))
+
+    candidates: list[dict[str, Any]] = []
+    for row in stock_records:
+        code = str(row.get("stock_code") or row.get("stock_id") or "").strip()
+        if not is_common_stock_code(code):
+            continue
+        if "避開" in str(row.get("suggested_status") or ""):
+            continue
+        vol_20d = (liquidity.get(code) or {}).get("Vol_20d")
+        if vol_20d is not None and vol_20d < 1000:
+            continue
+
+        fund = fundamentals_lookup.get(code, {})
+        sent = sentiment_lookup.get(code, {})
+        vcp_score = vcp_lookup.get(code, 0.0)
+        chip = min(max((to_float(row.get("stock_alpha_v4")) or to_float(row.get("alpha_score")) or 0), 0), 100)
+        flow_boost = min(abs(to_float(row.get("three_party_net_shares")) or 0) / 1_000_000, 12)
+        fundamental_score = 0.0
+        if _truthy(fund.get("turnaround")):
+            fundamental_score += 18
+        if _truthy(fund.get("high_growth")):
+            fundamental_score += 14
+        if _truthy(fund.get("high_contract_liability")):
+            fundamental_score += 8
+        sentiment_score = (to_float(sent.get("sentiment_score")) or 0) * 18
+        sentiment_temperature = to_float(sent.get("sentiment_temperature")) or 0.0
+        temperature_boost = min(sentiment_temperature / 100 * 8, 8)
+        alpha_v5 = round(chip * 0.58 + flow_boost + fundamental_score + sentiment_score + temperature_boost + vcp_score * 0.16, 2)
+        tags = quant_tags(row, fund, sent, vcp_score)
+        enriched = {
+            **row,
+            "stock_id": code,
+            "stock_code": code,
+            "Vol_20d": vol_20d,
+            "Alpha_Score_v5": alpha_v5,
+            "alpha_score": alpha_v5,
+            "stock_alpha_v5": alpha_v5,
+            "sentiment_score": round_or_none(sent.get("sentiment_score"), 4),
+            "sentiment_temperature": round_or_none(sentiment_temperature, 2),
+            "mention_count": int(to_float(sent.get("mention_count")) or 0),
+            "vcp_score": round_or_none(vcp_score, 2),
+            "eps_yoy_pct": round_or_none(fund.get("eps_yoy_pct"), 2),
+            "contract_liability_revenue_ratio": round_or_none(fund.get("contract_liability_revenue_ratio"), 4),
+            "tags": tags,
+            "risk_tags": row.get("risk_tags") or [],
+            "suggested_status": "觀察",
+            "reason": build_quant_reason(row, tags, alpha_v5),
+        }
+        candidates.append(enriched)
+
+    ranked = sorted(candidates, key=lambda item: to_float(item.get("Alpha_Score_v5")) or -1, reverse=True)
+    capped: list[dict[str, Any]] = []
+    sector_counts: dict[str, int] = {}
+    for row in ranked:
+        sector = str(row.get("sector_name") or row.get("industry") or "未分類")
+        if sector_counts.get(sector, 0) >= 3:
+            continue
+        sector_counts[sector] = sector_counts.get(sector, 0) + 1
+        row["recommendation_rank"] = len(capped) + 1
+        capped.append(row)
+        if len(capped) >= 50:
+            break
+
+    return {
+        "status": "ok" if capped else "error",
+        "version": "recommendations-v5-quant-sentiment-v1",
+        "data_timestamp": data_date,
+        "as_of_date": data_date,
+        "generated_at": now_iso(),
+        "source": [
+            "stock_alpha_v4_latest.json",
+            "daily_price.parquet liquidity filter",
+            "fundamentals_latest.parquet",
+            "sentiment_latest.parquet",
+        ],
+        "calculation_location": "data_pipeline",
+        "rules": {
+            "min_Vol_20d_lots": 1000,
+            "sector_cap": 3,
+            "recommendation_policy": "observation_only",
+        },
+        "records": capped,
+        "items": capped,
+        "message": None if capped else "沒有股票通過 v5 流動性與量化情緒濾網",
+    }
+
+
+def build_quant_reason(row: dict[str, Any], tags: list[str], alpha_v5: float) -> str:
+    reasons = tags[:3]
+    if alpha_v5 >= 80:
+        reasons.insert(0, "大師綜合評分高")
+    if not reasons:
+        reasons.append(row.get("reason") or "多因子觀察")
+    return " / ".join(str(reason) for reason in reasons if reason)
+
+
 def make_backtest_payload(data_date: str | None) -> dict[str, Any]:
     candidates = ["backtest_alpha_v4.parquet", "backtest_alpha_v3.parquet", "recommendation_backtest.parquet", "factor_effectiveness.parquet"]
     summaries = []
@@ -657,23 +1102,57 @@ def make_backtest_payload(data_date: str | None) -> dict[str, Any]:
 
 def make_chip_payload(stock_records: list[dict[str, Any]], data_date: str | None) -> dict[str, Any]:
     datasets = []
+    margin_df = read_parquet("finmind_margin.parquet")
+    
+    margin_lookup = {}
+    if not margin_df.empty and "__read_error__" not in margin_df.columns:
+        latest_margin_date = latest_date(margin_df, "date") or latest_date(margin_df)
+        if latest_margin_date:
+            latest_df = margin_df[margin_df["date"].map(as_date) == latest_margin_date]
+            for _, r in latest_df.iterrows():
+                sid = str(r.get("stock_id") or "").strip()
+                if sid:
+                    margin_bal = to_float(r.get("MarginPurchaseTodayBalance")) or 0
+                    short_bal = to_float(r.get("ShortSaleTodayBalance")) or 0
+                    ratio = (short_bal / margin_bal) if margin_bal > 0 else 0.0
+                    limit = to_float(r.get("MarginPurchaseLimit"))
+                    
+                    margin_lookup[sid] = {
+                        "trade_date": latest_margin_date,
+                        "margin_purchase_balance_shares": margin_bal,
+                        "short_sale_balance_shares": short_bal,
+                        "margin_purchase_limit_pct": (margin_bal / limit) if limit else 0.0,
+                        "short_sale_margin_purchase_ratio_pct": ratio,
+                    }
+                    
     for name in ["finmind_margin.parquet", "finmind_securities_lending.parquet", "finmind_shareholding.parquet", "finmind_composite_indicators.parquet"]:
         df = read_parquet(name)
         if not df.empty and "__read_error__" not in df.columns:
             datasets.append({"dataset": name, "rows": int(len(df)), "latest_date": latest_date(df, "date") or latest_date(df)})
+            
     records = []
     for row in stock_records[:50]:
+        sid = row.get("stock_id")
+        margin_info = margin_lookup.get(sid, {})
+        
         records.append({
-            "stock_id": row.get("stock_id"),
+            "trade_date": margin_info.get("trade_date") or data_date,
+            "stock_id": sid,
+            "stock_code": sid,
             "stock_name": row.get("stock_name"),
             "sector_name": row.get("sector_name"),
             "alpha_score": row.get("stock_alpha_v4"),
             "foreign_net_shares": row.get("foreign_net_shares"),
             "trustee_net_shares": row.get("trustee_net_shares"),
             "dealer_net_shares": row.get("dealer_net_shares"),
+            "margin_purchase_balance_shares": margin_info.get("margin_purchase_balance_shares"),
+            "short_sale_balance_shares": margin_info.get("short_sale_balance_shares"),
+            "margin_purchase_limit_pct": margin_info.get("margin_purchase_limit_pct"),
+            "short_sale_margin_purchase_ratio_pct": margin_info.get("short_sale_margin_purchase_ratio_pct"),
             "risk_tags": row.get("risk_tags") or [],
-            "source": "stock_alpha_v4 chip proxy; FinMind chip datasets listed separately when available",
+            "source": "FinMind margin dataset joined with stock_alpha_v4",
         })
+        
     return {
         "status": "ok" if records else "warning",
         "version": "chip-analysis-formal-v1",
@@ -729,6 +1208,67 @@ def write_json(name: str, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(json_clean(payload), ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
 
 
+def repair_existing_public_jsons() -> dict[str, int]:
+    repaired: dict[str, int] = {}
+
+    market_path = PUBLIC_DATA / "market_latest.json"
+    if market_path.exists():
+        market = read_json(market_path)
+        market_records = market.get("records", [])
+        changed = 0
+        if isinstance(market_records, list):
+            for row in market_records:
+                if not isinstance(row, dict):
+                    continue
+                close = to_float(row.get("close"))
+                change = to_float(row.get("change"))
+                if close is not None and change is not None and to_float(row.get("change_pct")) is None:
+                    prev = close - change
+                    if prev:
+                        row["change_pct"] = round(change / prev * 100, 2)
+                        changed += 1
+        if changed:
+            write_json("market_latest.json", market)
+            repaired["market_latest.json"] = changed
+
+    constituents_path = PUBLIC_DATA / "sector_constituents_latest.json"
+    if constituents_path.exists():
+        payload = read_json(constituents_path)
+        records = payload.get("records", [])
+        if isinstance(records, list):
+            filtered = [
+                row for row in records
+                if isinstance(row, dict) and is_common_stock_code(row.get("stock_code"))
+            ]
+            removed = len(records) - len(filtered)
+            changed = removed
+            if changed:
+                payload["records"] = filtered
+                if isinstance(payload.get("items"), list):
+                    items = [
+                        row for row in payload["items"]
+                        if isinstance(row, dict) and is_common_stock_code(row.get("stock_code"))
+                    ]
+                    payload["items"] = items
+                write_json("sector_constituents_latest.json", payload)
+                repaired["sector_constituents_latest.json"] = changed
+
+    recommendations_path = PUBLIC_DATA / "recommendations_latest.json"
+    if recommendations_path.exists():
+        payload = read_json(recommendations_path)
+        records = payload.get("records", [])
+        if isinstance(records, list):
+            changed = fill_recommendation_backtest_stats(records)
+            if changed:
+                payload["records"] = records
+                if isinstance(payload.get("items"), list):
+                    fill_recommendation_backtest_stats(payload["items"])
+                write_json("recommendations_latest.json", payload)
+                repaired["recommendations_latest.json"] = changed
+
+    return repaired
+
+
 def update_quality_report(generated: dict[str, dict[str, Any]]) -> None:
     report = read_json(QUALITY_PATH)
     if not isinstance(report, dict):
@@ -752,9 +1292,16 @@ def main() -> int:
     reference_records = extract_reference_sectors(reference) if reference else []
     official_records, source_meta = build_official_sector_records(sector_flow, institutional_flow, daily_price, stock_alpha_breakdown, stock_alpha)
 
-    records = reference_records or official_records
-    data_date = first_present(reference, ["data_timestamp", "as_of_date", "date", "source_updated_at"]) if reference else None
-    data_date = as_date(data_date) or latest_date(sector_flow) or latest_date(institutional_flow)
+    official_date = latest_date(sector_flow) or latest_date(institutional_flow)
+    ref_date = as_date(first_present(reference, ["data_timestamp", "as_of_date", "date", "source_updated_at"])) if reference else None
+
+    if official_records and (not ref_date or (official_date and official_date >= ref_date)):
+        records = official_records
+        data_date = official_date
+    else:
+        records = reference_records or official_records
+        data_date = ref_date or official_date
+
     records = enrich_sector_scores(records)
 
     stock_records, stock_date, stock_source = build_stock_alpha_records(stock_alpha_breakdown, stock_alpha)
@@ -769,9 +1316,12 @@ def main() -> int:
     }
     recommendations_payload = make_recommendations_payload(stock_records, stock_date)
     payloads["recommendations_v4_latest.json"] = recommendations_payload
+    quant_recommendations_payload = make_quant_recommendations_payload(stock_records, stock_date)
+    payloads["recommendations_v5_latest.json"] = quant_recommendations_payload
+    payloads["recommendations_latest.json"] = quant_recommendations_payload
     payloads["backtest_v4_summary.json"] = make_backtest_payload(stock_date or unified_date)
     payloads["chip_analysis_latest.json"] = make_chip_payload(stock_records, stock_date)
-    payloads["watchlist_latest.json"] = make_watchlist_payload(recommendations_payload.get("records", []), stock_date)
+    payloads["watchlist_latest.json"] = make_watchlist_payload(quant_recommendations_payload.get("records", []), stock_date)
 
     generated_meta: dict[str, dict[str, Any]] = {}
     for filename, payload in payloads.items():
@@ -780,6 +1330,15 @@ def main() -> int:
             "status": payload.get("status"),
             "data_timestamp": payload.get("data_timestamp"),
             "records": len(payload.get("records") or payload.get("items") or []),
+        }
+    repaired_public = repair_existing_public_jsons()
+    for filename, changed in repaired_public.items():
+        payload = read_json(PUBLIC_DATA / filename)
+        generated_meta[filename] = {
+            "status": payload.get("status") or "ok",
+            "data_timestamp": payload.get("data_timestamp") or payload.get("as_of_date"),
+            "records": len(payload.get("records") or payload.get("items") or []),
+            "repaired_records": changed,
         }
 
     futures_path = PUBLIC_DATA / "futures_after_hours_latest.json"

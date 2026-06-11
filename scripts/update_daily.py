@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
+import re
 import shutil
 import sys
 from datetime import date, datetime, time, timedelta
@@ -25,6 +27,7 @@ from src.modules.trend_builder import write_top_recommendation_trends
 LOGGER = logging.getLogger("update_daily")
 TAIPEI_TZ = ZoneInfo("Asia/Taipei")
 MARKET_DATA_READY_TIME = time(20, 30)
+DEFAULT_TREND_TOP_N = 100
 
 MERGE_KEYS: dict[str, list[str]] = {
     "daily_price": ["trade_date", "market", "stock_code"],
@@ -40,6 +43,13 @@ MERGE_KEYS: dict[str, list[str]] = {
     "recommendations": ["trade_date", "market", "stock_code"],
     "index": ["trade_date", "market", "index_name"],
 }
+
+
+def _trend_top_n() -> int:
+    try:
+        return max(0, int(os.environ.get("TREND_TOP_N", DEFAULT_TREND_TOP_N)))
+    except (TypeError, ValueError):
+        return DEFAULT_TREND_TOP_N
 
 
 def _previous_weekday(d: date) -> date:
@@ -105,7 +115,31 @@ def _records(
     ]
 
 
-def _merge_frame(existing: pd.DataFrame, incoming: pd.DataFrame, keys: list[str]) -> pd.DataFrame:
+def _is_common_stock_code(value: Any) -> bool:
+    return bool(re.match(r"^\d{4}$", str(value or "").strip()))
+
+
+def _clean_processed_frame(dataset_name: str, df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return df.copy()
+    out = df.copy()
+    if "trade_date" in out.columns:
+        out["trade_date"] = pd.to_datetime(out["trade_date"], errors="coerce")
+        out = out.dropna(subset=["trade_date"])
+    if dataset_name == "daily_price" and "stock_code" in out.columns:
+        out = out[out["stock_code"].map(_is_common_stock_code)].copy()
+    return out.reset_index(drop=True)
+
+
+def _merge_frame(
+    existing: pd.DataFrame,
+    incoming: pd.DataFrame,
+    keys: list[str],
+    dataset_name: str | None = None,
+) -> pd.DataFrame:
+    if dataset_name:
+        existing = _clean_processed_frame(dataset_name, existing)
+        incoming = _clean_processed_frame(dataset_name, incoming)
     if incoming.empty:
         return existing.copy()
     if existing.empty:
@@ -117,6 +151,7 @@ def _merge_frame(existing: pd.DataFrame, incoming: pd.DataFrame, keys: list[str]
             merged[col] = pd.NA
     if "trade_date" in merged.columns:
         merged["trade_date"] = pd.to_datetime(merged["trade_date"], errors="coerce")
+        merged = merged.dropna(subset=["trade_date"])
     merged = merged.drop_duplicates(keys, keep="last")
     sort_cols = [c for c in ["trade_date", "market", "stock_code", "industry", "index_name"] if c in merged.columns]
     if sort_cols:
@@ -134,7 +169,7 @@ def _merge_processed(tmp_root: Path, processed_root: Path) -> None:
         incoming = pd.read_parquet(incoming_path)
         existing_path = processed_root / f"{name}.parquet"
         existing = pd.read_parquet(existing_path) if existing_path.exists() else pd.DataFrame()
-        merged = _merge_frame(existing, incoming, keys)
+        merged = _merge_frame(existing, incoming, keys, dataset_name=name)
         merged.to_parquet(existing_path, index=False)
         LOGGER.info("merged %s rows=%s", name, len(merged))
 
@@ -148,6 +183,57 @@ def _merge_processed(tmp_root: Path, processed_root: Path) -> None:
         src = tmp_root / f"{latest_only_name}.parquet"
         if src.exists():
             shutil.copy2(src, processed_root / f"{latest_only_name}.parquet")
+
+
+def _fill_market_change_pct(records: list[dict[str, Any]]) -> int:
+    changed = 0
+    for row in records:
+        close = row.get("close")
+        change = row.get("change")
+        if close is None or change is None or row.get("change_pct") is not None:
+            continue
+        prev = close - change
+        if prev:
+            row["change_pct"] = round(change / prev * 100, 2)
+            changed += 1
+    return changed
+
+
+def _load_factor_stats(public_root: Path) -> dict[str, dict[str, float]]:
+    path = public_root / "data" / "factor_effectiveness.json"
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    stats: dict[str, dict[str, float]] = {}
+    for row in payload.get("records", []):
+        if row.get("factor") != "alpha_score_total":
+            continue
+        sector = str(row.get("sector") or "").strip()
+        if not sector:
+            continue
+        stats[sector] = {
+            "win_rate": float(row.get("win_rate") if row.get("win_rate") is not None else 0.5),
+            "max_drawdown": float(row.get("max_drawdown") if row.get("max_drawdown") is not None else -0.15),
+        }
+    return stats
+
+
+def _fill_recommendation_backtest_stats(records: list[dict[str, Any]], public_root: Path) -> int:
+    stats_by_sector = _load_factor_stats(public_root)
+    changed = 0
+    for row in records:
+        if row.get("model_win_rate") is not None:
+            continue
+        sector = str(row.get("industry") or row.get("sector_name") or "").strip()
+        stats = stats_by_sector.get(sector, {"win_rate": 0.50, "max_drawdown": -0.15})
+        row["model_win_rate"] = stats["win_rate"]
+        row["model_max_drawdown"] = stats["max_drawdown"]
+        row["backtest_status"] = "產業統計估算"
+        changed += 1
+    return changed
 
 
 def _write_public_json(processed_root: Path, public_root: Path) -> None:
@@ -190,6 +276,8 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
         if c in stock_alpha.columns
     ]
     sector_constituents = stock_alpha[sector_constituents_cols].copy()
+    if not sector_constituents.empty and "stock_code" in sector_constituents.columns:
+        sector_constituents = sector_constituents[sector_constituents["stock_code"].map(_is_common_stock_code)].copy()
     if not sector_constituents.empty and "three_party_net_shares" in sector_constituents.columns:
         sector_constituents["three_party_net_shares"] = pd.to_numeric(
             sector_constituents["three_party_net_shares"], errors="coerce"
@@ -200,11 +288,16 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
             na_position="last",
         )
 
+    market_records = _records(index_df, as_of_date=as_of_date)
+    _fill_market_change_pct(market_records)
+    recommendation_records = _records(recommendations, as_of_date=as_of_date)
+    _fill_recommendation_backtest_stats(recommendation_records, public_root)
+
     outputs = {
         "market_latest.json": {
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "as_of_date": _json_ready(as_of_date),
-            "records": _records(index_df, as_of_date=as_of_date),
+            "records": market_records,
         },
         "sector_latest.json": {
             "generated_at": datetime.now().isoformat(timespec="seconds"),
@@ -255,7 +348,7 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
         "recommendations_latest.json": {
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "as_of_date": _json_ready(as_of_date),
-            "records": _records(recommendations, as_of_date=as_of_date),
+            "records": recommendation_records,
         },
     }
     for filename, payload in outputs.items():
@@ -265,7 +358,7 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
     trend_paths = write_top_recommendation_trends(
         processed_root=processed_root,
         public_root=public_root,
-        top_n=10,
+        top_n=_trend_top_n(),
     )
     LOGGER.info("wrote %s recommendation trend files", len(trend_paths))
 

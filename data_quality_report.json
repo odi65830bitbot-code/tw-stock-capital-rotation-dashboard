@@ -1,35 +1,35 @@
 {
-  "generated_at": "2026-06-09",
-  "expected_trade_date": "2026-06-09",
-  "status": "fail",
+  "generated_at": "2026-06-11",
+  "expected_trade_date": "2026-06-10",
+  "status": "pass",
   "checks": [
     {
       "name": "recent_trading_date",
       "status": "pass",
-      "message": "最新資料日為 2026-06-09",
+      "message": "最新資料日為 2026-06-10",
       "details": {
-        "latest_date": "2026-06-09",
-        "expected_date": "2026-06-09"
+        "latest_date": "2026-06-10",
+        "expected_date": "2026-06-10"
       }
     },
     {
       "name": "market_date_alignment",
-      "status": "fail",
-      "message": "daily_price: TWSE/TPEX 最新資料日期不一致",
+      "status": "pass",
+      "message": "daily_price: TWSE/TPEX 同步日期 2026-06-10",
       "details": {
         "latest_by_market": {
-          "TWSE": "2017-12-18",
-          "TPEX": "2026-06-09"
+          "TWSE": "2026-06-10",
+          "TPEX": "2026-06-10"
         },
-        "expected_date": "2026-06-09"
+        "expected_date": "2026-06-10"
       }
     },
     {
       "name": "reasonable_row_count",
       "status": "pass",
-      "message": "daily_price 筆數合理：11229",
+      "message": "daily_price 筆數合理：11573",
       "details": {
-        "rows": 11229
+        "rows": 11573
       }
     },
     {
@@ -79,30 +79,30 @@
     {
       "name": "recent_trading_date",
       "status": "pass",
-      "message": "最新資料日為 2026-06-09",
+      "message": "最新資料日為 2026-06-10",
       "details": {
-        "latest_date": "2026-06-09",
-        "expected_date": "2026-06-09"
+        "latest_date": "2026-06-10",
+        "expected_date": "2026-06-10"
       }
     },
     {
       "name": "market_date_alignment",
       "status": "pass",
-      "message": "institutional_flow: TWSE/TPEX 同步日期 2026-06-09",
+      "message": "institutional_flow: TWSE/TPEX 同步日期 2026-06-10",
       "details": {
         "latest_by_market": {
-          "TWSE": "2026-06-09",
-          "TPEX": "2026-06-09"
+          "TWSE": "2026-06-10",
+          "TPEX": "2026-06-10"
         },
-        "expected_date": "2026-06-09"
+        "expected_date": "2026-06-10"
       }
     },
     {
       "name": "reasonable_row_count",
       "status": "pass",
-      "message": "institutional_flow 筆數合理：14429",
+      "message": "institutional_flow 筆數合理：14946",
       "details": {
-        "rows": 14429
+        "rows": 14946
       }
     },
     {
@@ -165,22 +165,22 @@
     {
       "name": "recent_trading_date",
       "status": "pass",
-      "message": "最新資料日為 2026-06-09",
+      "message": "最新資料日為 2026-06-10",
       "details": {
-        "latest_date": "2026-06-09",
-        "expected_date": "2026-06-09"
+        "latest_date": "2026-06-10",
+        "expected_date": "2026-06-10"
       }
     },
     {
       "name": "market_date_alignment",
       "status": "pass",
-      "message": "institutional_amount: TWSE/TPEX 同步日期 2026-06-09",
+      "message": "institutional_amount: TWSE/TPEX 同步日期 2026-06-10",
       "details": {
         "latest_by_market": {
-          "TWSE": "2026-06-09",
-          "TPEX": "2026-06-09"
+          "TWSE": "2026-06-10",
+          "TPEX": "2026-06-10"
         },
-        "expected_date": "2026-06-09"
+        "expected_date": "2026-06-10"
       }
     },
     {
@@ -255,9 +255,9 @@
     {
       "name": "reasonable_row_count",
       "status": "pass",
-      "message": "sector_flow 筆數合理：44",
+      "message": "sector_flow 筆數合理：42",
       "details": {
-        "rows": 44
+        "rows": 42
       }
     },
     {
@@ -282,10 +282,10 @@
     {
       "name": "recommendation_engine",
       "status": "pass",
-      "message": "推薦引擎候選清單 74 筆，Alpha 拆解 10211 筆",
+      "message": "推薦引擎候選清單 219 筆，Alpha 拆解 11573 筆",
       "details": {
-        "recommendation_rows": 74,
-        "alpha_breakdown_rows": 10211,
+        "recommendation_rows": 219,
+        "alpha_breakdown_rows": 11573,
         "backtest_rows": 2,
         "revenue_data_available": false,
         "financial_quality_data_available": false,
@@ -334,78 +334,90 @@
     "note": "MoneyDJ and FinMind are stored and displayed only as supplemental context; they do not replace failed official data."
   },
   "daily_update": {
-    "target_date": "2026-06-09",
-    "log_path": "/Users/maxyu/Documents/台股資金網站/logs/update_20260609.log",
+    "target_date": "2026-06-10",
+    "log_path": "/Users/maxyu/Documents/台股資金網站/logs/update_20260610.log",
     "public_data_root": "/Users/maxyu/Documents/台股資金網站/public/data",
     "trend_scope": "recommendation_top_10_only"
   },
-  "futures_after_hours": {
-    "status": "ok",
-    "generated_at": "2026-06-10T18:23:55",
-    "dataset": "TaiwanFuturesDaily",
-    "futures_id": "TX",
-    "trading_session": "after_market",
-    "row_count": 283,
-    "latest_date": "2026-06-10",
-    "warnings": [
-      "institutional after-hours unavailable: RuntimeError: FinMind request failed after retries: 400 Client Error: Bad Request for url: https://api.finmindtrade.com/api/v4/data?dataset=TaiwanFuturesInstitutionalInvestorsAfterHours&data_id=TX&start_date=2026-05-11&end_date=2026-06-10"
-    ],
-    "errors": []
-  },
   "formal_dashboard_json": {
     "status": "ok",
-    "generated_at": "2026-06-10T08:06:22+08:00",
+    "generated_at": "2026-06-11T15:44:17+08:00",
     "files": {
       "sector_rotation_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
-        "records": 78
+        "data_timestamp": "2026-06-10",
+        "records": 42
       },
       "cp_ranking_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
-        "records": 78
+        "data_timestamp": "2026-06-10",
+        "records": 42
       },
       "bottom_fishing_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
-        "records": 78
+        "data_timestamp": "2026-06-10",
+        "records": 42
       },
       "sector_alpha_score.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
-        "records": 78
+        "data_timestamp": "2026-06-10",
+        "records": 42
       },
       "stock_alpha_v4_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
-        "records": 10211
+        "data_timestamp": "2026-06-10",
+        "records": 1977
       },
       "recommendations_v4_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
+        "data_timestamp": "2026-06-10",
         "records": 50
+      },
+      "recommendations_v5_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-10",
+        "records": 50
+      },
+      "recommendations_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-10",
+        "records": 50,
+        "repaired_records": 50
       },
       "backtest_v4_summary.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
+        "data_timestamp": "2026-06-10",
         "records": 3
       },
       "chip_analysis_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
+        "data_timestamp": "2026-06-10",
         "records": 50
       },
       "watchlist_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-09",
+        "data_timestamp": "2026-06-10",
         "records": 20
       },
       "futures_after_hours_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-06-10",
-        "records": 23
+        "data_timestamp": "2026-06-11T15:43:58",
+        "records": 24
       }
     }
+  },
+  "futures_after_hours": {
+    "status": "ok",
+    "generated_at": "2026-06-11T15:43:58",
+    "dataset": "TaiwanFuturesDaily",
+    "futures_id": "TX",
+    "trading_session": "after_market",
+    "row_count": 297,
+    "latest_date": "2026-06-11",
+    "institutional_status": "permission_or_plan_required",
+    "warnings": [
+      "institutional after-hours unavailable: RuntimeError: FinMind request failed after retries: HTTP 400: Your level is register. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor"
+    ],
+    "errors": []
   }
 }

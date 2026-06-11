@@ -9,6 +9,9 @@ import pandas as pd
 from src.data.trading_calendar import latest_complete_trade_date
 
 
+DEFAULT_TREND_TOP_N = 100
+
+
 def _latest_date(df: pd.DataFrame) -> pd.Timestamp | None:
     if df.empty or "trade_date" not in df.columns:
         return None
@@ -44,7 +47,7 @@ def _records(df: pd.DataFrame) -> list[dict[str, Any]]:
 def top_recommendation_codes(
     recommendations: pd.DataFrame,
     *,
-    top_n: int = 10,
+    top_n: int = DEFAULT_TREND_TOP_N,
     as_of_date: pd.Timestamp | None = None,
 ) -> list[str]:
     if recommendations.empty:
@@ -53,12 +56,34 @@ def top_recommendation_codes(
     rec["trade_date"] = pd.to_datetime(rec["trade_date"], errors="coerce")
     latest = pd.to_datetime(as_of_date) if as_of_date is not None else rec["trade_date"].max()
     rec = rec[rec["trade_date"] == latest].copy()
-    if "is_top_overall" in rec.columns:
-        top = rec[rec["is_top_overall"].astype(bool)].copy()
-        if not top.empty:
-            rec = top
     rec = rec.sort_values(["overall_rank", "alpha_score_total"], ascending=[True, False], na_position="last")
     return rec["stock_code"].astype(str).drop_duplicates().head(top_n).tolist()
+
+
+def _latest_price_universe_codes(
+    daily_price: pd.DataFrame,
+    recommendations: pd.DataFrame,
+    *,
+    top_n: int = DEFAULT_TREND_TOP_N,
+    as_of_date: pd.Timestamp | None = None,
+) -> list[str]:
+    if top_n <= 0:
+        return []
+    if daily_price.empty or "stock_code" not in daily_price.columns or "trade_date" not in daily_price.columns:
+        return top_recommendation_codes(recommendations, top_n=top_n, as_of_date=as_of_date)
+
+    price = daily_price.copy()
+    price["trade_date"] = pd.to_datetime(price["trade_date"], errors="coerce")
+    latest = pd.to_datetime(as_of_date) if as_of_date is not None else price["trade_date"].max()
+    latest_price = price[price["trade_date"] == latest].copy()
+    if latest_price.empty:
+        return []
+
+    universe = latest_price["stock_code"].astype(str).drop_duplicates().tolist()
+    recommended = top_recommendation_codes(recommendations, top_n=top_n, as_of_date=latest)
+    ordered = [code for code in recommended if code in set(universe)]
+    ordered.extend(code for code in universe if code not in set(ordered))
+    return ordered[:top_n]
 
 
 def build_stock_trend(
@@ -204,7 +229,7 @@ def write_top_recommendation_trends(
     *,
     processed_root: Path,
     public_root: Path,
-    top_n: int = 10,
+    top_n: int = DEFAULT_TREND_TOP_N,
 ) -> list[Path]:
     processed_root = Path(processed_root)
     public_root = Path(public_root)
@@ -220,7 +245,7 @@ def write_top_recommendation_trends(
         stale.unlink()
     written: list[Path] = []
     as_of_date = latest_complete_trade_date(daily_price)
-    for stock_id in top_recommendation_codes(recommendations, top_n=top_n, as_of_date=as_of_date):
+    for stock_id in _latest_price_universe_codes(daily_price, recommendations, top_n=top_n, as_of_date=as_of_date):
         payload = build_stock_trend(
             stock_id,
             daily_price,

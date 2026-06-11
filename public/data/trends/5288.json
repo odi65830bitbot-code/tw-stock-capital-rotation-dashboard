@@ -1,0 +1,156 @@
+{
+  "stock_id": "5288",
+  "stock_name": "豐祥-KY",
+  "market": "TWSE",
+  "industry": "電機機械",
+  "generated_at": "2026-06-11T15:44:17",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 166.5,
+      "ma5": 166.5,
+      "ma20": 166.5,
+      "ma60": 166.5
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 171.5,
+      "ma5": 169.0,
+      "ma20": 169.0,
+      "ma60": 169.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 176.0,
+      "ma5": 171.33333333333334,
+      "ma20": 171.33333333333334,
+      "ma60": 171.33333333333334
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 184.5,
+      "ma5": 174.625,
+      "ma20": 174.625,
+      "ma60": 174.625
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 16035839.0,
+      "trade_value_ma20": 16035839.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 62596991.0,
+      "trade_value_ma20": 39316415.0,
+      "trade_value_multiple": 1.5921337436284564
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 95408573.0,
+      "trade_value_ma20": 58013801.0,
+      "trade_value_multiple": 1.644584070607613
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 199068815.0,
+      "trade_value_ma20": 93277554.5,
+      "trade_value_multiple": 2.134155596885851
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-05",
+      "foreign_net_shares": 10000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -2000.0,
+      "foreign_5d": 10000.0,
+      "foreign_20d": 10000.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -2000.0,
+      "dealer_20d": -2000.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": 122403.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 0.0,
+      "foreign_5d": 132403.0,
+      "foreign_20d": 132403.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -2000.0,
+      "dealer_20d": -2000.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "foreign_net_shares": 240000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -1000.0,
+      "foreign_5d": 372403.0,
+      "foreign_20d": 372403.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -3000.0,
+      "dealer_20d": -3000.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "foreign_net_shares": 307085.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -1195.0,
+      "foreign_5d": 679488.0,
+      "foreign_20d": 679488.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -4195.0,
+      "dealer_20d": -4195.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 830.1769314585171,
+      "alpha_score_total": 19.31803409303997,
+      "sector_alpha_score": 905.4878621083863,
+      "main_buy_component": 34.81203007518797,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 3290.350155642651,
+      "alpha_score_total": 71.31253924338979,
+      "sector_alpha_score": 1471.402440040674,
+      "main_buy_component": 84.86842105263158,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 4420.8419576746,
+      "alpha_score_total": 70.799716151087,
+      "sector_alpha_score": 1702.0156328124528,
+      "main_buy_component": 90.92904169714704,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 2815.012911383552,
+      "alpha_score_total": 69.41211130344004,
+      "sector_alpha_score": 1163.0566000261701,
+      "main_buy_component": 78.12960235640648,
+      "risk_penalty": 0.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-08",
+    "recommend_close": 171.5,
+    "current_price": 184.5,
+    "post_recommend_return": 0.07580174927113692,
+    "post_recommend_max_drawdown": 0.0,
+    "post_recommend_max_gain": 0.07580174927113692,
+    "still_recommended": true
+  }
+}

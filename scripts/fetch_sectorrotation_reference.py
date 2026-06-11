@@ -69,11 +69,37 @@ def _records_from_reference(payload: dict[str, Any]) -> tuple[pd.DataFrame, pd.D
     return pd.DataFrame(sector_rows), pd.DataFrame(stock_rows)
 
 
+def _write_unavailable(reason: str) -> None:
+    public_dir = ROOT / "public" / "data"
+    public_dir.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "source": URL,
+        "status": "unavailable",
+        "reason": reason,
+        "as_of_date": None,
+        "market_chg_1d": None,
+        "is_market_down": None,
+        "sectors": [],
+        "stock_data": [],
+    }
+    (public_dir / "sectorrotation_latest.json").write_text(
+        json.dumps(_json_safe(payload), ensure_ascii=False, indent=2, allow_nan=False),
+        encoding="utf-8",
+    )
+
+
 def main() -> int:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
-    resp = requests.get(URL, timeout=30, verify=False)
-    resp.raise_for_status()
-    payload = resp.json()
+    try:
+        resp = requests.get(URL, timeout=30, verify=False)
+        resp.raise_for_status()
+        payload = resp.json()
+    except Exception as exc:
+        reason = f"{type(exc).__name__}: {exc}"
+        _write_unavailable(reason)
+        LOGGER.warning("sectorrotation reference unavailable: %s", reason)
+        return 0
 
     date_value = str(payload.get("date") or datetime.now().date().isoformat())
     day_key = date_value.replace("-", "")
@@ -93,6 +119,7 @@ def main() -> int:
     public_payload = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "source": URL,
+        "status": "ok",
         "source_updated_at": payload.get("updated_at"),
         "as_of_date": payload.get("date"),
         "market_chg_1d": payload.get("market_chg_1d"),

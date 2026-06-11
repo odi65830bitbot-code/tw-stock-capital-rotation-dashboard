@@ -1,0 +1,156 @@
+{
+  "stock_id": "2892",
+  "stock_name": "第一金",
+  "market": "TWSE",
+  "industry": "金融保險業",
+  "generated_at": "2026-06-11T15:44:16",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 29.3,
+      "ma5": 29.3,
+      "ma20": 29.3,
+      "ma60": 29.3
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 29.1,
+      "ma5": 29.200000000000003,
+      "ma20": 29.200000000000003,
+      "ma60": 29.200000000000003
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 30.5,
+      "ma5": 29.633333333333336,
+      "ma20": 29.633333333333336,
+      "ma60": 29.633333333333336
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 30.55,
+      "ma5": 29.8625,
+      "ma20": 29.8625,
+      "ma60": 29.8625
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 1677763858.0,
+      "trade_value_ma20": 1677763858.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 1470323559.0,
+      "trade_value_ma20": 1574043708.5,
+      "trade_value_multiple": 0.9341059279739816
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 2992834042.0,
+      "trade_value_ma20": 2046973819.6666667,
+      "trade_value_multiple": 1.4620773422922229
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 2085900220.0,
+      "trade_value_ma20": 2056705419.75,
+      "trade_value_multiple": 1.0141949352443234
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-05",
+      "foreign_net_shares": -9224607.0,
+      "trustee_net_shares": 53380.0,
+      "dealer_net_shares": -10300.0,
+      "foreign_5d": -9224607.0,
+      "foreign_20d": -9224607.0,
+      "trust_5d": 53380.0,
+      "trust_20d": 53380.0,
+      "dealer_5d": -10300.0,
+      "dealer_20d": -10300.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": 1092161.0,
+      "trustee_net_shares": 974000.0,
+      "dealer_net_shares": 146693.0,
+      "foreign_5d": -8132446.0,
+      "foreign_20d": -8132446.0,
+      "trust_5d": 1027380.0,
+      "trust_20d": 1027380.0,
+      "dealer_5d": 136393.0,
+      "dealer_20d": 136393.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "foreign_net_shares": 64068049.0,
+      "trustee_net_shares": 12000.0,
+      "dealer_net_shares": -979.0,
+      "foreign_5d": 55935603.0,
+      "foreign_20d": 55935603.0,
+      "trust_5d": 1039380.0,
+      "trust_20d": 1039380.0,
+      "dealer_5d": 135414.0,
+      "dealer_20d": 135414.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "foreign_net_shares": 30117355.0,
+      "trustee_net_shares": 20068.0,
+      "dealer_net_shares": 263861.0,
+      "foreign_5d": 86052958.0,
+      "foreign_20d": 86052958.0,
+      "trust_5d": 1059448.0,
+      "trust_20d": 1059448.0,
+      "dealer_5d": 399275.0,
+      "dealer_20d": 399275.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 1602.2702452615417,
+      "alpha_score_total": 67.96546273571103,
+      "sector_alpha_score": 1731.3652510735938,
+      "main_buy_component": 57.669172932330824,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 434.22363227210684,
+      "alpha_score_total": 71.10540673506512,
+      "sector_alpha_score": 1734.7951927243626,
+      "main_buy_component": 20.833333333333336,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 6451.035202314014,
+      "alpha_score_total": 88.8949228493918,
+      "sector_alpha_score": 3205.5408792880944,
+      "main_buy_component": 97.87856620336504,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 4458.159157185413,
+      "alpha_score_total": 84.14703882238913,
+      "sector_alpha_score": 1679.7122257924307,
+      "main_buy_component": 92.26804123711341,
+      "risk_penalty": 0.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-08",
+    "recommend_close": 29.1,
+    "current_price": 30.55,
+    "post_recommend_return": 0.04982817869415812,
+    "post_recommend_max_drawdown": 0.0,
+    "post_recommend_max_gain": 0.04982817869415812,
+    "still_recommended": true
+  }
+}

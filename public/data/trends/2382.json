@@ -1,0 +1,156 @@
+{
+  "stock_id": "2382",
+  "stock_name": "廣達",
+  "market": "TWSE",
+  "industry": "電腦及週邊設備業",
+  "generated_at": "2026-06-11T15:44:17",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 390.5,
+      "ma5": 390.5,
+      "ma20": 390.5,
+      "ma60": 390.5
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 376.5,
+      "ma5": 383.5,
+      "ma20": 383.5,
+      "ma60": 383.5
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 375.0,
+      "ma5": 380.6666666666667,
+      "ma20": 380.6666666666667,
+      "ma60": 380.6666666666667
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 380.5,
+      "ma5": 380.625,
+      "ma20": 380.625,
+      "ma60": 380.625
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 26800935999.0,
+      "trade_value_ma20": 26800935999.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 23380295756.0,
+      "trade_value_ma20": 25090615877.5,
+      "trade_value_multiple": 0.9318342710338279
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 19194660173.0,
+      "trade_value_ma20": 23125297309.333332,
+      "trade_value_multiple": 0.8300286874691581
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 17149734820.0,
+      "trade_value_ma20": 21631406687.0,
+      "trade_value_multiple": 0.7928164389931522
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-05",
+      "foreign_net_shares": -21411443.0,
+      "trustee_net_shares": 19824766.0,
+      "dealer_net_shares": 90756.0,
+      "foreign_5d": -21411443.0,
+      "foreign_20d": -21411443.0,
+      "trust_5d": 19824766.0,
+      "trust_20d": 19824766.0,
+      "dealer_5d": 90756.0,
+      "dealer_20d": 90756.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": -16265182.0,
+      "trustee_net_shares": 17760000.0,
+      "dealer_net_shares": 147332.0,
+      "foreign_5d": -37676625.0,
+      "foreign_20d": -37676625.0,
+      "trust_5d": 37584766.0,
+      "trust_20d": 37584766.0,
+      "dealer_5d": 238088.0,
+      "dealer_20d": 238088.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "foreign_net_shares": -12262900.0,
+      "trustee_net_shares": 9612764.0,
+      "dealer_net_shares": -284613.0,
+      "foreign_5d": -49939525.0,
+      "foreign_20d": -49939525.0,
+      "trust_5d": 47197530.0,
+      "trust_20d": 47197530.0,
+      "dealer_5d": -46525.0,
+      "dealer_20d": -46525.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "foreign_net_shares": -9201330.0,
+      "trustee_net_shares": 20635544.0,
+      "dealer_net_shares": -425294.0,
+      "foreign_5d": -59140855.0,
+      "foreign_20d": -59140855.0,
+      "trust_5d": 67833074.0,
+      "trust_20d": 67833074.0,
+      "dealer_5d": -471819.0,
+      "dealer_20d": -471819.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 215.93723781853706,
+      "alpha_score_total": 51.82812989704401,
+      "sector_alpha_score": 1175.9466026568866,
+      "main_buy_component": 10.751879699248121,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 258.89905084327086,
+      "alpha_score_total": 53.00043735345125,
+      "sector_alpha_score": 991.1045427813948,
+      "main_buy_component": 13.596491228070176,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 576.3356680622776,
+      "alpha_score_total": 53.99191697135469,
+      "sector_alpha_score": 1529.735349552058,
+      "main_buy_component": 22.165325530358448,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 2383.66833438054,
+      "alpha_score_total": 68.26100665396501,
+      "sector_alpha_score": 1173.3931842759134,
+      "main_buy_component": 72.97496318114874,
+      "risk_penalty": 0.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-10",
+    "recommend_close": 380.5,
+    "current_price": 380.5,
+    "post_recommend_return": 0.0,
+    "post_recommend_max_drawdown": 0.0,
+    "post_recommend_max_gain": 0.0,
+    "still_recommended": true
+  }
+}

@@ -89,14 +89,14 @@ TWSE_SECTOR_CLASSIFICATION = SourceConfig(
 TWSE_INDEX = SourceConfig(
     name="twse_index",
     market="twse",
-    json_url="https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-    csv_url="https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
-    date_key="日期",
-    code_field="Market",
-    name_field="Change",
+    json_url="https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?date={date}&response=json",
+    csv_url="https://www.twse.com.tw/exchangeReport/FMTQIK?response=csv&date={date}",
+    date_key="date",
+    code_field="發行量加權股價指數",
+    name_field="發行量加權股價指數",
     date_suffix="twse",
-    supports_query_date=False,
-    query_date_format="none",
+    supports_query_date=True,
+    query_date_format="gregorian",
 )
 
 

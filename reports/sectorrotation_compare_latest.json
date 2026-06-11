@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-11T15:44:27",
+  "status": "reference_unavailable",
+  "local_file": "public/data/sector_rotation_latest.json",
+  "reference_file": "public/data/sectorrotation_latest.json",
+  "local_as_of_date": "2026-06-10",
+  "reference_as_of_date": null,
+  "local_status": "ok",
+  "reference_status": "unavailable",
+  "local_count": 42,
+  "reference_count": 0,
+  "matches": [],
+  "missing_in_local": [],
+  "missing_in_reference": [],
+  "mismatch_count": 0,
+  "reason": "HTTPError: 503 Server Error: Service Unavailable for url: https://sectorrotation.netlify.app/data/latest.json"
+}

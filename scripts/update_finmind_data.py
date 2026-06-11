@@ -37,6 +37,7 @@ DEFAULT_CONFIG = {
     "update_financial_quarters": 8,
     "batch_size": 20,
     "sleep_seconds": 0.5,
+    "trend_top_n": 100,
 }
 
 
@@ -199,8 +200,11 @@ def update_finmind_data(
     public_root: Path,
     config_path: Path,
     limit: int | None = None,
+    trend_top_n: int | None = None,
 ) -> dict[str, Any]:
     config = _load_config(config_path)
+    if trend_top_n is not None:
+        config["trend_top_n"] = trend_top_n
     if not bool(config.get("enabled", True)):
         raise RuntimeError("FinMind is disabled in config.yaml")
     client = FinMindClient(
@@ -356,7 +360,11 @@ def update_finmind_data(
         public_json_path=public_root / "data" / "recommendations_v3_latest.json",
     )
     write_backtest_outputs(backtest=backtest, effectiveness=effectiveness, public_root=public_root)
-    trend_paths = write_finmind_recommendation_trends(processed_root=processed_root, public_root=public_root, top_n=10)
+    trend_paths = write_finmind_recommendation_trends(
+        processed_root=processed_root,
+        public_root=public_root,
+        top_n=max(0, int(config.get("trend_top_n", DEFAULT_CONFIG["trend_top_n"]))),
+    )
 
     quality["outputs"] = {
         "finmind_price": int(len(price)),
@@ -386,6 +394,7 @@ def main() -> None:
     parser.add_argument("--public-root", default="public")
     parser.add_argument("--config", default="config.yaml")
     parser.add_argument("--limit", type=int, default=None, help="Optional stock limit for smoke testing real API calls")
+    parser.add_argument("--trend-top-n", type=int, default=None, help="Number of stock trend JSON files to prebuild for the frontend")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO)
     try:
@@ -396,6 +405,7 @@ def main() -> None:
             public_root=Path(args.public_root),
             config_path=Path(args.config),
             limit=args.limit,
+            trend_top_n=args.trend_top_n,
         )
     except RuntimeError as exc:
         LOGGER.error("%s", exc)

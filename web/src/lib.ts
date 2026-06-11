@@ -1,12 +1,12 @@
 import type { Sector, SectorStock } from "./types";
 
 export function fmtYi(value: number | null | undefined): string {
-  if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
-  return `${value.toFixed(2)} 億`;
+  if (value === null || value === undefined || Number.isNaN(value)) return "—";
+  return `${value >= 0 ? "+" : ""}${value.toFixed(2)} 億`;
 }
 
 export function fmtPct(value: number | null | undefined): string {
-  if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
+  if (value === null || value === undefined || Number.isNaN(value)) return "—";
   return `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 

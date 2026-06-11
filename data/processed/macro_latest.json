@@ -1,0 +1,40 @@
+{
+  "status": "ok",
+  "market_regime": "risk_off",
+  "source": "public/data/market_latest.json",
+  "records": [
+    {
+      "trade_date": "2026-06-10",
+      "market": "TPEX",
+      "index_name": "TPEX_INDEX",
+      "close": 405.91,
+      "change": -18.8,
+      "change_pct": -4.43,
+      "open": 422.75,
+      "high": 426.9,
+      "low": 405.4
+    },
+    {
+      "trade_date": "2026-06-10",
+      "market": "TPEX",
+      "index_name": "TPEx50Index",
+      "close": 598.51,
+      "change": null,
+      "change_pct": null,
+      "open": null,
+      "high": null,
+      "low": null
+    },
+    {
+      "trade_date": "2026-06-10",
+      "market": "TWSE",
+      "index_name": "TAIEX",
+      "close": 43225.54,
+      "change": -1478.9,
+      "change_pct": -3.31,
+      "open": null,
+      "high": null,
+      "low": null
+    }
+  ]
+}

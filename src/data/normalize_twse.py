@@ -25,8 +25,16 @@ def _parse_number(value: Any) -> float | None:
 
 
 def _roc_to_ad(raw: str) -> str:
+    if not isinstance(raw, str):
+        return raw
+    # 115/06/10 -> 20260610
+    if "/" in raw:
+        parts = raw.split("/")
+        if len(parts) == 3 and parts[0].isdigit():
+            y = int(parts[0]) + 1911
+            return f"{y}{parts[1].zfill(2)}{parts[2].zfill(2)}"
     # 1150607 -> 20260607
-    if isinstance(raw, str) and len(raw) == 7 and raw[:3].isdigit():
+    if len(raw) == 7 and raw[:3].isdigit():
         y = int(raw[:3]) + 1911
         return f"{y}{raw[3:5]}{raw[5:7]}"
     return raw
@@ -132,6 +140,20 @@ def normalize_twse_indices(rows: Iterable[Dict[str, Any]]) -> pd.DataFrame:
     out: List[Dict[str, Any]] = []
     for row in rows:
         raw_date = _roc_to_ad(str(row.get("日期", "")) or str(row.get("Date", "")))
+        if isinstance(row, dict) and "發行量加權股價指數" in row:
+            row_dict = {
+                "trade_date": raw_date,
+                "market": "TWSE",
+                "index_name": "TAIEX",
+                "close": _parse_number(row.get("發行量加權股價指數")),
+                "change": _parse_number(row.get("漲跌點數")),
+                "change_pct": None,
+                "open": None,
+                "high": None,
+                "low": None,
+            }
+            out.append(row_dict)
+            continue
         if isinstance(row, dict) and "收盤指數" in row:
             row_dict = {
                 "trade_date": raw_date,

@@ -1,0 +1,156 @@
+{
+  "stock_id": "6670",
+  "stock_name": "復盛應用",
+  "market": "TWSE",
+  "industry": "運動休閒",
+  "generated_at": "2026-06-11T15:44:16",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 276.0,
+      "ma5": 276.0,
+      "ma20": 276.0,
+      "ma60": 276.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 270.0,
+      "ma5": 273.0,
+      "ma20": 273.0,
+      "ma60": 273.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 280.0,
+      "ma5": 275.3333333333333,
+      "ma20": 275.3333333333333,
+      "ma60": 275.3333333333333
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 281.5,
+      "ma5": 276.875,
+      "ma20": 276.875,
+      "ma60": 276.875
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 131902394.0,
+      "trade_value_ma20": 131902394.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 75284816.0,
+      "trade_value_ma20": 103593605.0,
+      "trade_value_multiple": 0.7267322727112354
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 168263046.0,
+      "trade_value_ma20": 125150085.33333333,
+      "trade_value_multiple": 1.3444900620869467
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 271749397.0,
+      "trade_value_ma20": 161799913.25,
+      "trade_value_multiple": 1.6795398189127273
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-05",
+      "foreign_net_shares": -116432.0,
+      "trustee_net_shares": -6739.0,
+      "dealer_net_shares": 33098.0,
+      "foreign_5d": -116432.0,
+      "foreign_20d": -116432.0,
+      "trust_5d": -6739.0,
+      "trust_20d": -6739.0,
+      "dealer_5d": 33098.0,
+      "dealer_20d": 33098.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": 49020.0,
+      "trustee_net_shares": -6777.0,
+      "dealer_net_shares": 9621.0,
+      "foreign_5d": -67412.0,
+      "foreign_20d": -67412.0,
+      "trust_5d": -13516.0,
+      "trust_20d": -13516.0,
+      "dealer_5d": 42719.0,
+      "dealer_20d": 42719.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "foreign_net_shares": 273265.0,
+      "trustee_net_shares": -3291.0,
+      "dealer_net_shares": -2122.0,
+      "foreign_5d": 205853.0,
+      "foreign_20d": 205853.0,
+      "trust_5d": -16807.0,
+      "trust_20d": -16807.0,
+      "dealer_5d": 40597.0,
+      "dealer_20d": 40597.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "foreign_net_shares": 282720.0,
+      "trustee_net_shares": -3184.0,
+      "dealer_net_shares": 5460.0,
+      "foreign_5d": 488573.0,
+      "foreign_20d": 488573.0,
+      "trust_5d": -19991.0,
+      "trust_20d": -19991.0,
+      "dealer_5d": 46057.0,
+      "dealer_20d": 46057.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 1903.301876825161,
+      "alpha_score_total": 59.10609200668722,
+      "sector_alpha_score": 1603.8298495756862,
+      "main_buy_component": 64.13533834586465,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 1872.218151101549,
+      "alpha_score_total": 66.39169341683073,
+      "sector_alpha_score": 1812.239751283425,
+      "main_buy_component": 64.10818713450293,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 4455.163443482137,
+      "alpha_score_total": 71.32034171787599,
+      "sector_alpha_score": 1593.4928725352179,
+      "main_buy_component": 91.29480614484272,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 2975.486864346172,
+      "alpha_score_total": 76.71982801756522,
+      "sector_alpha_score": 2314.572958903985,
+      "main_buy_component": 79.23416789396171,
+      "risk_penalty": 0.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-05",
+    "recommend_close": 276.0,
+    "current_price": 281.5,
+    "post_recommend_return": 0.019927536231884035,
+    "post_recommend_max_drawdown": -0.021739130434782594,
+    "post_recommend_max_gain": 0.019927536231884035,
+    "still_recommended": true
+  }
+}

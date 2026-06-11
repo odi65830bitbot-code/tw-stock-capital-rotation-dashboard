@@ -55,12 +55,29 @@ def _headers() -> dict[str, str]:
     return {"Authorization": f"Bearer {token}"} if token else {}
 
 
+def _response_error_message(resp: requests.Response) -> str:
+    try:
+        payload = resp.json()
+        if isinstance(payload, dict):
+            return str(payload.get("msg") or payload.get("message") or payload)
+    except Exception:
+        pass
+    text = resp.text.strip()
+    return text[:300] if text else resp.reason
+
+
+def _is_plan_or_permission_error(message: str) -> bool:
+    text = message.lower()
+    return any(token in text for token in ["permission", "auth", "sponsor", "backer", "vip", "quota", "權限", "會員", "贊助"])
+
+
 def _request_finmind(params: dict[str, Any], *, retries: int = 3) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     last_error: Exception | None = None
     for attempt in range(1, retries + 1):
         try:
             resp = requests.get(API_URL, headers=_headers(), params=params, timeout=30)
-            resp.raise_for_status()
+            if not resp.ok:
+                raise RuntimeError(f"HTTP {resp.status_code}: {_response_error_message(resp)}")
             payload = resp.json()
             if isinstance(payload, dict) and payload.get("status") not in (None, 200, "200"):
                 message = payload.get("msg") or payload.get("message") or payload.get("status")
@@ -144,7 +161,7 @@ def _fetch_futures(start_date: str, end_date: str) -> pd.DataFrame:
     return _normalize_futures_rows(rows)
 
 
-def _fetch_institutional(start_date: str, end_date: str) -> tuple[pd.DataFrame, str | None]:
+def _fetch_institutional(start_date: str, end_date: str) -> tuple[pd.DataFrame, str | None, str]:
     params = {
         "dataset": INSTITUTIONAL_DATASET,
         "data_id": FUTURES_ID,
@@ -154,13 +171,15 @@ def _fetch_institutional(start_date: str, end_date: str) -> tuple[pd.DataFrame, 
     try:
         rows, _ = _request_finmind(params, retries=2)
     except Exception as exc:
-        return pd.DataFrame(), f"{type(exc).__name__}: {exc}"
+        message = f"{type(exc).__name__}: {exc}"
+        status = "permission_or_plan_required" if _is_plan_or_permission_error(message) else "unavailable"
+        return pd.DataFrame(), message, status
     df = pd.DataFrame(rows)
     if df.empty:
-        return df, None
+        return df, None, "empty"
     if "date" in df.columns:
         df["date"] = pd.to_datetime(df["date"], errors="coerce").dt.strftime("%Y-%m-%d")
-    return df, None
+    return df, None, "ok"
 
 
 def _merge_history(existing_path: Path, incoming: pd.DataFrame) -> pd.DataFrame:
@@ -196,7 +215,7 @@ def _json_safe(value: Any) -> Any:
     return value
 
 
-def _write_quality(status: str, row_count: int, latest_date: str | None, warnings: list[str], errors: list[str]) -> None:
+def _write_quality(status: str, row_count: int, latest_date: str | None, institutional_status: str, warnings: list[str], errors: list[str]) -> None:
     path = ROOT / "data_quality_report.json"
     try:
         report = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
@@ -210,13 +229,14 @@ def _write_quality(status: str, row_count: int, latest_date: str | None, warning
         "trading_session": TRADING_SESSION,
         "row_count": row_count,
         "latest_date": latest_date,
+        "institutional_status": institutional_status,
         "warnings": warnings,
         "errors": errors,
     }
     path.write_text(json.dumps(_json_safe(report), ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
 
 
-def _write_public_json(df: pd.DataFrame, institutional: pd.DataFrame, status: str, warnings: list[str], errors: list[str]) -> None:
+def _write_public_json(df: pd.DataFrame, institutional: pd.DataFrame, status: str, institutional_status: str, warnings: list[str], errors: list[str]) -> None:
     public_dir = ROOT / "public" / "data"
     public_dir.mkdir(parents=True, exist_ok=True)
     main = df[df.get("is_main_contract", False).astype(bool)].copy() if not df.empty and "is_main_contract" in df.columns else df.copy()
@@ -231,6 +251,7 @@ def _write_public_json(df: pd.DataFrame, institutional: pd.DataFrame, status: st
         "status": status,
         "dataset": DATASET,
         "institutional_dataset": INSTITUTIONAL_DATASET,
+        "institutional_status": institutional_status,
         "futures_id": FUTURES_ID,
         "trading_session": TRADING_SESSION,
         "as_of_date": latest.get("date") if isinstance(latest, dict) else None,
@@ -268,6 +289,7 @@ def main() -> int:
     institutional_path = processed_dir / "futures_after_hours_institutional.parquet"
     warnings: list[str] = []
     errors: list[str] = []
+    institutional_status = "skipped" if args.skip_institutional else "unavailable"
 
     try:
         incoming = _fetch_futures(start_date, end_date)
@@ -282,21 +304,25 @@ def main() -> int:
 
     institutional = pd.DataFrame()
     if not args.skip_institutional:
-        inst_incoming, inst_error = _fetch_institutional(start_date, end_date)
+        inst_incoming, inst_error, institutional_status = _fetch_institutional(start_date, end_date)
         if inst_error:
             warnings.append(f"institutional after-hours unavailable: {inst_error}")
+            if institutional_path.exists():
+                institutional = pd.read_parquet(institutional_path)
+                warnings.append("used existing futures_after_hours_institutional.parquet fallback")
         elif not inst_incoming.empty:
             institutional = _merge_history(institutional_path, inst_incoming)
             institutional.to_parquet(institutional_path, index=False)
         elif institutional_path.exists():
             institutional = pd.read_parquet(institutional_path)
+            warnings.append("used existing futures_after_hours_institutional.parquet fallback")
 
     status = "ok" if not errors and not history.empty else "warning" if not history.empty else "error"
     latest_date = None
     if not history.empty and "date" in history.columns:
         latest_date = str(history["date"].max())
-    _write_public_json(history, institutional, status, warnings, errors)
-    _write_quality(status, int(len(history)), latest_date, warnings, errors)
+    _write_public_json(history, institutional, status, institutional_status, warnings, errors)
+    _write_quality(status, int(len(history)), latest_date, institutional_status, warnings, errors)
     LOGGER.info("finished status=%s rows=%s latest_date=%s", status, len(history), latest_date)
     return 0
 

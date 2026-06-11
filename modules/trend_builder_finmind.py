@@ -7,6 +7,9 @@ from typing import Any
 import pandas as pd
 
 
+DEFAULT_TREND_TOP_N = 100
+
+
 def _date_col(df: pd.DataFrame) -> str:
     return "trade_date" if "trade_date" in df.columns else "date"
 
@@ -31,6 +34,40 @@ def _stock_filter(df: pd.DataFrame, stock_id: str) -> pd.DataFrame:
     out["trade_date"] = pd.to_datetime(out[_date_col(out)], errors="coerce")
     out["stock_id"] = out[_stock_col(out)].astype(str)
     return out[out["stock_id"] == str(stock_id)].sort_values("trade_date")
+
+
+def _latest_price_universe_stock_ids(
+    price: pd.DataFrame,
+    recommendations: pd.DataFrame,
+    *,
+    top_n: int = DEFAULT_TREND_TOP_N,
+) -> list[str]:
+    if top_n <= 0:
+        return []
+    if price.empty:
+        return recommendations.get("stock_id", pd.Series(dtype=str)).astype(str).drop_duplicates().head(top_n).tolist()
+
+    out = price.copy()
+    out["trade_date"] = pd.to_datetime(out[_date_col(out)], errors="coerce")
+    out["stock_id"] = out[_stock_col(out)].astype(str)
+    latest = out["trade_date"].max()
+    latest_price = out[out["trade_date"] == latest].copy()
+    if latest_price.empty:
+        return []
+
+    universe = latest_price["stock_id"].drop_duplicates().tolist()
+    if recommendations.empty or "stock_id" not in recommendations.columns:
+        return universe[:top_n]
+
+    recs = recommendations.copy()
+    sort_cols = [col for col in ["stock_alpha_v3", "confidence_score"] if col in recs.columns]
+    if sort_cols:
+        recs = recs.sort_values(sort_cols, ascending=[False] * len(sort_cols), na_position="last")
+    universe_set = set(universe)
+    ordered = [stock_id for stock_id in recs["stock_id"].astype(str).drop_duplicates().tolist() if stock_id in universe_set]
+    ordered_set = set(ordered)
+    ordered.extend(stock_id for stock_id in universe if stock_id not in ordered_set)
+    return ordered[:top_n]
 
 
 def build_finmind_stock_trend(
@@ -135,7 +172,7 @@ def write_finmind_recommendation_trends(
     *,
     processed_root: Path,
     public_root: Path,
-    top_n: int = 10,
+    top_n: int = DEFAULT_TREND_TOP_N,
 ) -> list[Path]:
     processed_root = Path(processed_root)
     public_root = Path(public_root)
@@ -147,9 +184,8 @@ def write_finmind_recommendation_trends(
     alpha_v3 = pd.read_parquet(processed_root / "stock_alpha_v3.parquet")
     trend_dir = public_root / "data" / "trends"
     trend_dir.mkdir(parents=True, exist_ok=True)
-    recs = recommendations.sort_values("stock_alpha_v3", ascending=False).head(top_n)
     paths: list[Path] = []
-    for stock_id in recs["stock_id"].astype(str):
+    for stock_id in _latest_price_universe_stock_ids(price, recommendations, top_n=top_n):
         payload = build_finmind_stock_trend(
             stock_id,
             price=price,

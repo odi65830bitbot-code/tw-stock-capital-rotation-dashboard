@@ -1,0 +1,156 @@
+{
+  "stock_id": "6269",
+  "stock_name": "台郡",
+  "market": "TWSE",
+  "industry": "電子零組件業",
+  "generated_at": "2026-06-11T15:44:17",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 68.1,
+      "ma5": 68.1,
+      "ma20": 68.1,
+      "ma60": 68.1
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 64.5,
+      "ma5": 66.3,
+      "ma20": 66.3,
+      "ma60": 66.3
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 69.4,
+      "ma5": 67.33333333333333,
+      "ma20": 67.33333333333333,
+      "ma60": 67.33333333333333
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 68.3,
+      "ma5": 67.575,
+      "ma20": 67.575,
+      "ma60": 67.575
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 600886830.0,
+      "trade_value_ma20": 600886830.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 580937081.0,
+      "trade_value_ma20": 590911955.5,
+      "trade_value_multiple": 0.9831195249864936
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 579282443.0,
+      "trade_value_ma20": 587035451.3333334,
+      "trade_value_multiple": 0.9867929469749672
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 857323857.0,
+      "trade_value_ma20": 654607552.75,
+      "trade_value_multiple": 1.3096760851572682
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-05",
+      "foreign_net_shares": 600791.0,
+      "trustee_net_shares": -1000.0,
+      "dealer_net_shares": -312674.0,
+      "foreign_5d": 600791.0,
+      "foreign_20d": 600791.0,
+      "trust_5d": -1000.0,
+      "trust_20d": -1000.0,
+      "dealer_5d": -312674.0,
+      "dealer_20d": -312674.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": -1842235.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -138722.0,
+      "foreign_5d": -1241444.0,
+      "foreign_20d": -1241444.0,
+      "trust_5d": -1000.0,
+      "trust_20d": -1000.0,
+      "dealer_5d": -451396.0,
+      "dealer_20d": -451396.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "foreign_net_shares": 602736.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 224105.0,
+      "foreign_5d": -638708.0,
+      "foreign_20d": -638708.0,
+      "trust_5d": -1000.0,
+      "trust_20d": -1000.0,
+      "dealer_5d": -227291.0,
+      "dealer_20d": -227291.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "foreign_net_shares": 2416053.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 164728.0,
+      "foreign_5d": 1777345.0,
+      "foreign_20d": 1777345.0,
+      "trust_5d": -1000.0,
+      "trust_20d": -1000.0,
+      "dealer_5d": -62563.0,
+      "dealer_20d": -62563.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 328.11042781992273,
+      "alpha_score_total": 53.70170302204131,
+      "sector_alpha_score": 1204.6493883120909,
+      "main_buy_component": 15.413533834586465,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 2120.204164787857,
+      "alpha_score_total": 55.38165278437607,
+      "sector_alpha_score": 1109.8732726222,
+      "main_buy_component": 68.42105263157895,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 955.2503352683857,
+      "alpha_score_total": 59.14306945019548,
+      "sector_alpha_score": 1369.0956251292373,
+      "main_buy_component": 33.21141185076811,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 2160.091874887843,
+      "alpha_score_total": 66.71070202165266,
+      "sector_alpha_score": 1116.062782142866,
+      "main_buy_component": 68.99852724594993,
+      "risk_penalty": 0.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-10",
+    "recommend_close": 68.3,
+    "current_price": 68.3,
+    "post_recommend_return": 0.0,
+    "post_recommend_max_drawdown": 0.0,
+    "post_recommend_max_gain": 0.0,
+    "still_recommended": true
+  }
+}

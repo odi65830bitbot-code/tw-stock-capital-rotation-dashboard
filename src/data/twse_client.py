@@ -53,9 +53,10 @@ def _to_roc_date(d: date) -> str:
 
 
 def _to_ad_from_roc(raw: str) -> date:
-    if len(raw) != 7:
+    clean = raw.replace("/", "").strip()
+    if len(clean) != 7:
         raise ValueError(f"TWSE/TPEX 日期格式不符 (expected R.O.C. YYYYMMDD): {raw}")
-    return date(int(raw[:3]) + 1911, int(raw[3:5]), int(raw[5:7]))
+    return date(int(clean[:3]) + 1911, int(clean[3:5]), int(clean[5:7]))
 
 
 def _to_query_date(cfg: SourceConfig, target_date: date) -> str:
@@ -193,8 +194,21 @@ def _infer_date(records: Iterable[Dict[str, Any]], cfg: SourceConfig, fallback: 
     if not raw_dates:
         return fallback
 
-    roc_dates = {_to_ad_from_roc(v) for v in raw_dates if v.isdigit() and len(v) == 7}
-    yyyy_dates = {_sanitize_text(v) for v in raw_dates if v.isdigit() and len(v) == 8}
+    roc_dates = set()
+    for v in raw_dates:
+        clean = v.replace("/", "").strip()
+        if clean.isdigit() and len(clean) == 7:
+            try:
+                roc_dates.add(_to_ad_from_roc(clean))
+            except Exception:
+                pass
+
+    yyyy_dates = set()
+    for v in raw_dates:
+        clean = v.replace("/", "").replace("-", "").strip()
+        if clean.isdigit() and len(clean) == 8:
+            yyyy_dates.add(clean)
+
     if yyyy_dates:
         yyyy = max(date(int(v[:4]), int(v[4:6]), int(v[6:8])) for v in yyyy_dates)
         return yyyy

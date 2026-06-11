@@ -1,0 +1,156 @@
+{
+  "stock_id": "1210",
+  "stock_name": "大成",
+  "market": "TWSE",
+  "industry": "食品工業",
+  "generated_at": "2026-06-11T15:44:16",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 54.4,
+      "ma5": 54.4,
+      "ma20": 54.4,
+      "ma60": 54.4
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 54.0,
+      "ma5": 54.2,
+      "ma20": 54.2,
+      "ma60": 54.2
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 54.5,
+      "ma5": 54.300000000000004,
+      "ma20": 54.300000000000004,
+      "ma60": 54.300000000000004
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 55.4,
+      "ma5": 54.575,
+      "ma20": 54.575,
+      "ma60": 54.575
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 593895979.0,
+      "trade_value_ma20": 593895979.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 510474665.0,
+      "trade_value_ma20": 552185322.0,
+      "trade_value_multiple": 0.9244625756278252
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 479654889.0,
+      "trade_value_ma20": 528008511.0,
+      "trade_value_multiple": 0.9084226466190428
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 558074034.0,
+      "trade_value_ma20": 535524891.75,
+      "trade_value_multiple": 1.0421066183801717
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-05",
+      "foreign_net_shares": -5108027.0,
+      "trustee_net_shares": 5356000.0,
+      "dealer_net_shares": -15000.0,
+      "foreign_5d": -5108027.0,
+      "foreign_20d": -5108027.0,
+      "trust_5d": 5356000.0,
+      "trust_20d": 5356000.0,
+      "dealer_5d": -15000.0,
+      "dealer_20d": -15000.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": -3955263.0,
+      "trustee_net_shares": 4974000.0,
+      "dealer_net_shares": 20664.0,
+      "foreign_5d": -9063290.0,
+      "foreign_20d": -9063290.0,
+      "trust_5d": 10330000.0,
+      "trust_20d": 10330000.0,
+      "dealer_5d": 5664.0,
+      "dealer_20d": 5664.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "foreign_net_shares": -2550638.0,
+      "trustee_net_shares": 4990000.0,
+      "dealer_net_shares": -265243.0,
+      "foreign_5d": -11613928.0,
+      "foreign_20d": -11613928.0,
+      "trust_5d": 15320000.0,
+      "trust_20d": 15320000.0,
+      "dealer_5d": -259579.0,
+      "dealer_20d": -259579.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "foreign_net_shares": -596247.0,
+      "trustee_net_shares": 4990000.0,
+      "dealer_net_shares": 75044.0,
+      "foreign_5d": -12210175.0,
+      "foreign_20d": -12210175.0,
+      "trust_5d": 20310000.0,
+      "trust_20d": 20310000.0,
+      "dealer_5d": -184535.0,
+      "dealer_20d": -184535.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 213.25113029332567,
+      "alpha_score_total": 57.50895104860832,
+      "sector_alpha_score": 1533.7999448539038,
+      "main_buy_component": 10.676691729323307,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 1100.492997942692,
+      "alpha_score_total": 62.88241235511851,
+      "sector_alpha_score": 1424.8161554236713,
+      "main_buy_component": 45.54093567251462,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 2483.429384854857,
+      "alpha_score_total": 69.63819673978801,
+      "sector_alpha_score": 2367.2556986377235,
+      "main_buy_component": 68.47110460863203,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 4456.9193100387465,
+      "alpha_score_total": 77.85325747297901,
+      "sector_alpha_score": 2132.622404224804,
+      "main_buy_component": 92.19440353460972,
+      "risk_penalty": 0.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-05",
+    "recommend_close": 54.4,
+    "current_price": 55.4,
+    "post_recommend_return": 0.018382352941176405,
+    "post_recommend_max_drawdown": -0.007352941176470562,
+    "post_recommend_max_gain": 0.018382352941176405,
+    "still_recommended": true
+  }
+}

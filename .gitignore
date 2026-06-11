@@ -15,12 +15,16 @@ web/dist/
 .vite/
 
 # Local caches / test artifacts
+.tmp/
+data/raw/
+data/cache/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 htmlcov/
 coverage/
 *.log
+*.tsbuildinfo
 
 # Local browser/tool artifacts
 .playwright-mcp/
