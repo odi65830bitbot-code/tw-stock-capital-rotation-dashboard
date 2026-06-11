@@ -1,0 +1,2653 @@
+{
+  "generated_at": "2026-06-11T15:55:30",
+  "status": "ok",
+  "method": "public dashboard JSON rechecked against official TWSE/TPEX processed data",
+  "sector_rotation": {
+    "status": "ok",
+    "public_file": "public/data/sector_rotation_latest.json",
+    "official_sources": [
+      "data/processed/sector_flow.parquet",
+      "data/processed/institutional_flow.parquet",
+      "data/processed/daily_price.parquet",
+      "data/processed/sector_classification.parquet"
+    ],
+    "as_of_date": "2026-06-10",
+    "public_count": 42,
+    "expected_count": 42,
+    "mismatch_count": 0,
+    "missing_expected": [],
+    "rows": [
+      {
+        "key": "TWSE|光電",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 58.24,
+            "official_expected": 58.24,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 72.4,
+            "official_expected": 72.4,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -2.57,
+            "official_expected": -2.57,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -11.59,
+            "official_expected": -11.59,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -3.8,
+            "official_expected": -3.8,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 889.96,
+            "official_expected": 889.96,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 31370168.0,
+            "official_expected": 31370168.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 67.0,
+            "official_expected": 67.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|半導體",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 18.37,
+            "official_expected": 18.37,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -2.89,
+            "official_expected": -2.89,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 456.62,
+            "official_expected": 456.62,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 1265000.0,
+            "official_expected": 1265000.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 12.0,
+            "official_expected": 12.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|生技醫療",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 14.82,
+            "official_expected": 14.82,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 15.0,
+            "official_expected": 15.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -0.1,
+            "official_expected": -0.1,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.08,
+            "official_expected": -0.08,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -1.06,
+            "official_expected": -1.06,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 87.12,
+            "official_expected": 87.12,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 2168441.0,
+            "official_expected": 2168441.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 61.0,
+            "official_expected": 61.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|數位雲端",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 12.33,
+            "official_expected": 12.33,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -0.53,
+            "official_expected": -0.53,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 13.03,
+            "official_expected": 13.03,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.17,
+            "official_expected": -0.17,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -0.63,
+            "official_expected": -0.63,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 25.85,
+            "official_expected": 25.85,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 2394089.0,
+            "official_expected": 2394089.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 12.0,
+            "official_expected": 12.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|其他",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 11.76,
+            "official_expected": 11.76,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -1.37,
+            "official_expected": -1.37,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 13.09,
+            "official_expected": 13.09,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.04,
+            "official_expected": 0.04,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 0.47,
+            "official_expected": 0.47,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 68.4,
+            "official_expected": 68.4,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 11681105.0,
+            "official_expected": 11681105.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 50.0,
+            "official_expected": 50.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|建材營造",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 10.67,
+            "official_expected": 10.67,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 1.66,
+            "official_expected": 1.66,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 7.51,
+            "official_expected": 7.51,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 1.5,
+            "official_expected": 1.5,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 3.93,
+            "official_expected": 3.93,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 97.64,
+            "official_expected": 97.64,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 12618165.0,
+            "official_expected": 12618165.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 55.0,
+            "official_expected": 55.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|運動休閒",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 10.62,
+            "official_expected": 10.62,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.57,
+            "official_expected": 0.57,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 9.9,
+            "official_expected": 9.9,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.15,
+            "official_expected": 0.15,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 0.83,
+            "official_expected": 0.83,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 40.33,
+            "official_expected": 40.33,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 8602647.0,
+            "official_expected": 8602647.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 18.0,
+            "official_expected": 18.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|文化創意",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 10.58,
+            "official_expected": 10.58,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -0.12,
+            "official_expected": -0.12,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 47.02,
+            "official_expected": 47.02,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 1324000.0,
+            "official_expected": 1324000.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 1.0,
+            "official_expected": 1.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|電子零組件",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 8.03,
+            "official_expected": 8.03,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -5.14,
+            "official_expected": -5.14,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 294.32,
+            "official_expected": 294.32,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 830000.0,
+            "official_expected": 830000.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 8.0,
+            "official_expected": 8.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|食品",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 6.64,
+            "official_expected": 6.64,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 5.56,
+            "official_expected": 5.56,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.61,
+            "official_expected": 0.61,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.47,
+            "official_expected": 0.47,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 0.01,
+            "official_expected": 0.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 27.66,
+            "official_expected": 27.66,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 12919561.0,
+            "official_expected": 12919561.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 24.0,
+            "official_expected": 24.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|電腦週邊",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 6.34,
+            "official_expected": 6.34,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -6.91,
+            "official_expected": -6.91,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 144.39,
+            "official_expected": 144.39,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 511000.0,
+            "official_expected": 511000.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 2.0,
+            "official_expected": 2.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|鋼鐵",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 2.96,
+            "official_expected": 2.96,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 6.49,
+            "official_expected": 6.49,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -3.57,
+            "official_expected": -3.57,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.03,
+            "official_expected": 0.03,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -1.15,
+            "official_expected": -1.15,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 30.89,
+            "official_expected": 30.89,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 10665435.0,
+            "official_expected": 10665435.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 31.0,
+            "official_expected": 31.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|紡織",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 2.18,
+            "official_expected": 2.18,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -4.02,
+            "official_expected": -4.02,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 6.35,
+            "official_expected": 6.35,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.15,
+            "official_expected": -0.15,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -1.15,
+            "official_expected": -1.15,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 32.58,
+            "official_expected": 32.58,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 12301085.0,
+            "official_expected": 12301085.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 42.0,
+            "official_expected": 42.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|橡膠",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 1.45,
+            "official_expected": 1.45,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -3.43,
+            "official_expected": -3.43,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 4.87,
+            "official_expected": 4.87,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.01,
+            "official_expected": 0.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 0.08,
+            "official_expected": 0.08,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 12.57,
+            "official_expected": 12.57,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 5042301.0,
+            "official_expected": 5042301.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 11.0,
+            "official_expected": 11.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|綠能環保",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 1.12,
+            "official_expected": 1.12,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 1.79,
+            "official_expected": 1.79,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -0.86,
+            "official_expected": -0.86,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.19,
+            "official_expected": 0.19,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -1.13,
+            "official_expected": -1.13,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 51.92,
+            "official_expected": 51.92,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -6100229.0,
+            "official_expected": -6100229.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 27.0,
+            "official_expected": 27.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|化工",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.98,
+            "official_expected": 0.98,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 2.71,
+            "official_expected": 2.71,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.2,
+            "official_expected": 0.2,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -1.92,
+            "official_expected": -1.92,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -2.75,
+            "official_expected": -2.75,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 89.38,
+            "official_expected": 89.38,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -991028.0,
+            "official_expected": -991028.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 28.0,
+            "official_expected": 28.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|造紙",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.92,
+            "official_expected": 0.92,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.87,
+            "official_expected": 0.87,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -0.0,
+            "official_expected": -0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.05,
+            "official_expected": 0.05,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 1.17,
+            "official_expected": 1.17,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 4.76,
+            "official_expected": 4.76,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 5033634.0,
+            "official_expected": 5033634.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 7.0,
+            "official_expected": 7.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|居家生活",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.54,
+            "official_expected": 0.54,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.53,
+            "official_expected": 0.53,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -0.0,
+            "official_expected": -0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.01,
+            "official_expected": 0.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 0.66,
+            "official_expected": 0.66,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 3.32,
+            "official_expected": 3.32,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 1436808.0,
+            "official_expected": 1436808.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 11.0,
+            "official_expected": 11.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|貿易百貨",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.4,
+            "official_expected": 0.4,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -0.67,
+            "official_expected": -0.67,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 1.01,
+            "official_expected": 1.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.06,
+            "official_expected": 0.06,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -0.2,
+            "official_expected": -0.2,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 11.91,
+            "official_expected": 11.91,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 2867668.0,
+            "official_expected": 2867668.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 18.0,
+            "official_expected": 18.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|其他電子",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.22,
+            "official_expected": 0.22,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -0.87,
+            "official_expected": -0.87,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 29.65,
+            "official_expected": 29.65,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 23000.0,
+            "official_expected": 23000.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 2.0,
+            "official_expected": 2.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|資訊服務",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.2,
+            "official_expected": 0.2,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.23,
+            "official_expected": 0.23,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -0.01,
+            "official_expected": -0.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.02,
+            "official_expected": -0.02,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -2.03,
+            "official_expected": -2.03,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 12.52,
+            "official_expected": 12.52,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 129019.0,
+            "official_expected": 129019.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 11.0,
+            "official_expected": 11.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|觀光餐旅",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.03,
+            "official_expected": 0.03,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.37,
+            "official_expected": 0.37,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -0.22,
+            "official_expected": -0.22,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.12,
+            "official_expected": -0.12,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 0.05,
+            "official_expected": 0.05,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 5.66,
+            "official_expected": 5.66,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -56728.0,
+            "official_expected": -56728.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 19.0,
+            "official_expected": 19.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|化工",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.02,
+            "official_expected": 0.02,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -2.02,
+            "official_expected": -2.02,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 1.79,
+            "official_expected": 1.79,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 40000.0,
+            "official_expected": 40000.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 1.0,
+            "official_expected": 1.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|居家生活",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.01,
+            "official_expected": 0.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -3.22,
+            "official_expected": -3.22,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 4.08,
+            "official_expected": 4.08,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 1000.0,
+            "official_expected": 1000.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 1.0,
+            "official_expected": 1.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|玻璃陶瓷",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -0.44,
+            "official_expected": -0.44,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.15,
+            "official_expected": 0.15,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.58,
+            "official_expected": -0.58,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -3.21,
+            "official_expected": -3.21,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 38.59,
+            "official_expected": 38.59,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -181360.0,
+            "official_expected": -181360.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 5.0,
+            "official_expected": 5.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|油電燃氣",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -0.58,
+            "official_expected": -0.58,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -0.56,
+            "official_expected": -0.56,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.05,
+            "official_expected": 0.05,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.07,
+            "official_expected": -0.07,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -0.03,
+            "official_expected": -0.03,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 23.08,
+            "official_expected": 23.08,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -1225743.0,
+            "official_expected": -1225743.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 8.0,
+            "official_expected": 8.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|電器電纜",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -1.0,
+            "official_expected": -1.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -0.69,
+            "official_expected": -0.69,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.05,
+            "official_expected": 0.05,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.37,
+            "official_expected": -0.37,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -1.71,
+            "official_expected": -1.71,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 24.43,
+            "official_expected": 24.43,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -2846112.0,
+            "official_expected": -2846112.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 16.0,
+            "official_expected": 16.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|水泥",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -1.5,
+            "official_expected": -1.5,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -1.6,
+            "official_expected": -1.6,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.11,
+            "official_expected": 0.11,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.01,
+            "official_expected": -0.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 13.87,
+            "official_expected": 13.87,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -5284521.0,
+            "official_expected": -5284521.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 7.0,
+            "official_expected": 7.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|通訊網路",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -3.4,
+            "official_expected": -3.4,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 1.86,
+            "official_expected": 1.86,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 1.77,
+            "official_expected": 1.77,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -7.03,
+            "official_expected": -7.03,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -3.61,
+            "official_expected": -3.61,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 341.05,
+            "official_expected": 341.05,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 5902933.0,
+            "official_expected": 5902933.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 43.0,
+            "official_expected": 43.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|銀行金融",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -4.17,
+            "official_expected": -4.17,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -64.28,
+            "official_expected": -64.28,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 54.8,
+            "official_expected": 54.8,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 5.31,
+            "official_expected": 5.31,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -1.49,
+            "official_expected": -1.49,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 434.79,
+            "official_expected": 434.79,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 42212126.0,
+            "official_expected": 42212126.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 32.0,
+            "official_expected": 32.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|電子通路",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -6.36,
+            "official_expected": -6.36,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 13.48,
+            "official_expected": 13.48,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -18.13,
+            "official_expected": -18.13,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -1.71,
+            "official_expected": -1.71,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -2.35,
+            "official_expected": -2.35,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 217.57,
+            "official_expected": 217.57,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -5960085.0,
+            "official_expected": -5960085.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 21.0,
+            "official_expected": 21.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|電機機械",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -6.77,
+            "official_expected": -6.77,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -6.98,
+            "official_expected": -6.98,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 7.4,
+            "official_expected": 7.4,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -7.19,
+            "official_expected": -7.19,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -2.86,
+            "official_expected": -2.86,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 301.4,
+            "official_expected": 301.4,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -9453967.0,
+            "official_expected": -9453967.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 48.0,
+            "official_expected": 48.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|塑膠",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -14.76,
+            "official_expected": -14.76,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -12.84,
+            "official_expected": -12.84,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.11,
+            "official_expected": 0.11,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -2.04,
+            "official_expected": -2.04,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -0.6,
+            "official_expected": -0.6,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 77.01,
+            "official_expected": 77.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -18004850.0,
+            "official_expected": -18004850.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 21.0,
+            "official_expected": 21.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|航運業",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -16.53,
+            "official_expected": -16.53,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.68,
+            "official_expected": 0.68,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -22.23,
+            "official_expected": -22.23,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 5.03,
+            "official_expected": 5.03,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -0.26,
+            "official_expected": -0.26,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 140.45,
+            "official_expected": 140.45,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -22950982.0,
+            "official_expected": -22950982.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 28.0,
+            "official_expected": 28.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|其他電子",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -25.15,
+            "official_expected": -25.15,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -3.28,
+            "official_expected": -3.28,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -11.17,
+            "official_expected": -11.17,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -10.7,
+            "official_expected": -10.7,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -2.87,
+            "official_expected": -2.87,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 711.3,
+            "official_expected": 711.3,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -22951638.0,
+            "official_expected": -22951638.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 44.0,
+            "official_expected": 44.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|電腦週邊",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -33.45,
+            "official_expected": -33.45,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -91.92,
+            "official_expected": -91.92,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 78.7,
+            "official_expected": 78.7,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -20.23,
+            "official_expected": -20.23,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -3.51,
+            "official_expected": -3.51,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 1082.28,
+            "official_expected": 1082.28,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -16206179.0,
+            "official_expected": -16206179.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 64.0,
+            "official_expected": 64.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|UNKNOWN",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -131.24,
+            "official_expected": -131.24,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -69.21,
+            "official_expected": -69.21,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 1.25,
+            "official_expected": 1.25,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -63.28,
+            "official_expected": -63.28,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -3.6,
+            "official_expected": -3.6,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 275.5,
+            "official_expected": 275.5,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -1187712412.0,
+            "official_expected": -1187712412.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 13848.0,
+            "official_expected": 13848.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|電子零組件",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -161.17,
+            "official_expected": -161.17,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -200.34,
+            "official_expected": -200.34,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 81.44,
+            "official_expected": 81.44,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -42.27,
+            "official_expected": -42.27,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -3.77,
+            "official_expected": -3.77,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 3523.81,
+            "official_expected": 3523.81,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 11040826.0,
+            "official_expected": 11040826.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 102.0,
+            "official_expected": 102.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|半導體",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -600.51,
+            "official_expected": -600.51,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -482.05,
+            "official_expected": -482.05,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": -65.15,
+            "official_expected": -65.15,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -53.31,
+            "official_expected": -53.31,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -4.67,
+            "official_expected": -4.67,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 4483.61,
+            "official_expected": 4483.61,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": -166529566.0,
+            "official_expected": -166529566.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 95.0,
+            "official_expected": 95.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TWSE|汽車",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": -0.0,
+            "official_expected": -0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": -3.04,
+            "official_expected": -3.04,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 3.17,
+            "official_expected": 3.17,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": -0.13,
+            "official_expected": -0.13,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -1.1,
+            "official_expected": -1.1,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 38.72,
+            "official_expected": 38.72,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 4040055.0,
+            "official_expected": 4040055.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 43.0,
+            "official_expected": 43.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|UNKNOWN",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": null,
+            "official_expected": null,
+            "diff": null,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 25000.0,
+            "official_expected": 25000.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 1.0,
+            "official_expected": 1.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      },
+      {
+        "key": "TPEX|通訊網路",
+        "match": true,
+        "fields": {
+          "net_1d_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "foreign_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trust_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "dealer_net_yi": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "chg_1d": {
+            "public": -10.0,
+            "official_expected": -10.0,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "trade_value_yi": {
+            "public": 44.01,
+            "official_expected": 44.01,
+            "diff": 0.0,
+            "tolerance": 0.05,
+            "match": true
+          },
+          "net_1d_shares": {
+            "public": 0.0,
+            "official_expected": 0.0,
+            "diff": 0.0,
+            "tolerance": 1.0,
+            "match": true
+          },
+          "stock_count": {
+            "public": 1.0,
+            "official_expected": 1.0,
+            "diff": 0.0,
+            "tolerance": 0.0,
+            "match": true
+          }
+        }
+      }
+    ]
+  },
+  "market": {
+    "status": "ok",
+    "fields": {
+      "close": {
+        "public": 43225.54,
+        "official_expected": 43225.54,
+        "diff": 0.0,
+        "tolerance": 0.05,
+        "match": true
+      },
+      "change": {
+        "public": -1478.9,
+        "official_expected": -1478.9,
+        "diff": 0.0,
+        "tolerance": 0.05,
+        "match": true
+      },
+      "change_pct": {
+        "public": -3.31,
+        "official_expected": -3.31,
+        "diff": 0.0,
+        "tolerance": 0.05,
+        "match": true
+      }
+    },
+    "official_date": "2026-06-10"
+  }
+}

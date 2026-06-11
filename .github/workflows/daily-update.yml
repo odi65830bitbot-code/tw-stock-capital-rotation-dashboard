@@ -70,6 +70,7 @@ jobs:
           python scripts/fetch_financial_statements.py
           python scripts/fetch_sentiment_and_macro.py
           python scripts/build_formal_json_outputs.py
+          python scripts/compare_official_sources.py
 
       - name: Commit updated data
         run: |

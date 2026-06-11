@@ -284,6 +284,10 @@ def normalize_sector_name(name: Any) -> str | None:
     return SECTOR_NAME_MAP.get(text, text)
 
 
+def sector_record_key(market: Any, sector_name: Any) -> str:
+    return f"{str(market or '').strip()}|{normalize_sector_name(sector_name) or ''}"
+
+
 def recursively_find_record_lists(value: Any) -> list[list[dict[str, Any]]]:
     found: list[list[dict[str, Any]]] = []
     if isinstance(value, list) and value and all(isinstance(item, dict) for item in value):
@@ -470,11 +474,12 @@ def build_official_sector_records(
             inst = inst.merge(current_price, on="stock_code", how="left", suffixes=("", "_price"))
             inst = inst.merge(industry_lookup[["stock_code", "industry"]], on="stock_code", how="left") if not industry_lookup.empty else inst
             inst["sector_name"] = inst.get("industry", "未分類").map(normalize_sector_name)
+            inst["sector_key"] = inst.apply(lambda row: sector_record_key(row.get("market"), row.get("sector_name")), axis=1)
             if "three_party_net_shares" in inst.columns and "close" in inst.columns:
                 inst["amount_yi"] = pd.to_numeric(inst["three_party_net_shares"], errors="coerce") * pd.to_numeric(inst["close"], errors="coerce") / 100_000_000
-                amount_by_sector = inst.dropna(subset=["sector_name"]).groupby("sector_name")["amount_yi"].sum().to_dict()
-            for sector_name, sector_df in inst.dropna(subset=["sector_name"]).groupby("sector_name"):
-                split_by_sector[str(sector_name)] = {}
+                amount_by_sector = inst.dropna(subset=["sector_key"]).groupby("sector_key")["amount_yi"].sum().to_dict()
+            for sector_key, sector_df in inst.dropna(subset=["sector_key"]).groupby("sector_key"):
+                split_by_sector[str(sector_key)] = {}
                 for col, out_key in [
                     ("foreign_net_shares", "foreign_net_yi"),
                     ("trustee_net_shares", "trust_net_yi"),
@@ -486,17 +491,17 @@ def build_official_sector_records(
                             * pd.to_numeric(sector_df["close"], errors="coerce")
                             / 100_000_000
                         ).dropna()
-                        split_by_sector[str(sector_name)][out_key] = round(float(amount_series.sum()), 2) if not amount_series.empty else None
+                        split_by_sector[str(sector_key)][out_key] = round(float(amount_series.sum()), 2) if not amount_series.empty else 0.0
                     else:
-                        split_by_sector[str(sector_name)][out_key] = None
+                        split_by_sector[str(sector_key)][out_key] = 0.0
                 if "three_party_net_shares" in sector_df.columns and "trade_volume" in sector_df.columns:
                     total_net = abs(pd.to_numeric(sector_df["three_party_net_shares"], errors="coerce").dropna().sum())
                     total_vol = pd.to_numeric(sector_df["trade_volume"], errors="coerce").dropna().sum()
-                    concentration_by_sector[str(sector_name)] = round(total_net / total_vol * 100, 2) if total_vol > 0 else None
+                    concentration_by_sector[str(sector_key)] = round(total_net / total_vol * 100, 2) if total_vol > 0 else None
             if "change_pct" in inst.columns:
-                change_by_sector = inst.dropna(subset=["sector_name"]).groupby("sector_name")["change_pct"].mean().to_dict()
+                change_by_sector = inst.dropna(subset=["sector_key"]).groupby("sector_key")["change_pct"].mean().to_dict()
             if "trade_value_twd" in inst.columns:
-                trade_value_by_sector = inst.dropna(subset=["sector_name"]).groupby("sector_name")["trade_value_twd"].sum().to_dict()
+                trade_value_by_sector = inst.dropna(subset=["sector_key"]).groupby("sector_key")["trade_value_twd"].sum().to_dict()
 
         # Compute accumulated 5d, 20d, 60d flow amounts using institutional_flow history
         inst_all = institutional_flow.copy()
@@ -516,6 +521,7 @@ def build_official_sector_records(
         if not industry_lookup.empty:
             inst_all = inst_all.merge(industry_lookup[["stock_code", "industry"]], on="stock_code", how="left")
         inst_all["sector_name"] = inst_all.get("industry", "未分類").map(normalize_sector_name)
+        inst_all["sector_key"] = inst_all.apply(lambda row: sector_record_key(row.get("market"), row.get("sector_name")), axis=1)
         if "three_party_net_shares" in inst_all.columns and "close" in inst_all.columns:
             inst_all["amount_yi"] = pd.to_numeric(inst_all["three_party_net_shares"], errors="coerce") * pd.to_numeric(inst_all["close"], errors="coerce") / 100_000_000
         else:
@@ -528,20 +534,20 @@ def build_official_sector_records(
             
             d5_dates = unique_dates[-5:]
             d5_df = inst_all[inst_all["trade_date"].isin(d5_dates)]
-            amount_5d = d5_df.groupby("sector_name")["amount_yi"].sum().to_dict()
+            amount_5d = d5_df.groupby("sector_key")["amount_yi"].sum().to_dict()
             
             d20_dates = unique_dates[-20:]
             d20_df = inst_all[inst_all["trade_date"].isin(d20_dates)]
-            amount_20d = d20_df.groupby("sector_name")["amount_yi"].sum().to_dict()
+            amount_20d = d20_df.groupby("sector_key")["amount_yi"].sum().to_dict()
             
             d60_dates = unique_dates[-60:]
             d60_df = inst_all[inst_all["trade_date"].isin(d60_dates)]
-            amount_60d = d60_df.groupby("sector_name")["amount_yi"].sum().to_dict()
+            amount_60d = d60_df.groupby("sector_key")["amount_yi"].sum().to_dict()
             
             if "change_pct" in inst_all.columns:
-                daily_chg = inst_all.groupby(["trade_date", "sector_name"])["change_pct"].mean().reset_index()
-                chg_5d = daily_chg[daily_chg["trade_date"].isin(d5_dates)].groupby("sector_name")["change_pct"].sum().to_dict()
-                chg_20d_calc = daily_chg[daily_chg["trade_date"].isin(d20_dates)].groupby("sector_name")["change_pct"].sum().to_dict()
+                daily_chg = inst_all.groupby(["trade_date", "sector_key"])["change_pct"].mean().reset_index()
+                chg_5d = daily_chg[daily_chg["trade_date"].isin(d5_dates)].groupby("sector_key")["change_pct"].sum().to_dict()
+                chg_20d_calc = daily_chg[daily_chg["trade_date"].isin(d20_dates)].groupby("sector_key")["change_pct"].sum().to_dict()
 
     records: list[dict[str, Any]] = []
     for _, row in sf.iterrows():
@@ -549,6 +555,8 @@ def build_official_sector_records(
         name = normalize_sector_name(raw_name)
         if not name:
             continue
+        category = row.get("market") or "產業"
+        key = sector_record_key(category, name)
         net_shares = to_float(row.get("three_party_net_shares"))
         flow_rate_5d = to_float(row.get("moneydj_flow_rate_5d_avg_pct"))
         flow_rate_20d = to_float(row.get("moneydj_flow_rate_20d_avg_pct"))
@@ -557,25 +565,25 @@ def build_official_sector_records(
         chg_20d = to_float(row.get("moneydj_sector_return_20d_pct"))
         item = {
             "sector_name": name,
-            "category": row.get("market") or "產業",
+            "category": category,
             "stock_count": int(to_float(row.get("stock_count")) or 0),
             "net_1d_shares": round_or_none(net_shares, 0),
-            "net_1d_yi": round_or_none(amount_by_sector.get(name), 2),
-            "net_5d_yi": round_or_none(amount_5d.get(name), 2) if name in amount_5d else None,
-            "net_20d_yi": round_or_none(amount_20d.get(name), 2) if name in amount_20d else None,
-            "net_60d_yi": round_or_none(amount_60d.get(name), 2) if name in amount_60d else None,
-            "foreign_net_yi": round_or_none((split_by_sector.get(name) or {}).get("foreign_net_yi"), 2),
-            "trust_net_yi": round_or_none((split_by_sector.get(name) or {}).get("trust_net_yi"), 2),
-            "dealer_net_yi": round_or_none((split_by_sector.get(name) or {}).get("dealer_net_yi"), 2),
+            "net_1d_yi": round_or_none(amount_by_sector.get(key), 2),
+            "net_5d_yi": round_or_none(amount_5d.get(key), 2) if key in amount_5d else None,
+            "net_20d_yi": round_or_none(amount_20d.get(key), 2) if key in amount_20d else None,
+            "net_60d_yi": round_or_none(amount_60d.get(key), 2) if key in amount_60d else None,
+            "foreign_net_yi": round_or_none((split_by_sector.get(key) or {}).get("foreign_net_yi"), 2),
+            "trust_net_yi": round_or_none((split_by_sector.get(key) or {}).get("trust_net_yi"), 2),
+            "dealer_net_yi": round_or_none((split_by_sector.get(key) or {}).get("dealer_net_yi"), 2),
             "flow_rate_5d_pct": round_or_none(flow_rate_5d, 2),
             "flow_rate_20d_pct": round_or_none(flow_rate_20d, 2),
             "accel": round_or_none(accel, 2),
-            "concentration": round_or_none(concentration_by_sector.get(name), 2) if name in concentration_by_sector else None,
-            "chg_1d": round_or_none(change_by_sector.get(name), 2),
-            "chg_5d": round_or_none(chg_5d.get(name), 2) if name in chg_5d else None,
-            "chg_20d": round_or_none(chg_20d_calc.get(name), 2) if name in chg_20d_calc else round_or_none(chg_20d, 2),
+            "concentration": round_or_none(concentration_by_sector.get(key), 2) if key in concentration_by_sector else None,
+            "chg_1d": round_or_none(change_by_sector.get(key), 2),
+            "chg_5d": round_or_none(chg_5d.get(key), 2) if key in chg_5d else None,
+            "chg_20d": round_or_none(chg_20d_calc.get(key), 2) if key in chg_20d_calc else round_or_none(chg_20d, 2),
             "relative_strength_20d_pct": round_or_none(relative_strength, 2),
-            "trade_value_yi": round_or_none((trade_value_by_sector.get(name) or 0) / 100_000_000, 2) if name in trade_value_by_sector else None,
+            "trade_value_yi": round_or_none((trade_value_by_sector.get(key) or 0) / 100_000_000, 2) if key in trade_value_by_sector else None,
             "validation_status": row.get("moneydj_validation_status") or "official_pipeline",
             "source": "TWSE/TPEX official processed data",
         }
