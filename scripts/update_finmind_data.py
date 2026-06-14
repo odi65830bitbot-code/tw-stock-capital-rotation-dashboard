@@ -363,7 +363,7 @@ def update_finmind_data(
     trend_paths = write_finmind_recommendation_trends(
         processed_root=processed_root,
         public_root=public_root,
-        top_n=max(0, int(config.get("trend_top_n", DEFAULT_CONFIG["trend_top_n"]))),
+        top_n=2000,
     )
 
     quality["outputs"] = {

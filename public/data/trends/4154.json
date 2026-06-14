@@ -1,0 +1,149 @@
+{
+  "stock_id": "4154",
+  "stock_name": "樂威科-KY",
+  "market": "TPEX",
+  "industry": "其他",
+  "generated_at": "2026-06-14T08:09:20",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 13.5,
+      "ma5": 13.5,
+      "ma20": 13.5,
+      "ma60": 13.5
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 13.5,
+      "ma5": 13.5,
+      "ma20": 13.5,
+      "ma60": 13.5
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 13.95,
+      "ma5": 13.65,
+      "ma20": 13.65,
+      "ma60": 13.65
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": null,
+      "ma5": 13.65,
+      "ma20": 13.65,
+      "ma60": 13.65
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": null,
+      "ma5": 13.65,
+      "ma20": 13.65,
+      "ma60": 13.65
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 13.75,
+      "ma5": 13.733333333333334,
+      "ma20": 13.675,
+      "ma60": 13.675
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 320800.0,
+      "trade_value_ma20": 320800.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 40500.0,
+      "trade_value_ma20": 180650.0,
+      "trade_value_multiple": 0.2241904234707999
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 56859.0,
+      "trade_value_ma20": 139386.33333333334,
+      "trade_value_multiple": 0.4079237801888755
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 0.0,
+      "trade_value_ma20": 104539.75,
+      "trade_value_multiple": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 0.0,
+      "trade_value_ma20": 83631.8,
+      "trade_value_multiple": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 13750.0,
+      "trade_value_ma20": 71984.83333333333,
+      "trade_value_multiple": 0.19101245864290858
+    }
+  ],
+  "institutional_flow": [],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 4.628690776027639,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 2.9254279501620175,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 0.0,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 0.0,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 0.0,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 0.0,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": null,
+    "recommend_close": null,
+    "current_price": 13.75,
+    "post_recommend_return": null,
+    "post_recommend_max_drawdown": null,
+    "post_recommend_max_gain": null,
+    "still_recommended": false
+  }
+}

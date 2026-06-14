@@ -1,0 +1,149 @@
+{
+  "stock_id": "6720",
+  "stock_name": "久昌",
+  "market": "TPEX",
+  "industry": "半導體業",
+  "generated_at": "2026-06-14T08:09:25",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 148.5,
+      "ma5": 148.5,
+      "ma20": 148.5,
+      "ma60": 148.5
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 150.5,
+      "ma5": 149.5,
+      "ma20": 149.5,
+      "ma60": 149.5
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 152.5,
+      "ma5": 150.5,
+      "ma20": 150.5,
+      "ma60": 150.5
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 150.0,
+      "ma5": 150.375,
+      "ma20": 150.375,
+      "ma60": 150.375
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 148.0,
+      "ma5": 149.9,
+      "ma20": 149.9,
+      "ma60": 149.9
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 149.0,
+      "ma5": 150.0,
+      "ma20": 149.75,
+      "ma60": 149.75
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 14016308.0,
+      "trade_value_ma20": 14016308.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 11461637.0,
+      "trade_value_ma20": 12738972.5,
+      "trade_value_multiple": 0.8997300998962043
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 16017406.0,
+      "trade_value_ma20": 13831783.666666666,
+      "trade_value_multiple": 1.1580144966119217
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 13461568.0,
+      "trade_value_ma20": 13739229.75,
+      "trade_value_multiple": 0.9797905883333816
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 15375638.0,
+      "trade_value_ma20": 14066511.4,
+      "trade_value_multiple": 1.0930668993024097
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 32891649.0,
+      "trade_value_ma20": 17204034.333333332,
+      "trade_value_multiple": 1.9118567402688476
+    }
+  ],
+  "institutional_flow": [],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 8.612236274672277,
+      "sector_alpha_score": 21.825368713576324,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 11.415050390143364,
+      "sector_alpha_score": 25.26204443222105,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 7.1234913582077155,
+      "sector_alpha_score": 67.60434189494018,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 8.654334333400072,
+      "sector_alpha_score": 71.80359964717105,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 8.331304370677685,
+      "sector_alpha_score": 48.09407088898495,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 6.285528898124923,
+      "sector_alpha_score": 109.99358348935195,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": null,
+    "recommend_close": null,
+    "current_price": 149.0,
+    "post_recommend_return": null,
+    "post_recommend_max_drawdown": null,
+    "post_recommend_max_gain": null,
+    "still_recommended": false
+  }
+}

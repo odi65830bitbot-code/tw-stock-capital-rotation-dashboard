@@ -3,7 +3,7 @@
   "stock_name": "卜蜂",
   "market": "TWSE",
   "industry": "食品工業",
-  "generated_at": "2026-06-11T15:44:17",
+  "generated_at": "2026-06-14T08:09:17",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 116.75,
       "ma20": 116.75,
       "ma60": 116.75
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 117.5,
+      "ma5": 116.9,
+      "ma20": 116.9,
+      "ma60": 116.9
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 118.0,
+      "ma5": 116.7,
+      "ma20": 117.08333333333333,
+      "ma60": 117.08333333333333
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 457776870.0,
       "trade_value_ma20": 466647243.5,
       "trade_value_multiple": 0.9809912656218229
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 378650859.0,
+      "trade_value_ma20": 449047966.6,
+      "trade_value_multiple": 0.8432303165004467
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 127182661.0,
+      "trade_value_ma20": 395403749.0,
+      "trade_value_multiple": 0.32165264320748765
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": -7040000.0,
       "dealer_5d": -25629.0,
       "dealer_20d": -25629.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": 1347924.0,
+      "trustee_net_shares": -1702000.0,
+      "dealer_net_shares": 7789.0,
+      "foreign_5d": 6245466.0,
+      "foreign_20d": 6245466.0,
+      "trust_5d": -8742000.0,
+      "trust_20d": -8742000.0,
+      "dealer_5d": -17840.0,
+      "dealer_20d": -17840.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": -368010.0,
+      "trustee_net_shares": 224000.0,
+      "dealer_net_shares": -6587.0,
+      "foreign_5d": 4826056.0,
+      "foreign_20d": 5877456.0,
+      "trust_5d": -6808000.0,
+      "trust_20d": -8518000.0,
+      "dealer_5d": -6792.0,
+      "dealer_20d": -24427.0
     }
   ],
   "alpha": [
@@ -141,6 +191,22 @@
       "alpha_score_total": 68.21849831157361,
       "sector_alpha_score": 2132.622404224804,
       "main_buy_component": 31.590574374079527,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 1069.2797637923895,
+      "alpha_score_total": 67.37108299551383,
+      "sector_alpha_score": 1885.0974123464778,
+      "main_buy_component": 43.146067415730336,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 1393.1280232451647,
+      "alpha_score_total": 57.81852236521847,
+      "sector_alpha_score": 2109.984168260934,
+      "main_buy_component": 39.02985074626866,
       "risk_penalty": 0.0
     }
   ],

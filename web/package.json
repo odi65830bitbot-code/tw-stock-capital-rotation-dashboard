@@ -6,13 +6,18 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5173",
     "test:phase3-ui": "node scripts/verify-phase3-ui.mjs",
+    "test:phase8-ui": "node scripts/verify-phase8-ui.mjs",
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1 --port 4173"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "framer-motion": "^12.40.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "recharts": "^3.8.1",
     "rollup": "npm:@rollup/wasm-node@^4.61.1",
     "typescript": "^5.8.0",
     "vite": "^7.0.0"

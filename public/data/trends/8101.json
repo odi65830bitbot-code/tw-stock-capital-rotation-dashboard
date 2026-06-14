@@ -1,0 +1,162 @@
+{
+  "stock_id": "8101",
+  "stock_name": "華冠",
+  "market": "TWSE",
+  "industry": "通信網路業",
+  "generated_at": "2026-06-14T08:09:40",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 16.2,
+      "ma5": 16.2,
+      "ma20": 16.2,
+      "ma60": 16.2
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 15.3,
+      "ma5": 15.75,
+      "ma20": 15.75,
+      "ma60": 15.75
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 15.85,
+      "ma5": 15.783333333333333,
+      "ma20": 15.783333333333333,
+      "ma60": 15.783333333333333
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 16.6,
+      "ma5": 15.9875,
+      "ma20": 15.9875,
+      "ma60": 15.9875
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 15.05,
+      "ma5": 15.8,
+      "ma20": 15.8,
+      "ma60": 15.8
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 15.05,
+      "ma5": 15.569999999999999,
+      "ma20": 15.675000000000002,
+      "ma60": 15.675000000000002
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 70646.0,
+      "trade_value_ma20": 70646.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 97290.0,
+      "trade_value_ma20": 83968.0,
+      "trade_value_multiple": 1.1586556783536586
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 20553.0,
+      "trade_value_ma20": 62829.666666666664,
+      "trade_value_multiple": 0.32712253765471727
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 77785.0,
+      "trade_value_ma20": 66568.5,
+      "trade_value_multiple": 1.1684956097854091
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 270170.0,
+      "trade_value_ma20": 107288.8,
+      "trade_value_multiple": 2.5181566016210453
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 216177.0,
+      "trade_value_ma20": 125436.83333333333,
+      "trade_value_multiple": 1.7233933148291105
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": -43.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 0.0,
+      "foreign_5d": -43.0,
+      "foreign_20d": -43.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": 0.0,
+      "dealer_20d": 0.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 10.865013744263457,
+      "sector_alpha_score": 1252.6407132648008,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 66.72873991309746,
+      "alpha_score_total": 5.059321003901935,
+      "sector_alpha_score": 1181.9920690269532,
+      "main_buy_component": 5.921052631578947,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 7.040047042042488,
+      "sector_alpha_score": 1445.9194550410302,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 12.3108517120871,
+      "sector_alpha_score": 1261.871365438908,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 9.509052745551188,
+      "sector_alpha_score": 1623.8771713408826,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 7.6773797075280825,
+      "sector_alpha_score": 1882.6478109063232,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": null,
+    "recommend_close": null,
+    "current_price": 15.05,
+    "post_recommend_return": null,
+    "post_recommend_max_drawdown": null,
+    "post_recommend_max_gain": null,
+    "still_recommended": false
+  }
+}

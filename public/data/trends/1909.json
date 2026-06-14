@@ -3,7 +3,7 @@
   "stock_name": "榮成",
   "market": "TWSE",
   "industry": "造紙工業",
-  "generated_at": "2026-06-11T15:44:16",
+  "generated_at": "2026-06-14T08:09:30",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 9.685,
       "ma20": 9.685,
       "ma60": 9.685
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 9.75,
+      "ma5": 9.698,
+      "ma20": 9.698,
+      "ma60": 9.698
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 9.87,
+      "ma5": 9.724,
+      "ma20": 9.726666666666667,
+      "ma60": 9.726666666666667
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 72050121.0,
       "trade_value_ma20": 54431199.25,
       "trade_value_multiple": 1.3236915958635616
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 28152171.0,
+      "trade_value_ma20": 49175393.6,
+      "trade_value_multiple": 0.5724849144878018
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 39039544.0,
+      "trade_value_ma20": 47486085.333333336,
+      "trade_value_multiple": 0.822125970712431
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": 0.0,
       "dealer_5d": 89000.0,
       "dealer_20d": 89000.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": 619568.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 61000.0,
+      "foreign_5d": 5468864.0,
+      "foreign_20d": 5468864.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": 150000.0,
+      "dealer_20d": 150000.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": 1560645.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -33000.0,
+      "foreign_5d": 4581509.0,
+      "foreign_20d": 7029509.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": 180000.0,
+      "dealer_20d": 117000.0
     }
   ],
   "alpha": [
@@ -142,15 +192,31 @@
       "sector_alpha_score": 2084.109593813538,
       "main_buy_component": 73.04860088365243,
       "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 2358.0119700893288,
+      "alpha_score_total": 31.611994504259997,
+      "sector_alpha_score": 1211.9887743247211,
+      "main_buy_component": 73.18352059925094,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 3856.3727737398744,
+      "alpha_score_total": 37.2105110936639,
+      "sector_alpha_score": 2665.156284165929,
+      "main_buy_component": 82.83582089552239,
+      "risk_penalty": 35.0
     }
   ],
   "recommendation": {
     "first_recommend_date": "2026-06-05",
     "recommend_close": 9.74,
-    "current_price": 9.8,
-    "post_recommend_return": 0.006160164271047375,
+    "current_price": 9.87,
+    "post_recommend_return": 0.013347022587268942,
     "post_recommend_max_drawdown": -0.01848049281314168,
-    "post_recommend_max_gain": 0.006160164271047375,
-    "still_recommended": true
+    "post_recommend_max_gain": 0.013347022587268942,
+    "still_recommended": false
   }
 }

@@ -1,9 +1,9 @@
 {
   "status": "ok",
   "version": "backtest-v4-summary-formal-v1",
-  "data_timestamp": "2026-06-10",
-  "as_of_date": "2026-06-10",
-  "generated_at": "2026-06-11T15:55:29+08:00",
+  "data_timestamp": "2026-06-12",
+  "as_of_date": "2026-06-12",
+  "generated_at": "2026-06-14T08:14:44+08:00",
   "source": [
     "backtest_alpha_v4.parquet",
     "backtest_alpha_v3.parquet",
@@ -14,24 +14,24 @@
     {
       "dataset": "backtest_alpha_v3.parquet",
       "rows": 3,
-      "source_latest_date": "2026-06-10"
+      "source_latest_date": "2026-06-12"
     },
     {
       "dataset": "recommendation_backtest.parquet",
       "rows": 2,
-      "source_latest_date": "2026-06-10",
+      "source_latest_date": "2026-06-12",
       "max_drawdown": -0.01,
-      "win_rate": 0.33
+      "win_rate": 0.6
     },
     {
       "dataset": "factor_effectiveness.parquet",
       "rows": 176,
-      "source_latest_date": "2026-06-10"
+      "source_latest_date": "2026-06-12"
     }
   ],
   "summary": {
     "dataset": "backtest_alpha_v3.parquet",
     "rows": 3,
-    "source_latest_date": "2026-06-10"
+    "source_latest_date": "2026-06-12"
   }
 }

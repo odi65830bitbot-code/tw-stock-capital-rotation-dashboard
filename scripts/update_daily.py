@@ -26,8 +26,8 @@ from src.modules.trend_builder import write_top_recommendation_trends
 
 LOGGER = logging.getLogger("update_daily")
 TAIPEI_TZ = ZoneInfo("Asia/Taipei")
-MARKET_DATA_READY_TIME = time(20, 30)
-DEFAULT_TREND_TOP_N = 100
+MARKET_DATA_READY_TIME = time(14, 30)
+DEFAULT_TREND_TOP_N = 50
 
 MERGE_KEYS: dict[str, list[str]] = {
     "daily_price": ["trade_date", "market", "stock_code"],
@@ -249,6 +249,38 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
     sector_as_of_date = latest_complete_trade_date(sector)
     if sector_as_of_date is None and not sector.empty and "trade_date" in sector.columns:
         sector_as_of_date = pd.to_datetime(sector["trade_date"], errors="coerce").max()
+    
+    # --- Compute 5d/20d net flow for stocks ---
+    inst = pd.read_parquet(processed_root / "institutional_flow.parquet")
+    if not inst.empty and not daily_price.empty:
+        inst_merged = pd.merge(inst, daily_price[["trade_date", "stock_code", "close"]], on=["trade_date", "stock_code"], how="left")
+        inst_merged["amount_yi"] = inst_merged["three_party_net_shares"] * inst_merged["close"] / 100000000
+        inst_merged = inst_merged.sort_values("trade_date")
+        unique_dates = sorted(inst_merged["trade_date"].dropna().unique())
+        if unique_dates:
+            d5_dates = unique_dates[-5:]
+            d20_dates = unique_dates[-20:]
+            amount_5d = inst_merged[inst_merged["trade_date"].isin(d5_dates)].groupby("stock_code")["amount_yi"].sum().round(2).to_dict()
+            amount_20d = inst_merged[inst_merged["trade_date"].isin(d20_dates)].groupby("stock_code")["amount_yi"].sum().round(2).to_dict()
+            stock_alpha["net_5d_yi"] = stock_alpha["stock_code"].map(amount_5d)
+            stock_alpha["net_20d_yi"] = stock_alpha["stock_code"].map(amount_20d)
+            
+            # --- Compute V6 Silent Accumulation Factors ---
+            daily_sorted = daily_price.sort_values(["stock_code", "trade_date"])
+            daily_sorted["ma20"] = daily_sorted.groupby("stock_code")["close"].transform(lambda x: x.rolling(20, min_periods=1).mean())
+            daily_sorted["vol_ma5"] = daily_sorted.groupby("stock_code")["trade_volume"].transform(lambda x: x.rolling(5, min_periods=1).mean())
+            daily_sorted["vol_ma20"] = daily_sorted.groupby("stock_code")["trade_volume"].transform(lambda x: x.rolling(20, min_periods=1).mean())
+            
+            latest_daily = daily_sorted[daily_sorted["trade_date"] == as_of_date].set_index("stock_code")
+            stock_alpha["ma20"] = stock_alpha["stock_code"].map(latest_daily["ma20"])
+            stock_alpha["vol_ma5"] = stock_alpha["stock_code"].map(latest_daily["vol_ma5"])
+            stock_alpha["vol_ma20"] = stock_alpha["stock_code"].map(latest_daily["vol_ma20"])
+            stock_alpha["bias_20"] = (stock_alpha["close"] - stock_alpha["ma20"]) / stock_alpha["ma20"] * 100
+            
+            # Re-save to parquet so next steps (like build_formal_json_outputs) can read it
+            stock_alpha.to_parquet(processed_root / "stock_alpha_breakdown.parquet", index=False)
+    # ------------------------------------------
+
     stock_detail_date = sector_as_of_date if sector_as_of_date is not None else as_of_date
     sector_constituents_cols = [
         c
@@ -270,6 +302,8 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
             "dealer_net_shares",
             "three_party_net_shares",
             "flow_rate",
+            "net_5d_yi",
+            "net_20d_yi",
             "alpha_score_total",
             "suggested_status",
         ]
@@ -358,7 +392,7 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
     trend_paths = write_top_recommendation_trends(
         processed_root=processed_root,
         public_root=public_root,
-        top_n=_trend_top_n(),
+        top_n=2000,
     )
     LOGGER.info("wrote %s recommendation trend files", len(trend_paths))
 

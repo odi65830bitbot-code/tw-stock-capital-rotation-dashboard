@@ -3,7 +3,7 @@
   "stock_name": "潤弘",
   "market": "TWSE",
   "industry": "建材營造",
-  "generated_at": "2026-06-11T15:44:16",
+  "generated_at": "2026-06-14T08:09:33",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 188.75,
       "ma20": 188.75,
       "ma60": 188.75
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 204.0,
+      "ma5": 191.8,
+      "ma20": 191.8,
+      "ma60": 191.8
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 190.5,
+      "ma5": 193.0,
+      "ma20": 191.58333333333334,
+      "ma60": 191.58333333333334
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 835817597.0,
       "trade_value_ma20": 737725841.5,
       "trade_value_multiple": 1.1329650528447701
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 774066965.0,
+      "trade_value_ma20": 744994066.2,
+      "trade_value_multiple": 1.0390243360571882
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 351577712.0,
+      "trade_value_ma20": 679424673.8333334,
+      "trade_value_multiple": 0.5174638566132557
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": 6979000.0,
       "dealer_5d": -3323.0,
       "dealer_20d": -3323.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": -436143.0,
+      "trustee_net_shares": 1480000.0,
+      "dealer_net_shares": -41000.0,
+      "foreign_5d": -2119729.0,
+      "foreign_20d": -2119729.0,
+      "trust_5d": 8459000.0,
+      "trust_20d": 8459000.0,
+      "dealer_5d": -44323.0,
+      "dealer_20d": -44323.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": -316090.0,
+      "trustee_net_shares": -3000.0,
+      "dealer_net_shares": 37827.0,
+      "foreign_5d": -2069248.0,
+      "foreign_20d": -2435819.0,
+      "trust_5d": 6607000.0,
+      "trust_20d": 8456000.0,
+      "dealer_5d": -41023.0,
+      "dealer_20d": -6496.0
     }
   ],
   "alpha": [
@@ -142,15 +192,31 @@
       "sector_alpha_score": 1193.2180441240598,
       "main_buy_component": 90.20618556701031,
       "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 2615.7183531196433,
+      "alpha_score_total": 71.0191337195723,
+      "sector_alpha_score": 1391.4737189109642,
+      "main_buy_component": 77.82771535580524,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 1554.6676011744728,
+      "alpha_score_total": 49.09128045264516,
+      "sector_alpha_score": 2073.7331539349407,
+      "main_buy_component": 43.059701492537314,
+      "risk_penalty": 0.0
     }
   ],
   "recommendation": {
     "first_recommend_date": "2026-06-08",
     "recommend_close": 184.5,
-    "current_price": 195.0,
-    "post_recommend_return": 0.05691056910569103,
-    "post_recommend_max_drawdown": 0.0,
-    "post_recommend_max_gain": 0.05691056910569103,
-    "still_recommended": true
+    "current_price": 190.5,
+    "post_recommend_return": 0.03252032520325199,
+    "post_recommend_max_drawdown": -0.06617647058823539,
+    "post_recommend_max_gain": 0.10569105691056913,
+    "still_recommended": false
   }
 }

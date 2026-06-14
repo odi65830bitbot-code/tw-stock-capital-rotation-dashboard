@@ -1,0 +1,222 @@
+{
+  "stock_id": "2849",
+  "stock_name": "安泰銀",
+  "market": "TWSE",
+  "industry": "金融保險業",
+  "generated_at": "2026-06-14T08:09:33",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 14.2,
+      "ma5": 14.2,
+      "ma20": 14.2,
+      "ma60": 14.2
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 13.6,
+      "ma5": 13.899999999999999,
+      "ma20": 13.899999999999999,
+      "ma60": 13.899999999999999
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 14.0,
+      "ma5": 13.933333333333332,
+      "ma20": 13.933333333333332,
+      "ma60": 13.933333333333332
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 13.8,
+      "ma5": 13.9,
+      "ma20": 13.9,
+      "ma60": 13.9
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 14.15,
+      "ma5": 13.95,
+      "ma20": 13.95,
+      "ma60": 13.95
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 14.25,
+      "ma5": 13.959999999999999,
+      "ma20": 14.0,
+      "ma60": 14.0
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 875490.0,
+      "trade_value_ma20": 875490.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 3253193.0,
+      "trade_value_ma20": 2064341.5,
+      "trade_value_multiple": 1.5758986582404122
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 4532157.0,
+      "trade_value_ma20": 2886946.6666666665,
+      "trade_value_multiple": 1.569879018663317
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 2552070.0,
+      "trade_value_ma20": 2803227.5,
+      "trade_value_multiple": 0.9104041680527178
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 2724329.0,
+      "trade_value_ma20": 2787447.8,
+      "trade_value_multiple": 0.97735606026416
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 1376966.0,
+      "trade_value_ma20": 2552367.5,
+      "trade_value_multiple": 0.5394857911331342
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-05",
+      "foreign_net_shares": 11000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -2000.0,
+      "foreign_5d": 11000.0,
+      "foreign_20d": 11000.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -2000.0,
+      "dealer_20d": -2000.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": -128000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -17000.0,
+      "foreign_5d": -117000.0,
+      "foreign_20d": -117000.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -19000.0,
+      "dealer_20d": -19000.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "foreign_net_shares": -99000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -15000.0,
+      "foreign_5d": -216000.0,
+      "foreign_20d": -216000.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -34000.0,
+      "dealer_20d": -34000.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "foreign_net_shares": -61000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -22000.0,
+      "foreign_5d": -277000.0,
+      "foreign_20d": -277000.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -56000.0,
+      "dealer_20d": -56000.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": 97400.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 9000.0,
+      "foreign_5d": -179600.0,
+      "foreign_20d": -179600.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -47000.0,
+      "dealer_20d": -47000.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": 21000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 0.0,
+      "foreign_5d": -169600.0,
+      "foreign_20d": -158600.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -45000.0,
+      "dealer_20d": -47000.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 1455.2745618006595,
+      "alpha_score_total": 29.15084012589216,
+      "sector_alpha_score": 1731.3652510735938,
+      "main_buy_component": 54.21052631578947,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 6108.555347724247,
+      "alpha_score_total": 29.813049934422082,
+      "sector_alpha_score": 1734.7951927243626,
+      "main_buy_component": 97.22222222222221,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 3460.6487805766533,
+      "alpha_score_total": 31.454493762029102,
+      "sector_alpha_score": 3205.5408792880944,
+      "main_buy_component": 83.02852962692026,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 4479.537150474669,
+      "alpha_score_total": 28.279882172949762,
+      "sector_alpha_score": 1679.7122257924307,
+      "main_buy_component": 92.48895434462445,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 5476.772616136919,
+      "alpha_score_total": 37.73270363219386,
+      "sector_alpha_score": 1620.676211866154,
+      "main_buy_component": 95.73033707865169,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 2153.2719479933558,
+      "alpha_score_total": 25.26661169395517,
+      "sector_alpha_score": 2730.9387181319244,
+      "main_buy_component": 56.492537313432834,
+      "risk_penalty": 35.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": null,
+    "recommend_close": null,
+    "current_price": 14.25,
+    "post_recommend_return": null,
+    "post_recommend_max_drawdown": null,
+    "post_recommend_max_gain": null,
+    "still_recommended": false
+  }
+}

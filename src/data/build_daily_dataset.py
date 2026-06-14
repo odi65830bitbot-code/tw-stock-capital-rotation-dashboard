@@ -240,6 +240,42 @@ def build_dataset(target_date: date, *, raw_root: Path, processed_root: Path, qu
     sector_df = _concat_frames(sector_frames)
     index_df = _concat_frames(index_frames)
 
+    # --- Synthesize sector classifications for ETFs, ETNs, REITs, DRs ---
+    if not daily_price_df.empty:
+        existing_codes = set(sector_df["stock_code"].astype(str)) if not sector_df.empty else set()
+        synthesized_sectors = []
+        for _, row in daily_price_df.drop_duplicates(subset=["stock_code"]).iterrows():
+            code = str(row["stock_code"])
+            if code in existing_codes:
+                continue
+            name = str(row.get("stock_name", "")).upper()
+            industry = None
+            if code.startswith("00") or "ETF" in name:
+                industry = "ETF"
+            elif code.startswith("01"):
+                industry = "REITs"
+            elif code.startswith("02") or "ETN" in name:
+                industry = "ETN"
+            elif code.startswith("91") or "-DR" in name:
+                industry = "DR(存託憑證)"
+                
+            if industry:
+                synthesized_sectors.append({
+                    "trade_date": row.get("trade_date"),
+                    "market": row.get("market"),
+                    "industry": industry,
+                    "stock_code": code,
+                    "stock_name": row.get("stock_name"),
+                })
+        
+        if synthesized_sectors:
+            syn_df = pd.DataFrame(synthesized_sectors)
+            if sector_df.empty:
+                sector_df = syn_df
+            else:
+                sector_df = pd.concat([sector_df, syn_df], ignore_index=True)
+    # ---------------------------------------------------------------------
+
     # sector mapping
     sector_map = _infer_sector_map(
         sector_df[sector_df["market"] == "TWSE"] if not sector_df.empty else pd.DataFrame(),

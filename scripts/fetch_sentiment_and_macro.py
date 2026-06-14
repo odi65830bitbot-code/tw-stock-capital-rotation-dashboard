@@ -9,6 +9,10 @@ from typing import Any
 
 import pandas as pd
 
+import time
+from bs4 import BeautifulSoup
+import requests
+
 ROOT = Path(__file__).resolve().parents[1]
 PROCESSED = ROOT / "data" / "processed"
 PUBLIC_DATA = ROOT / "public" / "data"
@@ -25,29 +29,12 @@ SENTIMENT_COLUMNS = [
 ]
 
 POSITIVE_WORDS = {
-    "強勁",
-    "成長",
-    "創高",
-    "看好",
-    "利多",
-    "上修",
-    "優於預期",
-    "訂單",
-    "突破",
-    "旺",
-    "回升",
+    "強勁", "成長", "創高", "看好", "利多", "上修", "優於預期", "訂單", "突破", "旺", "回升",
+    "噴出", "漲停", "大賺", "買進", "做多", "多頭", "爆量", "利好", "狂飆", "抄底"
 }
 NEGATIVE_WORDS = {
-    "疲弱",
-    "下修",
-    "衰退",
-    "利空",
-    "虧損",
-    "過熱",
-    "警戒",
-    "賣壓",
-    "低於預期",
-    "跌破",
+    "疲弱", "下修", "衰退", "利空", "虧損", "過熱", "警戒", "賣壓", "低於預期", "跌破",
+    "跌停", "崩盤", "大賠", "賣出", "做空", "空頭", "割韭菜", "套牢", "出貨", "法會"
 }
 
 
@@ -72,14 +59,55 @@ def _to_float(value: Any) -> float | None:
 
 def load_news() -> list[dict[str, Any]]:
     path = PUBLIC_DATA / "global_news_latest.json"
-    if not path.exists():
-        return []
+    records = []
+    if path.exists():
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            items = payload.get("records") or payload.get("items") or []
+            if isinstance(items, list):
+                records.extend(items)
+        except Exception:
+            pass
+            
+    # Fetch from PTT
+    ptt_news = fetch_ptt_stock_news(pages=3)
+    records.extend(ptt_news)
+    return records
+
+def fetch_ptt_stock_news(pages: int = 3) -> list[dict[str, Any]]:
+    """Scrape recent titles from PTT Stock board."""
+    headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
+    url = "https://www.ptt.cc/bbs/Stock/index.html"
+    news_items = []
+    
     try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return []
-    records = payload.get("records") or payload.get("items") or []
-    return records if isinstance(records, list) else []
+        for _ in range(pages):
+            res = requests.get(url, headers=headers, cookies={"over18": "1"}, timeout=5)
+            if res.status_code != 200:
+                break
+            soup = BeautifulSoup(res.text, "html.parser")
+            
+            for ent in soup.select("div.r-ent"):
+                title_elem = ent.select_one("div.title a")
+                if title_elem:
+                    title_text = title_elem.text.strip()
+                    news_items.append({"title": title_text, "source": "ptt_stock"})
+            
+            prev_link = soup.select_one('a.btn.wide:-soup-contains("‹ 上頁")')
+            if not prev_link:
+                btn_group = soup.select('div.btn-group-paging a.btn.wide')
+                if len(btn_group) >= 2 and '上頁' in btn_group[1].text:
+                    prev_link = btn_group[1]
+                
+            if prev_link and 'href' in prev_link.attrs:
+                url = "https://www.ptt.cc" + prev_link['href']
+                time.sleep(0.5)
+            else:
+                break
+    except Exception as e:
+        print(f"Error fetching PTT news: {e}")
+    
+    return news_items
 
 
 def load_universe() -> pd.DataFrame:

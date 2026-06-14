@@ -1,0 +1,162 @@
+{
+  "stock_id": "3169",
+  "stock_name": "亞信",
+  "market": "TPEX",
+  "industry": "半導體業",
+  "generated_at": "2026-06-14T08:09:19",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 111.5,
+      "ma5": 111.5,
+      "ma20": 111.5,
+      "ma60": 111.5
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 106.0,
+      "ma5": 108.75,
+      "ma20": 108.75,
+      "ma60": 108.75
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 110.0,
+      "ma5": 109.16666666666667,
+      "ma20": 109.16666666666667,
+      "ma60": 109.16666666666667
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 106.5,
+      "ma5": 108.5,
+      "ma20": 108.5,
+      "ma60": 108.5
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 104.5,
+      "ma5": 107.7,
+      "ma20": 107.7,
+      "ma60": 107.7
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 107.0,
+      "ma5": 106.8,
+      "ma20": 107.58333333333333,
+      "ma60": 107.58333333333333
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 38502695.0,
+      "trade_value_ma20": 38502695.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 40659197.0,
+      "trade_value_ma20": 39580946.0,
+      "trade_value_multiple": 1.0272416682511833
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 39710440.0,
+      "trade_value_ma20": 39624110.666666664,
+      "trade_value_multiple": 1.0021787071528134
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 43070406.0,
+      "trade_value_ma20": 40485684.5,
+      "trade_value_multiple": 1.0638428504277853
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 28474386.0,
+      "trade_value_ma20": 38083424.8,
+      "trade_value_multiple": 0.7476844887122652
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 18175413.0,
+      "trade_value_ma20": 34765422.833333336,
+      "trade_value_multiple": 0.52280143656338
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": null,
+      "foreign_20d": null,
+      "trust_5d": null,
+      "trust_20d": null,
+      "dealer_5d": null,
+      "dealer_20d": null
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 8.078362615694303,
+      "sector_alpha_score": 21.825368713576324,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 254.5377721326956,
+      "alpha_score_total": 11.333254523441461,
+      "sector_alpha_score": 25.26204443222105,
+      "main_buy_component": 13.37719298245614,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 8.671822436764302,
+      "sector_alpha_score": 67.60434189494018,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 8.225220532257879,
+      "sector_alpha_score": 71.80359964717105,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 8.1626532360618,
+      "sector_alpha_score": 48.09407088898495,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 7.51230853751111,
+      "sector_alpha_score": 109.99358348935195,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": null,
+    "recommend_close": null,
+    "current_price": 107.0,
+    "post_recommend_return": null,
+    "post_recommend_max_drawdown": null,
+    "post_recommend_max_gain": null,
+    "still_recommended": false
+  }
+}

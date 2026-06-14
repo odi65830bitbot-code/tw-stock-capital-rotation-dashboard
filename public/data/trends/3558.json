@@ -1,0 +1,162 @@
+{
+  "stock_id": "3558",
+  "stock_name": "神準",
+  "market": "TPEX",
+  "industry": "通信網路業",
+  "generated_at": "2026-06-14T08:09:20",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 133.0,
+      "ma5": 133.0,
+      "ma20": 133.0,
+      "ma60": 133.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 124.0,
+      "ma5": 128.5,
+      "ma20": 128.5,
+      "ma60": 128.5
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 136.0,
+      "ma5": 131.0,
+      "ma20": 131.0,
+      "ma60": 131.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 136.0,
+      "ma5": 132.25,
+      "ma20": 132.25,
+      "ma60": 132.25
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 137.0,
+      "ma5": 133.2,
+      "ma20": 133.2,
+      "ma60": 133.2
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 140.5,
+      "ma5": 134.7,
+      "ma20": 134.41666666666666,
+      "ma60": 134.41666666666666
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 29540967.0,
+      "trade_value_ma20": 29540967.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 38257116.0,
+      "trade_value_ma20": 33899041.5,
+      "trade_value_multiple": 1.1285604048716245
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 50777285.0,
+      "trade_value_ma20": 39525122.666666664,
+      "trade_value_multiple": 1.2846838054932286
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 103035201.0,
+      "trade_value_ma20": 55402642.25,
+      "trade_value_multiple": 1.8597524741701286
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 49743167.0,
+      "trade_value_ma20": 54270747.2,
+      "trade_value_multiple": 0.9165742055602285
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 79198522.0,
+      "trade_value_ma20": 58425376.333333336,
+      "trade_value_multiple": 1.355550053253401
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": null,
+      "foreign_20d": null,
+      "trust_5d": null,
+      "trust_20d": null,
+      "dealer_5d": null,
+      "dealer_20d": null
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 7.926261526313937,
+      "sector_alpha_score": 12.732442577310788,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 319.43983031356214,
+      "alpha_score_total": 11.512313186630536,
+      "sector_alpha_score": 85.85023849835557,
+      "main_buy_component": 16.15497076023392,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 13.137153691748566,
+      "sector_alpha_score": 1.4390375177964267,
+      "main_buy_component": 50.0,
+      "risk_penalty": 40.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 39.90071712908367,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 10.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 5.375847010482353,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 40.64787259462626,
+      "sector_alpha_score": 3.27615564196416,
+      "main_buy_component": 50.0,
+      "risk_penalty": 10.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-10",
+    "recommend_close": 136.0,
+    "current_price": 140.5,
+    "post_recommend_return": 0.03308823529411775,
+    "post_recommend_max_drawdown": 0.0,
+    "post_recommend_max_gain": 0.03308823529411775,
+    "still_recommended": false
+  }
+}

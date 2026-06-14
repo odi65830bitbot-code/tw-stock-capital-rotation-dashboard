@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import type { CSSProperties } from "react";
+import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { motion, AnimatePresence } from "framer-motion";
 import type { Sector, SectorStock } from "./types";
 
 type MenuKey =
+  | "charts"
   | "rotation"
   | "flow"
   | "strength"
@@ -12,8 +15,16 @@ type MenuKey =
   | "chips"
   | "watchlist"
   | "alerts"
+  | "goldenExit"
+  | "portfolio"
   | "news"
   | "learn";
+
+type PortfolioItem = {
+  id: string;
+  shares: number;
+  buyPrice: number;
+};
 
 type DatasetStatus = "loading" | "ready" | "missing" | "error";
 
@@ -65,6 +76,7 @@ type StockRow = {
   reason?: string;
   risk_tags?: string[];
   tags?: string[];
+  Alpha_Score_v6?: number;
   Alpha_Score_v5?: number;
   stock_alpha_v5?: number;
   sentiment_temperature?: number;
@@ -79,6 +91,28 @@ type StockRow = {
   sector_rank?: number;
   suggested_status?: string;
 };
+
+type SectorFlowHistoryRow = {
+  date: string;
+  sector: string;
+  foreign: number;
+  trust: number;
+  dealer: number;
+  total: number;
+};
+
+type SectorFlowHistoryPayload = {
+  status?: string;
+  as_of_date?: string;
+  dates?: string[];
+  sectors?: string[];
+  data?: SectorFlowHistoryRow[];
+  records?: SectorFlowHistoryRow[];
+};
+
+type SectorChartView = "planet" | "stream" | "sankey";
+type PlanetMetric = "1d" | "5d" | "20d" | "volume";
+type SankeyRange = "today" | "week" | "month";
 
 type TrendPricePoint = {
   trade_date: string;
@@ -136,7 +170,8 @@ type GlobalNews = {
 };
 
 const MENU: Array<{ key: MenuKey; label: string; desc: string }> = [
-  { key: "rotation", label: "輪動儀表板", desc: "總覽、板塊圖、CP、抄底" },
+  { key: "rotation", label: "輪動儀表板", desc: "總覽、CP、抄底" },
+  { key: "charts", label: "資金圖表", desc: "行星圖、河流與法人流向" },
   { key: "flow", label: "資金流向", desc: "1/5/20/60 日法人淨流" },
   { key: "strength", label: "強勢排行", desc: "Sector / Stock Alpha v4" },
   { key: "map", label: "產業地圖", desc: "板塊清單、熱力圖、成分股" },
@@ -144,24 +179,38 @@ const MENU: Array<{ key: MenuKey; label: string; desc: string }> = [
   { key: "bigMoney", label: "大戶動向", desc: "法人、主力 Proxy、夜盤" },
   { key: "chips", label: "籌碼分析", desc: "融資融券、借券、持股" },
   { key: "watchlist", label: "自選監控", desc: "觀察清單與條件監控" },
+  { key: "portfolio", label: "我的持股", desc: "持股標的與買賣建議" },
   { key: "alerts", label: "警示設定", desc: "價格、資金、Alpha 提醒" },
+  { key: "goldenExit", label: "黃金逃頂", desc: "波段防守價與明日壓力價" },
   { key: "news", label: "全球財經", desc: "各國重點財經新聞" },
   { key: "learn", label: "教學專區", desc: "指標、來源、FAQ" }
 ];
 
 const DATASETS: Array<Omit<DatasetBox, "status" | "data">> = [
   { key: "sectorRotation", label: "Sector Rotation", path: "/data/sector_rotation_latest.json" },
+  { key: "sectorFlowHistory", label: "Sector Flow History", path: "/data/sector_flow_history.json" },
   { key: "sectorConstituents", label: "Sector Constituents", path: "/data/sector_constituents_latest.json" },
   { key: "cpRanking", label: "CP Ranking", path: "/data/cp_ranking_latest.json" },
   { key: "bottomFishing", label: "Bottom Fishing", path: "/data/bottom_fishing_latest.json" },
   { key: "recommendations", label: "Recommendations v5", path: "/data/recommendations_v5_latest.json", fallbackPaths: ["/data/recommendations_latest.json"] },
+  { key: "recommendationsV6", label: "Recommendations v6", path: "/data/recommendations_v6_latest.json" },
   { key: "backtest", label: "Backtest v4", path: "/data/backtest_v4_summary.json" },
   { key: "sectorAlpha", label: "Sector Alpha", path: "/data/sector_alpha_score.json" },
   { key: "stockAlpha", label: "Stock Alpha v4", path: "/data/stock_alpha_v4_latest.json" },
   { key: "futuresAfterHours", label: "台指期夜盤", path: "/data/futures_after_hours_latest.json" },
   { key: "chipAnalysis", label: "籌碼分析", path: "/data/chip_analysis_latest.json" },
-  { key: "watchlist", label: "自選監控", path: "/data/watchlist_latest.json" }
+  { key: "goldenExit", label: "黃金逃頂", path: "/data/golden_exit_latest.json" },
+  { key: "watchlist", label: "自選監控", path: "/data/watchlist_latest.json" },
+  { key: "marketData", label: "大盤資訊", path: "/data/market_latest.json" }
 ];
+
+const SECTOR_CHART_TABS: Array<{ key: SectorChartView; label: string }> = [
+  { key: "planet", label: "資金行星" },
+  { key: "stream", label: "資金河流" },
+  { key: "sankey", label: "法人流向" }
+];
+
+const STREAM_COLORS = ["#27e083", "#5ad0ff", "#e4b125", "#ff8a5c", "#b58cff", "#78f0c4", "#f06f9f", "#9fb7ff"];
 
 function getStockMarket(code: string, stockAlphaData: any): string {
   if (stockAlphaData?.records) {
@@ -201,6 +250,54 @@ function sectorNameMatches(left: string | undefined, right: string | undefined):
   const b = comparableSectorName(right);
   if (!a || !b) return false;
   return a === b || a.includes(b) || b.includes(a);
+}
+
+function sectorFlowHistoryRows(payload: Record<string, unknown> | null | undefined): SectorFlowHistoryRow[] {
+  const source = payload as SectorFlowHistoryPayload | null | undefined;
+  const data = Array.isArray(source?.data) ? source.data : Array.isArray(source?.records) ? source.records : [];
+  return data
+    .filter((row) => row?.date && row?.sector)
+    .map((row) => ({
+      date: String(row.date),
+      sector: String(row.sector),
+      foreign: Number(row.foreign) || 0,
+      trust: Number(row.trust) || 0,
+      dealer: Number(row.dealer) || 0,
+      total: Number(row.total) || 0
+    }));
+}
+
+function recentFlowDates(rows: SectorFlowHistoryRow[], days: number): string[] {
+  return [...new Set(rows.map((row) => row.date))].sort().slice(-days);
+}
+
+function topFlowSectors(rows: SectorFlowHistoryRow[], dates: string[], limit: number): string[] {
+  const dateSet = new Set(dates);
+  const scores = new Map<string, { positive: number; absolute: number }>();
+  rows.forEach((row) => {
+    if (!dateSet.has(row.date)) return;
+    const current = scores.get(row.sector) || { positive: 0, absolute: 0 };
+    current.positive += Math.max(row.total, 0);
+    current.absolute += Math.abs(row.total);
+    scores.set(row.sector, current);
+  });
+  return [...scores.entries()]
+    .sort((a, b) => (b[1].positive || b[1].absolute) - (a[1].positive || a[1].absolute))
+    .slice(0, limit)
+    .map(([sector]) => sector);
+}
+
+function flowColor(value: number, maxAbs: number): string {
+  const ratio = maxAbs > 0 ? Math.min(Math.abs(value) / maxAbs, 1) : 0;
+  if (value > 0) return `hsl(145 72% ${24 + ratio * 28}%)`;
+  if (value < 0) return `hsl(9 72% ${30 + ratio * 24}%)`;
+  return "hsl(150 4% 22%)";
+}
+
+function compactShares(value: number): string {
+  if (Math.abs(value) >= 100_000_000) return `${(value / 100_000_000).toFixed(1)}億張`;
+  if (Math.abs(value) >= 10_000) return `${(value / 10_000).toFixed(1)}萬張`;
+  return `${Math.round(value).toLocaleString("zh-TW")}張`;
 }
 
 function stockCode(row: Partial<StockRow> | Record<string, unknown>): string {
@@ -312,6 +409,36 @@ function aggregateSectors(sectors: SectorRow[]): SectorRow[] {
 }
 
 // ==========================================
+// 0. Global Stock Dictionary (O(1) Lookup)
+// ==========================================
+export type StockDictData = {
+  stock_code: string;
+  stock_name: string;
+  close: number;
+  change_pct: number;
+};
+
+export function useStockDictionary(datasets: Record<string, DatasetBox>) {
+  return useMemo(() => {
+    const dict = new Map<string, StockDictData>();
+    const sectorData = datasets.sectorConstituents?.data;
+    const records = Array.isArray(sectorData?.records) ? sectorData.records : [];
+    for (const r of records as any[]) {
+      if (r.stock_code || r.stock_id) {
+        const code = String(r.stock_code || r.stock_id);
+        dict.set(code, {
+          stock_code: code,
+          stock_name: String(r.stock_name || "未知"),
+          close: Number(r.close || 0),
+          change_pct: Number(r.change_pct || 0)
+        });
+      }
+    }
+    return dict;
+  }, [datasets.sectorConstituents]);
+}
+
+// ==========================================
 // 1. TabBar 組件實作 (符合 Vibe 視覺美感)
 // ==========================================
 interface TabBarProps {
@@ -332,7 +459,8 @@ function TabBar({ items, active, onChange }: TabBarProps) {
         padding: '4px',
         borderRadius: '8px',
         width: 'fit-content',
-        border: '1px solid rgba(255, 255, 255, 0.05)'
+        border: '1px solid rgba(255, 255, 255, 0.05)',
+        position: 'relative'
       }}
     >
       {items.map((item) => {
@@ -343,20 +471,35 @@ function TabBar({ items, active, onChange }: TabBarProps) {
             type="button"
             onClick={() => onChange(item)}
             style={{
-              background: isActive ? 'var(--accent, #27e083)' : 'transparent',
-              color: isActive ? '#0d1117' : 'var(--text-muted, #8b949e)',
+              position: 'relative',
+              background: 'transparent',
+              color: isActive ? '#0d1117' : 'var(--muted)',
               border: 'none',
               borderRadius: '6px',
               padding: '6px 16px',
               fontSize: '14px',
               fontWeight: '600',
               cursor: 'pointer',
-              transition: 'all 0.2s ease',
+              transition: 'color 0.2s ease',
               outline: 'none',
-              boxShadow: isActive ? '0 2px 8px rgba(39, 224, 131, 0.25)' : 'none'
+              zIndex: 1
             }}
           >
-            {item}
+            {isActive && (
+              <motion.div
+                layoutId="tab-active-bg"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'var(--accent)',
+                  borderRadius: '6px',
+                  boxShadow: '0 2px 8px rgba(39, 224, 131, 0.25)',
+                  zIndex: -1
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span style={{ position: 'relative', zIndex: 2 }}>{item}</span>
           </button>
         );
       })}
@@ -376,6 +519,8 @@ interface PageRouterProps {
   setStockId: (value: string) => void;
   watchlist: string[];
   toggleWatch: (codeAndName: string) => void;
+  portfolio: PortfolioItem[];
+  setPortfolio: (p: PortfolioItem[]) => void;
   onNavigateToStock: (code: string) => void;
   onNavigateToSector: (sectorName: string) => void;
   globalNews: GlobalNews[];
@@ -390,6 +535,8 @@ function PageRouter({
   setStockId,
   watchlist,
   toggleWatch,
+  portfolio,
+  setPortfolio,
   onNavigateToStock,
   onNavigateToSector,
   globalNews
@@ -398,6 +545,14 @@ function PageRouter({
     case "rotation":
       return (
         <RotationDashboard
+          datasets={datasets}
+          onNavigateToStock={onNavigateToStock}
+          onNavigateToSector={onNavigateToSector}
+        />
+      );
+    case "charts":
+      return (
+        <ChartsPage
           datasets={datasets}
           onNavigateToStock={onNavigateToStock}
           onNavigateToSector={onNavigateToSector}
@@ -455,8 +610,19 @@ function PageRouter({
           onNavigateToStock={onNavigateToStock}
         />
       );
+    case "portfolio":
+      return (
+        <PortfolioPage
+          datasets={datasets}
+          portfolio={portfolio}
+          setPortfolio={setPortfolio}
+          onNavigateToStock={onNavigateToStock}
+        />
+      );
     case "alerts":
       return <AlertsPage />;
+    case "goldenExit":
+      return <GoldenExitPage datasets={datasets} onNavigateToStock={onNavigateToStock} />;
     case "news":
       return <GlobalNewsPage news={globalNews} />;
     case "learn":
@@ -508,6 +674,49 @@ function App() {
     }
     return [];
   });
+
+  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
+  const [portfolioLoaded, setPortfolioLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/portfolio")
+      .then(r => r.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setPortfolio(data);
+          // Sync to localStorage as backup
+          localStorage.setItem("tw_stock_portfolio", JSON.stringify(data));
+        } else {
+          // Check localstorage for migration
+          const saved = localStorage.getItem("tw_stock_portfolio");
+          if (saved) {
+            try {
+              const parsed = JSON.parse(saved);
+              if (Array.isArray(parsed) && parsed.length > 0) {
+                setPortfolio(parsed);
+                fetch("http://localhost:3000/api/portfolio", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(parsed)
+                });
+              }
+            } catch (e) {}
+          }
+        }
+        setPortfolioLoaded(true);
+      })
+      .catch((e) => {
+        console.error("Failed to load portfolio from API", e);
+        // Fallback to localstorage
+        const saved = localStorage.getItem("tw_stock_portfolio");
+        if (saved) {
+          try {
+            setPortfolio(JSON.parse(saved));
+          } catch (e) {}
+        }
+        setPortfolioLoaded(true);
+      });
+  }, []);
 
   useEffect(() => {
     const next: Record<string, DatasetBox> = {};
@@ -628,6 +837,8 @@ function App() {
           setStockId={setStockId}
           watchlist={watchlist}
           toggleWatch={toggleWatch}
+          portfolio={portfolio}
+          setPortfolio={setPortfolio}
           onNavigateToStock={navigateToStock}
           onNavigateToSector={navigateToSector}
           globalNews={globalNews}
@@ -669,6 +880,31 @@ function GlobalNewsPage({ news }: { news: GlobalNews[] }) {
   );
 }
 
+function ChartsPage({
+  datasets,
+  onNavigateToStock,
+  onNavigateToSector
+}: {
+  datasets: Record<string, DatasetBox>;
+  onNavigateToStock: (code: string) => void;
+  onNavigateToSector: (sectorName: string) => void;
+}) {
+  const rotation = datasets.sectorRotation;
+  const sectors = rows<SectorRow>(rotation?.data, ["sectors", "records", "items"]);
+
+  return (
+    <section className="page-stack">
+      <SectorChartsView
+        dataset={rotation}
+        sectors={sectors}
+        datasets={datasets}
+        onPickStock={onNavigateToStock}
+        onPickSector={onNavigateToSector}
+      />
+    </section>
+  );
+}
+
 function RotationDashboard({
   datasets,
   onNavigateToStock,
@@ -687,10 +923,13 @@ function RotationDashboard({
   const cpRows = rows<SectorRow>(cp?.data, ["records", "items", "sectors"]);
   const bottomRows = rows<SectorRow>(bottom?.data, ["records", "items", "sectors"]);
   const recRows = rows<StockRow>(rec?.data, ["records", "items", "recommendations"]);
+  const recV6Rows = rows<StockRow>(datasets.recommendationsV6?.data, ["records", "items", "recommendations"]);
+  const [recTab, setRecTab] = useState<"v5" | "v6">("v5");
 
   return (
     <section className="page-stack">
       <HeroOverview dataset={rotation} sectors={sectors} />
+      <MarketOverviewCard dataset={datasets.marketData} />
       <NightFuturesCard dataset={datasets.futuresAfterHours} />
       <div className="layout-3">
         <SectorTreemap
@@ -703,8 +942,25 @@ function RotationDashboard({
         <RankingCard title="CP 值排行" dataset={cp} rows={cpRows} valueKey="cp_score" onPickSector={onNavigateToSector} />
         <RankingCard title="抄底偵測" dataset={bottom} rows={bottomRows} valueKey="bottom_score" onPickSector={onNavigateToSector} />
       </div>
-      <div className="layout-2 single-focus">
-        <StockRecommendation dataset={rec} rows={recRows} onPickStock={onNavigateToStock} />
+      <div className="layout-1 single-focus">
+        <div className="stock-recommendation panel">
+          <div className="panel-header" style={{ marginBottom: "1rem", borderBottom: "1px solid var(--border-color)", paddingBottom: "1rem" }}>
+            <h2 className="title">策略選股觀察</h2>
+            <div className="tabs">
+              <button className={`tab-btn ${recTab === "v5" ? "active" : ""}`} onClick={() => setRecTab("v5")}>
+                V5 綜合強勢
+              </button>
+              <button className={`tab-btn ${recTab === "v6" ? "active" : ""}`} onClick={() => setRecTab("v6")}>
+                V6 默默吃貨
+              </button>
+            </div>
+          </div>
+          {recTab === "v5" ? (
+            <StockRecommendation title="" dataset={rec} rows={recRows} onPickStock={onNavigateToStock} />
+          ) : (
+            <StockRecommendation title="" dataset={datasets.recommendationsV6} rows={recV6Rows} onPickStock={onNavigateToStock} />
+          )}
+        </div>
       </div>
     </section>
   );
@@ -791,9 +1047,10 @@ function FlowPage({
           {constituents.length === 0 ? (
             <p style={{ color: "var(--muted)" }}>無成分股資料或未更新</p>
           ) : (
-            <div className="data-table" style={{ gridTemplateColumns: `minmax(180px, 1.2fr) repeat(3, minmax(120px, 1fr))` }}>
+            <div className="data-table" style={{ gridTemplateColumns: `minmax(180px, 1.2fr) repeat(4, minmax(100px, 1fr))` }}>
               <b>股票代號與名稱</b>
               <b>板塊內排名</b>
+              <b>最新股價</b>
               <b>1日漲跌幅</b>
               <b>1日淨買超 (億)</b>
               {constituents.map((stock, idx) => (
@@ -807,6 +1064,7 @@ function FlowPage({
                     {stockLabel(stock)}
                   </span>
                   <span>#{stock.sector_rank || idx + 1}</span>
+                  <span>{stock.close !== undefined ? fmtNumber(stock.close) : "-"}</span>
                   <span style={{ color: getValColor(stock.chg_1d ?? stock.change_pct) }}>{fmtPct(stock.chg_1d ?? stock.change_pct)}</span>
                   <span style={{ color: getValColor(stockNet1dYi(stock)) }}>{fmtYi(stockNet1dYi(stock))}</span>
                 </div>
@@ -1496,8 +1754,8 @@ function ChipAnalysisPage({ datasets }: { datasets: Record<string, DatasetBox> }
               <div key={idx} style={{ display: "contents" }}>
                 <span>{r.trade_date}</span>
                 <span className="stock-label" style={{ color: "var(--accent)" }} title={stockLabel(r)}>{stockLabel(r)}</span>
-                <span>{fmtNumber(r.margin_purchase_balance_shares / 1000, 0)}</span>
-                <span>{fmtNumber(r.short_sale_balance_shares / 1000, 0)}</span>
+                <span>{fmtNumber(r.margin_purchase_balance_shares, 0)}</span>
+                <span>{fmtNumber(r.short_sale_balance_shares, 0)}</span>
                 <span>{r.margin_purchase_limit_pct ? `${(r.margin_purchase_limit_pct * 100).toFixed(2)}%` : "N/A"}</span>
                 <span>{r.short_sale_margin_purchase_ratio_pct ? `${(r.short_sale_margin_purchase_ratio_pct * 100).toFixed(2)}%` : "N/A"}</span>
               </div>
@@ -1602,9 +1860,53 @@ function MarketStatus({ date, marketChange }: { date: string; marketChange: numb
 }
 
 function TopBar({ active, datasets }: { active: MenuKey; datasets: Record<string, DatasetBox> }) {
+  const [isUpdating, setIsUpdating] = useState(false);
   const ready = Object.values(datasets).filter((d) => d.status === "ready").length;
   const missing = Object.values(datasets).filter((d) => d.status === "missing").length;
-  return <header className="topbar"><div><h1>{MENU.find((item) => item.key === active)?.label}</h1><p>{MENU.find((item) => item.key === active)?.desc}</p></div><div className="topbar-meta"><span>{ready} 份資料已載入</span><span>{missing} 份資料未更新</span></div></header>;
+
+  const handleUpdate = async () => {
+    if (!window.confirm("即將在背景觸發資料抓取腳本，這大約需要 1~2 分鐘。是否繼續？")) return;
+    setIsUpdating(true);
+    try {
+      const res = await fetch("http://localhost:3000/api/update", { method: "POST" });
+      if (!res.ok) throw new Error("Failed to trigger update");
+      alert("資料已更新完畢！頁面即將重新整理...");
+      window.location.reload();
+    } catch (e) {
+      alert("更新失敗，請檢查本地 Backend 伺服器 (node server.js) 是否執行中。");
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  return (
+    <header className="topbar">
+      <div>
+        <h1>{MENU.find((item) => item.key === active)?.label}</h1>
+        <p>{MENU.find((item) => item.key === active)?.desc}</p>
+      </div>
+      <div className="topbar-meta" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <span>{ready} 份資料已載入</span>
+        <span>{missing} 份資料未更新</span>
+        <button 
+          onClick={handleUpdate} 
+          disabled={isUpdating}
+          style={{
+            padding: "6px 14px",
+            background: isUpdating ? "var(--border-color)" : "var(--accent)",
+            color: isUpdating ? "var(--muted)" : "#000",
+            border: "none",
+            borderRadius: "6px",
+            fontWeight: "bold",
+            cursor: isUpdating ? "not-allowed" : "pointer",
+            transition: "all 0.2s"
+          }}
+        >
+          {isUpdating ? "⏳ 更新中..." : "🔄 抓取最新數據"}
+        </button>
+      </div>
+    </header>
+  );
 }
 
 function HeroOverview({ dataset, sectors }: { dataset?: DatasetBox; sectors: SectorRow[] }) {
@@ -1630,7 +1932,31 @@ function NightFuturesCard({ dataset }: { dataset?: DatasetBox }) {
       <div className="night-chart-svg" style={{ marginTop: "14px" }}>
         <FuturesSvgChart records={records} />
       </div>
-      <div className="source-line">來源：{String(dataset.data?.source || "FinMind")} · 資料日期 {String(dataset.data?.as_of_date || "N/A")}</div>
+      <div className="source-line" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+        <span>來源：{String(dataset.data?.source || "FinMind")} · 交易日(結算日) {String(dataset.data?.as_of_date || "N/A")}</span>
+        <span style={{ color: "var(--warn)", opacity: 0.8 }}>
+          (註: 週末前之夜盤歸屬為次一營業日)
+        </span>
+      </div>
+    </section>
+  );
+}
+
+function MarketOverviewCard({ dataset }: { dataset?: DatasetBox }) {
+  if (dataset?.status !== "ready") return <MissingAwarePanel dataset={dataset} title="加權指數 (大盤)" />;
+  
+  const records = rows<Record<string, unknown>>(dataset.data, ["records"]);
+  const taiex = records.find((r) => r.index_name === "TAIEX") || {};
+  
+  return (
+    <section className="panel night-futures-card" style={{ marginBottom: "16px" }}>
+      <SectionTitle title="加權指數 (大盤)" meta="TAIEX Overview" />
+      <div className="night-futures-grid" style={{ marginBottom: 0 }}>
+        <Metric label="大盤指數" value={fmtNumber(taiex.close)} />
+        <Metric label="漲跌" value={fmtNumber(taiex.change)} val={taiex.change as number} />
+        <Metric label="漲跌幅" value={fmtPct(taiex.change_pct)} val={taiex.change_pct as number} />
+      </div>
+      <div className="source-line" style={{ marginTop: "14px" }}>來源：TWSE · 資料日期 {String(taiex.trade_date || dataset.data?.as_of_date || "N/A")}</div>
     </section>
   );
 }
@@ -1739,6 +2065,390 @@ function SectorTreemap({
   );
 }
 
+function SectorChartsView({
+  dataset,
+  sectors,
+  datasets,
+  onPickStock,
+  onPickSector
+}: {
+  dataset?: DatasetBox;
+  sectors: SectorRow[];
+  datasets: Record<string, DatasetBox>;
+  onPickStock: (code: string) => void;
+  onPickSector: (sectorName: string) => void;
+}) {
+  const [activeView, setActiveView] = useState<SectorChartView>("planet");
+  const sectorTiles = useMemo(() => aggregateSectors(sectors).slice(0, 36), [sectors]);
+  const flowDataset = datasets.sectorFlowHistory;
+  const flowPayload = flowDataset?.data as SectorFlowHistoryPayload | null | undefined;
+
+  if (dataset?.status !== "ready") return <MissingAwarePanel dataset={dataset} title="資金行星圖" />;
+
+  return (
+    <section className="panel xl sector-treemap-panel">
+      <div className="sector-treemap-head">
+        <SectionTitle
+          title="資金行星圖"
+          meta="依 1日、5日、20日法人資金與資金量體重排軌道，點擊產業進入資金流向"
+        />
+      </div>
+
+      <div className="tabs sector-view-tabs" role="tablist" aria-label="板塊輪動視圖切換">
+        {SECTOR_CHART_TABS.map((tab) => (
+          <button
+            key={tab.key}
+            type="button"
+            className={activeView === tab.key ? "active" : ""}
+            onClick={() => setActiveView(tab.key)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {activeView === "planet" ? (
+        <PlanetChart dataset={flowDataset} payload={flowPayload} sectors={sectorTiles} onPickSector={onPickSector} />
+      ) : activeView === "stream" ? (
+        <StreamChart dataset={flowDataset} payload={flowPayload} onPickSector={onPickSector} />
+      ) : (
+        <SankeyChart dataset={flowDataset} payload={flowPayload} onPickSector={onPickSector} />
+      )}
+    </section>
+  );
+}
+
+function StreamChart({ dataset, payload, onPickSector }: { dataset?: DatasetBox; payload?: SectorFlowHistoryPayload | null; onPickSector?: (sector: string) => void }) {
+  const rows = useMemo(() => sectorFlowHistoryRows(payload as Record<string, unknown>), [payload]);
+  const dates = useMemo(() => recentFlowDates(rows, 20), [rows]);
+  const sectorsForChart = useMemo(() => topFlowSectors(rows, dates, 8), [rows, dates]);
+  const chartRows = useMemo(() => {
+    const sectorSet = new Set(sectorsForChart);
+    return dates.map((date) => {
+      const item: Record<string, string | number> = { date: date.slice(5) };
+      rows.forEach((row) => {
+        if (row.date === date && sectorSet.has(row.sector)) item[row.sector] = row.total;
+      });
+      return item;
+    });
+  }, [rows, dates, sectorsForChart]);
+
+  if (dataset?.status !== "ready" || rows.length === 0) {
+    return <MissingAwarePanel dataset={dataset} title="資金河流" />;
+  }
+
+  return (
+    <div className="sector-chart-view sector-stream-chart">
+      <ResponsiveContainer width="100%" height={400}>
+        <AreaChart data={chartRows} margin={{ top: 10, right: 18, left: 4, bottom: 0 }}>
+          <defs>
+            {sectorsForChart.map((sector, index) => (
+              <linearGradient id={`stream-${index}`} key={sector} x1="0" x2="0" y1="0" y2="1">
+                <stop offset="5%" stopColor={STREAM_COLORS[index % STREAM_COLORS.length]} stopOpacity={0.82} />
+                <stop offset="95%" stopColor={STREAM_COLORS[index % STREAM_COLORS.length]} stopOpacity={0.12} />
+              </linearGradient>
+            ))}
+          </defs>
+          <CartesianGrid stroke="rgba(255,255,255,.08)" vertical={false} />
+          <XAxis dataKey="date" tick={{ fill: "rgba(232,242,234,.62)", fontSize: 12 }} axisLine={{ stroke: "rgba(255,255,255,.12)" }} tickLine={false} />
+          <YAxis tick={{ fill: "rgba(232,242,234,.62)", fontSize: 12 }} axisLine={false} tickLine={false} tickFormatter={(value) => compactShares(Number(value))} width={72} />
+          <Tooltip
+            contentStyle={{ border: "1px solid rgba(255,255,255,.14)", borderRadius: 10, background: "#0b100e", color: "#f5f8f2" }}
+            formatter={(value, name) => [compactShares(Number(value || 0)), String(name)]}
+            labelFormatter={(label) => `日期 ${label}`}
+          />
+          {sectorsForChart.map((sector, index) => (
+            <Area
+              key={sector}
+              type="monotone"
+              dataKey={sector}
+              stackId="sector-flow"
+              stroke={STREAM_COLORS[index % STREAM_COLORS.length]}
+              strokeWidth={1.4}
+              fill={`url(#stream-${index})`}
+              isAnimationActive
+              onClick={() => onPickSector?.(sector)}
+              style={{ cursor: "pointer" }}
+            />
+          ))}
+        </AreaChart>
+      </ResponsiveContainer>
+      <div className="flow-chart-legend">
+        {sectorsForChart.map((sector, index) => (
+          <span
+            key={sector}
+            style={{ "--legend-color": STREAM_COLORS[index % STREAM_COLORS.length], cursor: "pointer" } as CSSProperties}
+            onClick={() => onPickSector?.(sector)}
+          >
+            {sector}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PlanetChart({
+  dataset,
+  payload,
+  sectors,
+  onPickSector
+}: {
+  dataset?: DatasetBox;
+  payload?: SectorFlowHistoryPayload | null;
+  sectors: SectorRow[];
+  onPickSector?: (sector: string) => void;
+}) {
+  const [metric, setMetric] = useState<PlanetMetric>("1d");
+  const [hoverData, setHoverData] = useState<{ name: string; flow: number; volume: number; x: number; y: number } | null>(null);
+
+  const rows = useMemo(() => sectorFlowHistoryRows(payload as Record<string, unknown>), [payload]);
+  const volumeBySector = useMemo(() => {
+    const map = new Map<string, number>();
+    sectors.forEach((sector) => {
+      const name = sector.sector_name || sector.name || "";
+      if (!name) return;
+      map.set(name, Number(sector.trade_value_yi || 0));
+    });
+    return map;
+  }, [sectors]);
+
+  const planets = useMemo(() => {
+    if (!rows.length) return [];
+    const days = metric === "1d" ? 1 : metric === "5d" ? 5 : 20;
+    const dateSet = new Set(recentFlowDates(rows, days));
+    const sectorSums = new Map<string, { flow: number; volume: number }>();
+
+    rows.forEach((r) => {
+      if (dateSet.has(r.date)) {
+        const current = sectorSums.get(r.sector) || { flow: 0, volume: volumeBySector.get(r.sector) || 0 };
+        current.flow += r.total;
+        sectorSums.set(r.sector, current);
+      }
+    });
+
+    const results = Array.from(sectorSums.entries())
+      .map(([name, value]) => ({
+        name,
+        flow: value.flow,
+        volume: value.volume,
+        score: metric === "volume" ? Math.max(value.volume, Math.abs(value.flow) / 10000) : Math.abs(value.flow)
+      }))
+      .filter((p) => p.volume > 0 || Math.abs(p.flow) > 0)
+      .sort((a, b) => b.volume - a.volume) // Spiral places largest volume in the center ALWAYS
+      .slice(0, 36); // Show more stars in the spiral
+
+    const maxVolume = Math.max(1, ...results.map((r) => r.volume));
+    const maxScore = Math.max(1, ...results.map((r) => r.score));
+    const maxFlow = Math.max(1, ...results.map((r) => Math.abs(r.flow)));
+    const goldenAngle = 137.508 * (Math.PI / 180);
+
+    return results.map((p, i) => {
+      // Spiral placement: largest volume at i=0 (center), rest spiraling out
+      const orbit = i === 0 ? 0 : 8 + Math.pow(i, 0.65) * 5; 
+      const theta = i === 0 ? 0 : i * goldenAngle;
+      const px = 50 + orbit * Math.cos(theta);
+      const py = 50 + orbit * Math.sin(theta);
+      
+      const sizeBase = p.score / maxScore;
+      const size = i === 0 ? 110 + 30 * sizeBase : 24 + 48 * sizeBase; // Center is huge
+      
+      const isUp = p.flow >= 0;
+      const rgb = isUp ? "39,224,131" : "255,82,82";
+      const darkRgb = isUp ? "5,50,30" : "74,14,20";
+      const intensity = Math.max(0.2, Math.min(Math.abs(p.flow) / maxFlow, 1));
+
+      return {
+        ...p,
+        size,
+        left: px,
+        top: py,
+        orbit,
+        angle: `${Math.round((theta * 180) / Math.PI)}deg`,
+        delay: `${i * -0.42}s`,
+        color: `rgb(${rgb})`,
+        darkColor: `rgb(${darkRgb})`,
+        glow: `rgba(${rgb}, ${0.26 + intensity * 0.42})`
+      };
+    });
+  }, [rows, volumeBySector, metric]);
+
+  if (dataset?.status !== "ready" || rows.length === 0) {
+    return <MissingAwarePanel dataset={dataset} title="資金行星" />;
+  }
+
+  return (
+    <div className="planet-chart-container">
+      <div className="galaxy-stars" />
+
+      <div className="planet-controls">
+        {[
+          ["1d", "1 日"],
+          ["5d", "5 日"],
+          ["20d", "20 日"],
+          ["volume", "資金量體"]
+        ].map(([key, label]) => (
+          <button
+            key={key}
+            className={metric === key ? "active" : ""}
+            type="button"
+            onClick={() => setMetric(key as PlanetMetric)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      <div className="planet-mode-readout">
+        <strong>{metric === "volume" ? "量體重力場" : `${metric.replace("d", "")} 日資金場`}</strong>
+        <span>{planets.length} 個產業軌道 · 大小代表{metric === "volume" ? "資金量體" : "法人淨流強度"}</span>
+      </div>
+
+      <div className="galaxy-disc">
+        <div className="planet-center" />
+
+        {planets.map((p) => (
+          <button
+            key={p.name}
+            type="button"
+            className="planet-node"
+            onClick={() => onPickSector?.(p.name)}
+            onMouseEnter={(e) => setHoverData({ name: p.name, flow: p.flow, volume: p.volume, x: e.clientX, y: e.clientY })}
+            onMouseMove={(e) => setHoverData({ name: p.name, flow: p.flow, volume: p.volume, x: e.clientX, y: e.clientY })}
+            onMouseLeave={() => setHoverData(null)}
+            style={{
+              "--planet-angle": p.angle,
+              "--planet-orbit": `${p.orbit}%`,
+              "--planet-delay": p.delay,
+              width: p.size,
+              height: p.size,
+              left: `calc(${p.left}% - ${p.size / 2}px)`,
+              top: `calc(${p.top}% - ${p.size / 2}px)`
+            } as CSSProperties}
+            aria-label={`${p.name} ${metric === "volume" ? `量體 ${fmtYi(p.volume)}` : `淨流 ${compactShares(p.flow)}`}`}
+          >
+            <div
+              className="planet-node-content"
+              style={{
+                background: `radial-gradient(circle at 30% 30%, ${p.color} 0%, ${p.darkColor} 60%, #000 100%)`,
+                boxShadow: `0 0 ${p.size * 0.52}px ${p.glow}, inset -10px -10px 22px rgba(0,0,0,0.82), inset 10px 10px 18px rgba(255,255,255,0.18)`
+              }}
+            >
+              <span>{p.name}</span>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {hoverData && (
+        <div className="planet-tooltip" style={{ left: hoverData.x + 20, top: hoverData.y, opacity: 1, position: "fixed" }}>
+          <strong>{hoverData.name}</strong>
+          <span className="tooltip-flow" style={{ color: hoverData.flow >= 0 ? "var(--color-up)" : "var(--color-down)" }}>
+            {hoverData.flow >= 0 ? "+" : ""}{compactShares(hoverData.flow)}
+          </span>
+          <small>資金量體 {fmtYi(hoverData.volume)}</small>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SankeyChart({ dataset, payload, onPickSector }: { dataset?: DatasetBox; payload?: SectorFlowHistoryPayload | null; onPickSector?: (sector: string) => void }) {
+  const [range, setRange] = useState<SankeyRange>("today");
+  const rows = useMemo(() => sectorFlowHistoryRows(payload as Record<string, unknown>), [payload]);
+  const days = range === "today" ? 1 : range === "week" ? 5 : 20;
+  const dates = useMemo(() => recentFlowDates(rows, days), [rows, days]);
+  const sankey = useMemo(() => {
+    const dateSet = new Set(dates);
+    const bySector = new Map<string, { foreign: number; trust: number; dealer: number; total: number }>();
+    rows.forEach((row) => {
+      if (!dateSet.has(row.date)) return;
+      const item = bySector.get(row.sector) || { foreign: 0, trust: 0, dealer: 0, total: 0 };
+      item.foreign += row.foreign;
+      item.trust += row.trust;
+      item.dealer += row.dealer;
+      item.total += row.total;
+      bySector.set(row.sector, item);
+    });
+    const sectorsForChart = [...bySector.entries()]
+      .sort((a, b) => Math.abs(b[1].total) - Math.abs(a[1].total))
+      .slice(0, 10);
+    const links = sectorsForChart.flatMap(([sector, value]) => [
+      { source: "外資", sector, value: value.foreign },
+      { source: "投信", sector, value: value.trust },
+      { source: "自營商", sector, value: value.dealer }
+    ]).filter((link) => link.value !== 0);
+    const maxLink = Math.max(1, ...links.map((link) => Math.abs(link.value)));
+    return { sectorsForChart, links, maxLink };
+  }, [rows, dates]);
+
+  if (dataset?.status !== "ready" || rows.length === 0) {
+    return <MissingAwarePanel dataset={dataset} title="法人流向" />;
+  }
+
+  const leftNodes = ["外資", "投信", "自營商"];
+  const height = 450;
+  const topPad = 34;
+  const nodeGap = 68;
+  const sectorGap = sankey.sectorsForChart.length > 1 ? (height - 86) / (sankey.sectorsForChart.length - 1) : 0;
+  const sourceY = (name: string) => topPad + leftNodes.indexOf(name) * 142;
+  const sectorY = (sector: string) => topPad + sankey.sectorsForChart.findIndex(([name]) => name === sector) * sectorGap;
+
+  return (
+    <div className="sector-chart-view sankey-panel">
+      <div className="tabs sankey-range-tabs">
+        {[
+          ["today", "今日"],
+          ["week", "本週"],
+          ["month", "本月"]
+        ].map(([key, label]) => (
+          <button key={key} type="button" className={range === key ? "active" : ""} onClick={() => setRange(key as SankeyRange)}>{label}</button>
+        ))}
+      </div>
+      <svg className="sankey-svg" viewBox={`0 0 920 ${height}`} role="img" aria-label="法人流向桑基圖">
+        {sankey.links.map((link, index) => {
+          const y1 = sourceY(link.source) + (index % 3 - 1) * 10;
+          const y2 = sectorY(link.sector);
+          const width = 2 + Math.min(Math.abs(link.value) / sankey.maxLink, 1) * 26;
+          const color = link.value >= 0 ? "rgba(39,224,131,.46)" : "rgba(216,90,48,.48)";
+          return (
+            <path
+              key={`${link.source}-${link.sector}-${index}`}
+              className="sankey-ribbon"
+              d={`M 144 ${y1} C 360 ${y1}, 560 ${y2}, 776 ${y2}`}
+              fill="none"
+              stroke={color}
+              strokeLinecap="round"
+              strokeWidth={width}
+            >
+              <title>{`${link.source} → ${link.sector}: ${link.value >= 0 ? "+" : ""}${compactShares(link.value)}`}</title>
+            </path>
+          );
+        })}
+        {leftNodes.map((name) => (
+          <g className="sankey-node source" key={name} transform={`translate(22 ${sourceY(name) - 18})`}>
+            <rect width="116" height="38" rx="8" />
+            <text x="58" y="24" textAnchor="middle">{name}</text>
+          </g>
+        ))}
+        {sankey.sectorsForChart.map(([sector, value]) => (
+          <g
+            className="sankey-node target"
+            key={sector}
+            transform={`translate(782 ${sectorY(sector) - 18})`}
+            onClick={() => onPickSector?.(sector)}
+            style={{ cursor: "pointer" }}
+          >
+            <rect width="120" height="38" rx="8" />
+            <text x="10" y="18">{sector}</text>
+            <text x="10" y="31">{compactShares(value.total)}</text>
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 function sectorTileSpan(sector: SectorRow, index: number): { col: number; row: number } {
   const weight = Math.max(Math.abs(sector.net_1d_yi || 0), sector.trade_value_yi ? sector.trade_value_yi / 10 : 0, sector.stock_count || 0);
   if (index < 3 || weight >= 80) return { col: 3, row: 2 };
@@ -1772,16 +2482,18 @@ function RankingCard({ title, dataset, rows, valueKey, onPickSector }: { title: 
       {rows.slice(0, 8).map((row, index) => {
         const sectorName = row.sector_name || row.name || "";
         return (
-          <div
+          <motion.div
             className="rank-row"
             key={`${title}-${index}`}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", borderRadius: "8px", padding: "11px 8px" }}
             onClick={() => onPickSector(sectorName)}
+            whileHover={{ scale: 1.01, backgroundColor: 'rgba(255,255,255,0.03)' }}
+            whileTap={{ scale: 0.98 }}
           >
             <span>{index + 1}</span>
             <strong>{sectorName}</strong>
             <em style={{ color: "var(--accent)" }}>{fmtNumber(row[valueKey] as number | undefined)}</em>
-          </div>
+          </motion.div>
         );
       })}
     </section>
@@ -1796,27 +2508,39 @@ function StockRecommendation({ title = "今日觀察標的 Top 10", dataset, row
       {rows.slice(0, 10).map((row, index) => {
         const code = row.stock_code || row.stock_id || "";
         const tags = row.tags || [];
-        const score = row.Alpha_Score_v5 ?? row.stock_alpha_v5 ?? row.stock_alpha_v4 ?? row.alpha_score;
+        const score = row.Alpha_Score_v6 ?? row.Alpha_Score_v5 ?? row.stock_alpha_v5 ?? row.stock_alpha_v4 ?? row.alpha_score;
+        const changePct = row.change_pct as number | undefined;
+        const priceColor = changePct === undefined ? "inherit" : changePct > 0 ? "#eb384c" : changePct < 0 ? "#27e083" : "inherit";
         return (
-          <div
+          <motion.div
             className="stock-row recommendation-row"
             key={`${title}-${index}`}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", borderRadius: "8px", padding: "11px 8px" }}
             onClick={() => onPickStock(code)}
+            whileHover={{ scale: 1.01, backgroundColor: 'rgba(255,255,255,0.03)' }}
+            whileTap={{ scale: 0.98 }}
           >
             <strong className="stock-label" title={stockLabel(row)}>{stockLabel(row)}</strong>
             <span>{row.sector_name || row.industry || "N/A"}</span>
             <em style={{ color: "var(--accent)" }}>{fmtNumber(score, 1)}</em>
             <small>
-              <span className="sentiment-meter">情緒 {fmtNumber(row.sentiment_temperature, 0)}</span>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", fontSize: "12px" }}>
+                <span style={{ color: "var(--text)" }}>成交 {fmtNumber(row.close)}</span>
+                <span style={{ color: priceColor }}>
+                  漲跌 {changePct !== undefined && changePct > 0 ? "+" : ""}{fmtNumber(changePct, 2)}%
+                </span>
+                <span style={{ color: "var(--muted)" }}>法人1日 {fmtNumber(row.net_1d_yi, 2)}億</span>
+                <span style={{ color: "var(--muted)" }}>法人5日 {fmtNumber(row.net_5d_yi, 2)}億</span>
+                <span className="sentiment-meter">情緒 {fmtNumber(row.sentiment_temperature, 0)}</span>
+              </div>
               <span className="tag-list">
                 {tags.slice(0, 4).map((tag) => (
                   <b key={`${code}-${tag}`}>{tag}</b>
                 ))}
               </span>
-              <span>{row.Vol_20d ? `20日均量 ${fmtNumber(row.Vol_20d, 0)} 張` : row.reason || "資料管線預計算"}</span>
+              <span>{row.reason || (row.Vol_20d ? `20日均量 ${fmtNumber(row.Vol_20d, 0)} 張` : "資料管線預計算")}</span>
             </small>
-          </div>
+          </motion.div>
         );
       })}
     </section>
@@ -1954,6 +2678,263 @@ function initialStockId(): string {
   const match = window.location.pathname.match(/\/stock\/([^/]+)/);
   // 改為空，由 App 載入今日首選觀察股
   return match?.[1] || "";
+}
+
+function GoldenExitPage({ datasets, onNavigateToStock }: { datasets: Record<string, DatasetBox>; onNavigateToStock: (id: string) => void }) {
+  const payload = datasets.goldenExit?.data;
+  const status = datasets.goldenExit?.status;
+
+  if (status === "loading") return <div className="card">載入中...</div>;
+  if (!payload || status === "error") return <div className="card">無資料或尚未產生「黃金逃頂」分析。</div>;
+
+  const records = Array.isArray(payload.records) ? payload.records : [];
+
+  return (
+    <div className="card fade-in">
+      <h2>黃金逃頂與進場雷達</h2>
+      <p style={{ color: "var(--text-secondary)", marginBottom: "1rem" }}>
+        運用真實波動幅度 (ATR) 追蹤與樞軸點 (Pivot) 預測，提供明日的關鍵價位。跌破防守價建議波段停利，突破壓力價則面臨短線賣壓。
+      </p>
+
+      <div className="table-wrapper">
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>代號/名稱</th>
+              <th className="num">最新收盤</th>
+              <th className="num">波段防守(停利)</th>
+              <th className="num">明日壓力(短空)</th>
+              <th className="num">明日支撐(短多)</th>
+              <th className="num">預期勝率</th>
+            </tr>
+          </thead>
+          <tbody>
+            {records.map((r: any) => (
+              <tr key={r.stock_id} onClick={() => onNavigateToStock(r.stock_id)} className="clickable">
+                <td>
+                  <div className="font-medium text-white">{r.stock_name}</div>
+                  <div className="text-xs text-secondary">{r.stock_id}</div>
+                </td>
+                <td className="num">{r.close}</td>
+                <td className="num" style={{ color: r.close <= r.swing_defense ? "var(--color-down)" : "var(--color-up)" }}>
+                  {r.swing_defense ?? "-"}
+                </td>
+                <td className="num" style={{ color: r.close >= (r.resistance_1 || Infinity) ? "var(--color-up)" : "inherit" }}>
+                  {r.resistance_1 ?? "-"}
+                </td>
+                <td className="num" style={{ color: "var(--color-down)" }}>{r.support_1 ?? "-"}</td>
+                <td className="num" style={{ color: "var(--color-up)", fontWeight: "bold" }}>{r.win_rate}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function PortfolioPage({ datasets, portfolio, setPortfolio, onNavigateToStock }: { datasets: Record<string, DatasetBox>; portfolio: PortfolioItem[]; setPortfolio: (p: PortfolioItem[]) => void; onNavigateToStock: (id: string) => void }) {
+  const [newStock, setNewStock] = useState("");
+  const [newShares, setNewShares] = useState("");
+  const [newPrice, setNewPrice] = useState("");
+  const [formError, setFormError] = useState("");
+
+  const handleAdd = () => {
+    const id = newStock.trim().toUpperCase();
+    const shares = Number(newShares);
+    const buyPrice = Number(newPrice);
+
+    if (!id || !Number.isFinite(shares) || !Number.isFinite(buyPrice) || shares <= 0 || buyPrice <= 0) {
+      setFormError("請完整填寫代號、股數與買進成本價，且數值需大於 0。");
+      return;
+    }
+
+    const existingIdx = portfolio.findIndex(p => p.id === id);
+    let next = [...portfolio];
+
+    if (existingIdx >= 0) {
+      next[existingIdx] = { id, shares, buyPrice };
+    } else {
+      next.push({ id, shares, buyPrice });
+    }
+
+    setPortfolio(next);
+    localStorage.setItem("tw_stock_portfolio", JSON.stringify(next));
+    fetch("http://localhost:3000/api/portfolio", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(next)
+    }).catch(e => console.error("Failed to sync portfolio", e));
+    setNewStock("");
+    setNewShares("");
+    setNewPrice("");
+    setFormError("");
+  };
+
+  const handleRemove = (id: string) => {
+    const next = portfolio.filter(p => p.id !== id);
+    setPortfolio(next);
+    localStorage.setItem("tw_stock_portfolio", JSON.stringify(next));
+    fetch("http://localhost:3000/api/portfolio", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(next)
+    }).catch(e => console.error("Failed to sync portfolio", e));
+  };
+
+  const alphaPayload = datasets.stockAlpha?.data;
+  const goldenPayload = datasets.goldenExit?.data;
+
+  const alphaRecords = Array.isArray(alphaPayload?.records) ? alphaPayload.records : [];
+  const goldenRecords = Array.isArray(goldenPayload?.records) ? goldenPayload.records : [];
+
+  const getStockStats = (item: PortfolioItem) => {
+    const alpha = alphaRecords.find((r: any) => String(r.stock_id) === String(item.id) || String(r.stock_code) === String(item.id));
+    const golden = goldenRecords.find((r: any) => String(r.stock_id) === String(item.id));
+    
+    const sectorData = datasets.sectorConstituents?.data;
+    const sectorRecords = Array.isArray(sectorData?.records) ? sectorData.records : [];
+    const sector = sectorRecords.find((r: any) => String(r.stock_code) === String(item.id));
+
+    const currentPrice = Number(alpha?.close ?? golden?.close ?? sector?.close ?? item.buyPrice);
+    const score = alpha?.alpha_score ?? alpha?.stock_alpha_v4 ?? alpha?.stock_alpha_v5 ?? alpha?.Alpha_Score_v6 ?? alpha?.Alpha_Score_v5 ?? "-";
+
+    let advice = { text: "持有", class: "hold" };
+    if (golden) {
+      if (currentPrice <= golden.swing_defense) advice = { text: "跌破防守 (賣出)", class: "sell" };
+      else if (currentPrice >= golden.resistance_1) advice = { text: "達壓力區 (減碼)", class: "sell" };
+      else if (Number(score) >= 80) advice = { text: "強勢持有", class: "buy" };
+    } else if (Number(score) >= 80) {
+      advice = { text: "偏多買進", class: "buy" };
+    } else if (Number(score) < 40 && score !== "-") {
+      advice = { text: "偏空賣出", class: "sell" };
+    }
+
+    const totalCost = item.buyPrice * item.shares;
+    const currentValue = currentPrice * item.shares;
+    const pl = currentValue - totalCost;
+    const plPct = totalCost > 0 ? (pl / totalCost) * 100 : 0;
+
+    const changePct = alpha?.change_pct ?? sector?.change_pct;
+
+    return {
+      name: alpha?.stock_name || golden?.stock_name || sector?.stock_name || "未知",
+      price: currentPrice,
+      change: changePct ? `${changePct > 0 ? "+" : ""}${changePct.toFixed(2)}%` : "-",
+      score,
+      advice,
+      totalCost,
+      currentValue,
+      pl,
+      plPct
+    };
+  };
+
+  return (
+    <section className="page-stack">
+      <div className="section-header">
+        <div>
+          <h2>我的持股 (Portfolio)</h2>
+          <p>個人追蹤持股需要代號、股數、買進成本價；系統會結合當前股價估算目前市值與獲利。</p>
+        </div>
+      </div>
+
+      <div className="portfolio-form-panel">
+        <div className="portfolio-add-input">
+          <label>
+            <span>代號</span>
+            <input
+              type="text"
+              inputMode="numeric"
+              placeholder="例如 2330"
+              value={newStock}
+              onChange={e => setNewStock(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>股數</span>
+            <input
+              type="number"
+              min="1"
+              placeholder="例如 1000"
+              value={newShares}
+              onChange={e => setNewShares(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>買進成本價</span>
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="例如 615"
+              value={newPrice}
+              onChange={e => setNewPrice(e.target.value)}
+              onKeyDown={e => e.key === "Enter" && handleAdd()}
+            />
+          </label>
+          <button type="button" onClick={handleAdd}>新增 / 儲存</button>
+        </div>
+        {formError ? <small className="portfolio-form-error">{formError}</small> : null}
+      </div>
+
+      {portfolio.length === 0 ? (
+        <div className="missing">
+          <strong>尚未新增持股</strong>
+          <small>請在上方輸入股票資料以開始追蹤。</small>
+        </div>
+      ) : (
+        <div className="portfolio-page">
+          {portfolio.map(item => {
+            const stats = getStockStats(item);
+            const isUp = stats.pl > 0;
+            const isDown = stats.pl < 0;
+
+            return (
+              <motion.div
+                key={item.id}
+                className="portfolio-card"
+                whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(0,0,0,0.5)', borderColor: 'rgba(39, 224, 131, 0.4)' }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <div className="portfolio-card-header">
+                  <strong onClick={() => onNavigateToStock(item.id)} style={{ cursor: "pointer" }}>
+                    {item.id} {stats.name}
+                  </strong>
+                  <button onClick={() => handleRemove(item.id)}>✕</button>
+                </div>
+
+                <div className="portfolio-pnl-grid">
+                  <div>
+                    <span>當前股價</span>
+                    <strong>{fmtNumber(stats.price)}</strong>
+                  </div>
+                  <div className="portfolio-pnl" style={{ color: isUp ? "var(--color-up)" : isDown ? "var(--color-down)" : "inherit" }}>
+                    <span>目前獲利</span>
+                    <strong>{isUp ? "+" : ""}{stats.pl.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</strong>
+                    <small>({isUp ? "+" : ""}{stats.plPct.toFixed(2)}%)</small>
+                  </div>
+                </div>
+
+                <div className="portfolio-detail-grid">
+                  <span>股數<b>{item.shares.toLocaleString("zh-TW")} 股</b></span>
+                  <span>買進成本價<b>{fmtNumber(item.buyPrice)}</b></span>
+                  <span>投入成本<b>{stats.totalCost.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</b></span>
+                  <span>目前市值<b>{stats.currentValue.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</b></span>
+                  <span>Alpha 分數<b>{stats.score}</b></span>
+                  <span>日漲跌<b>{stats.change}</b></span>
+                </div>
+
+                <div className={`portfolio-advice ${stats.advice.class}`} style={{ marginTop: "4px" }}>
+                  {stats.advice.text}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  );
 }
 
 export default App;

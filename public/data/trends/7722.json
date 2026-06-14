@@ -3,7 +3,7 @@
   "stock_name": "LINEPAY",
   "market": "TWSE",
   "industry": "數位雲端",
-  "generated_at": "2026-06-11T15:44:17",
+  "generated_at": "2026-06-14T08:09:39",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 316.125,
       "ma20": 316.125,
       "ma60": 316.125
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 370.5,
+      "ma5": 327.0,
+      "ma20": 327.0,
+      "ma60": 327.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 333.5,
+      "ma5": 332.6,
+      "ma20": 328.0833333333333,
+      "ma60": 328.0833333333333
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 555617016.0,
       "trade_value_ma20": 239023086.75,
       "trade_value_multiple": 2.324532845570408
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 473806317.0,
+      "trade_value_ma20": 285979732.8,
+      "trade_value_multiple": 1.656782850872011
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 403867450.0,
+      "trade_value_ma20": 305627685.6666667,
+      "trade_value_multiple": 1.3214360770983251
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": 0.0,
       "dealer_5d": 13850.0,
       "dealer_20d": 13850.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": -102790.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -406.0,
+      "foreign_5d": -639439.0,
+      "foreign_20d": -639439.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": 13444.0,
+      "dealer_20d": 13444.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": -32181.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -2268.0,
+      "foreign_5d": -668687.0,
+      "foreign_20d": -671620.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -9824.0,
+      "dealer_20d": 11176.0
     }
   ],
   "alpha": [
@@ -142,15 +192,31 @@
       "sector_alpha_score": 2154.0573164656394,
       "main_buy_component": 65.75846833578792,
       "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 802.3742490084618,
+      "alpha_score_total": 56.843001744188584,
+      "sector_alpha_score": 1778.6477177101606,
+      "main_buy_component": 32.958801498127336,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 300.5598689887372,
+      "alpha_score_total": 6.776686728336358,
+      "sector_alpha_score": 1439.1392210329902,
+      "main_buy_component": 8.656716417910449,
+      "risk_penalty": 30.0
     }
   ],
   "recommendation": {
     "first_recommend_date": "2026-06-08",
     "recommend_close": 291.5,
-    "current_price": 347.0,
-    "post_recommend_return": 0.19039451114922823,
-    "post_recommend_max_drawdown": 0.0,
-    "post_recommend_max_gain": 0.19039451114922823,
-    "still_recommended": true
+    "current_price": 333.5,
+    "post_recommend_return": 0.1440823327615781,
+    "post_recommend_max_drawdown": -0.09986504723346823,
+    "post_recommend_max_gain": 0.2710120068610635,
+    "still_recommended": false
   }
 }

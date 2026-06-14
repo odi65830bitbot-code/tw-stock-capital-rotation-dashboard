@@ -3,7 +3,7 @@
   "stock_name": "美利達",
   "market": "TWSE",
   "industry": "運動休閒",
-  "generated_at": "2026-06-11T15:44:16",
+  "generated_at": "2026-06-14T08:09:17",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 68.675,
       "ma20": 68.675,
       "ma60": 68.675
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 73.7,
+      "ma5": 69.67999999999999,
+      "ma20": 69.67999999999999,
+      "ma60": 69.67999999999999
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 73.4,
+      "ma5": 70.53999999999999,
+      "ma20": 70.3,
+      "ma60": 70.3
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 84107138.0,
       "trade_value_ma20": 89544834.5,
       "trade_value_multiple": 0.9392740348411722
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 349762399.0,
+      "trade_value_ma20": 141588347.4,
+      "trade_value_multiple": 2.4702767241988446
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 228357701.0,
+      "trade_value_ma20": 156049906.33333334,
+      "trade_value_multiple": 1.463363268621336
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": -1000.0,
       "dealer_5d": -43910.0,
       "dealer_20d": -43910.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": -253761.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 72878.0,
+      "foreign_5d": 611307.0,
+      "foreign_20d": 611307.0,
+      "trust_5d": -1000.0,
+      "trust_20d": -1000.0,
+      "dealer_5d": 28968.0,
+      "dealer_20d": 28968.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": 293062.0,
+      "trustee_net_shares": -2000.0,
+      "dealer_net_shares": 445.0,
+      "foreign_5d": 611166.0,
+      "foreign_20d": 904369.0,
+      "trust_5d": -2000.0,
+      "trust_20d": -3000.0,
+      "dealer_5d": 48606.0,
+      "dealer_20d": 29413.0
     }
   ],
   "alpha": [
@@ -142,15 +192,31 @@
       "sector_alpha_score": 2314.572958903985,
       "main_buy_component": 81.59057437407952,
       "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 377.24582993644617,
+      "alpha_score_total": 56.489753344824315,
+      "sector_alpha_score": 2231.839278142217,
+      "main_buy_component": 18.576779026217228,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 945.3000582731875,
+      "alpha_score_total": 54.33563751533186,
+      "sector_alpha_score": 1963.6986606453954,
+      "main_buy_component": 27.313432835820894,
+      "risk_penalty": 0.0
     }
   ],
   "recommendation": {
     "first_recommend_date": "2026-06-05",
     "recommend_close": 69.1,
-    "current_price": 69.0,
-    "post_recommend_return": -0.0014471780028942893,
+    "current_price": 73.4,
+    "post_recommend_return": 0.06222865412445744,
     "post_recommend_max_drawdown": -0.01591895803183785,
-    "post_recommend_max_gain": 0.0,
+    "post_recommend_max_gain": 0.06657018813314042,
     "still_recommended": true
   }
 }

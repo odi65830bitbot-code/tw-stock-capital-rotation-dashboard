@@ -3,7 +3,7 @@
   "stock_name": "山林水",
   "market": "TWSE",
   "industry": "綠能環保",
-  "generated_at": "2026-06-11T15:44:17",
+  "generated_at": "2026-06-14T08:09:17",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 53.05,
       "ma20": 53.05,
       "ma60": 53.05
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 52.0,
+      "ma5": 52.839999999999996,
+      "ma20": 52.839999999999996,
+      "ma60": 52.839999999999996
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 51.8,
+      "ma5": 52.31999999999999,
+      "ma20": 52.666666666666664,
+      "ma60": 52.666666666666664
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 183052043.0,
       "trade_value_ma20": 192428308.0,
       "trade_value_multiple": 0.9512739830358016
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 224348941.0,
+      "trade_value_ma20": 198812434.6,
+      "trade_value_multiple": 1.1284452174803759
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 130092782.0,
+      "trade_value_ma20": 187359159.16666666,
+      "trade_value_multiple": 0.6943497322395381
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": 0.0,
       "dealer_5d": -5172.0,
       "dealer_20d": -5172.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": 831987.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -3996.0,
+      "foreign_5d": 2662792.0,
+      "foreign_20d": 2662792.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -9168.0,
+      "dealer_20d": -9168.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": -357582.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -8826.0,
+      "foreign_5d": 2028399.0,
+      "foreign_20d": 2305210.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -10848.0,
+      "dealer_20d": -17994.0
     }
   ],
   "alpha": [
@@ -142,13 +192,29 @@
       "sector_alpha_score": 1661.9611063375332,
       "main_buy_component": 75.84683357879234,
       "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 1948.7065672595852,
+      "alpha_score_total": 72.35269803134585,
+      "sector_alpha_score": 1770.3583899799912,
+      "main_buy_component": 65.46816479400749,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 1477.5963935175907,
+      "alpha_score_total": 45.21246560986843,
+      "sector_alpha_score": 1587.7094991860008,
+      "main_buy_component": 40.52238805970149,
+      "risk_penalty": 0.0
     }
   ],
   "recommendation": {
     "first_recommend_date": "2026-06-08",
     "recommend_close": 53.9,
-    "current_price": 50.3,
-    "post_recommend_return": -0.06679035250463827,
+    "current_price": 51.8,
+    "post_recommend_return": -0.038961038961038974,
     "post_recommend_max_drawdown": -0.06679035250463827,
     "post_recommend_max_gain": 0.0,
     "still_recommended": true

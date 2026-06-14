@@ -3,7 +3,7 @@
   "stock_name": "遠雄港",
   "market": "TWSE",
   "industry": "航運業",
-  "generated_at": "2026-06-11T15:44:16",
+  "generated_at": "2026-06-14T08:09:37",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 52.95,
       "ma20": 52.95,
       "ma60": 52.95
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 52.6,
+      "ma5": 52.879999999999995,
+      "ma20": 52.879999999999995,
+      "ma60": 52.879999999999995
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 52.5,
+      "ma5": 52.71999999999999,
+      "ma20": 52.81666666666666,
+      "ma60": 52.81666666666666
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 79237085.0,
       "trade_value_ma20": 52625429.5,
       "trade_value_multiple": 1.505680537961215
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 76961117.0,
+      "trade_value_ma20": 57492567.0,
+      "trade_value_multiple": 1.3386272524585656
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 48128157.0,
+      "trade_value_ma20": 55931832.0,
+      "trade_value_multiple": 0.8604788235793885
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": 0.0,
       "dealer_5d": -12000.0,
       "dealer_20d": -12000.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": -43641.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 4000.0,
+      "foreign_5d": 1052149.0,
+      "foreign_20d": 1052149.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -8000.0,
+      "dealer_20d": -8000.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": 339149.0,
+      "trustee_net_shares": -1000.0,
+      "dealer_net_shares": 17000.0,
+      "foreign_5d": 1146298.0,
+      "foreign_20d": 1391298.0,
+      "trust_5d": -1000.0,
+      "trust_20d": -1000.0,
+      "dealer_5d": 4000.0,
+      "dealer_20d": 9000.0
     }
   ],
   "alpha": [
@@ -142,15 +192,31 @@
       "sector_alpha_score": 2000.2678251582215,
       "main_buy_component": 74.0058910162003,
       "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 273.6483431369774,
+      "alpha_score_total": 49.61834696024604,
+      "sector_alpha_score": 1860.7216241169779,
+      "main_buy_component": 14.00749063670412,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 3872.424963718062,
+      "alpha_score_total": 35.19890383412144,
+      "sector_alpha_score": 3034.4296955113487,
+      "main_buy_component": 83.13432835820895,
+      "risk_penalty": 35.0
     }
   ],
   "recommendation": {
     "first_recommend_date": "2026-06-10",
     "recommend_close": 53.5,
-    "current_price": 53.5,
-    "post_recommend_return": 0.0,
-    "post_recommend_max_drawdown": 0.0,
+    "current_price": 52.5,
+    "post_recommend_return": -0.01869158878504673,
+    "post_recommend_max_drawdown": -0.01869158878504673,
     "post_recommend_max_gain": 0.0,
-    "still_recommended": true
+    "still_recommended": false
   }
 }

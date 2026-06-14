@@ -1,0 +1,222 @@
+{
+  "stock_id": "2498",
+  "stock_name": "宏達電",
+  "market": "TWSE",
+  "industry": "通信網路業",
+  "generated_at": "2026-06-14T08:09:16",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 45.9,
+      "ma5": 45.9,
+      "ma20": 45.9,
+      "ma60": 45.9
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 42.6,
+      "ma5": 44.25,
+      "ma20": 44.25,
+      "ma60": 44.25
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 43.2,
+      "ma5": 43.9,
+      "ma20": 43.9,
+      "ma60": 43.9
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 41.8,
+      "ma5": 43.375,
+      "ma20": 43.375,
+      "ma60": 43.375
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 42.0,
+      "ma5": 43.1,
+      "ma20": 43.1,
+      "ma60": 43.1
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 43.25,
+      "ma5": 42.57,
+      "ma20": 43.125,
+      "ma60": 43.125
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 581972426.0,
+      "trade_value_ma20": 581972426.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 477263447.0,
+      "trade_value_ma20": 529617936.5,
+      "trade_value_multiple": 0.9011466835017209
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 265541050.0,
+      "trade_value_ma20": 441592307.6666667,
+      "trade_value_multiple": 0.6013262581567478
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 262523988.0,
+      "trade_value_ma20": 396825227.75,
+      "trade_value_multiple": 0.6615607316311809
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 211782392.0,
+      "trade_value_ma20": 359816660.6,
+      "trade_value_multiple": 0.5885841740814599
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 236316816.0,
+      "trade_value_ma20": 339233353.1666667,
+      "trade_value_multiple": 0.6966202285065307
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-05",
+      "foreign_net_shares": -1456861.0,
+      "trustee_net_shares": -10000.0,
+      "dealer_net_shares": -644639.0,
+      "foreign_5d": -1456861.0,
+      "foreign_20d": -1456861.0,
+      "trust_5d": -10000.0,
+      "trust_20d": -10000.0,
+      "dealer_5d": -644639.0,
+      "dealer_20d": -644639.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "foreign_net_shares": -1313720.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -957452.0,
+      "foreign_5d": -2770581.0,
+      "foreign_20d": -2770581.0,
+      "trust_5d": -10000.0,
+      "trust_20d": -10000.0,
+      "dealer_5d": -1602091.0,
+      "dealer_20d": -1602091.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "foreign_net_shares": -171784.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -121109.0,
+      "foreign_5d": -2942365.0,
+      "foreign_20d": -2942365.0,
+      "trust_5d": -10000.0,
+      "trust_20d": -10000.0,
+      "dealer_5d": -1723200.0,
+      "dealer_20d": -1723200.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "foreign_net_shares": -337599.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -100412.0,
+      "foreign_5d": -3279964.0,
+      "foreign_20d": -3279964.0,
+      "trust_5d": -10000.0,
+      "trust_20d": -10000.0,
+      "dealer_5d": -1823612.0,
+      "dealer_20d": -1823612.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": 64277.0,
+      "trustee_net_shares": -4000.0,
+      "dealer_net_shares": -102946.0,
+      "foreign_5d": -3215687.0,
+      "foreign_20d": -3215687.0,
+      "trust_5d": -14000.0,
+      "trust_20d": -14000.0,
+      "dealer_5d": -1926558.0,
+      "dealer_20d": -1926558.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": 1549775.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 105883.0,
+      "foreign_5d": -209051.0,
+      "foreign_20d": -1665912.0,
+      "trust_5d": -4000.0,
+      "trust_20d": -14000.0,
+      "dealer_5d": -1176036.0,
+      "dealer_20d": -1820675.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 1686.2341165371054,
+      "alpha_score_total": 54.009792323484085,
+      "sector_alpha_score": 1252.6407132648008,
+      "main_buy_component": 59.473684210526315,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 1988.7729963469244,
+      "alpha_score_total": 54.42479725941539,
+      "sector_alpha_score": 1181.9920690269532,
+      "main_buy_component": 65.64327485380117,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 473.48332988464125,
+      "alpha_score_total": 45.27692269316254,
+      "sector_alpha_score": 1445.9194550410302,
+      "main_buy_component": 18.21506949524506,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 712.366485462315,
+      "alpha_score_total": 49.53178140777636,
+      "sector_alpha_score": 1261.871365438908,
+      "main_buy_component": 31.81148748159057,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 84.47358183706136,
+      "alpha_score_total": 54.61563754731191,
+      "sector_alpha_score": 1623.8771713408826,
+      "main_buy_component": 5.468164794007491,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 3033.7869867264562,
+      "alpha_score_total": 67.39561238822327,
+      "sector_alpha_score": 1882.6478109063232,
+      "main_buy_component": 71.7910447761194,
+      "risk_penalty": 0.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-12",
+    "recommend_close": 43.25,
+    "current_price": 43.25,
+    "post_recommend_return": 0.0,
+    "post_recommend_max_drawdown": 0.0,
+    "post_recommend_max_gain": 0.0,
+    "still_recommended": true
+  }
+}

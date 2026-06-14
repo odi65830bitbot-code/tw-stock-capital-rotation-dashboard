@@ -110,6 +110,62 @@ def test_sector_records_include_institutional_split_and_concentration():
     assert semi["net_5d_yi"] == 49.5
 
 
+def test_sector_flow_history_aggregates_recent_sixty_trading_days():
+    institutional_rows = []
+    for day in pd.date_range("2026-03-01", periods=65, freq="D"):
+        date = day.strftime("%Y-%m-%d")
+        institutional_rows.extend(
+            [
+                {
+                    "trade_date": date,
+                    "stock_code": "2330",
+                    "foreign_net_shares": 100,
+                    "trustee_net_shares": 10,
+                    "dealer_net_shares": -5,
+                },
+                {
+                    "trade_date": date,
+                    "stock_code": "2454",
+                    "foreign_net_shares": 50,
+                    "trustee_net_shares": 5,
+                    "dealer_net_shares": 5,
+                },
+                {
+                    "trade_date": date,
+                    "stock_code": "2881",
+                    "foreign_net_shares": -20,
+                    "trustee_net_shares": 0,
+                    "dealer_net_shares": 1,
+                },
+            ]
+        )
+    institutional_flow = pd.DataFrame(institutional_rows)
+    sector_classification = pd.DataFrame(
+        [
+            {"as_of_date": "2026-06-01", "stock_code": "2330", "industry": "半導體業"},
+            {"as_of_date": "2026-06-01", "stock_code": "2454", "industry": "半導體業"},
+            {"as_of_date": "2026-06-01", "stock_code": "2881", "industry": "金融保險業"},
+        ]
+    )
+
+    payload = formal.make_sector_flow_history_payload(institutional_flow, sector_classification)
+
+    assert payload["status"] == "ok"
+    assert payload["as_of_date"] == "2026-05-04"
+    assert len(payload["dates"]) == 60
+    assert payload["dates"][0] == "2026-03-06"
+    assert payload["sectors"] == ["半導體業", "金融保險業"]
+    latest_semi = next(row for row in payload["data"] if row["date"] == "2026-05-04" and row["sector"] == "半導體業")
+    assert latest_semi == {
+        "date": "2026-05-04",
+        "sector": "半導體業",
+        "foreign": 150,
+        "trust": 15,
+        "dealer": 0,
+        "total": 165,
+    }
+
+
 def test_recommendations_backtest_stats_fall_back_to_factor_effectiveness():
     records = [
         {"stock_code": "2330", "industry": "半導體", "model_win_rate": None, "model_max_drawdown": None, "backtest_status": "資料不足"},

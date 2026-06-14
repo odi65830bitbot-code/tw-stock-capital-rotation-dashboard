@@ -75,6 +75,14 @@ FACTOR_COLUMNS = (
     "weak_financial_penalty",
     "margin_overheat_penalty",
     "risk_penalty_total",
+    "atr_14",
+    "chandelier_exit_long",
+    "chandelier_exit_short",
+    "pivot",
+    "pivot_r1",
+    "pivot_r2",
+    "pivot_s1",
+    "pivot_s2",
 )
 
 
@@ -135,7 +143,7 @@ def _normalize_price(price: pd.DataFrame) -> pd.DataFrame:
     ]:
         if source in df.columns and target not in df.columns:
             df[target] = df[source]
-    for col in ["close", "volume", "trade_value"]:
+    for col in ["close", "volume", "trade_value", "open", "high", "low"]:
         if col not in df.columns:
             df[col] = pd.NA
         df[col] = pd.to_numeric(df[col], errors="coerce")
@@ -162,6 +170,26 @@ def _latest_price_features(price: pd.DataFrame, index_price: pd.DataFrame | None
     p["turnover_proxy_raw"] = p["volume"]
     p["volume_price_sync_raw"] = (p["return_5d_raw"].fillna(0) > 0).astype(int) * p["trade_value_ratio_20d_raw"]
     p["trade_value_abnormal_raw"] = (p["trade_value_ratio_20d_raw"] - 1).clip(lower=0)
+
+    # ATR and Chandelier Exit
+    p["prev_close"] = g["close"].shift(1)
+    p["tr1"] = p["high"] - p["low"]
+    p["tr2"] = (p["high"] - p["prev_close"]).abs()
+    p["tr3"] = (p["low"] - p["prev_close"]).abs()
+    p["tr"] = p[["tr1", "tr2", "tr3"]].max(axis=1)
+    p["atr_14_raw"] = g["tr"].rolling(14, min_periods=1).mean().reset_index(level=0, drop=True)
+    p["highest_20_raw"] = g["high"].rolling(20, min_periods=1).max().reset_index(level=0, drop=True)
+    p["lowest_20_raw"] = g["low"].rolling(20, min_periods=1).min().reset_index(level=0, drop=True)
+    p["chandelier_exit_long_raw"] = p["highest_20_raw"] - p["atr_14_raw"] * 2.5
+    p["chandelier_exit_short_raw"] = p["lowest_20_raw"] + p["atr_14_raw"] * 2.5
+
+    # Pivot Points
+    p["pivot_raw"] = (p["high"] + p["low"] + p["close"]) / 3
+    p["pivot_r1_raw"] = p["pivot_raw"] * 2 - p["low"]
+    p["pivot_r2_raw"] = p["pivot_raw"] + (p["high"] - p["low"])
+    p["pivot_s1_raw"] = p["pivot_raw"] * 2 - p["high"]
+    p["pivot_s2_raw"] = p["pivot_raw"] - (p["high"] - p["low"])
+
     latest = p.groupby("stock_id", as_index=False).tail(1).copy()
     latest["close_above_ma20_raw"] = (latest["close"] > latest["ma20_raw"]).map(bool).astype(object)
     latest["close_above_ma60_raw"] = (latest["close"] > latest["ma60_raw"]).map(bool).astype(object)
@@ -443,6 +471,14 @@ def compute_finmind_factors(
         "low_liquidity_penalty": _num(base["low_liquidity_penalty_raw"], base.index).clip(0, 100),
         "weak_financial_penalty": _num(base["weak_financial_penalty_raw"], base.index).clip(0, 100),
         "margin_overheat_penalty": _num(base["margin_overheat_penalty_raw"], base.index).clip(0, 100),
+        "atr_14": _num(base["atr_14_raw"], base.index),
+        "chandelier_exit_long": _num(base["chandelier_exit_long_raw"], base.index),
+        "chandelier_exit_short": _num(base["chandelier_exit_short_raw"], base.index),
+        "pivot": _num(base["pivot_raw"], base.index),
+        "pivot_r1": _num(base["pivot_r1_raw"], base.index),
+        "pivot_r2": _num(base["pivot_r2_raw"], base.index),
+        "pivot_s1": _num(base["pivot_s1_raw"], base.index),
+        "pivot_s2": _num(base["pivot_s2_raw"], base.index),
     }
     for factor in FACTOR_COLUMNS:
         raw_col = f"{factor}_raw"

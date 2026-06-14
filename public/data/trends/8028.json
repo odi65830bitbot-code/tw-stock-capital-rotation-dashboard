@@ -3,7 +3,7 @@
   "stock_name": "昇陽半導體",
   "market": "TWSE",
   "industry": "半導體業",
-  "generated_at": "2026-06-11T15:44:17",
+  "generated_at": "2026-06-14T08:09:40",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 316.375,
       "ma20": 316.375,
       "ma60": 316.375
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 304.0,
+      "ma5": 313.9,
+      "ma20": 313.9,
+      "ma60": 313.9
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 315.0,
+      "ma5": 309.4,
+      "ma20": 314.0833333333333,
+      "ma60": 314.0833333333333
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 3055362124.0,
       "trade_value_ma20": 2157301623.5,
       "trade_value_multiple": 1.4162887983382635
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 2678498831.0,
+      "trade_value_ma20": 2261541065.0,
+      "trade_value_multiple": 1.1843688679603968
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 1646247012.0,
+      "trade_value_ma20": 2158992056.1666665,
+      "trade_value_multiple": 0.7625072113155175
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": -1435000.0,
       "dealer_5d": -214134.0,
       "dealer_20d": -214134.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": -204298.0,
+      "trustee_net_shares": 788000.0,
+      "dealer_net_shares": -65004.0,
+      "foreign_5d": 1008890.0,
+      "foreign_20d": 1008890.0,
+      "trust_5d": -647000.0,
+      "trust_20d": -647000.0,
+      "dealer_5d": -279138.0,
+      "dealer_20d": -279138.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": -194452.0,
+      "trustee_net_shares": 238000.0,
+      "dealer_net_shares": -11766.0,
+      "foreign_5d": 1212417.0,
+      "foreign_20d": 814438.0,
+      "trust_5d": -444000.0,
+      "trust_20d": -409000.0,
+      "dealer_5d": -234326.0,
+      "dealer_20d": -290904.0
     }
   ],
   "alpha": [
@@ -142,6 +192,22 @@
       "sector_alpha_score": 1500.3991391379636,
       "main_buy_component": 40.86892488954344,
       "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 578.6937892540154,
+      "alpha_score_total": 53.022991632722494,
+      "sector_alpha_score": 1102.4366999979563,
+      "main_buy_component": 25.91760299625468,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 61.45599781881676,
+      "alpha_score_total": 47.45954445492976,
+      "sector_alpha_score": 1668.9152031019569,
+      "main_buy_component": 2.6865671641791042,
+      "risk_penalty": 0.0
     }
   ],
   "recommendation": {
@@ -149,8 +215,8 @@
     "recommend_close": 315.0,
     "current_price": 315.0,
     "post_recommend_return": 0.0,
-    "post_recommend_max_drawdown": 0.0,
+    "post_recommend_max_drawdown": -0.03492063492063491,
     "post_recommend_max_gain": 0.0,
-    "still_recommended": true
+    "still_recommended": false
   }
 }

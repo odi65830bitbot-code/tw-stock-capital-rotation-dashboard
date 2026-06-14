@@ -3,7 +3,7 @@
   "stock_name": "櫻花",
   "market": "TWSE",
   "industry": "居家生活",
-  "generated_at": "2026-06-11T15:44:16",
+  "generated_at": "2026-06-14T08:09:41",
   "price": [
     {
       "trade_date": "2026-06-05",
@@ -32,6 +32,20 @@
       "ma5": 84.675,
       "ma20": 84.675,
       "ma60": 84.675
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 84.7,
+      "ma5": 84.67999999999999,
+      "ma20": 84.67999999999999,
+      "ma60": 84.67999999999999
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 84.3,
+      "ma5": 84.61999999999999,
+      "ma20": 84.61666666666666,
+      "ma60": 84.61666666666666
     }
   ],
   "trade_value": [
@@ -58,6 +72,18 @@
       "trade_value_twd": 63593125.0,
       "trade_value_ma20": 50678688.0,
       "trade_value_multiple": 1.2548297422379995
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 22239674.0,
+      "trade_value_ma20": 44990885.2,
+      "trade_value_multiple": 0.49431510185089667
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 20550569.0,
+      "trade_value_ma20": 40917499.166666664,
+      "trade_value_multiple": 0.5022440134059187
     }
   ],
   "institutional_flow": [
@@ -108,6 +134,30 @@
       "trust_20d": 0.0,
       "dealer_5d": 15127.0,
       "dealer_20d": 15127.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "foreign_net_shares": 39820.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 17000.0,
+      "foreign_5d": 794439.0,
+      "foreign_20d": 794439.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": 32127.0,
+      "dealer_20d": 32127.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": 29000.0,
+      "trustee_net_shares": -4000.0,
+      "dealer_net_shares": -1000.0,
+      "foreign_5d": 651439.0,
+      "foreign_20d": 823439.0,
+      "trust_5d": -4000.0,
+      "trust_20d": -4000.0,
+      "dealer_5d": 28127.0,
+      "dealer_20d": 31127.0
     }
   ],
   "alpha": [
@@ -142,15 +192,31 @@
       "sector_alpha_score": 2292.8442052670016,
       "main_buy_component": 85.34609720176731,
       "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 2161.779644573294,
+      "alpha_score_total": 34.7123065073459,
+      "sector_alpha_score": 2275.351255861928,
+      "main_buy_component": 70.11235955056179,
+      "risk_penalty": 35.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 990.5566928613881,
+      "alpha_score_total": 16.24468221059643,
+      "sector_alpha_score": 2049.971802630831,
+      "main_buy_component": 28.35820895522388,
+      "risk_penalty": 35.0
     }
   ],
   "recommendation": {
     "first_recommend_date": "2026-06-09",
     "recommend_close": 84.9,
-    "current_price": 85.2,
-    "post_recommend_return": 0.0035335689045936647,
-    "post_recommend_max_drawdown": 0.0,
+    "current_price": 84.3,
+    "post_recommend_return": -0.007067137809187329,
+    "post_recommend_max_drawdown": -0.010563380281690238,
     "post_recommend_max_gain": 0.0035335689045936647,
-    "still_recommended": true
+    "still_recommended": false
   }
 }
