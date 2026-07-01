@@ -423,12 +423,12 @@
   },
   "futures_after_hours": {
     "status": "ok",
-    "generated_at": "2026-06-30T17:46:05",
+    "generated_at": "2026-07-01T17:45:54",
     "dataset": "TaiwanFuturesDaily",
     "futures_id": "TX",
     "trading_session": "after_market",
-    "row_count": 442,
-    "latest_date": "2026-06-30",
+    "row_count": 455,
+    "latest_date": "2026-07-01",
     "institutional_status": "permission_or_plan_required",
     "warnings": [
       "institutional after-hours unavailable: RuntimeError: FinMind request failed after retries: HTTP 400: Your level is register. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor"
