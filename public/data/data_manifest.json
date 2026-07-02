@@ -1,0 +1,164 @@
+{
+  "status": "ok",
+  "version": "data-manifest-v1",
+  "data_mode": "prepost_batch",
+  "generated_at": "2026-07-02T07:46:55+08:00",
+  "refresh_policy": "盤前/盤後批次更新；前端讀取靜態 JSON，不做即時輪詢。",
+  "cache_policy": "靜態 JSON 可由瀏覽器/CDN 快取；下一次盤前或盤後批次更新再覆寫檔案。",
+  "total_bytes": 3424326,
+  "files": {
+    "backtest_v4_summary.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 3,
+      "total_records": 3,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 888
+    },
+    "bottom_fishing_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 68,
+      "total_records": 68,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 115715
+    },
+    "chip_analysis_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 50,
+      "total_records": 50,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 58138
+    },
+    "cp_ranking_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 68,
+      "total_records": 68,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 115167
+    },
+    "etf_holdings_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-06-12",
+      "records": 5,
+      "total_records": 25,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 7198
+    },
+    "futures_after_hours_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-02T07:46:43",
+      "records": 30,
+      "total_records": 30,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 13934
+    },
+    "golden_exit_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 1966,
+      "total_records": 1966,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 618376
+    },
+    "recommendations_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 50,
+      "total_records": 50,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 138376
+    },
+    "recommendations_v4_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 50,
+      "total_records": 50,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 127276
+    },
+    "recommendations_v5_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 50,
+      "total_records": 50,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 155570
+    },
+    "recommendations_v6_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 39,
+      "total_records": 39,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 125246
+    },
+    "sector_alpha_score.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 68,
+      "total_records": 68,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 115499
+    },
+    "sector_flow_history.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 481,
+      "total_records": 481,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 166511
+    },
+    "sector_rotation_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 68,
+      "total_records": 68,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 112621
+    },
+    "stock_alpha_v4_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 300,
+      "total_records": 1979,
+      "record_limit": 300,
+      "records_truncated": true,
+      "bytes": 740840
+    },
+    "stock_lookup_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 2320,
+      "total_records": 2320,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 750583
+    },
+    "watchlist_latest.json": {
+      "status": "ok",
+      "data_timestamp": "2026-07-01",
+      "records": 20,
+      "total_records": 20,
+      "record_limit": null,
+      "records_truncated": false,
+      "bytes": 62388
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "stock_id": "1591",
+  "stock_name": "駿吉-KY",
+  "market": "TPEX",
+  "industry": "電機機械",
+  "generated_at": "2026-07-02T07:46:39",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 41.0,
+      "ma5": 41.0,
+      "ma20": 41.0,
+      "ma60": 41.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 36.9,
+      "ma5": 38.95,
+      "ma20": 38.95,
+      "ma60": 38.95
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 34.6,
+      "ma5": 37.5,
+      "ma20": 37.5,
+      "ma60": 37.5
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 31.15,
+      "ma5": 35.9125,
+      "ma20": 35.9125,
+      "ma60": 35.9125
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 7340893.0,
+      "trade_value_ma20": 7340893.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 5063561.0,
+      "trade_value_ma20": 6202227.0,
+      "trade_value_multiple": 0.8164101378424233
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 24362134.0,
+      "trade_value_ma20": 12255529.333333334,
+      "trade_value_multiple": 1.987848369285722
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 57965071.0,
+      "trade_value_ma20": 23682914.75,
+      "trade_value_multiple": 2.4475480156005713
+    }
+  ],
+  "institutional_flow": [],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 3.343993090543499,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 0.0,
+      "sector_alpha_score": 3.612123007236889,
+      "main_buy_component": 50.0,
+      "risk_penalty": 75.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 0.0,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 45.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 5.622571498612459,
+      "sector_alpha_score": 0.0,
+      "main_buy_component": 50.0,
+      "risk_penalty": 40.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": null,
+    "recommend_close": null,
+    "current_price": 31.15,
+    "post_recommend_return": null,
+    "post_recommend_max_drawdown": null,
+    "post_recommend_max_gain": null,
+    "still_recommended": false
+  }
+}

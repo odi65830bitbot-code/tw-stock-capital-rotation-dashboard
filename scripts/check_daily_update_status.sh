@@ -8,6 +8,7 @@ LABEL="com.maxyu.tw-stock-daily-update"
 cd "$ROOT"
 
 echo "== Daily update schedule =="
+echo "Expected: daily 06:00 and 15:30 Asia/Taipei"
 if [ -f "$PLIST" ]; then
   echo "LaunchAgent: installed"
   echo "Plist: $PLIST"

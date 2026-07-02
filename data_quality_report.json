@@ -1,35 +1,35 @@
 {
-  "generated_at": "2026-06-14",
-  "expected_trade_date": "2026-06-12",
+  "generated_at": "2026-07-02",
+  "expected_trade_date": "2026-07-01",
   "status": "pass",
   "checks": [
     {
       "name": "recent_trading_date",
       "status": "pass",
-      "message": "最新資料日為 2026-06-12",
+      "message": "最新資料日為 2026-07-01",
       "details": {
-        "latest_date": "2026-06-12",
-        "expected_date": "2026-06-12"
+        "latest_date": "2026-07-01",
+        "expected_date": "2026-07-01"
       }
     },
     {
       "name": "market_date_alignment",
       "status": "pass",
-      "message": "daily_price: TWSE/TPEX 同步日期 2026-06-12",
+      "message": "daily_price: TWSE/TPEX 同步日期 2026-07-01",
       "details": {
         "latest_by_market": {
-          "TWSE": "2026-06-12",
-          "TPEX": "2026-06-12"
+          "TWSE": "2026-07-01",
+          "TPEX": "2026-07-01"
         },
-        "expected_date": "2026-06-12"
+        "expected_date": "2026-07-01"
       }
     },
     {
       "name": "reasonable_row_count",
       "status": "pass",
-      "message": "daily_price 筆數合理：11492",
+      "message": "daily_price 筆數合理：11347",
       "details": {
-        "rows": 11492
+        "rows": 11347
       }
     },
     {
@@ -79,30 +79,30 @@
     {
       "name": "recent_trading_date",
       "status": "pass",
-      "message": "最新資料日為 2026-06-12",
+      "message": "最新資料日為 2026-07-01",
       "details": {
-        "latest_date": "2026-06-12",
-        "expected_date": "2026-06-12"
+        "latest_date": "2026-07-01",
+        "expected_date": "2026-07-01"
       }
     },
     {
       "name": "market_date_alignment",
       "status": "pass",
-      "message": "institutional_flow: TWSE/TPEX 同步日期 2026-06-12",
+      "message": "institutional_flow: TWSE/TPEX 同步日期 2026-07-01",
       "details": {
         "latest_by_market": {
-          "TWSE": "2026-06-12",
-          "TPEX": "2026-06-12"
+          "TWSE": "2026-07-01",
+          "TPEX": "2026-07-01"
         },
-        "expected_date": "2026-06-12"
+        "expected_date": "2026-07-01"
       }
     },
     {
       "name": "reasonable_row_count",
       "status": "pass",
-      "message": "institutional_flow 筆數合理：14089",
+      "message": "institutional_flow 筆數合理：15591",
       "details": {
-        "rows": 14089
+        "rows": 15591
       }
     },
     {
@@ -165,22 +165,22 @@
     {
       "name": "recent_trading_date",
       "status": "pass",
-      "message": "最新資料日為 2026-06-12",
+      "message": "最新資料日為 2026-07-01",
       "details": {
-        "latest_date": "2026-06-12",
-        "expected_date": "2026-06-12"
+        "latest_date": "2026-07-01",
+        "expected_date": "2026-07-01"
       }
     },
     {
       "name": "market_date_alignment",
       "status": "pass",
-      "message": "institutional_amount: TWSE/TPEX 同步日期 2026-06-12",
+      "message": "institutional_amount: TWSE/TPEX 同步日期 2026-07-01",
       "details": {
         "latest_by_market": {
-          "TWSE": "2026-06-12",
-          "TPEX": "2026-06-12"
+          "TWSE": "2026-07-01",
+          "TPEX": "2026-07-01"
         },
-        "expected_date": "2026-06-12"
+        "expected_date": "2026-07-01"
       }
     },
     {
@@ -221,9 +221,9 @@
     {
       "name": "reasonable_row_count",
       "status": "pass",
-      "message": "sector_classification 筆數合理：2346",
+      "message": "sector_classification 筆數合理：2350",
       "details": {
-        "rows": 2346
+        "rows": 2350
       }
     },
     {
@@ -255,9 +255,9 @@
     {
       "name": "reasonable_row_count",
       "status": "pass",
-      "message": "sector_flow 筆數合理：46",
+      "message": "sector_flow 筆數合理：68",
       "details": {
-        "rows": 46
+        "rows": 68
       }
     },
     {
@@ -282,10 +282,10 @@
     {
       "name": "recommendation_engine",
       "status": "pass",
-      "message": "推薦引擎候選清單 203 筆，Alpha 拆解 11492 筆",
+      "message": "推薦引擎候選清單 201 筆，Alpha 拆解 11347 筆",
       "details": {
-        "recommendation_rows": 203,
-        "alpha_breakdown_rows": 11492,
+        "recommendation_rows": 201,
+        "alpha_breakdown_rows": 11347,
         "backtest_rows": 2,
         "revenue_data_available": false,
         "financial_quality_data_available": false,
@@ -334,105 +334,170 @@
     "note": "MoneyDJ and FinMind are stored and displayed only as supplemental context; they do not replace failed official data."
   },
   "daily_update": {
-    "target_date": "2026-06-12",
-    "log_path": "/Users/maxyu/Documents/台股資金網站/logs/update_20260612.log",
+    "target_date": "2026-07-01",
+    "log_path": "/Users/maxyu/Documents/台股資金網站/logs/update_20260701.log",
     "public_data_root": "/Users/maxyu/Documents/台股資金網站/public/data",
     "trend_scope": "recommendation_top_10_only"
   },
-  "formal_dashboard_json": {
-    "status": "ok",
-    "generated_at": "2026-06-14T08:14:44+08:00",
-    "files": {
-      "sector_rotation_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 46
-      },
-      "cp_ranking_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 46
-      },
-      "bottom_fishing_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 46
-      },
-      "sector_alpha_score.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 46
-      },
-      "sector_flow_history.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 273
-      },
-      "stock_alpha_v4_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 1976
-      },
-      "recommendations_v4_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 50
-      },
-      "recommendations_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 50,
-        "repaired_records": 50
-      },
-      "recommendations_v5_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 50
-      },
-      "recommendations_v6_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 50
-      },
-      "backtest_v4_summary.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 3
-      },
-      "chip_analysis_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 50
-      },
-      "watchlist_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 20
-      },
-      "golden_exit_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-12",
-        "records": 1966
-      },
-      "futures_after_hours_latest.json": {
-        "status": "ok",
-        "data_timestamp": "2026-06-14T08:12:53",
-        "records": 25
-      }
-    }
-  },
   "futures_after_hours": {
     "status": "ok",
-    "generated_at": "2026-06-14T08:12:53",
+    "generated_at": "2026-07-02T07:46:43",
     "dataset": "TaiwanFuturesDaily",
     "futures_id": "TX",
     "trading_session": "after_market",
-    "row_count": 309,
-    "latest_date": "2026-06-12",
+    "row_count": 466,
+    "latest_date": "2026-07-02",
     "institutional_status": "permission_or_plan_required",
     "warnings": [
       "institutional after-hours unavailable: RuntimeError: FinMind request failed after retries: HTTP 400: Your level is register. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor"
     ],
     "errors": []
+  },
+  "formal_dashboard_json": {
+    "status": "ok",
+    "generated_at": "2026-07-02T07:46:55+08:00",
+    "files": {
+      "sector_rotation_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 68,
+        "total_records": 68,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "cp_ranking_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 68,
+        "total_records": 68,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "bottom_fishing_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 68,
+        "total_records": 68,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "sector_alpha_score.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 68,
+        "total_records": 68,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "sector_flow_history.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 481,
+        "total_records": 481,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "stock_alpha_v4_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 300,
+        "total_records": 1979,
+        "record_limit": 300,
+        "records_truncated": true
+      },
+      "stock_lookup_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 2320,
+        "total_records": 2320,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "etf_holdings_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-06-12",
+        "records": 5,
+        "total_records": 25,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "recommendations_v4_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 50,
+        "total_records": 50,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "recommendations_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 50,
+        "total_records": 50,
+        "record_limit": null,
+        "records_truncated": null,
+        "repaired_records": 50
+      },
+      "recommendations_v5_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 50,
+        "total_records": 50,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "recommendations_v6_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 39,
+        "total_records": 39,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "backtest_v4_summary.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 3,
+        "total_records": 3,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "chip_analysis_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 50,
+        "total_records": 50,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "watchlist_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 20,
+        "total_records": 20,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "golden_exit_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-01",
+        "records": 1966,
+        "total_records": 1966,
+        "record_limit": null,
+        "records_truncated": null
+      },
+      "futures_after_hours_latest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-02T07:46:43",
+        "records": 30,
+        "total_records": 30
+      },
+      "data_manifest.json": {
+        "status": "ok",
+        "data_timestamp": "2026-07-02T07:46:55+08:00",
+        "records": 17,
+        "total_records": 17
+      }
+    }
   }
 }

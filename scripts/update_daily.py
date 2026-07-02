@@ -28,6 +28,8 @@ LOGGER = logging.getLogger("update_daily")
 TAIPEI_TZ = ZoneInfo("Asia/Taipei")
 MARKET_DATA_READY_TIME = time(14, 30)
 DEFAULT_TREND_TOP_N = 50
+PUBLIC_STOCK_ALPHA_LIMIT = 300
+SECTOR_CONSTITUENT_PER_GROUP_LIMIT = 40
 
 MERGE_KEYS: dict[str, list[str]] = {
     "daily_price": ["trade_date", "market", "stock_code"],
@@ -50,6 +52,20 @@ def _trend_top_n() -> int:
         return max(0, int(os.environ.get("TREND_TOP_N", DEFAULT_TREND_TOP_N)))
     except (TypeError, ValueError):
         return DEFAULT_TREND_TOP_N
+
+
+def _public_stock_alpha_limit() -> int:
+    try:
+        return max(0, int(os.environ.get("PUBLIC_STOCK_ALPHA_LIMIT", PUBLIC_STOCK_ALPHA_LIMIT)))
+    except (TypeError, ValueError):
+        return PUBLIC_STOCK_ALPHA_LIMIT
+
+
+def _sector_constituent_per_group_limit() -> int:
+    try:
+        return max(0, int(os.environ.get("SECTOR_CONSTITUENT_PER_GROUP_LIMIT", SECTOR_CONSTITUENT_PER_GROUP_LIMIT)))
+    except (TypeError, ValueError):
+        return SECTOR_CONSTITUENT_PER_GROUP_LIMIT
 
 
 def _previous_weekday(d: date) -> date:
@@ -115,19 +131,55 @@ def _records(
     ]
 
 
+def _cap_records(df: pd.DataFrame, *, sort_columns: list[str], limit: int) -> pd.DataFrame:
+    if df.empty or limit <= 0:
+        return df.head(0).copy()
+    out = df.copy()
+    usable_sort_columns = [col for col in sort_columns if col in out.columns]
+    for col in usable_sort_columns:
+        out[col] = pd.to_numeric(out[col], errors="coerce")
+    if usable_sort_columns:
+        out = out.sort_values(usable_sort_columns, ascending=[False] * len(usable_sort_columns), na_position="last")
+    return out.head(limit).copy()
+
+
+def _cap_sector_constituents(df: pd.DataFrame, *, per_group: int = SECTOR_CONSTITUENT_PER_GROUP_LIMIT) -> pd.DataFrame:
+    if df.empty or per_group <= 0:
+        return df.head(0).copy()
+    out = df.copy()
+    group_cols = [col for col in ["market", "industry"] if col in out.columns]
+    sort_cols = [col for col in ["three_party_net_shares", "trade_value_twd", "alpha_score_total"] if col in out.columns]
+    for col in sort_cols:
+        out[col] = pd.to_numeric(out[col], errors="coerce")
+    if sort_cols:
+        out = out.sort_values(group_cols + sort_cols, ascending=[True] * len(group_cols) + [False] * len(sort_cols), na_position="last")
+    if not group_cols:
+        return out.head(per_group).copy()
+    return out.groupby(group_cols, dropna=False, group_keys=False).head(per_group).reset_index(drop=True)
+
+
 def _is_common_stock_code(value: Any) -> bool:
     return bool(re.match(r"^\d{4}$", str(value or "").strip()))
+
+
+def _is_etf_code(value: Any) -> bool:
+    code = str(value or "").strip().upper()
+    return bool(re.match(r"^00[0-9A-Z]{2,4}$", code))
+
+
+def _is_daily_price_lookup_code(value: Any) -> bool:
+    return _is_common_stock_code(value) or _is_etf_code(value)
 
 
 def _clean_processed_frame(dataset_name: str, df: pd.DataFrame) -> pd.DataFrame:
     if df.empty:
         return df.copy()
     out = df.copy()
-    if "trade_date" in out.columns:
+    if "trade_date" in out.columns and dataset_name != "sector_classification":
         out["trade_date"] = pd.to_datetime(out["trade_date"], errors="coerce")
         out = out.dropna(subset=["trade_date"])
     if dataset_name == "daily_price" and "stock_code" in out.columns:
-        out = out[out["stock_code"].map(_is_common_stock_code)].copy()
+        out = out[out["stock_code"].map(_is_daily_price_lookup_code)].copy()
     return out.reset_index(drop=True)
 
 
@@ -142,6 +194,18 @@ def _merge_frame(
         incoming = _clean_processed_frame(dataset_name, incoming)
     if incoming.empty:
         return existing.copy()
+
+    # --- Data Integrity Circuit Breaker ---
+    if dataset_name in ["institutional_flow", "daily_price"]:
+        if len(incoming) < 1500:
+            LOGGER.error("Circuit breaker triggered for %s: incoming data has only %d rows (< 1500). Rejecting update.", dataset_name, len(incoming))
+            return existing.copy()
+    if dataset_name == "index":
+        if len(incoming) < 2:
+            LOGGER.error("Circuit breaker triggered for %s: incoming data has only %d rows. Rejecting update.", dataset_name, len(incoming))
+            return existing.copy()
+    # --------------------------------------
+
     if existing.empty:
         merged = incoming.copy()
     else:
@@ -149,7 +213,7 @@ def _merge_frame(
     for col in keys:
         if col not in merged.columns:
             merged[col] = pd.NA
-    if "trade_date" in merged.columns:
+    if "trade_date" in merged.columns and dataset_name != "sector_classification":
         merged["trade_date"] = pd.to_datetime(merged["trade_date"], errors="coerce")
         merged = merged.dropna(subset=["trade_date"])
     merged = merged.drop_duplicates(keys, keep="last")
@@ -321,6 +385,52 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
             ascending=[True, True, False, False],
             na_position="last",
         )
+    sector_constituents_total = len(sector_constituents)
+    if not sector_constituents.empty and "trade_date" in sector_constituents.columns:
+        sector_constituents["trade_date"] = pd.to_datetime(sector_constituents["trade_date"], errors="coerce")
+        sector_constituents = sector_constituents[sector_constituents["trade_date"] == pd.to_datetime(stock_detail_date)].copy()
+    sector_constituents_total = len(sector_constituents)
+    sector_constituents = _cap_sector_constituents(
+        sector_constituents,
+        per_group=_sector_constituent_per_group_limit(),
+    )
+
+    stock_alpha_public_cols = [
+        c
+        for c in [
+            "trade_date",
+            "market",
+            "stock_code",
+            "stock_name",
+            "industry",
+            "close",
+            "trade_value_twd",
+            "alpha_score_total",
+            "main_buy_component",
+            "foreign_component",
+            "trust_component",
+            "revenue_component",
+            "quality_component",
+            "finmind_revenue_yoy_pct",
+            "finmind_revenue_mom_pct",
+            "finmind_per",
+            "finmind_pbr",
+            "finmind_dividend_yield_pct",
+            "risk_penalty",
+            "suggested_status",
+        ]
+        if c in stock_alpha.columns
+    ]
+    stock_alpha_public = stock_alpha[stock_alpha_public_cols].copy()
+    if not stock_alpha_public.empty and "trade_date" in stock_alpha_public.columns:
+        stock_alpha_public["trade_date"] = pd.to_datetime(stock_alpha_public["trade_date"], errors="coerce")
+        stock_alpha_public = stock_alpha_public[stock_alpha_public["trade_date"] == pd.to_datetime(as_of_date)].copy()
+    stock_alpha_total = len(stock_alpha_public)
+    stock_alpha_public = _cap_records(
+        stock_alpha_public,
+        sort_columns=["alpha_score_total", "trade_value_twd"],
+        limit=_public_stock_alpha_limit(),
+    )
 
     market_records = _records(index_df, as_of_date=as_of_date)
     _fill_market_change_pct(market_records)
@@ -341,42 +451,22 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
         "stock_alpha_latest.json": {
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "as_of_date": _json_ready(as_of_date),
-            "records": _records(
-                stock_alpha[
-                    [
-                        c
-                        for c in [
-                            "trade_date",
-                            "market",
-                            "stock_code",
-                            "stock_name",
-                            "industry",
-                            "close",
-                            "trade_value_twd",
-                            "alpha_score_total",
-                            "main_buy_component",
-                            "foreign_component",
-                            "trust_component",
-                            "revenue_component",
-                            "quality_component",
-                            "finmind_revenue_yoy_pct",
-                            "finmind_revenue_mom_pct",
-                            "finmind_per",
-                            "finmind_pbr",
-                            "finmind_dividend_yield_pct",
-                            "risk_penalty",
-                            "suggested_status",
-                        ]
-                        if c in stock_alpha.columns
-                    ]
-                ]
-                ,
-                as_of_date=as_of_date,
-            ),
+            "data_mode": "prepost_batch",
+            "scope": "dashboard_top_ranked_summary",
+            "record_limit": _public_stock_alpha_limit(),
+            "total_records": stock_alpha_total,
+            "records_truncated": stock_alpha_total > _public_stock_alpha_limit(),
+            "detail_template": "/data/trends/{stock_id}.json",
+            "records": _records(stock_alpha_public, as_of_date=as_of_date),
         },
         "sector_constituents_latest.json": {
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "as_of_date": _json_ready(stock_detail_date),
+            "data_mode": "prepost_batch",
+            "scope": "top_constituents_per_market_sector",
+            "record_limit_per_group": _sector_constituent_per_group_limit(),
+            "total_records": sector_constituents_total,
+            "records_truncated": sector_constituents_total > len(sector_constituents),
             "records": _records(sector_constituents, as_of_date=stock_detail_date),
         },
         "recommendations_latest.json": {
@@ -392,7 +482,7 @@ def _write_public_json(processed_root: Path, public_root: Path) -> None:
     trend_paths = write_top_recommendation_trends(
         processed_root=processed_root,
         public_root=public_root,
-        top_n=2000,
+        top_n=_trend_top_n(),
     )
     LOGGER.info("wrote %s recommendation trend files", len(trend_paths))
 

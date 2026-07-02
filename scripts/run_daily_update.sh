@@ -19,8 +19,9 @@ fi
 
 "$PYTHON_BIN" "$ROOT/scripts/fetch_official_classification.py"
 "$PYTHON_BIN" "$ROOT/scripts/update_daily.py"
+"$PYTHON_BIN" "$ROOT/scripts/update_txf_after_hours.py"
 "$PYTHON_BIN" "$ROOT/scripts/fetch_global_news.py"
 "$PYTHON_BIN" "$ROOT/scripts/fetch_sectorrotation_reference.py"
 "$PYTHON_BIN" "$ROOT/scripts/fetch_financial_statements.py"
-"$PYTHON_BIN" "$ROOT/scripts/advanced_sentiment_analyzer.py"
+"$PYTHON_BIN" "$ROOT/scripts/fetch_sentiment_and_macro.py"
 "$PYTHON_BIN" "$ROOT/scripts/build_formal_json_outputs.py"

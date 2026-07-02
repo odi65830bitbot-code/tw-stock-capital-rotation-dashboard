@@ -245,7 +245,54 @@ def write_top_recommendation_trends(
         stale.unlink()
     written: list[Path] = []
     as_of_date = latest_complete_trade_date(daily_price)
-    for stock_id in _latest_price_universe_codes(daily_price, recommendations, top_n=top_n, as_of_date=as_of_date):
+    
+    # 獲取基礎推薦清單 (Top N)
+    base_codes = _latest_price_universe_codes(daily_price, recommendations, top_n=top_n, as_of_date=as_of_date)
+    
+    # 搜集額外的個股與指數
+    additional_codes = set()
+    additional_codes.add("TAIEX")
+    
+    # 1. 讀取持股清單 portfolio.json
+    portfolio_path = processed_root.parent / "portfolio.json"
+    if portfolio_path.exists():
+        try:
+            with open(portfolio_path, "r", encoding="utf-8") as f:
+                p_data = json.load(f)
+                if isinstance(p_data, list):
+                    for item in p_data:
+                        code = item.get("id")
+                        if code:
+                            additional_codes.add(str(code))
+        except Exception:
+            pass
+            
+    # 2. 讀取預設觀察清單 watchlist_latest.json
+    watchlist_path = public_root / "data" / "watchlist_latest.json"
+    if watchlist_path.exists():
+        try:
+            with open(watchlist_path, "r", encoding="utf-8") as f:
+                w_data = json.load(f)
+                records = w_data.get("records", [])
+                for r in records:
+                    code = r.get("stock_id") or r.get("stock_code")
+                    if code:
+                        additional_codes.add(str(code))
+        except Exception:
+            pass
+            
+    # 確保這些額外個股真的存在於我們的日價格庫中，避免報錯
+    if not daily_price.empty and "stock_code" in daily_price.columns:
+        valid_universe = set(daily_price["stock_code"].astype(str).unique())
+        additional_codes = {c for c in additional_codes if c in valid_universe}
+        
+    # 合併並去重，保留 base_codes 順序
+    all_codes = list(base_codes)
+    for c in additional_codes:
+        if c not in all_codes:
+            all_codes.append(c)
+
+    for stock_id in all_codes:
         payload = build_stock_trend(
             stock_id,
             daily_price,

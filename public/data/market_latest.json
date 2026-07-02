@@ -1,36 +1,36 @@
 {
-  "generated_at": "2026-06-14T08:09:14",
-  "as_of_date": "2026-06-12",
+  "generated_at": "2026-07-02T07:46:38",
+  "as_of_date": "2026-07-01",
   "records": [
     {
-      "trade_date": "2026-06-12",
+      "trade_date": "2026-07-01",
       "market": "TPEX",
       "index_name": "TPEX_INDEX",
-      "close": 419.72,
-      "change": 12.63,
-      "change_pct": 3.1,
-      "open": 411.35,
-      "high": 424.84,
-      "low": 411.35
+      "close": 431.23,
+      "change": 4.26,
+      "change_pct": 1.0,
+      "open": 430.29,
+      "high": 437.56,
+      "low": 430.29
     },
     {
-      "trade_date": "2026-06-12",
+      "trade_date": "2026-07-01",
       "market": "TPEX",
       "index_name": "TPEx50Index",
-      "close": 624.05,
+      "close": 633.81,
       "change": null,
-      "change_pct": 0,
+      "change_pct": null,
       "open": null,
       "high": null,
       "low": null
     },
     {
-      "trade_date": "2026-06-12",
+      "trade_date": "2026-07-01",
       "market": "TWSE",
       "index_name": "TAIEX",
-      "close": 44169.04,
-      "change": 1019.58,
-      "change_pct": 2.36,
+      "close": 47018.99,
+      "change": 893.08,
+      "change_pct": 1.94,
       "open": null,
       "high": null,
       "low": null

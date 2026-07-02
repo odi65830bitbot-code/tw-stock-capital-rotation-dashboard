@@ -65,6 +65,31 @@ def fetch_isin(mode: int, market_name: str) -> pd.DataFrame:
         return pd.DataFrame()
 
 
+def merge_classification_frames(existing_df: pd.DataFrame, new_df: pd.DataFrame) -> pd.DataFrame:
+    frames = []
+    for source in (existing_df, new_df):
+        if source.empty:
+            continue
+        frame = source.copy()
+        if "stock_code" not in frame.columns and "stock_id" in frame.columns:
+            frame["stock_code"] = frame["stock_id"].astype(str)
+        if "stock_code" not in frame.columns:
+            continue
+        frame["stock_code"] = frame["stock_code"].astype(str).str.strip()
+        frame = frame[frame["stock_code"] != ""].copy()
+        frames.append(frame)
+
+    if not frames:
+        return pd.DataFrame(columns=["stock_code", "stock_id", "stock_name", "market", "industry", "sector"])
+
+    merged = pd.concat(frames, ignore_index=True, sort=False)
+    merged = merged.drop_duplicates("stock_code", keep="last").reset_index(drop=True)
+    merged["stock_id"] = merged.get("stock_id", merged["stock_code"]).fillna(merged["stock_code"]).astype(str)
+    if "sector" not in merged.columns and "industry" in merged.columns:
+        merged["sector"] = merged["industry"]
+    return merged
+
+
 def update_sector_classification() -> None:
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     out_path = PROCESSED_DIR / "sector_classification.parquet"
@@ -76,28 +101,13 @@ def update_sector_classification() -> None:
     if new_df.empty:
         LOGGER.error("No data fetched from TWSE/TPEx.")
         return
-        
+
     if out_path.exists():
         existing_df = pd.read_parquet(out_path)
-        # Merge new data, prioritizing new data
-        if "stock_id" in existing_df.columns:
-            existing_df["stock_code"] = existing_df["stock_id"].astype(str)
-        
-        # Combine existing and new, overriding with new where code matches
-        existing_df = existing_df.set_index("stock_code")
-        new_df_indexed = new_df.set_index("stock_code")
-        
-        existing_df.update(new_df_indexed)
-        # Add new rows
-        new_rows = new_df_indexed[~new_df_indexed.index.isin(existing_df.index)]
-        if not new_rows.empty:
-            existing_df = pd.concat([existing_df, new_rows])
-            
-        final_df = existing_df.reset_index()
+        final_df = merge_classification_frames(existing_df, new_df)
     else:
-        final_df = new_df
-        final_df["stock_id"] = final_df["stock_code"]
-        
+        final_df = merge_classification_frames(pd.DataFrame(), new_df)
+
     final_df.to_parquet(out_path, index=False)
     LOGGER.info(f"Updated sector_classification.parquet with {len(final_df)} records.")
 

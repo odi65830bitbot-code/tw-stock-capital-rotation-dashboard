@@ -21,6 +21,9 @@ PROCESSED = ROOT / "data" / "processed"
 PUBLIC_DATA = ROOT / "public" / "data"
 QUALITY_PATH = ROOT / "data_quality_report.json"
 TAIPEI = ZoneInfo("Asia/Taipei")
+STOCK_ALPHA_SUMMARY_LIMIT = 300
+DATA_MODE = "prepost_batch"
+REFRESH_POLICY = "盤前/盤後批次更新；前端讀取靜態 JSON，不做即時輪詢。"
 
 SECTOR_NAME_MAP = {
     "金融保險業": "銀行金融",
@@ -171,17 +174,17 @@ def round_or_zero(value: Any, digits: int = 2) -> float:
     return int(rounded) if digits == 0 else rounded
 
 
-def fill_record_numeric_defaults(record: dict[str, Any], fields: Iterable[str], default: float | int = 0) -> int:
-    changed = 0
+def fill_record_numeric_defaults(record: dict[str, Any], fields: Iterable[str], default: float | int = 0) -> bool:
+    changed = False
     for field in fields:
         if to_float(record.get(field)) is None:
             record[field] = default
-            changed += 1
+            changed = True
     return changed
 
 
 def fill_records_numeric_defaults(records: list[dict[str, Any]], fields: Iterable[str], default: float | int = 0) -> int:
-    return sum(fill_record_numeric_defaults(record, fields, default) for record in records if isinstance(record, dict))
+    return sum(1 for record in records if isinstance(record, dict) and fill_record_numeric_defaults(record, fields, default))
 
 
 def first_present(row: dict[str, Any], keys: Iterable[str]) -> Any:
@@ -193,6 +196,15 @@ def first_present(row: dict[str, Any], keys: Iterable[str]) -> Any:
 
 def is_common_stock_code(value: Any) -> bool:
     return bool(re.match(r"^\d{4}$", str(value or "").strip()))
+
+
+def is_etf_code(value: Any) -> bool:
+    code = str(value or "").strip().upper()
+    return bool(re.match(r"^00[0-9A-Z]{2,4}$", code))
+
+
+def is_lookup_security_code(value: Any) -> bool:
+    return is_common_stock_code(value) or is_etf_code(value)
 
 
 def compute_market_change_pct() -> tuple[float | None, bool]:
@@ -278,8 +290,10 @@ def fill_recommendation_backtest_stats(
 def normalize_sector_name(name: Any) -> str | None:
     if name is None:
         return None
+    if isinstance(name, float) and math.isnan(name):
+        return None
     text = str(name).strip()
-    if not text:
+    if not text or text.lower() in {"nan", "none", "null"}:
         return None
     return SECTOR_NAME_MAP.get(text, text)
 
@@ -836,18 +850,264 @@ def build_stock_reason(row: pd.Series, score: float, sector: str, risk_tags: lis
     return " / ".join(reasons) if reasons else "列入觀察"
 
 
-def make_stock_alpha_payload(records: list[dict[str, Any]], data_date: str | None, source_name: str) -> dict[str, Any]:
+def make_stock_alpha_payload(
+    records: list[dict[str, Any]],
+    data_date: str | None,
+    source_name: str,
+    *,
+    limit: int = STOCK_ALPHA_SUMMARY_LIMIT,
+) -> dict[str, Any]:
+    total_records = len(records)
+    limit = max(0, int(limit))
+    slim_records = records[:limit] if limit else []
     return {
-        "status": "ok" if records else "error",
+        "status": "ok" if slim_records else "error",
         "version": "stock-alpha-v4-formal-v1",
+        "data_mode": DATA_MODE,
         "data_timestamp": data_date,
         "as_of_date": data_date,
         "generated_at": now_iso(),
         "source": [source_name, "TWSE/TPEX official processed data", "FinMind supplemental data when available"],
         "calculation_location": "data_pipeline",
+        "scope": "dashboard_top_ranked_summary",
+        "record_limit": limit,
+        "total_records": total_records,
+        "records_truncated": total_records > len(slim_records),
+        "detail_template": "/data/trends/{stock_id}.json",
+        "records": slim_records,
+        "items": slim_records,
+        "message": None if slim_records else "資料尚未更新，請稍後再試",
+    }
+
+
+def make_stock_lookup_payload(daily_price: pd.DataFrame, sector_classification: pd.DataFrame, *industry_sources: pd.DataFrame) -> dict[str, Any]:
+    source = ["daily_price.parquet", "sector_classification.parquet"]
+    required = {"trade_date", "market", "stock_code", "stock_name", "close"}
+    if daily_price.empty or "__read_error__" in daily_price.columns:
+        return {
+            "status": "error",
+            "version": "stock-lookup-basic-v2",
+            "data_mode": DATA_MODE,
+            "generated_at": now_iso(),
+            "source": source,
+            "records": [],
+            "total_records": 0,
+            "message": "daily_price.parquet unavailable",
+        }
+    if not required.issubset(daily_price.columns):
+        missing = sorted(required - set(daily_price.columns))
+        return {
+            "status": "error",
+            "version": "stock-lookup-basic-v2",
+            "data_mode": DATA_MODE,
+            "generated_at": now_iso(),
+            "source": source,
+            "records": [],
+            "total_records": 0,
+            "message": f"missing required columns: {', '.join(missing)}",
+        }
+
+    price = daily_price.copy()
+    price["stock_code"] = price["stock_code"].astype(str).str.strip()
+    price = price[price["stock_code"].map(is_lookup_security_code)].copy()
+    price["trade_date"] = pd.to_datetime(price["trade_date"], errors="coerce")
+    price = price.dropna(subset=["trade_date", "stock_code"]).sort_values(["stock_code", "trade_date"])
+    latest_date_value = price["trade_date"].max() if not price.empty else None
+    price = price.drop_duplicates(["stock_code", "market"], keep="last")
+    for col in ["close", "change", "change_pct", "trade_value_twd"]:
+        if col in price.columns:
+            price[col] = pd.to_numeric(price[col], errors="coerce")
+    if "change_pct" not in price.columns and "change" in price.columns:
+        prev_close = price["close"] - price["change"]
+        price["change_pct"] = price["change"] / prev_close.where(prev_close != 0) * 100
+
+    sector_pieces: list[pd.DataFrame] = []
+    for source_frame in (sector_classification, *industry_sources):
+        if source_frame.empty or not {"stock_code", "industry"}.issubset(source_frame.columns):
+            continue
+        piece = source_frame.copy()
+        piece["stock_code"] = piece["stock_code"].astype(str).str.strip()
+        piece["industry"] = piece["industry"].map(normalize_sector_name)
+        piece = piece.dropna(subset=["stock_code", "industry"])
+        if "as_of_date" in piece.columns:
+            piece["sort_date"] = pd.to_datetime(piece["as_of_date"], errors="coerce")
+        elif "trade_date" in piece.columns:
+            piece["sort_date"] = pd.to_datetime(piece["trade_date"], errors="coerce")
+        else:
+            piece["sort_date"] = pd.NaT
+        sector_pieces.append(piece[["stock_code", "industry", "sort_date"]])
+    sector_lookup = pd.DataFrame(columns=["stock_code", "industry"])
+    if sector_pieces:
+        sector_lookup = pd.concat(sector_pieces, ignore_index=True)
+        sector_lookup = sector_lookup.sort_values(["stock_code", "sort_date"], na_position="first")
+        sector_lookup = sector_lookup.drop_duplicates("stock_code", keep="last")
+        sector_lookup = sector_lookup[["stock_code", "industry"]]
+    if not sector_lookup.empty:
+        price = price.drop(columns=["industry"], errors="ignore").merge(sector_lookup, on="stock_code", how="left")
+
+    records: list[dict[str, Any]] = []
+    for _, row in price.sort_values(["stock_code", "market"]).iterrows():
+        code = str(row.get("stock_code") or "").strip()
+        sector = "ETF" if is_etf_code(code) else normalize_sector_name(row.get("industry")) or "未分類"
+        trade_value = to_float(row.get("trade_value_twd"))
+        records.append(
+            {
+                "stock_code": code,
+                "stock_id": code,
+                "stock_name": str(row.get("stock_name") or ""),
+                "market": str(row.get("market") or ""),
+                "sector_name": sector,
+                "industry": sector,
+                "close": round_or_none(row.get("close"), 2),
+                "change": round_or_none(row.get("change"), 2),
+                "change_pct": round_or_none(row.get("change_pct"), 2),
+                "trade_value_yi": round_or_none(trade_value / 100_000_000, 2) if trade_value is not None else None,
+                "price_date": as_date(row.get("trade_date")),
+            }
+        )
+
+    data_date = as_date(latest_date_value) if latest_date_value is not None else None
+    return {
+        "status": "ok" if records else "error",
+        "version": "stock-lookup-basic-v2",
+        "data_mode": DATA_MODE,
+        "data_timestamp": data_date,
+        "as_of_date": data_date,
+        "generated_at": now_iso(),
+        "source": source,
+        "scope": "common_stock_and_etf_basic_fields",
+        "total_records": len(records),
         "records": records,
-        "items": records,
         "message": None if records else "資料尚未更新，請稍後再試",
+    }
+
+
+def make_etf_holdings_payload(etf_holdings: pd.DataFrame) -> dict[str, Any]:
+    source = ["etf_holdings.parquet"]
+    required = {"as_of_date", "etf_code", "constituent_code", "weight_pct"}
+    if etf_holdings.empty:
+        return {
+            "status": "warning",
+            "version": "etf-holdings-v1",
+            "data_mode": DATA_MODE,
+            "data_timestamp": None,
+            "as_of_date": None,
+            "generated_at": now_iso(),
+            "source": source,
+            "scope": "etf_constituents_and_weights_by_etf",
+            "total_etfs": 0,
+            "total_records": 0,
+            "records": [],
+            "message": "ETF 成份股資料尚未匯入；請執行 scripts/update_etf_holdings.py 或提供官方/投信成份股檔。",
+        }
+    if "__read_error__" in etf_holdings.columns:
+        return {
+            "status": "error",
+            "version": "etf-holdings-v1",
+            "data_mode": DATA_MODE,
+            "generated_at": now_iso(),
+            "source": source,
+            "records": [],
+            "total_etfs": 0,
+            "total_records": 0,
+            "message": "etf_holdings.parquet unavailable",
+        }
+    if not required.issubset(etf_holdings.columns):
+        missing = sorted(required - set(etf_holdings.columns))
+        return {
+            "status": "error",
+            "version": "etf-holdings-v1",
+            "data_mode": DATA_MODE,
+            "generated_at": now_iso(),
+            "source": source,
+            "records": [],
+            "total_etfs": 0,
+            "total_records": 0,
+            "message": f"missing required columns: {', '.join(missing)}",
+        }
+
+    work = etf_holdings.copy()
+    work["etf_code"] = work["etf_code"].astype(str).str.strip().str.upper()
+    work["constituent_code"] = work["constituent_code"].astype(str).str.strip()
+    work = work[work["etf_code"].map(is_etf_code)].copy()
+    work["as_of_date"] = pd.to_datetime(work["as_of_date"], errors="coerce")
+    work = work.dropna(subset=["as_of_date", "etf_code", "constituent_code"])
+    if work.empty:
+        return {
+            "status": "warning",
+            "version": "etf-holdings-v1",
+            "data_mode": DATA_MODE,
+            "data_timestamp": None,
+            "as_of_date": None,
+            "generated_at": now_iso(),
+            "source": source,
+            "scope": "etf_constituents_and_weights_by_etf",
+            "total_etfs": 0,
+            "total_records": 0,
+            "records": [],
+            "message": "ETF 成份股資料沒有可用列。",
+        }
+
+    for col in ["weight_pct", "shares", "market_value_twd"]:
+        if col in work.columns:
+            work[col] = pd.to_numeric(work[col], errors="coerce")
+    latest_by_etf = work.groupby("etf_code")["as_of_date"].transform("max")
+    work = work[work["as_of_date"] == latest_by_etf].copy()
+    work = work.sort_values(
+        ["etf_code", "weight_pct", "constituent_code"],
+        ascending=[True, False, True],
+        na_position="last",
+    )
+
+    records: list[dict[str, Any]] = []
+    for etf_code, group in work.groupby("etf_code", sort=True):
+        etf_name = ""
+        if "etf_name" in group.columns:
+            names = group["etf_name"].dropna().astype(str).str.strip()
+            etf_name = names.iloc[0] if not names.empty else ""
+        constituents: list[dict[str, Any]] = []
+        for _, row in group.iterrows():
+            market_value = to_float(row.get("market_value_twd"))
+            constituents.append(
+                {
+                    "stock_code": str(row.get("constituent_code") or ""),
+                    "stock_id": str(row.get("constituent_code") or ""),
+                    "stock_name": str(row.get("constituent_name") or ""),
+                    "weight_pct": round_or_none(row.get("weight_pct"), 4),
+                    "shares": round_or_none(row.get("shares"), 2),
+                    "market_value_yi": round_or_none(market_value / 100_000_000, 2) if market_value is not None else None,
+                }
+            )
+        source_values = []
+        if "source" in group.columns:
+            source_values = sorted({str(v).strip() for v in group["source"].dropna() if str(v).strip()})
+        records.append(
+            {
+                "etf_code": etf_code,
+                "etf_id": etf_code,
+                "etf_name": etf_name,
+                "as_of_date": as_date(group["as_of_date"].max()),
+                "holdings_count": len(constituents),
+                "weight_coverage_pct": round_or_none(group["weight_pct"].sum(), 4),
+                "source": source_values,
+                "constituents": constituents,
+            }
+        )
+
+    data_date = as_date(work["as_of_date"].max())
+    return {
+        "status": "ok" if records else "warning",
+        "version": "etf-holdings-v1",
+        "data_mode": DATA_MODE,
+        "data_timestamp": data_date,
+        "as_of_date": data_date,
+        "generated_at": now_iso(),
+        "source": source,
+        "scope": "etf_constituents_and_weights_by_etf",
+        "total_etfs": len(records),
+        "total_records": int(sum(record["holdings_count"] for record in records)),
+        "records": records,
+        "message": None if records else "ETF 成份股資料尚未更新。",
     }
 
 
@@ -1427,6 +1687,7 @@ def make_golden_exit_payload(factors: pd.DataFrame | None, data_date: str | None
             "stock_name": str(row.get("stock_name", "")),
             "close": float(row["close"]),
             "swing_defense": round(float(row["chandelier_exit_long"]), 2),
+            "chandelier_exit_short": round(float(row["chandelier_exit_short"]), 2) if not pd.isna(row.get("chandelier_exit_short")) else None,
             "resistance_1": round(float(row["pivot_r1"]), 2) if not pd.isna(row.get("pivot_r1")) else None,
             "resistance_2": round(float(row["pivot_r2"]), 2) if not pd.isna(row.get("pivot_r2")) else None,
             "support_1": round(float(row["pivot_s1"]), 2) if not pd.isna(row.get("pivot_s1")) else None,
@@ -1598,9 +1859,6 @@ def repair_existing_public_jsons() -> dict[str, int]:
                     if prev:
                         row["change_pct"] = round(change / prev * 100, 2)
                         changed += 1
-                elif to_float(row.get("change_pct")) is None:
-                    row["change_pct"] = 0
-                    changed += 1
         if changed:
             write_json("market_latest.json", market)
             repaired["market_latest.json"] = changed
@@ -1616,11 +1874,6 @@ def repair_existing_public_jsons() -> dict[str, int]:
             ]
             removed = len(records) - len(filtered)
             changed = removed
-            changed += fill_records_numeric_defaults(
-                filtered,
-                PRICE_ZERO_FIELDS + INSTITUTIONAL_SHARE_FIELDS,
-                0,
-            )
             if changed:
                 payload["records"] = filtered
                 if isinstance(payload.get("items"), list):
@@ -1628,7 +1881,6 @@ def repair_existing_public_jsons() -> dict[str, int]:
                         row for row in payload["items"]
                         if isinstance(row, dict) and is_common_stock_code(row.get("stock_code"))
                     ]
-                    fill_records_numeric_defaults(items, PRICE_ZERO_FIELDS + INSTITUTIONAL_SHARE_FIELDS, 0)
                     payload["items"] = items
                 write_json("sector_constituents_latest.json", payload)
                 repaired["sector_constituents_latest.json"] = changed
@@ -1639,12 +1891,10 @@ def repair_existing_public_jsons() -> dict[str, int]:
         records = payload.get("records", [])
         if isinstance(records, list):
             changed = fill_recommendation_backtest_stats(records)
-            changed += fill_records_numeric_defaults(records, INSTITUTIONAL_SHARE_FIELDS, 0)
             if changed:
                 payload["records"] = records
                 if isinstance(payload.get("items"), list):
                     fill_recommendation_backtest_stats(payload["items"])
-                    fill_records_numeric_defaults(payload["items"], INSTITUTIONAL_SHARE_FIELDS, 0)
                 write_json("recommendations_latest.json", payload)
                 repaired["recommendations_latest.json"] = changed
 
@@ -1663,6 +1913,35 @@ def update_quality_report(generated: dict[str, dict[str, Any]]) -> None:
     QUALITY_PATH.write_text(json.dumps(json_clean(report), ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
 
 
+def make_data_manifest(generated: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    files: dict[str, dict[str, Any]] = {}
+    total_bytes = 0
+    for filename, meta in sorted(generated.items()):
+        path = PUBLIC_DATA / filename
+        size = path.stat().st_size if path.exists() else None
+        if size is not None:
+            total_bytes += size
+        files[filename] = {
+            "status": meta.get("status"),
+            "data_timestamp": meta.get("data_timestamp"),
+            "records": meta.get("records"),
+            "total_records": meta.get("total_records", meta.get("records")),
+            "record_limit": meta.get("record_limit"),
+            "records_truncated": bool(meta.get("records_truncated")),
+            "bytes": size,
+        }
+    return {
+        "status": "ok",
+        "version": "data-manifest-v1",
+        "data_mode": DATA_MODE,
+        "generated_at": now_iso(),
+        "refresh_policy": REFRESH_POLICY,
+        "cache_policy": "靜態 JSON 可由瀏覽器/CDN 快取；下一次盤前或盤後批次更新再覆寫檔案。",
+        "total_bytes": total_bytes,
+        "files": files,
+    }
+
+
 def main() -> int:
     sector_flow = read_parquet("sector_flow.parquet")
     institutional_flow = read_parquet("institutional_flow.parquet")
@@ -1671,6 +1950,7 @@ def main() -> int:
     stock_alpha_breakdown = read_parquet("stock_alpha_breakdown.parquet")
     stock_alpha = read_parquet("stock_alpha.parquet")
     factors_finmind = read_parquet("factors_finmind.parquet")
+    etf_holdings = read_parquet("etf_holdings.parquet")
 
     reference = read_json(PUBLIC_DATA / "sectorrotation_latest.json")
     reference_records = extract_reference_sectors(reference) if reference else []
@@ -1698,6 +1978,8 @@ def main() -> int:
         "sector_alpha_score.json": make_sector_alpha_payload([dict(r) for r in records], unified_date),
         "sector_flow_history.json": make_sector_flow_history_payload(institutional_flow, sector_classification),
         "stock_alpha_v4_latest.json": make_stock_alpha_payload(stock_records, stock_date, stock_source),
+        "stock_lookup_latest.json": make_stock_lookup_payload(daily_price, sector_classification, stock_alpha, stock_alpha_breakdown),
+        "etf_holdings_latest.json": make_etf_holdings_payload(etf_holdings),
     }
     recommendations_payload = make_recommendations_payload(stock_records, stock_date)
     payloads["recommendations_v4_latest.json"] = recommendations_payload
@@ -1720,6 +2002,9 @@ def main() -> int:
             "status": payload.get("status"),
             "data_timestamp": payload.get("data_timestamp"),
             "records": len(payload.get("records") or payload.get("items") or []),
+            "total_records": payload.get("total_records") or len(payload.get("records") or payload.get("items") or []),
+            "record_limit": payload.get("record_limit"),
+            "records_truncated": payload.get("records_truncated"),
         }
     repaired_public = repair_existing_public_jsons()
     for filename, changed in repaired_public.items():
@@ -1728,6 +2013,9 @@ def main() -> int:
             "status": payload.get("status") or "ok",
             "data_timestamp": payload.get("data_timestamp") or payload.get("as_of_date"),
             "records": len(payload.get("records") or payload.get("items") or []),
+            "total_records": payload.get("total_records") or len(payload.get("records") or payload.get("items") or []),
+            "record_limit": payload.get("record_limit"),
+            "records_truncated": payload.get("records_truncated"),
             "repaired_records": changed,
         }
 
@@ -1738,7 +2026,17 @@ def main() -> int:
             "status": futures.get("status"),
             "data_timestamp": futures.get("data_timestamp") or futures.get("as_of_date") or futures.get("date"),
             "records": len(futures.get("records") or []),
+            "total_records": len(futures.get("records") or []),
         }
+
+    manifest_payload = make_data_manifest(generated_meta)
+    write_json("data_manifest.json", manifest_payload)
+    generated_meta["data_manifest.json"] = {
+        "status": manifest_payload.get("status"),
+        "data_timestamp": manifest_payload.get("generated_at"),
+        "records": len(manifest_payload.get("files") or {}),
+        "total_records": len(manifest_payload.get("files") or {}),
+    }
 
     update_quality_report(generated_meta)
     for filename, meta in generated_meta.items():

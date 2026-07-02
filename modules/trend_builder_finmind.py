@@ -185,7 +185,53 @@ def write_finmind_recommendation_trends(
     trend_dir = public_root / "data" / "trends"
     trend_dir.mkdir(parents=True, exist_ok=True)
     paths: list[Path] = []
-    for stock_id in _latest_price_universe_stock_ids(price, recommendations, top_n=top_n):
+    
+    base_codes = _latest_price_universe_stock_ids(price, recommendations, top_n=top_n)
+    
+    # 搜集額外的個股與指數
+    additional_codes = set()
+    additional_codes.add("TAIEX")
+    
+    # 1. 讀取持股清單 portfolio.json
+    portfolio_path = processed_root.parent / "portfolio.json"
+    if portfolio_path.exists():
+        try:
+            with open(portfolio_path, "r", encoding="utf-8") as f:
+                p_data = json.load(f)
+                if isinstance(p_data, list):
+                    for item in p_data:
+                        code = item.get("id")
+                        if code:
+                            additional_codes.add(str(code))
+        except Exception:
+            pass
+            
+    # 2. 讀取預設觀察清單 watchlist_latest.json
+    watchlist_path = public_root / "data" / "watchlist_latest.json"
+    if watchlist_path.exists():
+        try:
+            with open(watchlist_path, "r", encoding="utf-8") as f:
+                w_data = json.load(f)
+                records = w_data.get("records", [])
+                for r in records:
+                    code = r.get("stock_id") or r.get("stock_code")
+                    if code:
+                        additional_codes.add(str(code))
+        except Exception:
+            pass
+            
+    # 確保存在於價格資料庫中
+    if not price.empty:
+        stock_col = "stock_code" if "stock_code" in price.columns else "stock_id"
+        valid_universe = set(price[stock_col].astype(str).unique())
+        additional_codes = {c for c in additional_codes if c in valid_universe}
+        
+    all_codes = list(base_codes)
+    for c in additional_codes:
+        if c not in all_codes:
+            all_codes.append(c)
+
+    for stock_id in all_codes:
         payload = build_finmind_stock_trend(
             stock_id,
             price=price,

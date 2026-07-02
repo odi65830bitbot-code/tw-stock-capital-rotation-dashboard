@@ -63,14 +63,71 @@ def _to_csv_text(records: List[Dict[str, Any]]) -> str:
 
 
 def _parse_csv_text(csv_text: str) -> List[Dict[str, Any]]:
-    reader = csv.DictReader(io.StringIO(csv_text))
+    lines = csv_text.splitlines()
+    if not lines:
+        return []
+    
+    # 智慧判斷是否跳過第一行說明標題：若第一行逗號小於 3 且第二行逗號大於等於 3，代表第一行是標題說明
+    first_line_cols = len(lines[0].split(","))
+    second_line_cols = len(lines[1].split(",")) if len(lines) > 1 else 0
+    
+    start_idx = 0
+    if first_line_cols < 3 and second_line_cols >= 3:
+        start_idx = 1
+        
+    clean_csv = "\n".join(lines[start_idx:])
+    reader = csv.DictReader(io.StringIO(clean_csv))
     return [{k: _parse_number_or_str(v) for k, v in row.items()} for row in reader]
+
 
 
 def _records_from_payload(payload: Any) -> List[Dict[str, Any]]:
     if isinstance(payload, list):
         return payload
     if isinstance(payload, dict):
+        if "tables" in payload and isinstance(payload["tables"], list) and len(payload["tables"]) > 0:
+            date_val = payload.get("date", payload["tables"][0].get("date", ""))
+            records = []
+            for row in payload["tables"][0].get("data", []):
+                if len(row) >= 24:
+                    records.append({
+                        "Date": date_val,
+                        "SecuritiesCompanyCode": row[0],
+                        "CompanyName": row[1],
+                        "ForeignBuy": row[8],
+                        "ForeignSell": row[9],
+                        "ForeignNetBuy": row[10],
+                        "TrustBuy": row[11],
+                        "TrustSell": row[12],
+                        "TrustNetBuy": row[13],
+                        "DealerBuy": row[20],
+                        "DealerSell": row[21],
+                        "DealerNetBuy": row[22],
+                        "NetBuy": row[23]
+                    })
+            return records
+
+        if "aaData" in payload:
+            date_val = payload.get("date", "")
+            records = []
+            for row in payload["aaData"]:
+                if len(row) >= 24:
+                    records.append({
+                        "Date": date_val,
+                        "SecuritiesCompanyCode": row[0],
+                        "CompanyName": row[1],
+                        "ForeignBuy": row[8],
+                        "ForeignSell": row[9],
+                        "ForeignNetBuy": row[10],
+                        "TrustBuy": row[11],
+                        "TrustSell": row[12],
+                        "TrustNetBuy": row[13],
+                        "DealerBuy": row[20],
+                        "DealerSell": row[21],
+                        "DealerNetBuy": row[22],
+                        "NetBuy": row[23]
+                    })
+            return records
         error_hint = payload.get("error") if isinstance(payload.get("error"), str) else ""
         if error_hint:
             raise ValueError(f"TPEX 回傳錯誤: {error_hint}")
@@ -115,6 +172,25 @@ def _infer_date(records: Iterable[Dict[str, Any]], cfg: SourceConfig, fallback: 
     if not date_values:
         return fallback
     return max(date_values)
+
+
+def _to_roc_slash_date(target_date: date) -> str:
+    y = target_date.year - 1911
+    return f"{y:03d}/{target_date.month:02d}/{target_date.day:02d}"
+
+
+def _to_query_date(cfg: SourceConfig, target_date: date) -> str:
+    if not cfg.supports_query_date:
+        return ""
+    if cfg.query_date_format == "roc_slash":
+        return _to_roc_slash_date(target_date)
+    return ""
+
+
+def _interpolate_url(template: str, query_date: str) -> str:
+    if "{" in template and "}" in template:
+        return template.format(date=query_date)
+    return template
 
 
 def _request_json_resp(url: str, session: requests.Session, timeout: int) -> Any:
@@ -191,8 +267,9 @@ class TPEXClient:
             return cached
 
         errors: List[str] = []
-        json_url = config.json_url
-        csv_url = config.csv_url
+        query_date = _to_query_date(config, trade_date)
+        json_url = _interpolate_url(config.json_url, query_date)
+        csv_url = _interpolate_url(config.csv_url, query_date)
 
         # 先抓 JSON
         try:
@@ -215,6 +292,13 @@ class TPEXClient:
             if not records:
                 raise ValueError("CSV 解析後資料筆數為 0")
             effective_date = _infer_date(records, config, trade_date)
+            
+            # 手動將 Date 補到每一列中，以備後續歸一化使用
+            date_str = effective_date.strftime("%Y%m%d")
+            for r in records:
+                if "Date" not in r:
+                    r["Date"] = date_str
+                    
             return self._save_raw(effective_date, config.name, records, csv_text)
         except Exception as exc:
             msg = f"{config.name} official csv fallback 失敗: {type(exc).__name__}: {exc}"

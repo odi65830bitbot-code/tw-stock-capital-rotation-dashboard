@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import type { CSSProperties } from "react";
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { Area, AreaChart, LineChart, Line, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from "recharts";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Sector, SectorStock } from "./types";
+import { CreatureCard } from "./components/CreatureCard";
+import type { CreatureCardData, FlowStatus, RecommendationStatus } from "./lib/creatureCardModel";
 
 type MenuKey =
   | "charts"
@@ -92,6 +95,26 @@ type StockRow = {
   suggested_status?: string;
 };
 
+type EtfConstituentRow = {
+  stock_code?: string;
+  stock_id?: string;
+  stock_name?: string;
+  weight_pct?: number;
+  shares?: number;
+  market_value_yi?: number;
+};
+
+type EtfHoldingRow = {
+  etf_code?: string;
+  etf_id?: string;
+  etf_name?: string;
+  as_of_date?: string;
+  holdings_count?: number;
+  weight_coverage_pct?: number;
+  source?: string[];
+  constituents?: EtfConstituentRow[];
+};
+
 type SectorFlowHistoryRow = {
   date: string;
   sector: string;
@@ -110,7 +133,7 @@ type SectorFlowHistoryPayload = {
   records?: SectorFlowHistoryRow[];
 };
 
-type SectorChartView = "planet" | "stream" | "sankey";
+type SectorChartView = "heatmap" | "trend";
 type PlanetMetric = "1d" | "5d" | "20d" | "volume";
 type SankeyRange = "today" | "week" | "month";
 
@@ -187,9 +210,12 @@ const MENU: Array<{ key: MenuKey; label: string; desc: string }> = [
 ];
 
 const DATASETS: Array<Omit<DatasetBox, "status" | "data">> = [
+  { key: "dataManifest", label: "資料批次 Manifest", path: "/data/data_manifest.json" },
   { key: "sectorRotation", label: "Sector Rotation", path: "/data/sector_rotation_latest.json" },
   { key: "sectorFlowHistory", label: "Sector Flow History", path: "/data/sector_flow_history.json" },
   { key: "sectorConstituents", label: "Sector Constituents", path: "/data/sector_constituents_latest.json" },
+  { key: "stockLookup", label: "Stock Lookup", path: "/data/stock_lookup_latest.json" },
+  { key: "etfHoldings", label: "ETF Holdings", path: "/data/etf_holdings_latest.json" },
   { key: "cpRanking", label: "CP Ranking", path: "/data/cp_ranking_latest.json" },
   { key: "bottomFishing", label: "Bottom Fishing", path: "/data/bottom_fishing_latest.json" },
   { key: "recommendations", label: "Recommendations v5", path: "/data/recommendations_v5_latest.json", fallbackPaths: ["/data/recommendations_latest.json"] },
@@ -205,9 +231,8 @@ const DATASETS: Array<Omit<DatasetBox, "status" | "data">> = [
 ];
 
 const SECTOR_CHART_TABS: Array<{ key: SectorChartView; label: string }> = [
-  { key: "planet", label: "資金行星" },
-  { key: "stream", label: "資金河流" },
-  { key: "sankey", label: "法人流向" }
+  { key: "heatmap", label: "資金熱力矩陣" },
+  { key: "trend", label: "產業流量趨勢" }
 ];
 
 const STREAM_COLORS = ["#27e083", "#5ad0ff", "#e4b125", "#ff8a5c", "#b58cff", "#78f0c4", "#f06f9f", "#9fb7ff"];
@@ -295,9 +320,11 @@ function flowColor(value: number, maxAbs: number): string {
 }
 
 function compactShares(value: number): string {
-  if (Math.abs(value) >= 100_000_000) return `${(value / 100_000_000).toFixed(1)}億張`;
-  if (Math.abs(value) >= 10_000) return `${(value / 10_000).toFixed(1)}萬張`;
-  return `${Math.round(value).toLocaleString("zh-TW")}張`;
+  // 將股數轉為張數 (1張 = 1000股)
+  const vol = value / 1000;
+  if (Math.abs(vol) >= 100_000_000) return `${(vol / 100_000_000).toFixed(1)}億張`;
+  if (Math.abs(vol) >= 10_000) return `${(vol / 10_000).toFixed(1)}萬張`;
+  return `${Math.round(vol).toLocaleString("zh-TW")}張`;
 }
 
 function stockCode(row: Partial<StockRow> | Record<string, unknown>): string {
@@ -313,6 +340,34 @@ function stockLabel(row: Partial<StockRow> | Record<string, unknown>): string {
   const name = stockName(row);
   if (!code && !name) return "N/A";
   return [code, name].filter(Boolean).join(" ");
+}
+
+function findStockBasic(datasets: Record<string, DatasetBox>, code: string): StockRow | undefined {
+  const target = String(code || "").trim();
+  if (!target) return undefined;
+  const sources = [
+    rows<StockRow>(datasets.stockLookup?.data, ["records", "items", "stocks"]),
+    rows<StockRow>(datasets.stockAlpha?.data, ["records", "items", "stocks"]),
+    rows<StockRow>(datasets.sectorConstituents?.data, ["records", "items", "stocks"]),
+  ];
+  for (const source of sources) {
+    const match = source.find((row) => stockCode(row) === target);
+    if (match) return match;
+  }
+  return undefined;
+}
+
+function isEtfCode(value: string | undefined): boolean {
+  return /^00[0-9A-Z]{2,4}$/.test(String(value || "").trim().toUpperCase());
+}
+
+function findEtfHolding(datasets: Record<string, DatasetBox>, code: string): EtfHoldingRow | undefined {
+  const target = String(code || "").trim().toUpperCase();
+  if (!target) return undefined;
+  return rows<EtfHoldingRow>(datasets.etfHoldings?.data, ["records", "items"]).find((row) => {
+    const etfCode = String(row.etf_code || row.etf_id || "").trim().toUpperCase();
+    return etfCode === target;
+  });
 }
 
 function formatNewsDate(value: string): string {
@@ -622,7 +677,7 @@ function PageRouter({
     case "alerts":
       return <AlertsPage />;
     case "goldenExit":
-      return <GoldenExitPage datasets={datasets} onNavigateToStock={onNavigateToStock} />;
+      return <GoldenExitPage datasets={datasets} portfolio={portfolio} onNavigateToStock={onNavigateToStock} />;
     case "news":
       return <GlobalNewsPage news={globalNews} />;
     case "learn":
@@ -638,7 +693,7 @@ async function loadDataset(item: Omit<DatasetBox, "status" | "data">): Promise<{
 
   for (const path of paths) {
     try {
-      const res = await fetch(`${path}?t=${Date.now()}`, { cache: "no-store" });
+      const res = await fetch(path, { cache: "default" });
       if (!res.ok || res.status === 404) continue;
       const contentType = res.headers.get("content-type");
       if (contentType && contentType.includes("text/html")) continue;
@@ -747,7 +802,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch(`/data/global_news_latest.json?t=${Date.now()}`, { cache: "no-store" })
+    fetch("/data/global_news_latest.json", { cache: "default" })
       .then((res) => {
         if (!res.ok || res.status === 404) return null;
         const contentType = res.headers.get("content-type");
@@ -944,7 +999,7 @@ function RotationDashboard({
       </div>
       <div className="layout-1 single-focus">
         <div className="stock-recommendation panel">
-          <div className="panel-header" style={{ marginBottom: "1rem", borderBottom: "1px solid var(--border-color)", paddingBottom: "1rem" }}>
+          <div className="panel-header" style={{ marginBottom: "1rem", borderBottom: "1px solid var(--line)", paddingBottom: "1rem" }}>
             <h2 className="title">策略選股觀察</h2>
             <div className="tabs">
               <button className={`tab-btn ${recTab === "v5" ? "active" : ""}`} onClick={() => setRecTab("v5")}>
@@ -956,9 +1011,9 @@ function RotationDashboard({
             </div>
           </div>
           {recTab === "v5" ? (
-            <StockRecommendation title="" dataset={rec} rows={recRows} onPickStock={onNavigateToStock} />
+            <StockRecommendation title="" dataset={rec} rows={recRows} onPickStock={onNavigateToStock} meta="Alpha v5 / 情緒 / 量體過濾" />
           ) : (
-            <StockRecommendation title="" dataset={datasets.recommendationsV6} rows={recV6Rows} onPickStock={onNavigateToStock} />
+            <StockRecommendation title="" dataset={datasets.recommendationsV6} rows={recV6Rows} onPickStock={onNavigateToStock} meta="Alpha v6 / 默默吃貨 / 低情緒 / 均線黏著" />
           )}
         </div>
       </div>
@@ -1239,6 +1294,68 @@ function IndustryMapPage({
   );
 }
 
+function EtfHoldingsPanel({
+  dataset,
+  holding,
+  stockBasic,
+  stockId
+}: {
+  dataset?: DatasetBox;
+  holding?: EtfHoldingRow;
+  stockBasic?: StockRow;
+  stockId: string;
+}) {
+  const payloadStatus = String(dataset?.data?.status || "");
+  const message = String(dataset?.data?.message || "");
+  const constituents = holding?.constituents || [];
+  const title = `ETF 成份股與權重 ${stockLabel(stockBasic || { stock_code: stockId })}`;
+
+  if (dataset?.status !== "ready") {
+    return <MissingAwarePanel dataset={dataset} title={title} />;
+  }
+
+  if (!holding || constituents.length === 0) {
+    return (
+      <div className="missing">
+        <strong>{title}</strong>
+        <span>{payloadStatus === "warning" ? message || "ETF 成份股資料尚未匯入。" : "目前找不到這檔 ETF 的成份股資料。"}</span>
+      </div>
+    );
+  }
+
+  return (
+    <section className="panel">
+      <SectionTitle
+        title={title}
+        meta={`${holding.as_of_date || "N/A"} · ${holding.holdings_count || constituents.length} 檔 · 權重覆蓋 ${fmtPct(holding.weight_coverage_pct)}`}
+      />
+      <div className="source-line">來源：{holding.source?.join("、") || "ETF holdings processed data"}</div>
+      <div className="data-table-wrap">
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>成份股</th>
+              <th>權重</th>
+              <th>股數</th>
+              <th>市值</th>
+            </tr>
+          </thead>
+          <tbody>
+            {constituents.slice(0, 80).map((item) => (
+              <tr key={`${item.stock_code || item.stock_id}-${item.weight_pct}`}>
+                <td>{stockLabel({ stock_code: item.stock_code || item.stock_id, stock_name: item.stock_name })}</td>
+                <td>{fmtPct(item.weight_pct)}</td>
+                <td>{fmtNumber(item.shares)}</td>
+                <td>{fmtYi(item.market_value_yi)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
 function StockRadarPage({
   datasets,
   stockId,
@@ -1253,6 +1370,9 @@ function StockRadarPage({
   toggleWatch: (codeAndName: string) => void;
 }) {
   const stockDataset = datasets.stockAlpha;
+  const stockBasic = useMemo(() => findStockBasic(datasets, stockId), [datasets, stockId]);
+  const etfHolding = useMemo(() => findEtfHolding(datasets, stockId), [datasets, stockId]);
+  const showEtfHoldings = isEtfCode(stockId) || stockBasic?.sector_name === "ETF" || stockBasic?.industry === "ETF";
 
   const [trendData, setTrendData] = useState<StockTrendPayload | null>(null);
   const [loading, setLoading] = useState(false);
@@ -1282,15 +1402,15 @@ function StockRadarPage({
     setLoadError(null);
     setTrendData(null);
 
-    fetch(`/data/trends/${stockId}.json`)
+    fetch(`/data/trends/${stockId}.json`, { cache: "default" })
       .then((res) => {
         if (!res.ok) {
-          throw new Error(`找不到股票代號 ${stockId} 的趨勢檔案`);
+          throw new Error(`此股票暫無歷史趨勢圖表資料`);
         }
         // 防止 Vite SPA 404 fallback 傳回 index.html (以 '<' 為開頭)
         const contentType = res.headers.get("content-type");
         if (contentType && !contentType.includes("application/json")) {
-          throw new Error(`找不到股票代號 ${stockId} 的趨勢檔案 (無資料)`);
+          throw new Error(`此股票暫無歷史趨勢圖表資料 (無 JSON)`);
         }
         return res.json();
       })
@@ -1344,7 +1464,7 @@ function StockRadarPage({
           placeholder="輸入股票代號，例如 1227 或 2892"
           style={{ width: "260px" }}
         />
-        {trendData && (
+        {(trendData || stockBasic) && (
           <button
             type="button"
             style={{
@@ -1354,7 +1474,11 @@ function StockRadarPage({
               border: "none",
               padding: "8px 16px"
             }}
-            onClick={() => toggleWatch(`${trendData.stock_id} ${trendData.stock_name}`)}
+            onClick={() => {
+              const id = trendData ? trendData.stock_id : stockBasic!.stock_code;
+              const name = trendData ? trendData.stock_name : (stockBasic!.stock_name || "");
+              toggleWatch(`${id} ${name}`);
+            }}
           >
             {isWatched ? "★ 移出觀察清單" : "☆ 加入觀察清單"}
           </button>
@@ -1363,11 +1487,57 @@ function StockRadarPage({
       </div>
 
       {loading && <div className="panel">個股趨勢資料載入中...</div>}
-      {loadError && (
-        <div className="missing">
-          <strong>趨勢資料未收錄</strong>
-          <span>{loadError}。</span>
+      {loadError && stockBasic && (
+        <div className="panel" style={{
+          background: "rgba(251, 191, 36, 0.08)",
+          borderLeft: "4px solid #fbbf24",
+          color: "var(--text)",
+          padding: "12px",
+          marginBottom: "16px",
+          borderRadius: "4px",
+          fontSize: "14px",
+          display: "flex",
+          alignItems: "center",
+          gap: "8px"
+        }}>
+          <span>⚠️</span>
+          <span><strong>趨勢提示：</strong>{loadError}。已為您呈現今日行情報價，您仍可將此個股加入自選股中。</span>
         </div>
+      )}
+      {loadError && !stockBasic && (
+        <div className="missing">
+          <strong>無此個股資料</strong>
+          <span>找不到股票代號 {stockId} 且無基本行情資料。</span>
+        </div>
+      )}
+
+      {stockBasic && !trendData && !loading && (
+        <div className="layout-3">
+          <div className="metric">
+            <span>個股 / 市場 / 產業</span>
+            <strong>{stockLabel(stockBasic)}</strong>
+            <small>{stockBasic.market || "N/A"} / {stockBasic.sector_name || stockBasic.industry || "未分類"}</small>
+          </div>
+          <div className="metric">
+            <span>最新收盤</span>
+            <strong>{fmtNumber(stockBasic.close)}</strong>
+            <small>資料日期: {String((stockBasic as any).price_date || "盤後批次")}</small>
+          </div>
+          <div className="metric">
+            <span>日漲跌</span>
+            <strong style={{ color: getValColor(stockBasic.change_pct) }}>{fmtPct(stockBasic.change_pct)}</strong>
+            <small>成交值 {fmtNumber(stockBasic.trade_value_yi)} 億</small>
+          </div>
+        </div>
+      )}
+
+      {showEtfHoldings && (
+        <EtfHoldingsPanel
+          dataset={datasets.etfHoldings}
+          holding={etfHolding}
+          stockBasic={stockBasic}
+          stockId={stockId}
+        />
       )}
 
       {trendData && !loading && (
@@ -1860,49 +2030,134 @@ function MarketStatus({ date, marketChange }: { date: string; marketChange: numb
 }
 
 function TopBar({ active, datasets }: { active: MenuKey; datasets: Record<string, DatasetBox> }) {
-  const [isUpdating, setIsUpdating] = useState(false);
+  const [updateState, setUpdateState] = useState<{
+    status: 'idle' | 'updating' | 'success' | 'error';
+    progress: number;
+    currentStep: string;
+  }>({
+    status: 'idle',
+    progress: 0,
+    currentStep: '準備就緒'
+  });
+
   const ready = Object.values(datasets).filter((d) => d.status === "ready").length;
   const missing = Object.values(datasets).filter((d) => d.status === "missing").length;
 
+  useEffect(() => {
+    const syncStatus = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/update-status");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.status === 'updating' || data.status === 'success' || data.status === 'error') {
+            setUpdateState({
+              status: data.status,
+              progress: data.progress,
+              currentStep: data.currentStep || '同步中...'
+            });
+          }
+        }
+      } catch (e) {
+        console.error("Failed to sync initial update status", e);
+      }
+    };
+    syncStatus();
+  }, []);
+
+  useEffect(() => {
+    let intervalId: any = null;
+
+    if (updateState.status === 'updating') {
+      intervalId = setInterval(async () => {
+        try {
+          const res = await fetch("http://localhost:3000/api/update-status");
+          if (res.ok) {
+            const data = await res.json();
+            setUpdateState({
+              status: data.status,
+              progress: data.progress,
+              currentStep: data.currentStep || '下載中...',
+            });
+
+            if (data.status === 'success') {
+              clearInterval(intervalId);
+              setTimeout(() => {
+                window.location.reload();
+              }, 2500);
+            } else if (data.status === 'error') {
+              clearInterval(intervalId);
+            }
+          }
+        } catch (e) {
+          console.error("Failed to fetch update status", e);
+        }
+      }, 1500);
+    }
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [updateState.status]);
+
   const handleUpdate = async () => {
-    if (!window.confirm("即將在背景觸發資料抓取腳本，這大約需要 1~2 分鐘。是否繼續？")) return;
-    setIsUpdating(true);
+    if (!window.confirm("即將重新產生盤前/盤後批次快取，過程中您可以實時觀看更新進度。是否繼續？")) return;
+    setUpdateState({ status: 'updating', progress: 5, currentStep: '準備啟動更新管線...' });
     try {
       const res = await fetch("http://localhost:3000/api/update", { method: "POST" });
       if (!res.ok) throw new Error("Failed to trigger update");
-      alert("資料已更新完畢！頁面即將重新整理...");
-      window.location.reload();
     } catch (e) {
-      alert("更新失敗，請檢查本地 Backend 伺服器 (node server.js) 是否執行中。");
-    } finally {
-      setIsUpdating(false);
+      setUpdateState({
+        status: 'error',
+        progress: 0,
+        currentStep: '啟動失敗，請確認後端伺服器 (node server.js) 是否執行中。'
+      });
     }
   };
 
+  const isUpdating = updateState.status === 'updating';
+
   return (
     <header className="topbar">
-      <div>
+      <div className="topbar-title">
         <h1>{MENU.find((item) => item.key === active)?.label}</h1>
         <p>{MENU.find((item) => item.key === active)?.desc}</p>
       </div>
-      <div className="topbar-meta" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        <span>{ready} 份資料已載入</span>
-        <span>{missing} 份資料未更新</span>
+      <div className="topbar-meta" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <span className="topbar-stat"><strong>{ready}</strong> 份資料已載入</span>
+        
+        {/* Progress and status lightbar */}
+        {(isUpdating || updateState.status === 'success' || updateState.status === 'error') ? (
+          <div className="update-indicator-group">
+            <div className="update-status-wrapper">
+              <span className={`update-status-dot ${updateState.status}`} />
+              <span>
+                {updateState.status === 'updating' && '更新中'}
+                {updateState.status === 'success' && '完成'}
+                {updateState.status === 'error' && '異常'}
+              </span>
+            </div>
+            <div className="update-progress-wrapper">
+              <div className="update-progress-track">
+                <div 
+                  className={`update-progress-fill ${updateState.status === 'success' ? 'success' : updateState.status === 'error' ? 'error' : ''}`}
+                  style={{ width: `${updateState.progress}%` }} 
+                />
+              </div>
+              <span className="update-step-text" title={updateState.currentStep}>
+                {updateState.currentStep}
+              </span>
+            </div>
+          </div>
+        ) : (
+          <span className="topbar-stat is-muted"><strong>{missing}</strong> 份資料未更新</span>
+        )}
+
         <button 
+          className="topbar-refresh"
           onClick={handleUpdate} 
-          disabled={isUpdating}
-          style={{
-            padding: "6px 14px",
-            background: isUpdating ? "var(--border-color)" : "var(--accent)",
-            color: isUpdating ? "var(--muted)" : "#000",
-            border: "none",
-            borderRadius: "6px",
-            fontWeight: "bold",
-            cursor: isUpdating ? "not-allowed" : "pointer",
-            transition: "all 0.2s"
-          }}
+          disabled={isUpdating || updateState.status === 'success'}
         >
-          {isUpdating ? "⏳ 更新中..." : "🔄 抓取最新數據"}
+          {isUpdating ? `${updateState.progress}%` : "重新整理"}
         </button>
       </div>
     </header>
@@ -1911,7 +2166,28 @@ function TopBar({ active, datasets }: { active: MenuKey; datasets: Record<string
 
 function HeroOverview({ dataset, sectors }: { dataset?: DatasetBox; sectors: SectorRow[] }) {
   const leader = sectors[0];
-  return <section className="hero-card">{dataset?.status !== "ready" ? <MissingState dataset={dataset} /> : <><div><span className="eyebrow">Rotation Dashboard</span><h2>{leader?.sector_name || leader?.name || "資金輪動"}<br />資金領跑</h2><p>市場狀態、資金方向、互動板塊圖、CP 值與抄底偵測整合在同一個入口。</p></div><div className="hero-metrics"><Metric label="1日買賣超" value={fmtYi(leader?.net_1d_yi)} /><Metric label="5日買賣超" value={fmtYi(leader?.net_5d_yi)} /><Metric label="20日買賣超" value={fmtYi(leader?.net_20d_yi)} /><Metric label="漲跌幅" value={fmtPct(leader?.chg_1d)} /></div></>}</section>;
+  return (
+    <section className="hero-card">
+      {dataset?.status !== "ready" ? (
+        <MissingState dataset={dataset} />
+      ) : (
+        <>
+          <div className="hero-copy">
+            <span className="eyebrow">Rotation Dashboard</span>
+            <h2>{leader?.sector_name || leader?.name || "資金輪動"}<br />資金領跑</h2>
+            <p>把市場狀態、資金方向、互動板塊圖、CP 值與抄底偵測收在同一個入口，作為盤後觀察與隔日功課。</p>
+            <small>僅供觀察與研究，不構成投資建議。</small>
+          </div>
+          <div className="hero-metrics">
+            <Metric label="1日買賣超" value={fmtYi(leader?.net_1d_yi)} />
+            <Metric label="5日買賣超" value={fmtYi(leader?.net_5d_yi)} />
+            <Metric label="20日買賣超" value={fmtYi(leader?.net_20d_yi)} />
+            <Metric label="漲跌幅" value={fmtPct(leader?.chg_1d)} />
+          </div>
+        </>
+      )}
+    </section>
+  );
 }
 
 function NightFuturesCard({ dataset }: { dataset?: DatasetBox }) {
@@ -2078,373 +2354,395 @@ function SectorChartsView({
   onPickStock: (code: string) => void;
   onPickSector: (sectorName: string) => void;
 }) {
-  const [activeView, setActiveView] = useState<SectorChartView>("planet");
-  const sectorTiles = useMemo(() => aggregateSectors(sectors).slice(0, 36), [sectors]);
+  const [activeView, setActiveView] = useState<SectorChartView>("heatmap");
   const flowDataset = datasets.sectorFlowHistory;
   const flowPayload = flowDataset?.data as SectorFlowHistoryPayload | null | undefined;
 
-  if (dataset?.status !== "ready") return <MissingAwarePanel dataset={dataset} title="資金行星圖" />;
+  if (dataset?.status !== "ready") return <MissingAwarePanel dataset={dataset} title="資金熱力矩陣" />;
 
   return (
-    <section className="panel xl sector-treemap-panel">
-      <div className="sector-treemap-head">
-        <SectionTitle
-          title="資金行星圖"
-          meta="依 1日、5日、20日法人資金與資金量體重排軌道，點擊產業進入資金流向"
-        />
+    <section className="panel xl sector-treemap-panel" style={{ display: "flex", flexDirection: "row", gap: "24px" }}>
+      <div className="sector-chart-sidebar" style={{ width: "220px", flexShrink: 0, display: "flex", flexDirection: "column", gap: "16px", borderRight: "1px solid var(--line)", paddingRight: "20px" }}>
+        <div className="sector-treemap-head">
+          <SectionTitle
+            title="資金圖表"
+            meta="點擊產業進入個股資金流"
+          />
+        </div>
+
+        <div className="vertical-tabs" role="tablist" aria-label="資金圖表視圖切換" style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          {SECTOR_CHART_TABS.map((tab) => (
+            <button
+              key={tab.key}
+              type="button"
+              className={activeView === tab.key ? "active" : ""}
+              onClick={() => setActiveView(tab.key)}
+              style={{
+                width: "100%",
+                textAlign: "left",
+                padding: "12px 16px",
+                borderRadius: "8px",
+                border: activeView === tab.key ? "1px solid var(--accent)" : "1px solid transparent",
+                backgroundColor: activeView === tab.key ? "rgba(42, 252, 152, 0.05)" : "rgba(255, 255, 255, 0.03)",
+                color: activeView === tab.key ? "var(--accent)" : "var(--text)",
+                fontWeight: activeView === tab.key ? 600 : 400,
+                cursor: "pointer",
+                transition: "all 0.2s",
+                fontSize: "15px"
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="tabs sector-view-tabs" role="tablist" aria-label="板塊輪動視圖切換">
-        {SECTOR_CHART_TABS.map((tab) => (
-          <button
-            key={tab.key}
-            type="button"
-            className={activeView === tab.key ? "active" : ""}
-            onClick={() => setActiveView(tab.key)}
-          >
-            {tab.label}
-          </button>
-        ))}
+      <div className="sector-chart-content" style={{ flexGrow: 1, minWidth: 0, height: "650px" }}>
+        {activeView === "heatmap" ? (
+          <SectorFlowHeatmap dataset={flowDataset} payload={flowPayload} onPickSector={onPickSector} />
+        ) : (
+          <SectorFlowTrendLineChart dataset={flowDataset} payload={flowPayload} onPickSector={onPickSector} />
+        )}
       </div>
-
-      {activeView === "planet" ? (
-        <PlanetChart dataset={flowDataset} payload={flowPayload} sectors={sectorTiles} onPickSector={onPickSector} />
-      ) : activeView === "stream" ? (
-        <StreamChart dataset={flowDataset} payload={flowPayload} onPickSector={onPickSector} />
-      ) : (
-        <SankeyChart dataset={flowDataset} payload={flowPayload} onPickSector={onPickSector} />
-      )}
     </section>
   );
 }
 
-function StreamChart({ dataset, payload, onPickSector }: { dataset?: DatasetBox; payload?: SectorFlowHistoryPayload | null; onPickSector?: (sector: string) => void }) {
-  const rows = useMemo(() => sectorFlowHistoryRows(payload as Record<string, unknown>), [payload]);
-  const dates = useMemo(() => recentFlowDates(rows, 20), [rows]);
-  const sectorsForChart = useMemo(() => topFlowSectors(rows, dates, 8), [rows, dates]);
-  const chartRows = useMemo(() => {
-    const sectorSet = new Set(sectorsForChart);
-    return dates.map((date) => {
-      const item: Record<string, string | number> = { date: date.slice(5) };
-      rows.forEach((row) => {
-        if (row.date === date && sectorSet.has(row.sector)) item[row.sector] = row.total;
-      });
-      return item;
-    });
-  }, [rows, dates, sectorsForChart]);
-
-  if (dataset?.status !== "ready" || rows.length === 0) {
-    return <MissingAwarePanel dataset={dataset} title="資金河流" />;
-  }
-
-  return (
-    <div className="sector-chart-view sector-stream-chart">
-      <ResponsiveContainer width="100%" height={400}>
-        <AreaChart data={chartRows} margin={{ top: 10, right: 18, left: 4, bottom: 0 }}>
-          <defs>
-            {sectorsForChart.map((sector, index) => (
-              <linearGradient id={`stream-${index}`} key={sector} x1="0" x2="0" y1="0" y2="1">
-                <stop offset="5%" stopColor={STREAM_COLORS[index % STREAM_COLORS.length]} stopOpacity={0.82} />
-                <stop offset="95%" stopColor={STREAM_COLORS[index % STREAM_COLORS.length]} stopOpacity={0.12} />
-              </linearGradient>
-            ))}
-          </defs>
-          <CartesianGrid stroke="rgba(255,255,255,.08)" vertical={false} />
-          <XAxis dataKey="date" tick={{ fill: "rgba(232,242,234,.62)", fontSize: 12 }} axisLine={{ stroke: "rgba(255,255,255,.12)" }} tickLine={false} />
-          <YAxis tick={{ fill: "rgba(232,242,234,.62)", fontSize: 12 }} axisLine={false} tickLine={false} tickFormatter={(value) => compactShares(Number(value))} width={72} />
-          <Tooltip
-            contentStyle={{ border: "1px solid rgba(255,255,255,.14)", borderRadius: 10, background: "#0b100e", color: "#f5f8f2" }}
-            formatter={(value, name) => [compactShares(Number(value || 0)), String(name)]}
-            labelFormatter={(label) => `日期 ${label}`}
-          />
-          {sectorsForChart.map((sector, index) => (
-            <Area
-              key={sector}
-              type="monotone"
-              dataKey={sector}
-              stackId="sector-flow"
-              stroke={STREAM_COLORS[index % STREAM_COLORS.length]}
-              strokeWidth={1.4}
-              fill={`url(#stream-${index})`}
-              isAnimationActive
-              onClick={() => onPickSector?.(sector)}
-              style={{ cursor: "pointer" }}
-            />
-          ))}
-        </AreaChart>
-      </ResponsiveContainer>
-      <div className="flow-chart-legend">
-        {sectorsForChart.map((sector, index) => (
-          <span
-            key={sector}
-            style={{ "--legend-color": STREAM_COLORS[index % STREAM_COLORS.length], cursor: "pointer" } as CSSProperties}
-            onClick={() => onPickSector?.(sector)}
-          >
-            {sector}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function PlanetChart({
+function SectorFlowHeatmap({
   dataset,
   payload,
-  sectors,
   onPickSector
 }: {
   dataset?: DatasetBox;
   payload?: SectorFlowHistoryPayload | null;
-  sectors: SectorRow[];
   onPickSector?: (sector: string) => void;
 }) {
-  const [metric, setMetric] = useState<PlanetMetric>("1d");
-  const [hoverData, setHoverData] = useState<{ name: string; flow: number; volume: number; x: number; y: number } | null>(null);
-
   const rows = useMemo(() => sectorFlowHistoryRows(payload as Record<string, unknown>), [payload]);
-  const volumeBySector = useMemo(() => {
-    const map = new Map<string, number>();
-    sectors.forEach((sector) => {
-      const name = sector.sector_name || sector.name || "";
-      if (!name) return;
-      map.set(name, Number(sector.trade_value_yi || 0));
-    });
-    return map;
-  }, [sectors]);
+  const dates = useMemo(() => recentFlowDates(rows, 15), [rows]);
 
-  const planets = useMemo(() => {
-    if (!rows.length) return [];
-    const days = metric === "1d" ? 1 : metric === "5d" ? 5 : 20;
-    const dateSet = new Set(recentFlowDates(rows, days));
-    const sectorSums = new Map<string, { flow: number; volume: number }>();
-
-    rows.forEach((r) => {
+  const heatmapSectors = useMemo(() => {
+    if (!rows.length || !dates.length) return [];
+    
+    const dateSet = new Set(dates);
+    const sectorStats = new Map<string, number>();
+    
+    rows.forEach(r => {
       if (dateSet.has(r.date)) {
-        const current = sectorSums.get(r.sector) || { flow: 0, volume: volumeBySector.get(r.sector) || 0 };
-        current.flow += r.total;
-        sectorSums.set(r.sector, current);
+        const current = sectorStats.get(r.sector) || 0;
+        sectorStats.set(r.sector, current + Math.abs(r.total));
       }
     });
 
-    const results = Array.from(sectorSums.entries())
-      .map(([name, value]) => ({
-        name,
-        flow: value.flow,
-        volume: value.volume,
-        score: metric === "volume" ? Math.max(value.volume, Math.abs(value.flow) / 10000) : Math.abs(value.flow)
-      }))
-      .filter((p) => p.volume > 0 || Math.abs(p.flow) > 0)
-      .sort((a, b) => b.volume - a.volume) // Spiral places largest volume in the center ALWAYS
-      .slice(0, 36); // Show more stars in the spiral
-
-    const maxVolume = Math.max(1, ...results.map((r) => r.volume));
-    const maxScore = Math.max(1, ...results.map((r) => r.score));
-    const maxFlow = Math.max(1, ...results.map((r) => Math.abs(r.flow)));
-    const goldenAngle = 137.508 * (Math.PI / 180);
-
-    return results.map((p, i) => {
-      // Spiral placement: largest volume at i=0 (center), rest spiraling out
-      const orbit = i === 0 ? 0 : 8 + Math.pow(i, 0.65) * 5; 
-      const theta = i === 0 ? 0 : i * goldenAngle;
-      const px = 50 + orbit * Math.cos(theta);
-      const py = 50 + orbit * Math.sin(theta);
+    const filtered = Array.from(sectorStats.entries())
+      .filter(([name]) => name !== "未分類" && name !== "其他" && name !== "ETN" && name !== "REITs" && name !== "存託憑證(DR)")
+      .sort((a, b) => b[1] - a[1]);
       
-      const sizeBase = p.score / maxScore;
-      const size = i === 0 ? 110 + 30 * sizeBase : 24 + 48 * sizeBase; // Center is huge
-      
-      const isUp = p.flow >= 0;
-      const rgb = isUp ? "39,224,131" : "255,82,82";
-      const darkRgb = isUp ? "5,50,30" : "74,14,20";
-      const intensity = Math.max(0.2, Math.min(Math.abs(p.flow) / maxFlow, 1));
+    return filtered.slice(0, 18).map(([name]) => name);
+  }, [rows, dates]);
 
-      return {
-        ...p,
-        size,
-        left: px,
-        top: py,
-        orbit,
-        angle: `${Math.round((theta * 180) / Math.PI)}deg`,
-        delay: `${i * -0.42}s`,
-        color: `rgb(${rgb})`,
-        darkColor: `rgb(${darkRgb})`,
-        glow: `rgba(${rgb}, ${0.26 + intensity * 0.42})`
-      };
+  const matrix = useMemo(() => {
+    const map = new Map<string, Map<string, { total: number; foreign: number; trust: number; dealer: number }>>();
+    rows.forEach(r => {
+      let sectorMap = map.get(r.sector);
+      if (!sectorMap) {
+        sectorMap = new Map();
+        map.set(r.sector, sectorMap);
+      }
+      sectorMap.set(r.date, { total: r.total, foreign: r.foreign, trust: r.trust, dealer: r.dealer });
     });
-  }, [rows, volumeBySector, metric]);
+    return map;
+  }, [rows]);
 
-  if (dataset?.status !== "ready" || rows.length === 0) {
-    return <MissingAwarePanel dataset={dataset} title="資金行星" />;
+  const maxAbsVal = useMemo(() => {
+    let maxVal = 1;
+    heatmapSectors.forEach(sec => {
+      const datesMap = matrix.get(sec);
+      if (datesMap) {
+        dates.forEach(d => {
+          const val = datesMap.get(d)?.total || 0;
+          if (Math.abs(val) > maxVal) {
+            maxVal = Math.abs(val);
+          }
+        });
+      }
+    });
+    return maxVal;
+  }, [heatmapSectors, dates, matrix]);
+
+  const [hoveredCell, setHoveredCell] = useState<{
+    sector: string;
+    date: string;
+    total: number;
+    foreign: number;
+    trust: number;
+    dealer: number;
+    x: number;
+    y: number;
+  } | null>(null);
+
+  if (dataset?.status !== "ready" || rows.length === 0 || !dates.length) {
+    return <MissingAwarePanel dataset={dataset} title="資金熱力矩陣" />;
   }
 
   return (
-    <div className="planet-chart-container">
-      <div className="galaxy-stars" />
-
-      <div className="planet-controls">
-        {[
-          ["1d", "1 日"],
-          ["5d", "5 日"],
-          ["20d", "20 日"],
-          ["volume", "資金量體"]
-        ].map(([key, label]) => (
-          <button
-            key={key}
-            className={metric === key ? "active" : ""}
-            type="button"
-            onClick={() => setMetric(key as PlanetMetric)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-
-      <div className="planet-mode-readout">
-        <strong>{metric === "volume" ? "量體重力場" : `${metric.replace("d", "")} 日資金場`}</strong>
-        <span>{planets.length} 個產業軌道 · 大小代表{metric === "volume" ? "資金量體" : "法人淨流強度"}</span>
-      </div>
-
-      <div className="galaxy-disc">
-        <div className="planet-center" />
-
-        {planets.map((p) => (
-          <button
-            key={p.name}
-            type="button"
-            className="planet-node"
-            onClick={() => onPickSector?.(p.name)}
-            onMouseEnter={(e) => setHoverData({ name: p.name, flow: p.flow, volume: p.volume, x: e.clientX, y: e.clientY })}
-            onMouseMove={(e) => setHoverData({ name: p.name, flow: p.flow, volume: p.volume, x: e.clientX, y: e.clientY })}
-            onMouseLeave={() => setHoverData(null)}
-            style={{
-              "--planet-angle": p.angle,
-              "--planet-orbit": `${p.orbit}%`,
-              "--planet-delay": p.delay,
-              width: p.size,
-              height: p.size,
-              left: `calc(${p.left}% - ${p.size / 2}px)`,
-              top: `calc(${p.top}% - ${p.size / 2}px)`
-            } as CSSProperties}
-            aria-label={`${p.name} ${metric === "volume" ? `量體 ${fmtYi(p.volume)}` : `淨流 ${compactShares(p.flow)}`}`}
-          >
-            <div
-              className="planet-node-content"
-              style={{
-                background: `radial-gradient(circle at 30% 30%, ${p.color} 0%, ${p.darkColor} 60%, #000 100%)`,
-                boxShadow: `0 0 ${p.size * 0.52}px ${p.glow}, inset -10px -10px 22px rgba(0,0,0,0.82), inset 10px 10px 18px rgba(255,255,255,0.18)`
-              }}
-            >
-              <span>{p.name}</span>
-            </div>
-          </button>
-        ))}
-      </div>
-
-      {hoverData && (
-        <div className="planet-tooltip" style={{ left: hoverData.x + 20, top: hoverData.y, opacity: 1, position: "fixed" }}>
-          <strong>{hoverData.name}</strong>
-          <span className="tooltip-flow" style={{ color: hoverData.flow >= 0 ? "var(--color-up)" : "var(--color-down)" }}>
-            {hoverData.flow >= 0 ? "+" : ""}{compactShares(hoverData.flow)}
+    <div className="sector-chart-view sector-heatmap-panel" style={{ height: "100%", display: "flex", flexDirection: "column", gap: "12px", overflow: "hidden" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
+        <div style={{ fontSize: "13px", color: "var(--muted)", display: "flex", alignItems: "center", gap: "16px" }}>
+          <span>💡 橫軸為交易日 (近15日)，縱軸為核心熱門產業 (千股/張) · 點選查看明細</span>
+          <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+              <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "2px", backgroundColor: "rgba(39, 224, 131, 0.7)" }}></span>
+              買超流入
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+              <span style={{ display: "inline-block", width: "12px", height: "12px", borderRadius: "2px", backgroundColor: "rgba(235, 56, 76, 0.7)" }}></span>
+              賣超流出
+            </span>
           </span>
-          <small>資金量體 {fmtYi(hoverData.volume)}</small>
         </div>
+      </div>
+
+      <div style={{ flexGrow: 1, overflow: "auto", position: "relative" }} className="heatmap-scroll-container">
+        <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: "3px", tableLayout: "fixed" }}>
+          <thead>
+            <tr>
+              <th style={{ width: "120px", textAlign: "left", fontSize: "12px", padding: "8px 6px", color: "var(--muted)", fontWeight: 600, position: "sticky", left: 0, backgroundColor: "#0b100e", zIndex: 10 }}>產業名稱</th>
+              {dates.map(d => (
+                <th key={d} style={{ fontSize: "11px", textAlign: "center", padding: "6px", color: "var(--text)", opacity: 0.85, fontWeight: 500 }}>
+                  {d.slice(5).replace("-", "/")}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {heatmapSectors.map(sec => {
+              const datesMap = matrix.get(sec);
+              return (
+                <tr key={sec}>
+                  <td
+                    onClick={() => onPickSector?.(sec)}
+                    style={{
+                      padding: "8px 6px",
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      color: "var(--accent)",
+                      cursor: "pointer",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      position: "sticky",
+                      left: 0,
+                      backgroundColor: "#0b100e",
+                      zIndex: 8,
+                      borderRight: "1px solid var(--line)"
+                    }}
+                    title={`點選查看 ${sec} 明細`}
+                  >
+                    {sec}
+                  </td>
+                  {dates.map(d => {
+                    const data = datesMap?.get(d) || { total: 0, foreign: 0, trust: 0, dealer: 0 };
+                    const val = data.total;
+                    const isUp = val >= 0;
+                    
+                    const ratio = Math.abs(val) / maxAbsVal;
+                    const alpha = val === 0 ? 0.03 : 0.15 + ratio * 0.7;
+                    
+                    const bgColor = val === 0 
+                      ? "rgba(255,255,255,0.03)" 
+                      : isUp 
+                        ? `rgba(39, 224, 131, ${alpha})` 
+                        : `rgba(235, 56, 76, ${alpha})`;
+                        
+                    const textColor = val === 0
+                      ? "rgba(255,255,255,0.15)"
+                      : alpha > 0.45
+                        ? "#000000"
+                        : "#ffffff";
+
+                    return (
+                      <td
+                        key={d}
+                        onMouseEnter={(e) => {
+                          const rect = e.currentTarget.getBoundingClientRect();
+                          setHoveredCell({
+                            sector: sec,
+                            date: d,
+                            ...data,
+                            x: rect.left + rect.width / 2,
+                            y: rect.top - 10
+                          });
+                        }}
+                        onMouseLeave={() => setHoveredCell(null)}
+                        onClick={() => onPickSector?.(sec)}
+                        style={{
+                          backgroundColor: bgColor,
+                          borderRadius: "4px",
+                          height: "36px",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          cursor: "pointer",
+                          color: textColor,
+                          transition: "all 0.15s ease",
+                        }}
+                        className="heatmap-cell"
+                      >
+                        {val === 0 ? "-" : `${isUp ? "+" : ""}${compactShares(val)}`}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {hoveredCell && createPortal(
+        <div
+          style={{
+            position: "fixed",
+            left: `${hoveredCell.x}px`,
+            top: `${hoveredCell.y}px`,
+            transform: "translate(-50%, -100%)",
+            backgroundColor: "rgba(11, 16, 14, 0.95)",
+            border: "1px solid rgba(255, 255, 255, 0.15)",
+            borderRadius: "8px",
+            padding: "10px 14px",
+            zIndex: 10000,
+            fontSize: "12px",
+            backdropFilter: "blur(8px)",
+            boxShadow: "0 10px 25px -5px rgba(0,0,0,0.5)",
+            pointerEvents: "none",
+            color: "#f5f8f2",
+            lineHeight: "1.6"
+          }}
+        >
+          <div style={{ fontWeight: 700, borderBottom: "1px solid var(--line)", paddingBottom: "4px", marginBottom: "6px" }}>
+            {hoveredCell.sector} ({hoveredCell.date})
+          </div>
+          <div>外資：<span style={{ color: hoveredCell.foreign >= 0 ? "var(--color-down)" : "var(--color-up)" }}>{hoveredCell.foreign >= 0 ? "+" : ""}{compactShares(hoveredCell.foreign)}</span></div>
+          <div>投信：<span style={{ color: hoveredCell.trust >= 0 ? "var(--color-down)" : "var(--color-up)" }}>{hoveredCell.trust >= 0 ? "+" : ""}{compactShares(hoveredCell.trust)}</span></div>
+          <div>自營商：<span style={{ color: hoveredCell.dealer >= 0 ? "var(--color-down)" : "var(--color-up)" }}>{hoveredCell.dealer >= 0 ? "+" : ""}{compactShares(hoveredCell.dealer)}</span></div>
+          <div style={{ marginTop: "4px", borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "4px", fontWeight: 600 }}>
+            合計：<span style={{ color: hoveredCell.total >= 0 ? "var(--color-down)" : "var(--color-up)" }}>{hoveredCell.total >= 0 ? "+" : ""}{compactShares(hoveredCell.total)}</span>
+          </div>
+        </div>,
+        document.body
       )}
     </div>
   );
 }
 
-function SankeyChart({ dataset, payload, onPickSector }: { dataset?: DatasetBox; payload?: SectorFlowHistoryPayload | null; onPickSector?: (sector: string) => void }) {
-  const [range, setRange] = useState<SankeyRange>("today");
+function SectorFlowTrendLineChart({
+  dataset,
+  payload,
+  onPickSector
+}: {
+  dataset?: DatasetBox;
+  payload?: SectorFlowHistoryPayload | null;
+  onPickSector?: (sector: string) => void;
+}) {
+  const [metric, setMetric] = useState<"total" | "foreign" | "trust" | "dealer">("total");
   const rows = useMemo(() => sectorFlowHistoryRows(payload as Record<string, unknown>), [payload]);
-  const days = range === "today" ? 1 : range === "week" ? 5 : 20;
-  const dates = useMemo(() => recentFlowDates(rows, days), [rows, days]);
-  const sankey = useMemo(() => {
-    const dateSet = new Set(dates);
-    const bySector = new Map<string, { foreign: number; trust: number; dealer: number; total: number }>();
-    rows.forEach((row) => {
-      if (!dateSet.has(row.date)) return;
-      const item = bySector.get(row.sector) || { foreign: 0, trust: 0, dealer: 0, total: 0 };
-      item.foreign += row.foreign;
-      item.trust += row.trust;
-      item.dealer += row.dealer;
-      item.total += row.total;
-      bySector.set(row.sector, item);
-    });
-    const sectorsForChart = [...bySector.entries()]
-      .sort((a, b) => Math.abs(b[1].total) - Math.abs(a[1].total))
-      .slice(0, 10);
-    const links = sectorsForChart.flatMap(([sector, value]) => [
-      { source: "外資", sector, value: value.foreign },
-      { source: "投信", sector, value: value.trust },
-      { source: "自營商", sector, value: value.dealer }
-    ]).filter((link) => link.value !== 0);
-    const maxLink = Math.max(1, ...links.map((link) => Math.abs(link.value)));
-    return { sectorsForChart, links, maxLink };
-  }, [rows, dates]);
+  const dates = useMemo(() => recentFlowDates(rows, 20), [rows]);
 
-  if (dataset?.status !== "ready" || rows.length === 0) {
-    return <MissingAwarePanel dataset={dataset} title="法人流向" />;
+  const topSectors = useMemo(() => {
+    if (!rows.length || !dates.length) return [];
+    const latestDate = dates[dates.length - 1];
+    
+    const latestFlows = rows
+      .filter(r => r.date === latestDate && r.sector !== "未分類" && r.sector !== "其他" && r.sector !== "ETF")
+      .map(r => ({ sector: r.sector, absVal: Math.abs(r[metric]) }))
+      .sort((a, b) => b.absVal - a.absVal);
+
+    return latestFlows.slice(0, 8).map(x => x.sector);
+  }, [rows, dates, metric]);
+
+  const chartData = useMemo(() => {
+    if (!dates.length || !topSectors.length) return [];
+    return dates.map(d => {
+      const point: Record<string, any> = { date: d.slice(5).replace("-", "/") };
+      topSectors.forEach(sec => {
+        const found = rows.find(r => r.date === d && r.sector === sec);
+        point[sec] = found ? found[metric] : null;
+      });
+      return point;
+    });
+  }, [rows, dates, topSectors, metric]);
+
+  if (dataset?.status !== "ready" || rows.length === 0 || !dates.length) {
+    return <MissingAwarePanel dataset={dataset} title="產業流量趨勢" />;
   }
 
-  const leftNodes = ["外資", "投信", "自營商"];
-  const height = 450;
-  const topPad = 34;
-  const nodeGap = 68;
-  const sectorGap = sankey.sectorsForChart.length > 1 ? (height - 86) / (sankey.sectorsForChart.length - 1) : 0;
-  const sourceY = (name: string) => topPad + leftNodes.indexOf(name) * 142;
-  const sectorY = (sector: string) => topPad + sankey.sectorsForChart.findIndex(([name]) => name === sector) * sectorGap;
+  const COLORS = ["#27e083", "#5ad0ff", "#e4b125", "#ff8a5c", "#b58cff", "#ff6b8b", "#00d2d3", "#ff9f43"];
 
   return (
-    <div className="sector-chart-view sankey-panel">
-      <div className="tabs sankey-range-tabs">
-        {[
-          ["today", "今日"],
-          ["week", "本週"],
-          ["month", "本月"]
-        ].map(([key, label]) => (
-          <button key={key} type="button" className={range === key ? "active" : ""} onClick={() => setRange(key as SankeyRange)}>{label}</button>
-        ))}
-      </div>
-      <svg className="sankey-svg" viewBox={`0 0 920 ${height}`} role="img" aria-label="法人流向桑基圖">
-        {sankey.links.map((link, index) => {
-          const y1 = sourceY(link.source) + (index % 3 - 1) * 10;
-          const y2 = sectorY(link.sector);
-          const width = 2 + Math.min(Math.abs(link.value) / sankey.maxLink, 1) * 26;
-          const color = link.value >= 0 ? "rgba(39,224,131,.46)" : "rgba(216,90,48,.48)";
-          return (
-            <path
-              key={`${link.source}-${link.sector}-${index}`}
-              className="sankey-ribbon"
-              d={`M 144 ${y1} C 360 ${y1}, 560 ${y2}, 776 ${y2}`}
-              fill="none"
-              stroke={color}
-              strokeLinecap="round"
-              strokeWidth={width}
+    <div className="sector-chart-view sector-trend-chart" style={{ height: "100%", display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ fontSize: "13px", color: "var(--muted)" }}>
+          💡 顯示最新交易日法人進出量最高的前 8 大熱門產業趋势 (千股/張)
+        </div>
+        <div className="planet-controls" style={{ margin: 0, display: "flex", gap: "6px" }}>
+          {[
+            ["total", "三大法人合計"],
+            ["foreign", "外資"],
+            ["trust", "投信"],
+            ["dealer", "自營商"]
+          ].map(([key, label]) => (
+            <button
+              key={key}
+              className={metric === key ? "active" : ""}
+              type="button"
+              onClick={() => setMetric(key as any)}
+              style={{
+                fontSize: "12px",
+                padding: "6px 12px",
+                borderRadius: "6px",
+                border: metric === key ? "1px solid var(--accent)" : "1px solid transparent",
+                backgroundColor: metric === key ? "rgba(42, 252, 152, 0.08)" : "rgba(255, 255, 255, 0.03)",
+                color: metric === key ? "var(--accent)" : "var(--text)",
+                cursor: "pointer",
+                transition: "all 0.2s"
+              }}
             >
-              <title>{`${link.source} → ${link.sector}: ${link.value >= 0 ? "+" : ""}${compactShares(link.value)}`}</title>
-            </path>
-          );
-        })}
-        {leftNodes.map((name) => (
-          <g className="sankey-node source" key={name} transform={`translate(22 ${sourceY(name) - 18})`}>
-            <rect width="116" height="38" rx="8" />
-            <text x="58" y="24" textAnchor="middle">{name}</text>
-          </g>
-        ))}
-        {sankey.sectorsForChart.map(([sector, value]) => (
-          <g
-            className="sankey-node target"
-            key={sector}
-            transform={`translate(782 ${sectorY(sector) - 18})`}
-            onClick={() => onPickSector?.(sector)}
-            style={{ cursor: "pointer" }}
-          >
-            <rect width="120" height="38" rx="8" />
-            <text x="10" y="18">{sector}</text>
-            <text x="10" y="31">{compactShares(value.total)}</text>
-          </g>
-        ))}
-      </svg>
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ flexGrow: 1, minHeight: 0 }}>
+        <ResponsiveContainer width="100%" height="90%">
+          <LineChart data={chartData} margin={{ top: 10, right: 20, left: 10, bottom: 5 }}>
+            <CartesianGrid stroke="rgba(255,255,255,.05)" strokeDasharray="3 3" vertical={false} />
+            <XAxis dataKey="date" tick={{ fill: "rgba(232,242,234,.5)", fontSize: 11 }} axisLine={{ stroke: "rgba(255,255,255,.08)" }} tickLine={false} />
+            <YAxis tick={{ fill: "rgba(232,242,234,.5)", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(value) => `${value >= 0 ? "+" : ""}${compactShares(value)}`} />
+            <Tooltip
+              contentStyle={{ border: "1px solid rgba(255,255,255,.1)", borderRadius: 8, background: "#070c0a", color: "#f5f8f2", fontSize: "12px" }}
+              formatter={(value, name) => [`${Number(value) >= 0 ? "+" : ""}${compactShares(Number(value))}`, String(name)]}
+              labelFormatter={(label) => `交易日期: ${label}`}
+            />
+            <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: "12px", color: "var(--text)" }} />
+            {topSectors.map((sector, index) => (
+              <Line
+                key={sector}
+                type="monotone"
+                dataKey={sector}
+                stroke={COLORS[index % COLORS.length]}
+                strokeWidth={2}
+                dot={{ r: 2, strokeWidth: 1 }}
+                activeDot={{ r: 5 }}
+                connectNulls
+                onClick={() => onPickSector?.(sector)}
+                style={{ cursor: "pointer" }}
+              />
+            ))}
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }
@@ -2500,11 +2798,11 @@ function RankingCard({ title, dataset, rows, valueKey, onPickSector }: { title: 
   );
 }
 
-function StockRecommendation({ title = "今日觀察標的 Top 10", dataset, rows, onPickStock }: { title?: string; dataset?: DatasetBox; rows: StockRow[]; onPickStock: (code: string) => void }) {
+function StockRecommendation({ title = "今日觀察標的 Top 10", dataset, rows, onPickStock, meta = "Alpha v5 / 情緒 / 量體濾網" }: { title?: string; dataset?: DatasetBox; rows: StockRow[]; onPickStock: (code: string) => void; meta?: string }) {
   if (dataset?.status !== "ready") return <MissingAwarePanel dataset={dataset} title={title} />;
   return (
     <section className="panel">
-      <SectionTitle title={title} meta="Alpha v5 / 情緒 / 量體濾網" />
+      <SectionTitle title={title} meta={meta} />
       {rows.slice(0, 10).map((row, index) => {
         const code = row.stock_code || row.stock_id || "";
         const tags = row.tags || [];
@@ -2671,6 +2969,8 @@ function getValColor(value: unknown): string {
 function initialView(): MenuKey {
   const path = window.location.pathname;
   if (path.startsWith("/stock/")) return "stock";
+  const route = path.replace(/^\//, "").split("/")[0] as MenuKey;
+  if (MENU.some((item) => item.key === route)) return route;
   return "rotation";
 }
 
@@ -2680,55 +2980,250 @@ function initialStockId(): string {
   return match?.[1] || "";
 }
 
-function GoldenExitPage({ datasets, onNavigateToStock }: { datasets: Record<string, DatasetBox>; onNavigateToStock: (id: string) => void }) {
+function GoldenExitPage({ 
+  datasets, 
+  portfolio, 
+  onNavigateToStock 
+}: { 
+  datasets: Record<string, DatasetBox>; 
+  portfolio: any[]; 
+  onNavigateToStock: (id: string) => void 
+}) {
   const payload = datasets.goldenExit?.data;
   const status = datasets.goldenExit?.status;
 
-  if (status === "loading") return <div className="card">載入中...</div>;
-  if (!payload || status === "error") return <div className="card">無資料或尚未產生「黃金逃頂」分析。</div>;
+  const [filterByPortfolio, setFilterByPortfolio] = useState(true);
 
-  const records = Array.isArray(payload.records) ? payload.records : [];
+  if (status === "loading") return <div className="panel" style={{ padding: "24px" }}>載入中...</div>;
+  if (!payload || status === "error") return <div className="panel" style={{ padding: "24px" }}>無資料或尚未產生「黃金逃頂」分析。</div>;
+
+  const allRecords = Array.isArray(payload.records) ? payload.records : [];
+  
+  // 篩選持股
+  const portfolioIds = new Set((portfolio || []).map((p: any) => String(p.id)));
+  const records = allRecords.filter((r: any) => {
+    if (!filterByPortfolio) return true;
+    return portfolioIds.has(String(r.stock_id));
+  });
+
+  const getDecision = (r: any) => {
+    const close = r.close ?? 0;
+    const defense = r.swing_defense ?? 0;
+    const short_defense = r.chandelier_exit_short ?? parseFloat((defense * 1.05).toFixed(2));
+    const support_1 = r.support_1 ?? parseFloat((close * 0.95).toFixed(2));
+    const resistance_1 = r.resistance_1 ?? parseFloat((close * 1.05).toFixed(2));
+
+    if (close <= defense) {
+      return {
+        type: "sell",
+        label: "避險逃頂",
+        action: "🔴 避險賣出",
+        badgeClass: "decision-badge sell",
+        timing: "明日開盤以市價或防守價附近波段減碼避險。",
+        price: `跌破防守價 ${defense} 元`
+      };
+    } else if (close >= short_defense) {
+      return {
+        type: "buy",
+        label: "強勢突破",
+        action: "🟢 強勢買進",
+        badgeClass: "decision-badge buy",
+        timing: "明日開盤強勢跟進，或盤中回檔量縮買進。",
+        price: `站上突破價 ${short_defense} 元`
+      };
+    } else {
+      return {
+        type: "hold",
+        label: "波段持有",
+        action: "🟡 波段持有",
+        badgeClass: "decision-badge hold",
+        timing: "多頭結構良好，波段續抱並以防守線為依據。",
+        price: `支撐 ${support_1} 元 / 防守 ${defense} 元`
+      };
+    }
+  };
+
+  const renderPriceRangeBar = (r: any) => {
+    const close = r.close ?? 0;
+    const support = r.support_1 ?? (close * 0.95);
+    const resistance = r.resistance_1 ?? (close * 1.05);
+    const defense = r.swing_defense ?? support;
+
+    const totalRange = resistance - support;
+    const pct = totalRange > 0 ? Math.max(0, Math.min(100, ((close - support) / totalRange) * 100)) : 50;
+    const defensePct = totalRange > 0 ? Math.max(0, Math.min(100, ((defense - support) / totalRange) * 100)) : 20;
+
+    const isBroken = close <= defense;
+    const barClass = isBroken ? "pr-bar-fill danger" : "pr-bar-fill safe";
+    const indicatorClass = isBroken ? "pr-bar-indicator danger" : "pr-bar-indicator";
+    const indicatorTextClass = isBroken ? "pr-bar-indicator-text danger" : "pr-bar-indicator-text";
+
+    return (
+      <div className="price-range-bar" style={{ position: "relative", marginBottom: "16px" }}>
+        <div className="pr-bar-track-wrapper">
+          <div className={barClass} style={{ left: 0, width: `${pct}%` }} />
+          <div 
+            className="pr-bar-defense-mark" 
+            style={{ left: `${defensePct}%` }} 
+            data-defense={`防守 ${defense}`}
+          />
+          <div className={indicatorClass} style={{ left: `${pct}%` }}>
+            <span className={indicatorTextClass}>收盤 ${close}</span>
+          </div>
+        </div>
+        <div className="pr-bar-labels" style={{ marginTop: "18px" }}>
+          <span>支撐 {support}</span>
+          <span>壓力 {resistance}</span>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="card fade-in">
-      <h2>黃金逃頂與進場雷達</h2>
-      <p style={{ color: "var(--text-secondary)", marginBottom: "1rem" }}>
+    <div className="panel fade-in" style={{ padding: "24px" }}>
+      <h2 style={{ fontSize: "22px", margin: "0 0 6px", fontWeight: "800", color: "var(--text)" }}>黃金逃頂與交易決策雷達</h2>
+      <p style={{ color: "var(--muted)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 20px", maxWidth: "68ch" }}>
         運用真實波動幅度 (ATR) 追蹤與樞軸點 (Pivot) 預測，提供明日的關鍵價位。跌破防守價建議波段停利，突破壓力價則面臨短線賣壓。
       </p>
 
-      <div className="table-wrapper">
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>代號/名稱</th>
-              <th className="num">最新收盤</th>
-              <th className="num">波段防守(停利)</th>
-              <th className="num">明日壓力(短空)</th>
-              <th className="num">明日支撐(短多)</th>
-              <th className="num">預期勝率</th>
-            </tr>
-          </thead>
-          <tbody>
-            {records.map((r: any) => (
-              <tr key={r.stock_id} onClick={() => onNavigateToStock(r.stock_id)} className="clickable">
-                <td>
-                  <div className="font-medium text-white">{r.stock_name}</div>
-                  <div className="text-xs text-secondary">{r.stock_id}</div>
-                </td>
-                <td className="num">{r.close}</td>
-                <td className="num" style={{ color: r.close <= r.swing_defense ? "var(--color-down)" : "var(--color-up)" }}>
-                  {r.swing_defense ?? "-"}
-                </td>
-                <td className="num" style={{ color: r.close >= (r.resistance_1 || Infinity) ? "var(--color-up)" : "inherit" }}>
-                  {r.resistance_1 ?? "-"}
-                </td>
-                <td className="num" style={{ color: "var(--color-down)" }}>{r.support_1 ?? "-"}</td>
-                <td className="num" style={{ color: "var(--color-up)", fontWeight: "bold" }}>{r.win_rate}%</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {/* 持股篩選 Toggle 開關 */}
+      <div style={{ 
+        display: "flex", 
+        alignItems: "center", 
+        gap: "10px", 
+        marginBottom: "24px",
+        background: "var(--panel-2)",
+        padding: "10px 16px",
+        borderRadius: "10px",
+        width: "fit-content",
+        border: "1px solid var(--line)"
+      }}>
+        <span style={{ fontSize: "13px", fontWeight: "700", color: "var(--text)" }}>
+          僅顯示我的持股標的 ({portfolio?.length || 0} 檔)
+        </span>
+        <button 
+          type="button"
+          onClick={() => setFilterByPortfolio(!filterByPortfolio)}
+          style={{
+            position: "relative",
+            width: "48px",
+            height: "24px",
+            borderRadius: "12px",
+            background: filterByPortfolio ? "var(--accent)" : "rgba(195,178,160,0.3)",
+            border: "none",
+            cursor: "pointer",
+            transition: "background 0.3s ease"
+          }}
+        >
+          <div style={{
+            position: "absolute",
+            top: "2px",
+            left: filterByPortfolio ? "26px" : "2px",
+            width: "20px",
+            height: "20px",
+            borderRadius: "50%",
+            background: filterByPortfolio ? "#000" : "#fff",
+            transition: "left 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.2)"
+          }} />
+        </button>
       </div>
+
+      {records.length === 0 ? (
+        <div className="panel" style={{ padding: "40px 20px", textAlign: "center", color: "var(--muted)", borderRadius: "12px", border: "1px dashed var(--line)" }}>
+          目前持股清單中尚無黃金逃頂監控標的。<br/>
+          您可以前往「我的持股」新增標的，或者關閉上方「僅顯示我的持股標的」開關以查看全市場選股。
+        </div>
+      ) : (
+        <>
+          {/* 頂部焦點雷達卡片 */}
+          <div className="golden-radar-grid">
+            {[...records]
+              .sort((a: any, b: any) => (b.win_rate ?? 0) - (a.win_rate ?? 0))
+              .slice(0, 3)
+              .map((r: any) => {
+                const decision = getDecision(r);
+                return (
+                  <div key={`radar-${r.stock_id}`} className="golden-radar-card" onClick={() => onNavigateToStock(r.stock_id)} style={{ cursor: "pointer" }}>
+                    <div className="gr-card-header">
+                      <div className="gr-stock-title">
+                        <strong>{r.stock_name}</strong>
+                        <span>{r.stock_id}</span>
+                      </div>
+                      <div className="gr-win-badge">勝率 {r.win_rate}%</div>
+                    </div>
+                    
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(217, 119, 6, 0.04)", padding: "8px 12px", borderRadius: "8px", border: "1px solid rgba(217,119,6,0.1)", margin: "4px 0" }}>
+                      <span style={{ fontSize: "11px", color: "var(--muted)", fontWeight: "600" }}>操作建議</span>
+                      <span className={decision.badgeClass} style={{ fontSize: "11px" }}>{decision.action}</span>
+                    </div>
+
+                    <div className="gr-price-display">
+                      <span>今日收盤價</span>
+                      <strong>${r.close}</strong>
+                    </div>
+                    {renderPriceRangeBar(r)}
+                  </div>
+                );
+              })}
+          </div>
+
+          <div className="table-wrapper" style={{ marginTop: "16px", border: "1px solid var(--line)", borderRadius: "14px", overflow: "hidden" }}>
+            <table className="data-table" style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr style={{ background: "var(--panel-2)" }}>
+                  <th style={{ textAlign: "left", padding: "14px 16px", color: "var(--muted)", fontWeight: "800", fontSize: "13px", letterSpacing: "0.05em" }}>代號/名稱</th>
+                  <th className="num" style={{ textAlign: "right", padding: "14px 16px", color: "var(--muted)", fontWeight: "800", fontSize: "13px", letterSpacing: "0.05em" }}>最新收盤</th>
+                  <th className="num" style={{ textAlign: "right", padding: "14px 16px", color: "var(--muted)", fontWeight: "800", fontSize: "13px", letterSpacing: "0.05em" }}>波段防守(停利)</th>
+                  <th className="num" style={{ textAlign: "right", padding: "14px 16px", color: "var(--muted)", fontWeight: "800", fontSize: "13px", letterSpacing: "0.05em" }}>明日壓力(短空)</th>
+                  <th className="num" style={{ textAlign: "right", padding: "14px 16px", color: "var(--muted)", fontWeight: "800", fontSize: "13px", letterSpacing: "0.05em" }}>明日支撐(短多)</th>
+                  <th style={{ textAlign: "left", padding: "14px 16px", color: "var(--muted)", fontWeight: "800", fontSize: "13px", letterSpacing: "0.05em" }}>量化交易決策與時間建議</th>
+                  <th className="num" style={{ textAlign: "right", padding: "14px 16px", color: "var(--muted)", fontWeight: "800", fontSize: "13px", letterSpacing: "0.05em" }}>預期勝率</th>
+                </tr>
+              </thead>
+              <tbody>
+                {records.map((r: any) => {
+                  const isBroken = r.close <= r.swing_defense;
+                  const decision = getDecision(r);
+                  return (
+                    <tr key={r.stock_id} onClick={() => onNavigateToStock(r.stock_id)} className="clickable" style={{ borderTop: "1px solid var(--line)", transition: "background 0.2s" }}>
+                      <td style={{ padding: "12px 16px" }}>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          {isBroken && <span className="exit-warning-badge" style={{ display: "inline-flex", justifyContent: "center", alignItems: "center" }}>[逃頂]</span>}
+                          <div style={{ fontWeight: 800, color: "var(--text)" }}>{r.stock_name}</div>
+                        </div>
+                        <div style={{ fontSize: "11px", color: "var(--muted)", fontFamily: "Outfit, monospace", marginTop: "2px" }}>{r.stock_id}</div>
+                      </td>
+                      <td className="num" style={{ textAlign: "right", padding: "12px 16px", fontWeight: "800", fontFamily: "Outfit, monospace", fontVariantNumeric: "tabular-nums", color: "var(--text)" }}>{r.close}</td>
+                      <td className="num" style={{ textAlign: "right", padding: "12px 16px", fontFamily: "Outfit, monospace", fontVariantNumeric: "tabular-nums" }}>
+                        {isBroken ? (
+                          <span className="defense-broken-badge">{r.swing_defense ?? "-"}</span>
+                        ) : (
+                          <span style={{ color: "var(--text)", fontWeight: "600" }}>{r.swing_defense ?? "-"}</span>
+                        )}
+                      </td>
+                      <td className="num" style={{ textAlign: "right", padding: "12px 16px", fontWeight: "600", fontFamily: "Outfit, monospace", fontVariantNumeric: "tabular-nums", color: "var(--muted)" }}>
+                        {r.resistance_1 ?? "-"}
+                      </td>
+                      <td className="num" style={{ textAlign: "right", padding: "12px 16px", fontFamily: "Outfit, monospace", fontVariantNumeric: "tabular-nums", color: "var(--muted)" }}>{r.support_1 ?? "-"}</td>
+                      <td style={{ padding: "12px 16px" }}>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                          <div style={{ display: "flex", alignItems: "center" }}>
+                            <span className={decision.badgeClass} style={{ flexShrink: 0 }}>{decision.action}</span>
+                            <span style={{ fontSize: "11px", color: "var(--text)", marginLeft: "6px", fontWeight: "700", fontFamily: "Outfit, monospace" }}>{decision.price}</span>
+                          </div>
+                          <div style={{ fontSize: "11px", color: "var(--muted)", marginTop: "2px" }}>{decision.timing}</div>
+                        </div>
+                      </td>
+                      <td className="num" style={{ textAlign: "right", padding: "12px 16px", color: "var(--accent)", fontWeight: "800", fontFamily: "Outfit, monospace" }}>{r.win_rate}%</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
     </div>
   );
 }
@@ -2738,6 +3233,19 @@ function PortfolioPage({ datasets, portfolio, setPortfolio, onNavigateToStock }:
   const [newShares, setNewShares] = useState("");
   const [newPrice, setNewPrice] = useState("");
   const [formError, setFormError] = useState("");
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editShares, setEditShares] = useState("");
+  const [editPrice, setEditPrice] = useState("");
+
+  const syncPortfolio = (next: PortfolioItem[]) => {
+    setPortfolio(next);
+    localStorage.setItem("tw_stock_portfolio", JSON.stringify(next));
+    fetch("http://localhost:3000/api/portfolio", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(next)
+    }).catch(e => console.error("Failed to sync portfolio", e));
+  };
 
   const handleAdd = () => {
     const id = newStock.trim().toUpperCase();
@@ -2758,13 +3266,7 @@ function PortfolioPage({ datasets, portfolio, setPortfolio, onNavigateToStock }:
       next.push({ id, shares, buyPrice });
     }
 
-    setPortfolio(next);
-    localStorage.setItem("tw_stock_portfolio", JSON.stringify(next));
-    fetch("http://localhost:3000/api/portfolio", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(next)
-    }).catch(e => console.error("Failed to sync portfolio", e));
+    syncPortfolio(next);
     setNewStock("");
     setNewShares("");
     setNewPrice("");
@@ -2773,13 +3275,29 @@ function PortfolioPage({ datasets, portfolio, setPortfolio, onNavigateToStock }:
 
   const handleRemove = (id: string) => {
     const next = portfolio.filter(p => p.id !== id);
-    setPortfolio(next);
-    localStorage.setItem("tw_stock_portfolio", JSON.stringify(next));
-    fetch("http://localhost:3000/api/portfolio", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(next)
-    }).catch(e => console.error("Failed to sync portfolio", e));
+    syncPortfolio(next);
+  };
+
+  const startEdit = (item: PortfolioItem) => {
+    setEditingId(item.id);
+    setEditShares(String(item.shares));
+    setEditPrice(String(item.buyPrice));
+    setFormError("");
+  };
+
+  const saveEdit = (id: string) => {
+    const shares = Number(editShares);
+    const buyPrice = Number(editPrice);
+    if (!Number.isFinite(shares) || !Number.isFinite(buyPrice) || shares <= 0 || buyPrice <= 0) {
+      setFormError("編輯持股時，股數與成本價都必須大於 0。");
+      return;
+    }
+    const next = portfolio.map(item => item.id === id ? { ...item, shares, buyPrice } : item);
+    syncPortfolio(next);
+    setEditingId(null);
+    setEditShares("");
+    setEditPrice("");
+    setFormError("");
   };
 
   const alphaPayload = datasets.stockAlpha?.data;
@@ -2788,6 +3306,48 @@ function PortfolioPage({ datasets, portfolio, setPortfolio, onNavigateToStock }:
   const alphaRecords = Array.isArray(alphaPayload?.records) ? alphaPayload.records : [];
   const goldenRecords = Array.isArray(goldenPayload?.records) ? goldenPayload.records : [];
 
+  const getFlowStatus = (alpha: any, sector: any, pl: number): FlowStatus => {
+    const flow = Number(alpha?.net_5d_yi ?? alpha?.net_20d_yi ?? sector?.net_5d_yi ?? sector?.net_20d_yi);
+    if (Number.isFinite(flow)) return flow > 0 ? "inflow" : flow < 0 ? "outflow" : "neutral";
+    return pl > 0 ? "inflow" : pl < 0 ? "outflow" : "neutral";
+  };
+
+  const getRecommendationStatus = (adviceClass: string, plPct: number, score: number | undefined): RecommendationStatus => {
+    if (plPct >= 35) return "過熱";
+    if (adviceClass === "sell") return "避開";
+    if (Number.isFinite(score) && Number(score) >= 80) return "分批觀察";
+    if (plPct < 0) return "等待確認";
+    return "觀察";
+  };
+
+  const getRiskScore = (alpha: any, plPct: number): number => {
+    const vol = Number(alpha?.Vol_20d ?? alpha?.sentiment_temperature);
+    const lossRisk = plPct < 0 ? Math.min(45, Math.abs(plPct) * 2) : 0;
+    const overheatRisk = plPct > 30 ? Math.min(45, (plPct - 30) * 1.2) : 0;
+    const volatilityRisk = Number.isFinite(vol) ? Math.min(40, Math.abs(vol)) : 12;
+    return Math.min(100, volatilityRisk + lossRisk + overheatRisk);
+  };
+
+  const buildTrend20d = (currentPrice: number, plPct: number, changePct: number | undefined): number[] => {
+    const end = Number.isFinite(currentPrice) && currentPrice > 0 ? currentPrice : 100;
+    const drift = Math.max(-38, Math.min(38, plPct));
+    const start = end / (1 + drift / 100 || 1);
+    const dayMove = Number.isFinite(changePct) ? Number(changePct) : 0;
+    return Array.from({ length: 20 }, (_, index) => {
+      const t = index / 19;
+      const wave = Math.sin(index * 0.78) * Math.max(0.25, Math.abs(dayMove) / 3);
+      return start + (end - start) * t + wave;
+    });
+  };
+
+  const firstFiniteNumber = (values: unknown[], fallback?: number): number | undefined => {
+    for (const value of values) {
+      const numeric = Number(value);
+      if (Number.isFinite(numeric)) return numeric;
+    }
+    return fallback;
+  };
+
   const getStockStats = (item: PortfolioItem) => {
     const alpha = alphaRecords.find((r: any) => String(r.stock_id) === String(item.id) || String(r.stock_code) === String(item.id));
     const golden = goldenRecords.find((r: any) => String(r.stock_id) === String(item.id));
@@ -2795,9 +3355,12 @@ function PortfolioPage({ datasets, portfolio, setPortfolio, onNavigateToStock }:
     const sectorData = datasets.sectorConstituents?.data;
     const sectorRecords = Array.isArray(sectorData?.records) ? sectorData.records : [];
     const sector = sectorRecords.find((r: any) => String(r.stock_code) === String(item.id));
+    const basic = findStockBasic(datasets, item.id);
 
-    const currentPrice = Number(alpha?.close ?? golden?.close ?? sector?.close ?? item.buyPrice);
-    const score = alpha?.alpha_score ?? alpha?.stock_alpha_v4 ?? alpha?.stock_alpha_v5 ?? alpha?.Alpha_Score_v6 ?? alpha?.Alpha_Score_v5 ?? "-";
+    const currentPrice = firstFiniteNumber([alpha?.close, golden?.close, sector?.close, basic?.close], item.buyPrice) ?? item.buyPrice;
+    const scoreRaw = alpha?.alpha_score ?? alpha?.stock_alpha_v4 ?? alpha?.stock_alpha_v5 ?? alpha?.Alpha_Score_v6 ?? alpha?.Alpha_Score_v5;
+    const alphaScore = Number(scoreRaw);
+    const score = Number.isFinite(alphaScore) ? alphaScore : "-";
 
     let advice = { text: "持有", class: "hold" };
     if (golden) {
@@ -2815,28 +3378,84 @@ function PortfolioPage({ datasets, portfolio, setPortfolio, onNavigateToStock }:
     const pl = currentValue - totalCost;
     const plPct = totalCost > 0 ? (pl / totalCost) * 100 : 0;
 
-    const changePct = alpha?.change_pct ?? sector?.change_pct;
+    const changePct = firstFiniteNumber([alpha?.change_pct, sector?.change_pct, basic?.change_pct]);
+    const riskScore = getRiskScore(alpha, plPct);
+    const flowStatus = getFlowStatus(alpha, sector, pl);
+    const recommendationStatus = getRecommendationStatus(advice.class, plPct, Number.isFinite(alphaScore) ? alphaScore : undefined);
+    const trend20d = buildTrend20d(currentPrice, plPct, changePct);
 
     return {
-      name: alpha?.stock_name || golden?.stock_name || sector?.stock_name || "未知",
+      name: alpha?.stock_name || golden?.stock_name || sector?.stock_name || basic?.stock_name || "未知",
+      industry: alpha?.industry || sector?.sector_name || basic?.industry || basic?.sector_name || "",
       price: currentPrice,
-      change: changePct ? `${changePct > 0 ? "+" : ""}${changePct.toFixed(2)}%` : "-",
+      change: Number.isFinite(changePct) ? `${Number(changePct) > 0 ? "+" : ""}${Number(changePct).toFixed(2)}%` : "-",
+      changePct,
       score,
+      alphaScore: Number.isFinite(alphaScore) ? alphaScore : undefined,
+      riskScore,
+      flowStatus,
+      recommendationStatus,
+      trend20d,
       advice,
       totalCost,
       currentValue,
       pl,
-      plPct
+      plPct,
+      alphaBreakdown: {
+        majorFlow: firstFiniteNumber([alpha?.net_5d_yi, alpha?.net_20d_yi, sector?.net_5d_yi, sector?.net_20d_yi]),
+        foreign: firstFiniteNumber([alpha?.foreign_net_yi, alpha?.foreign_5d, alpha?.net_5d_yi]),
+        trust: firstFiniteNumber([alpha?.trust_net_yi, alpha?.trust_5d]),
+        tradeValue: firstFiniteNumber([alpha?.trade_value_yi, sector?.trade_value_yi, basic?.trade_value_yi]),
+        momentum: firstFiniteNumber([alpha?.chg_5d, alpha?.change_pct, changePct]),
+        riskPenalty: riskScore,
+        reason: alpha?.reason || `${isEtfCode(item.id) ? "ETF" : "股票"}依據報酬率、Alpha 分數、資金流與波動風險產生卡牌狀態。`
+      }
     };
   };
 
+  const portfolioRows = portfolio.map(item => ({ item, stats: getStockStats(item) }));
+  const totalCost = portfolioRows.reduce((sum, row) => sum + row.stats.totalCost, 0);
+  const totalValue = portfolioRows.reduce((sum, row) => sum + row.stats.currentValue, 0);
+  const totalProfit = totalValue - totalCost;
+  const totalReturn = totalCost > 0 ? (totalProfit / totalCost) * 100 : 0;
+  const bestMonster = portfolioRows.reduce(
+    (best, row) => row.stats.pl > best.stats.pl ? row : best,
+    portfolioRows[0] || { item: { id: "", shares: 0, buyPrice: 0 }, stats: getStockStats({ id: "", shares: 0, buyPrice: 1 }) }
+  );
+
   return (
-    <section className="page-stack">
-      <div className="section-header">
+    <section className="page-stack portfolio-arena">
+      <div className="portfolio-scoreboard">
         <div>
-          <h2>我的持股 (Portfolio)</h2>
-          <p>個人追蹤持股需要代號、股數、買進成本價；系統會結合當前股價估算目前市值與獲利。</p>
+          <span className="portfolio-score-eyebrow">Collection Deck</span>
+          <h2>我的持股戰鬥牌組</h2>
+          <p>每檔持股是一張可編輯的戰鬥卡牌，價格、報酬與狀態會跟著批次資料更新。</p>
         </div>
+        <div className="portfolio-score-grid">
+          <div>
+            <span>總市值</span>
+            <strong>{totalValue.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</strong>
+          </div>
+          <div>
+            <span>投入成本</span>
+            <strong>{totalCost.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</strong>
+          </div>
+          <div className={totalProfit >= 0 ? "is-win" : "is-loss"}>
+            <span>總報酬</span>
+            <strong>{totalProfit >= 0 ? "+" : ""}{totalProfit.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</strong>
+          </div>
+          <div className={totalReturn >= 0 ? "is-win" : "is-loss"}>
+            <span>報酬率</span>
+            <strong>{totalReturn >= 0 ? "+" : ""}{totalReturn.toFixed(2)}%</strong>
+          </div>
+        </div>
+        {bestMonster?.item.id ? (
+          <div className="portfolio-boss">
+            <span>王牌</span>
+            <strong>{bestMonster.item.id} {bestMonster.stats.name}</strong>
+            <small>{bestMonster.stats.pl >= 0 ? "高昂" : "受傷"} · {bestMonster.stats.plPct.toFixed(2)}%</small>
+          </div>
+        ) : null}
       </div>
 
       <div className="portfolio-form-panel">
@@ -2884,51 +3503,57 @@ function PortfolioPage({ datasets, portfolio, setPortfolio, onNavigateToStock }:
           <small>請在上方輸入股票資料以開始追蹤。</small>
         </div>
       ) : (
-        <div className="portfolio-page">
-          {portfolio.map(item => {
-            const stats = getStockStats(item);
-            const isUp = stats.pl > 0;
-            const isDown = stats.pl < 0;
+        <div className="portfolio-deck">
+          {portfolioRows.map(({ item, stats }, index) => {
+            const isEditing = editingId === item.id;
+            const cardData: CreatureCardData = {
+              stockCode: item.id,
+              stockName: stats.name,
+              assetType: isEtfCode(item.id) ? "ETF" : "STOCK",
+              industry: stats.industry,
+              marketValue: stats.currentValue,
+              shares: item.shares,
+              cost: item.buyPrice,
+              profitLoss: stats.pl,
+              returnPct: stats.plPct,
+              alphaScore: stats.alphaScore,
+              riskScore: stats.riskScore,
+              flowStatus: stats.flowStatus,
+              recommendationStatus: stats.recommendationStatus,
+              trend20d: stats.trend20d,
+              price: stats.price,
+              changePct: stats.changePct,
+              totalCost: stats.totalCost,
+              alphaBreakdown: stats.alphaBreakdown
+            };
+            const editPanel = (
+              <div className="portfolio-edit-panel creature-edit-panel">
+                <label>
+                  <span>股數</span>
+                  <input value={editShares} type="number" min="1" onChange={event => setEditShares(event.target.value)} />
+                </label>
+                <label>
+                  <span>成本價</span>
+                  <input value={editPrice} type="number" min="0" step="0.01" onChange={event => setEditPrice(event.target.value)} />
+                </label>
+                <div className="portfolio-edit-actions">
+                  <button type="button" onClick={() => saveEdit(item.id)}>儲存</button>
+                  <button type="button" onClick={() => setEditingId(null)}>取消</button>
+                </div>
+              </div>
+            );
 
             return (
-              <motion.div
+              <CreatureCard
                 key={item.id}
-                className="portfolio-card"
-                whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(0,0,0,0.5)', borderColor: 'rgba(39, 224, 131, 0.4)' }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <div className="portfolio-card-header">
-                  <strong onClick={() => onNavigateToStock(item.id)} style={{ cursor: "pointer" }}>
-                    {item.id} {stats.name}
-                  </strong>
-                  <button onClick={() => handleRemove(item.id)}>✕</button>
-                </div>
-
-                <div className="portfolio-pnl-grid">
-                  <div>
-                    <span>當前股價</span>
-                    <strong>{fmtNumber(stats.price)}</strong>
-                  </div>
-                  <div className="portfolio-pnl" style={{ color: isUp ? "var(--color-up)" : isDown ? "var(--color-down)" : "inherit" }}>
-                    <span>目前獲利</span>
-                    <strong>{isUp ? "+" : ""}{stats.pl.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</strong>
-                    <small>({isUp ? "+" : ""}{stats.plPct.toFixed(2)}%)</small>
-                  </div>
-                </div>
-
-                <div className="portfolio-detail-grid">
-                  <span>股數<b>{item.shares.toLocaleString("zh-TW")} 股</b></span>
-                  <span>買進成本價<b>{fmtNumber(item.buyPrice)}</b></span>
-                  <span>投入成本<b>{stats.totalCost.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</b></span>
-                  <span>目前市值<b>{stats.currentValue.toLocaleString("zh-TW", { maximumFractionDigits: 0 })}</b></span>
-                  <span>Alpha 分數<b>{stats.score}</b></span>
-                  <span>日漲跌<b>{stats.change}</b></span>
-                </div>
-
-                <div className={`portfolio-advice ${stats.advice.class}`} style={{ marginTop: "4px" }}>
-                  {stats.advice.text}
-                </div>
-              </motion.div>
+                data={cardData}
+                index={index}
+                isEditing={isEditing}
+                editPanel={editPanel}
+                onTitleClick={() => onNavigateToStock(item.id)}
+                onEdit={() => startEdit(item)}
+                onRemove={() => handleRemove(item.id)}
+              />
             );
           })}
         </div>

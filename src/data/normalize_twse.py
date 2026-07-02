@@ -152,6 +152,10 @@ def normalize_twse_indices(rows: Iterable[Dict[str, Any]]) -> pd.DataFrame:
                 "high": None,
                 "low": None,
             }
+            if row_dict["close"] is not None and row_dict["change"] is not None:
+                prev_close = row_dict["close"] - row_dict["change"]
+                if prev_close != 0:
+                    row_dict["change_pct"] = round((row_dict["change"] / prev_close) * 100, 2)
             out.append(row_dict)
             continue
         if isinstance(row, dict) and "收盤指數" in row:
@@ -162,10 +166,14 @@ def normalize_twse_indices(rows: Iterable[Dict[str, Any]]) -> pd.DataFrame:
                 "close": _parse_number(row.get("收盤指數")),
                 "change": _parse_number(row.get("漲跌點數")),
                 "change_pct": _parse_number(str(row.get("漲跌百分比", "")).replace("%", "")),
-                "open": None,
-                "high": None,
-                "low": None,
+                "open": _parse_number(row.get("開盤指數")),
+                "high": _parse_number(row.get("最高指數")),
+                "low": _parse_number(row.get("最低指數")),
             }
+            if row_dict["change_pct"] is None and row_dict["close"] is not None and row_dict["change"] is not None:
+                prev_close = row_dict["close"] - row_dict["change"]
+                if prev_close != 0:
+                    row_dict["change_pct"] = round((row_dict["change"] / prev_close) * 100, 2)
             out.append(row_dict)
             continue
         out.append(

@@ -245,3 +245,173 @@ def test_repair_existing_public_jsons_filters_codes_and_fills_fields(tmp_path, m
     assert recommendations["records"][0]["foreign_net_shares"] is None
     assert "trustee_net_shares" not in recommendations["records"][0]
     assert "dealer_net_shares" not in recommendations["records"][0]
+
+
+def test_stock_alpha_payload_is_slimmed_for_dashboard_loading():
+    records = [
+        {
+            "stock_code": f"{1000 + index}",
+            "stock_id": f"{1000 + index}",
+            "stock_name": f"股票{index}",
+            "stock_alpha_v4": 100 - index,
+        }
+        for index in range(5)
+    ]
+
+    payload = formal.make_stock_alpha_payload(records, "2026-06-10", "stock_alpha_breakdown.parquet", limit=3)
+
+    assert len(payload["records"]) == 3
+    assert payload["total_records"] == 5
+    assert payload["record_limit"] == 3
+    assert payload["records_truncated"] is True
+    assert payload["data_mode"] == "prepost_batch"
+    assert payload["detail_template"] == "/data/trends/{stock_id}.json"
+
+
+def test_data_manifest_marks_prepost_batch_and_file_sizes(tmp_path, monkeypatch):
+    public_data = tmp_path / "public" / "data"
+    public_data.mkdir(parents=True)
+    (public_data / "stock_alpha_v4_latest.json").write_text("{}", encoding="utf-8")
+    monkeypatch.setattr(formal, "PUBLIC_DATA", public_data)
+
+    manifest = formal.make_data_manifest(
+        {
+            "stock_alpha_v4_latest.json": {
+                "status": "ok",
+                "data_timestamp": "2026-06-10",
+                "records": 300,
+                "total_records": 1200,
+                "records_truncated": True,
+            }
+        }
+    )
+
+    assert manifest["data_mode"] == "prepost_batch"
+    assert manifest["refresh_policy"] == "盤前/盤後批次更新；前端讀取靜態 JSON，不做即時輪詢。"
+    assert manifest["files"]["stock_alpha_v4_latest.json"]["bytes"] == 2
+    assert manifest["files"]["stock_alpha_v4_latest.json"]["records_truncated"] is True
+
+
+def test_stock_lookup_payload_keeps_full_universe_basic_fields_only():
+    daily_price = pd.DataFrame(
+        [
+            {
+                "trade_date": "2026-06-09",
+                "market": "TWSE",
+                "stock_code": "2330",
+                "stock_name": "台積電",
+                "close": 100.0,
+                "change": 1.0,
+                "trade_value_twd": 1_000_000_000,
+            },
+            {
+                "trade_date": "2026-06-10",
+                "market": "TWSE",
+                "stock_code": "2330",
+                "stock_name": "台積電",
+                "close": 110.0,
+                "change": 5.0,
+                "trade_value_twd": 2_000_000_000,
+            },
+            {
+                "trade_date": "2026-06-10",
+                "market": "TPEX",
+                "stock_code": "3231",
+                "stock_name": "緯創",
+                "close": 88.0,
+                "change": -2.0,
+                "trade_value_twd": 500_000_000,
+            },
+            {
+                "trade_date": "2026-06-10",
+                "market": "TWSE",
+                "stock_code": "00878",
+                "stock_name": "國泰永續高股息",
+                "close": 24.5,
+                "change": 0.2,
+                "trade_value_twd": 1_500_000_000,
+            },
+            {
+                "trade_date": "2026-06-10",
+                "market": "TWSE",
+                "stock_code": "006208",
+                "stock_name": "富邦台50",
+                "close": 120.0,
+                "change": 1.0,
+                "trade_value_twd": 700_000_000,
+            },
+            {
+                "trade_date": "2026-06-09",
+                "market": "TPEX",
+                "stock_code": "1591",
+                "stock_name": "駿吉-KY",
+                "close": 34.6,
+                "change": -2.3,
+                "trade_value_twd": 50_000_000,
+            },
+        ]
+    )
+    sector_classification = pd.DataFrame(
+        [
+            {"stock_code": "2330", "industry": "半導體業"},
+            {"stock_code": "3231", "industry": "電腦及週邊設備業"},
+            {"stock_code": "00878", "industry": "其他"},
+            {"stock_code": "006208", "industry": "其他"},
+            {"stock_code": "1591", "industry": "電機機械"},
+        ]
+    )
+
+    payload = formal.make_stock_lookup_payload(daily_price, sector_classification)
+
+    assert payload["status"] == "ok"
+    assert payload["data_mode"] == "prepost_batch"
+    assert payload["total_records"] == 5
+    records = {record["stock_code"]: record for record in payload["records"]}
+    assert records["2330"] == {
+        "stock_code": "2330",
+        "stock_id": "2330",
+        "stock_name": "台積電",
+        "market": "TWSE",
+        "sector_name": "半導體",
+        "industry": "半導體",
+        "close": 110.0,
+        "change": 5.0,
+        "change_pct": 4.76,
+        "trade_value_yi": 20.0,
+        "price_date": "2026-06-10",
+    }
+    assert records["3231"]["sector_name"] == "電腦週邊"
+    assert records["1591"]["stock_name"] == "駿吉-KY"
+    assert records["1591"]["price_date"] == "2026-06-09"
+    assert records["00878"]["sector_name"] == "ETF"
+    assert records["006208"]["industry"] == "ETF"
+    assert "alpha_score" not in records["2330"]
+
+
+def test_stock_lookup_payload_uses_supplemental_industry_sources():
+    daily_price = pd.DataFrame(
+        [
+            {
+                "trade_date": "2026-06-12",
+                "market": "TWSE",
+                "stock_code": "3231",
+                "stock_name": "緯創",
+                "close": 156.0,
+                "change": 3.5,
+                "trade_value_twd": 5_948_000_000,
+            }
+        ]
+    )
+    supplemental = pd.DataFrame(
+        [
+            {
+                "trade_date": "2026-06-12",
+                "stock_code": "3231",
+                "industry": "電腦及週邊設備業",
+            }
+        ]
+    )
+
+    payload = formal.make_stock_lookup_payload(daily_price, pd.DataFrame(), supplemental)
+
+    assert payload["records"][0]["sector_name"] == "電腦週邊"

@@ -1,0 +1,282 @@
+{
+  "status": "ok",
+  "version": "etf-holdings-v1",
+  "data_mode": "prepost_batch",
+  "data_timestamp": "2026-06-12",
+  "as_of_date": "2026-06-12",
+  "generated_at": "2026-07-02T07:46:54+08:00",
+  "source": [
+    "etf_holdings.parquet"
+  ],
+  "scope": "etf_constituents_and_weights_by_etf",
+  "total_etfs": 5,
+  "total_records": 25,
+  "records": [
+    {
+      "etf_code": "00405A",
+      "etf_id": "00405A",
+      "etf_name": "主動富邦台灣龍耀",
+      "as_of_date": "2026-06-12",
+      "holdings_count": 5,
+      "weight_coverage_pct": 25.48,
+      "source": [
+        "etf_constituents_mock.csv"
+      ],
+      "constituents": [
+        {
+          "stock_code": "6223",
+          "stock_id": "6223",
+          "stock_name": "旺矽",
+          "weight_pct": 6.55,
+          "shares": 1000000.0,
+          "market_value_yi": 6.55
+        },
+        {
+          "stock_code": "2454",
+          "stock_id": "2454",
+          "stock_name": "聯發科",
+          "weight_pct": 5.47,
+          "shares": 400000.0,
+          "market_value_yi": 5.47
+        },
+        {
+          "stock_code": "2345",
+          "stock_id": "2345",
+          "stock_name": "智邦",
+          "weight_pct": 4.75,
+          "shares": 800000.0,
+          "market_value_yi": 4.75
+        },
+        {
+          "stock_code": "8210",
+          "stock_id": "8210",
+          "stock_name": "勤誠",
+          "weight_pct": 4.63,
+          "shares": 1500000.0,
+          "market_value_yi": 4.63
+        },
+        {
+          "stock_code": "3017",
+          "stock_id": "3017",
+          "stock_name": "奇鋐",
+          "weight_pct": 4.08,
+          "shares": 100000.0,
+          "market_value_yi": 0.41
+        }
+      ]
+    },
+    {
+      "etf_code": "00878",
+      "etf_id": "00878",
+      "etf_name": "國泰永續高股息",
+      "as_of_date": "2026-06-12",
+      "holdings_count": 5,
+      "weight_coverage_pct": 31.02,
+      "source": [
+        "etf_constituents_mock.csv"
+      ],
+      "constituents": [
+        {
+          "stock_code": "2891",
+          "stock_id": "2891",
+          "stock_name": "中信金",
+          "weight_pct": 8.87,
+          "shares": 11000000.0,
+          "market_value_yi": 3.85
+        },
+        {
+          "stock_code": "2382",
+          "stock_id": "2382",
+          "stock_name": "廣達",
+          "weight_pct": 7.6,
+          "shares": 3200000.0,
+          "market_value_yi": 9.6
+        },
+        {
+          "stock_code": "2303",
+          "stock_id": "2303",
+          "stock_name": "聯電",
+          "weight_pct": 5.49,
+          "shares": 9500000.0,
+          "market_value_yi": 5.22
+        },
+        {
+          "stock_code": "2882",
+          "stock_id": "2882",
+          "stock_name": "國泰金",
+          "weight_pct": 4.82,
+          "shares": 7800000.0,
+          "market_value_yi": 4.68
+        },
+        {
+          "stock_code": "2357",
+          "stock_id": "2357",
+          "stock_name": "華碩",
+          "weight_pct": 4.24,
+          "shares": 850000.0,
+          "market_value_yi": 3.83
+        }
+      ]
+    },
+    {
+      "etf_code": "009816",
+      "etf_id": "009816",
+      "etf_name": "凱基台灣TOP50",
+      "as_of_date": "2026-06-12",
+      "holdings_count": 5,
+      "weight_coverage_pct": 61.54,
+      "source": [
+        "etf_constituents_mock.csv"
+      ],
+      "constituents": [
+        {
+          "stock_code": "2330",
+          "stock_id": "2330",
+          "stock_name": "台積電",
+          "weight_pct": 40.25,
+          "shares": 8500000.0,
+          "market_value_yi": 85.0
+        },
+        {
+          "stock_code": "2454",
+          "stock_id": "2454",
+          "stock_name": "聯發科",
+          "weight_pct": 9.05,
+          "shares": 1500000.0,
+          "market_value_yi": 21.0
+        },
+        {
+          "stock_code": "2308",
+          "stock_id": "2308",
+          "stock_name": "台達電",
+          "weight_pct": 7.17,
+          "shares": 1800000.0,
+          "market_value_yi": 6.0
+        },
+        {
+          "stock_code": "2317",
+          "stock_id": "2317",
+          "stock_name": "鴻海",
+          "weight_pct": 2.76,
+          "shares": 8200000.0,
+          "market_value_yi": 18.0
+        },
+        {
+          "stock_code": "3711",
+          "stock_id": "3711",
+          "stock_name": "日月光投控",
+          "weight_pct": 2.31,
+          "shares": 4800000.0,
+          "market_value_yi": 6.8
+        }
+      ]
+    },
+    {
+      "etf_code": "00981A",
+      "etf_id": "00981A",
+      "etf_name": "主動統一台股增長",
+      "as_of_date": "2026-06-12",
+      "holdings_count": 5,
+      "weight_coverage_pct": 42.75,
+      "source": [
+        "etf_constituents_mock.csv"
+      ],
+      "constituents": [
+        {
+          "stock_code": "2330",
+          "stock_id": "2330",
+          "stock_name": "台積電",
+          "weight_pct": 12.8,
+          "shares": 1800000.0,
+          "market_value_yi": 18.0
+        },
+        {
+          "stock_code": "2454",
+          "stock_id": "2454",
+          "stock_name": "聯發科",
+          "weight_pct": 8.5,
+          "shares": 550000.0,
+          "market_value_yi": 7.8
+        },
+        {
+          "stock_code": "2383",
+          "stock_id": "2383",
+          "stock_name": "台光電",
+          "weight_pct": 8.45,
+          "shares": 2000000.0,
+          "market_value_yi": 8.45
+        },
+        {
+          "stock_code": "2317",
+          "stock_id": "2317",
+          "stock_name": "鴻海",
+          "weight_pct": 7.2,
+          "shares": 4000000.0,
+          "market_value_yi": 9.0
+        },
+        {
+          "stock_code": "2382",
+          "stock_id": "2382",
+          "stock_name": "廣達",
+          "weight_pct": 5.8,
+          "shares": 1400000.0,
+          "market_value_yi": 5.0
+        }
+      ]
+    },
+    {
+      "etf_code": "00987A",
+      "etf_id": "00987A",
+      "etf_name": "主動台新優勢成長",
+      "as_of_date": "2026-06-12",
+      "holdings_count": 5,
+      "weight_coverage_pct": 33.53,
+      "source": [
+        "etf_constituents_mock.csv"
+      ],
+      "constituents": [
+        {
+          "stock_code": "2330",
+          "stock_id": "2330",
+          "stock_name": "台積電",
+          "weight_pct": 9.5,
+          "shares": 1000000.0,
+          "market_value_yi": 10.0
+        },
+        {
+          "stock_code": "3017",
+          "stock_id": "3017",
+          "stock_name": "奇鋐",
+          "weight_pct": 6.86,
+          "shares": 160000.0,
+          "market_value_yi": 0.96
+        },
+        {
+          "stock_code": "7769",
+          "stock_id": "7769",
+          "stock_name": "鴻勁",
+          "weight_pct": 6.2,
+          "shares": 100000.0,
+          "market_value_yi": 0.6
+        },
+        {
+          "stock_code": "8299",
+          "stock_id": "8299",
+          "stock_name": "群聯",
+          "weight_pct": 5.8,
+          "shares": 120000.0,
+          "market_value_yi": 0.68
+        },
+        {
+          "stock_code": "6223",
+          "stock_id": "6223",
+          "stock_name": "旺矽",
+          "weight_pct": 5.17,
+          "shares": 150000.0,
+          "market_value_yi": 0.75
+        }
+      ]
+    }
+  ],
+  "message": null
+}

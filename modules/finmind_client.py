@@ -157,7 +157,7 @@ class FinMindClient:
                 last_error = exc
                 LOGGER.warning("FinMind %s attempt %s/%s failed: %s", dataset, attempt, self.retry, type(exc).__name__)
                 if attempt < self.retry:
-                    time.sleep(self.sleep_seconds * attempt)
+                    time.sleep(self.sleep_seconds * (2 ** (attempt - 1)))
 
         message = f"{dataset} unavailable: {type(last_error).__name__ if last_error else 'unknown'}"
         if allow_unavailable or spec.is_premium_optional:

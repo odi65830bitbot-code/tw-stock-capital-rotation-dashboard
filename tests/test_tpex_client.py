@@ -63,7 +63,7 @@ def test_tpex_fetch_fallback_on_json_non_json(tmp_path):
     assert result.source == "tpex"
     assert result.trade_date == date(2026, 6, 6)
     assert result.records[0]["Date"] == "1150606"
-    assert session.calls[0][0].endswith("tpex_3insti_trading")
+    assert "3itrade_hedge_result.php" in session.calls[0][0]
 
 
 def test_tpex_daily_price_endpoint_is_mainboard(tmp_path):

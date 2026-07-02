@@ -261,7 +261,7 @@ def build_dataset(target_date: date, *, raw_root: Path, processed_root: Path, qu
                 
             if industry:
                 synthesized_sectors.append({
-                    "trade_date": row.get("trade_date"),
+                    "as_of_date": row.get("trade_date"),
                     "market": row.get("market"),
                     "industry": industry,
                     "stock_code": code,
@@ -275,6 +275,31 @@ def build_dataset(target_date: date, *, raw_root: Path, processed_root: Path, qu
             else:
                 sector_df = pd.concat([sector_df, syn_df], ignore_index=True)
     # ---------------------------------------------------------------------
+
+    # 防禦性讀取歷史產業分類 Parquet 進行合併，防止失敗抓取覆蓋歷史分類
+    historical_sector_path = processed_root / "sector_classification.parquet"
+    if historical_sector_path.exists():
+        try:
+            historical_sector_df = pd.read_parquet(historical_sector_path)
+            if not historical_sector_df.empty:
+                # 確保 as_of_date 格式為 datetime，便於後續 sort
+                historical_sector_df["as_of_date"] = pd.to_datetime(historical_sector_df["as_of_date"], errors="coerce")
+        except Exception as exc:
+            LOGGER.error("讀取歷史產業分類 Parquet 失敗: %s", exc)
+            historical_sector_df = pd.DataFrame()
+    else:
+        historical_sector_df = pd.DataFrame()
+
+    if not sector_df.empty:
+        if not historical_sector_df.empty:
+            # 確保新分類的 as_of_date 也是 datetime 格式
+            sector_df["as_of_date"] = pd.to_datetime(sector_df["as_of_date"], errors="coerce")
+            # 合併，並以 stock_code 去重，保留最新的一筆（以 as_of_date 遞增排序後 keep last）
+            merged_sector_df = pd.concat([historical_sector_df, sector_df], ignore_index=True)
+            merged_sector_df = merged_sector_df.sort_values("as_of_date", na_position="first").drop_duplicates(subset=["stock_code"], keep="last")
+            sector_df = merged_sector_df
+    else:
+        sector_df = historical_sector_df
 
     # sector mapping
     sector_map = _infer_sector_map(

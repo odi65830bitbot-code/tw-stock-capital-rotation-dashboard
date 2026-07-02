@@ -20,9 +20,11 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 120
     env:
       TREND_TOP_N: "100"
+      PUBLIC_STOCK_ALPHA_LIMIT: "300"
+      SECTOR_CONSTITUENT_PER_GROUP_LIMIT: "40"
       PYTHONUNBUFFERED: "1"
     steps:
       - name: Checkout
@@ -38,8 +40,16 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pandas pyarrow requests streamlit plotly urllib3
 
+      - name: Restore processed data cache
+        uses: actions/cache@v4
+        with:
+          path: data/processed
+          key: processed-data-${{ github.run_id }}
+          restore-keys: |
+            processed-data-
+
       - name: Run official daily update
-        timeout-minutes: 90
+        timeout-minutes: 45
         run: |
           if [ -n "${{ github.event.inputs.date }}" ]; then
             python scripts/update_daily.py --date "${{ github.event.inputs.date }}"
@@ -48,13 +58,13 @@ jobs:
           fi
 
       - name: Fetch reference and global context
-        timeout-minutes: 30
+        timeout-minutes: 20
         run: |
           python scripts/fetch_global_news.py
           python scripts/fetch_sectorrotation_reference.py
 
       - name: Run supplemental FinMind update
-        timeout-minutes: 180
+        timeout-minutes: 45
         env:
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
         run: |
@@ -65,7 +75,7 @@ jobs:
           fi
 
       - name: Build formal dashboard JSON
-        timeout-minutes: 60
+        timeout-minutes: 30
         run: |
           python scripts/fetch_financial_statements.py
           python scripts/fetch_sentiment_and_macro.py
@@ -77,7 +87,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin main
-          git add data/processed public/data data_quality_report.json data_quality_report_finmind.json reports
+          git add public/data data_quality_report.json data_quality_report_finmind.json reports
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else

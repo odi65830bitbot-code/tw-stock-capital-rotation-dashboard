@@ -1,6 +1,6 @@
 # macOS 本機每日更新設定
 
-目標：每天台灣時間 20:30 執行官方資料優先更新。
+目標：每天台灣時間 06:00 與 15:30 執行官方資料優先更新。
 
 ## 手動測試一次
 
@@ -13,8 +13,8 @@ python3 scripts/run_update_once.py
 
 未指定日期時，腳本會依台北時間自動選擇「最新已收盤交易日」：
 
-- 週一到週五 `20:30` 前：抓前一個工作日。
-- 週一到週五 `20:30` 後：抓當天。
+- 每天 `06:00`：補抓前一個完整交易日。
+- 每天 `15:30`：盤後更新；官方資料已可用時抓當天，尚未可用時保留前一個完整交易日。
 - 週末：抓前一個週五。
 
 若要指定日期：
@@ -36,14 +36,17 @@ python3 scripts/run_update_once.py --date 20260605
 執行時間：
 
 ```text
-週一到週五 20:30
+每天 06:00
+每天 15:30
 ```
 
 執行腳本：
 
 ```bash
-/Users/maxyu/Documents/台股資金網站/scripts/run_daily_update.sh
+/Users/maxyu/tw-stock-capital-rotation-dashboard/scripts/run_daily_update.sh
 ```
+
+`/Users/maxyu/tw-stock-capital-rotation-dashboard` 是指向專案資料夾的英文路徑捷徑，用來避免 macOS `launchd` 在中文路徑上出現轉碼失敗。
 
 輸出 log：
 
@@ -94,7 +97,7 @@ scripts/check_daily_update_status.sh
 ## 注意
 
 - Streamlit 不負責排程，只讀取 `data/processed` 與 `public/data`。
-- 如果本機 `crontab` 沒設定，上面的每日自動更新不會自己發生。
+- 本機使用 `launchd` 排程，不依賴 `crontab`。
 - TWSE / TPEX 官方資料失敗會寫入 `logs/update_YYYYMMDD.log`。
 - `data_quality_report.json` 會檢查 TWSE / TPEX 最新交易日是否一致；不一致時不能視為完整更新。
 - MoneyDJ 只作補充資料，不會替代官方資料。
