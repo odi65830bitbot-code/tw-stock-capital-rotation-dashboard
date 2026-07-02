@@ -339,23 +339,9 @@
     "public_data_root": "/Users/maxyu/Documents/台股資金網站/public/data",
     "trend_scope": "recommendation_top_10_only"
   },
-  "futures_after_hours": {
-    "status": "ok",
-    "generated_at": "2026-07-02T08:27:54",
-    "dataset": "TaiwanFuturesDaily",
-    "futures_id": "TX",
-    "trading_session": "after_market",
-    "row_count": 466,
-    "latest_date": "2026-07-02",
-    "institutional_status": "permission_or_plan_required",
-    "warnings": [
-      "institutional after-hours unavailable: RuntimeError: FinMind request failed after retries: HTTP 400: Your level is register. Please update your user level. Detail information:https://finmindtrade.com/analysis/#/Sponsor/sponsor"
-    ],
-    "errors": []
-  },
   "formal_dashboard_json": {
     "status": "ok",
-    "generated_at": "2026-07-02T07:46:55+08:00",
+    "generated_at": "2026-07-02T08:37:31+08:00",
     "files": {
       "sector_rotation_latest.json": {
         "status": "ok",
@@ -392,8 +378,8 @@
       "sector_flow_history.json": {
         "status": "ok",
         "data_timestamp": "2026-07-01",
-        "records": 481,
-        "total_records": 481,
+        "records": 715,
+        "total_records": 715,
         "record_limit": null,
         "records_truncated": null
       },
@@ -449,8 +435,8 @@
       "recommendations_v6_latest.json": {
         "status": "ok",
         "data_timestamp": "2026-07-01",
-        "records": 39,
-        "total_records": 39,
+        "records": 43,
+        "total_records": 43,
         "record_limit": null,
         "records_truncated": null
       },
@@ -488,13 +474,13 @@
       },
       "futures_after_hours_latest.json": {
         "status": "ok",
-        "data_timestamp": "2026-07-02T07:46:43",
+        "data_timestamp": "2026-07-02T08:27:54",
         "records": 30,
         "total_records": 30
       },
       "data_manifest.json": {
         "status": "ok",
-        "data_timestamp": "2026-07-02T07:46:55+08:00",
+        "data_timestamp": "2026-07-02T08:37:31+08:00",
         "records": 17,
         "total_records": 17
       }

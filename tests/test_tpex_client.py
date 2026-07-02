@@ -66,7 +66,7 @@ def test_tpex_fetch_fallback_on_json_non_json(tmp_path):
     assert "3itrade_hedge_result.php" in session.calls[0][0]
 
 
-def test_tpex_daily_price_endpoint_is_mainboard(tmp_path):
+def test_tpex_daily_price_endpoint_supports_historical_date(tmp_path):
     target = date(2026, 6, 6)
     payload = [{"Date": "1150606", "SecuritiesCompanyCode": "006201", "CompanyName": "元大富櫃50", "Close": "48.12"}]
     session = _FakeSession([
@@ -79,4 +79,41 @@ def test_tpex_daily_price_endpoint_is_mainboard(tmp_path):
     client = TPEXClient(raw_root=tmp_path / "raw", session=session)
     client.fetch_daily_price(target)
     called_url = session.calls[0][0]
-    assert "tpex_mainboard_daily_close_quotes" in called_url
+    assert "afterTrading/dailyQuotes" in called_url
+    assert "date=115/06/06" in called_url
+
+
+def test_tpex_daily_price_uses_historical_query_date_and_parses_tables(tmp_path):
+    target = date(2026, 6, 23)
+    payload = {
+        "date": "20260623",
+        "tables": [
+            {
+                "date": "115/06/23",
+                "fields": ["代號", "名稱", "收盤 ", "漲跌", "開盤 ", "最高 ", "最低", "成交股數  ", " 成交金額(元)", " 成交筆數 "],
+                "data": [
+                    ["00679B", "元大美債20年", "26.86", "-0.11", "26.87", "26.87", "26.83", "22,222,000", "596,625,830", "2,410"],
+                ],
+            }
+        ],
+    }
+    session = _FakeSession(
+        [
+            _FakeResponse(
+                text=json.dumps(payload),
+                headers={"Content-Type": "application/json"},
+                payload=payload,
+            )
+        ]
+    )
+    client = TPEXClient(raw_root=tmp_path / "raw", session=session)
+
+    result = client.fetch_daily_price(target)
+
+    called_url = session.calls[0][0]
+    assert "afterTrading/dailyQuotes" in called_url
+    assert "date=115/06/23" in called_url
+    assert result.trade_date == target
+    assert result.records[0]["Date"] == "115/06/23"
+    assert result.records[0]["SecuritiesCompanyCode"] == "00679B"
+    assert result.records[0]["TradingShares"] == "22,222,000"

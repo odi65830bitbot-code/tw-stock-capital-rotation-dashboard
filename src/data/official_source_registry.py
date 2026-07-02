@@ -103,15 +103,15 @@ TWSE_INDEX = SourceConfig(
 TPEX_DAILY_PRICE = SourceConfig(
     name="tpex_daily_price",
     market="tpex",
-    json_url="https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes",
-    csv_url="https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes",
+    json_url="https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date={date}&type=EW&response=json",
+    csv_url="https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date={date}&type=EW&response=csv",
     date_key="Date",
     code_field="SecuritiesCompanyCode",
     name_field="CompanyName",
     date_suffix="tpex",
     csv_format_note="accept text/csv",
-    supports_query_date=False,
-    query_date_format="none",
+    supports_query_date=True,
+    query_date_format="roc_slash",
 )
 
 

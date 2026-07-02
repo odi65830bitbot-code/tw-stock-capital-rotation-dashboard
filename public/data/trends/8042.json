@@ -1,0 +1,525 @@
+{
+  "stock_id": "8042",
+  "stock_name": "金山電",
+  "market": "TPEX",
+  "industry": "電子零組件業",
+  "generated_at": "2026-07-02T08:37:14",
+  "price": [
+    {
+      "trade_date": "2026-06-05",
+      "close": 145.5,
+      "ma5": 145.5,
+      "ma20": 145.5,
+      "ma60": 145.5
+    },
+    {
+      "trade_date": "2026-06-08",
+      "close": 132.0,
+      "ma5": 138.75,
+      "ma20": 138.75,
+      "ma60": 138.75
+    },
+    {
+      "trade_date": "2026-06-09",
+      "close": 143.5,
+      "ma5": 140.33333333333334,
+      "ma20": 140.33333333333334,
+      "ma60": 140.33333333333334
+    },
+    {
+      "trade_date": "2026-06-10",
+      "close": 141.0,
+      "ma5": 140.5,
+      "ma20": 140.5,
+      "ma60": 140.5
+    },
+    {
+      "trade_date": "2026-06-11",
+      "close": 155.0,
+      "ma5": 143.4,
+      "ma20": 143.4,
+      "ma60": 143.4
+    },
+    {
+      "trade_date": "2026-06-12",
+      "close": 170.5,
+      "ma5": 148.4,
+      "ma20": 147.91666666666666,
+      "ma60": 147.91666666666666
+    },
+    {
+      "trade_date": "2026-06-15",
+      "close": 187.5,
+      "ma5": 159.5,
+      "ma20": 153.57142857142858,
+      "ma60": 153.57142857142858
+    },
+    {
+      "trade_date": "2026-06-17",
+      "close": 195.5,
+      "ma5": 169.9,
+      "ma20": 158.8125,
+      "ma60": 158.8125
+    },
+    {
+      "trade_date": "2026-06-18",
+      "close": 195.0,
+      "ma5": 180.7,
+      "ma20": 162.83333333333334,
+      "ma60": 162.83333333333334
+    },
+    {
+      "trade_date": "2026-06-22",
+      "close": 190.5,
+      "ma5": 187.8,
+      "ma20": 165.6,
+      "ma60": 165.6
+    },
+    {
+      "trade_date": "2026-06-23",
+      "close": 177.5,
+      "ma5": 189.2,
+      "ma20": 166.6818181818182,
+      "ma60": 166.6818181818182
+    },
+    {
+      "trade_date": "2026-06-24",
+      "close": 192.0,
+      "ma5": 190.1,
+      "ma20": 168.79166666666666,
+      "ma60": 168.79166666666666
+    },
+    {
+      "trade_date": "2026-06-25",
+      "close": 200.5,
+      "ma5": 191.1,
+      "ma20": 171.23076923076923,
+      "ma60": 171.23076923076923
+    },
+    {
+      "trade_date": "2026-06-26",
+      "close": 180.5,
+      "ma5": 188.2,
+      "ma20": 171.89285714285714,
+      "ma60": 171.89285714285714
+    },
+    {
+      "trade_date": "2026-06-29",
+      "close": 169.0,
+      "ma5": 183.9,
+      "ma20": 171.7,
+      "ma60": 171.7
+    },
+    {
+      "trade_date": "2026-06-30",
+      "close": 185.5,
+      "ma5": 185.5,
+      "ma20": 172.5625,
+      "ma60": 172.5625
+    },
+    {
+      "trade_date": "2026-07-01",
+      "close": 202.0,
+      "ma5": 187.5,
+      "ma20": 174.2941176470588,
+      "ma60": 174.2941176470588
+    }
+  ],
+  "trade_value": [
+    {
+      "trade_date": "2026-06-05",
+      "trade_value_twd": 203832621.0,
+      "trade_value_ma20": 203832621.0,
+      "trade_value_multiple": 1.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "trade_value_twd": 170990226.0,
+      "trade_value_ma20": 187411423.5,
+      "trade_value_multiple": 0.9123788870852901
+    },
+    {
+      "trade_date": "2026-06-09",
+      "trade_value_twd": 163659831.0,
+      "trade_value_ma20": 179494226.0,
+      "trade_value_multiple": 0.9117832625992103
+    },
+    {
+      "trade_date": "2026-06-10",
+      "trade_value_twd": 250979366.0,
+      "trade_value_ma20": 197365511.0,
+      "trade_value_multiple": 1.2716475372437284
+    },
+    {
+      "trade_date": "2026-06-11",
+      "trade_value_twd": 2516795472.0,
+      "trade_value_ma20": 661251503.2,
+      "trade_value_multiple": 3.8061092637528233
+    },
+    {
+      "trade_date": "2026-06-12",
+      "trade_value_twd": 360574797.0,
+      "trade_value_ma20": 611138718.8333334,
+      "trade_value_multiple": 0.590004831780809
+    },
+    {
+      "trade_date": "2026-06-15",
+      "trade_value_twd": 107598472.0,
+      "trade_value_ma20": 539204397.8571428,
+      "trade_value_multiple": 0.19955043472866335
+    },
+    {
+      "trade_date": "2026-06-17",
+      "trade_value_twd": 3797552589.0,
+      "trade_value_ma20": 946497921.75,
+      "trade_value_multiple": 4.012214397659347
+    },
+    {
+      "trade_date": "2026-06-18",
+      "trade_value_twd": 367153784.0,
+      "trade_value_ma20": 882126350.8888888,
+      "trade_value_multiple": 0.41621450672007654
+    },
+    {
+      "trade_date": "2026-06-22",
+      "trade_value_twd": 260404221.0,
+      "trade_value_ma20": 819954137.9,
+      "trade_value_multiple": 0.3175838854437959
+    },
+    {
+      "trade_date": "2026-06-23",
+      "trade_value_twd": 266381287.0,
+      "trade_value_ma20": 769629333.2727273,
+      "trade_value_multiple": 0.3461163387149703
+    },
+    {
+      "trade_date": "2026-06-24",
+      "trade_value_twd": 153665114.0,
+      "trade_value_ma20": 718298981.6666666,
+      "trade_value_multiple": 0.21392918258557372
+    },
+    {
+      "trade_date": "2026-06-25",
+      "trade_value_twd": 244030006.0,
+      "trade_value_ma20": 681816752.7692307,
+      "trade_value_multiple": 0.35791142562698947
+    },
+    {
+      "trade_date": "2026-06-26",
+      "trade_value_twd": 208362220.0,
+      "trade_value_ma20": 647998571.8571428,
+      "trade_value_multiple": 0.3215473444684309
+    },
+    {
+      "trade_date": "2026-06-29",
+      "trade_value_twd": 149154414.0,
+      "trade_value_ma20": 614742294.6666666,
+      "trade_value_multiple": 0.24262917208401352
+    },
+    {
+      "trade_date": "2026-06-30",
+      "trade_value_twd": 58806236.0,
+      "trade_value_ma20": 579996291.0,
+      "trade_value_multiple": 0.10139071044507765
+    },
+    {
+      "trade_date": "2026-07-01",
+      "trade_value_twd": 359719249.0,
+      "trade_value_ma20": 567038817.9411764,
+      "trade_value_multiple": 0.6343820521954401
+    }
+  ],
+  "institutional_flow": [
+    {
+      "trade_date": "2026-06-12",
+      "foreign_net_shares": -97450.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -106761.0,
+      "foreign_5d": -97450.0,
+      "foreign_20d": -97450.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -106761.0,
+      "dealer_20d": -106761.0
+    },
+    {
+      "trade_date": "2026-06-15",
+      "foreign_net_shares": -18000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 21035.0,
+      "foreign_5d": -115450.0,
+      "foreign_20d": -115450.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -85726.0,
+      "dealer_20d": -85726.0
+    },
+    {
+      "trade_date": "2026-06-17",
+      "foreign_net_shares": -482504.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -8772.0,
+      "foreign_5d": -597954.0,
+      "foreign_20d": -597954.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -94498.0,
+      "dealer_20d": -94498.0
+    },
+    {
+      "trade_date": "2026-06-18",
+      "foreign_net_shares": 18510.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": 45180.0,
+      "foreign_5d": -579444.0,
+      "foreign_20d": -579444.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -49318.0,
+      "dealer_20d": -49318.0
+    },
+    {
+      "trade_date": "2026-06-22",
+      "foreign_net_shares": 249000.0,
+      "trustee_net_shares": 0.0,
+      "dealer_net_shares": -22291.0,
+      "foreign_5d": -330444.0,
+      "foreign_20d": -330444.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -71609.0,
+      "dealer_20d": -71609.0
+    },
+    {
+      "trade_date": "2026-06-23",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": -232994.0,
+      "foreign_20d": -330444.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": 35152.0,
+      "dealer_20d": -71609.0
+    },
+    {
+      "trade_date": "2026-06-24",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": -214994.0,
+      "foreign_20d": -330444.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": 14117.0,
+      "dealer_20d": -71609.0
+    },
+    {
+      "trade_date": "2026-06-25",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": 267510.0,
+      "foreign_20d": -330444.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": 22889.0,
+      "dealer_20d": -71609.0
+    },
+    {
+      "trade_date": "2026-06-26",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": 249000.0,
+      "foreign_20d": -330444.0,
+      "trust_5d": 0.0,
+      "trust_20d": 0.0,
+      "dealer_5d": -22291.0,
+      "dealer_20d": -71609.0
+    },
+    {
+      "trade_date": "2026-06-29",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": null,
+      "foreign_20d": -330444.0,
+      "trust_5d": null,
+      "trust_20d": 0.0,
+      "dealer_5d": null,
+      "dealer_20d": -71609.0
+    },
+    {
+      "trade_date": "2026-06-30",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": null,
+      "foreign_20d": -330444.0,
+      "trust_5d": null,
+      "trust_20d": 0.0,
+      "dealer_5d": null,
+      "dealer_20d": -71609.0
+    },
+    {
+      "trade_date": "2026-07-01",
+      "foreign_net_shares": null,
+      "trustee_net_shares": null,
+      "dealer_net_shares": null,
+      "foreign_5d": null,
+      "foreign_20d": -330444.0,
+      "trust_5d": null,
+      "trust_20d": 0.0,
+      "dealer_5d": null,
+      "dealer_20d": -71609.0
+    }
+  ],
+  "alpha": [
+    {
+      "trade_date": "2026-06-05",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 42.977555029857136,
+      "sector_alpha_score": 10.510363385128189,
+      "main_buy_component": 50.0,
+      "risk_penalty": 10.0
+    },
+    {
+      "trade_date": "2026-06-08",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 42.03100853330032,
+      "sector_alpha_score": 14.242998195320217,
+      "main_buy_component": 50.0,
+      "risk_penalty": 10.0
+    },
+    {
+      "trade_date": "2026-06-09",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 42.88260472167109,
+      "sector_alpha_score": 12.863636452588095,
+      "main_buy_component": 50.0,
+      "risk_penalty": 10.0
+    },
+    {
+      "trade_date": "2026-06-10",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 43.69244222365332,
+      "sector_alpha_score": 14.674076840688224,
+      "main_buy_component": 50.0,
+      "risk_penalty": 10.0
+    },
+    {
+      "trade_date": "2026-06-11",
+      "stock_alpha_score": 0.0,
+      "alpha_score_total": 18.05295215664465,
+      "sector_alpha_score": 15.617257317971143,
+      "main_buy_component": 50.0,
+      "risk_penalty": 40.0
+    },
+    {
+      "trade_date": "2026-06-12",
+      "stock_alpha_score": 965.6238459359687,
+      "alpha_score_total": 11.691469257868263,
+      "sector_alpha_score": 1227.0191807171996,
+      "main_buy_component": 32.41194828354882,
+      "risk_penalty": 30.0
+    },
+    {
+      "trade_date": "2026-06-15",
+      "stock_alpha_score": 52.88755600243266,
+      "alpha_score_total": 12.254010781998048,
+      "sector_alpha_score": 1588.8595540053316,
+      "main_buy_component": 3.2815964523281593,
+      "risk_penalty": 30.0
+    },
+    {
+      "trade_date": "2026-06-17",
+      "stock_alpha_score": 248.69432895570108,
+      "alpha_score_total": 39.40407439989807,
+      "sector_alpha_score": 1171.6052254909187,
+      "main_buy_component": 12.132024977698483,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-18",
+      "stock_alpha_score": 338.3448461245464,
+      "alpha_score_total": 43.15088056729847,
+      "sector_alpha_score": 1245.0432463728955,
+      "main_buy_component": 16.98532681191641,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-22",
+      "stock_alpha_score": 1686.6171092217912,
+      "alpha_score_total": 55.514567334719715,
+      "sector_alpha_score": 1379.0771118217529,
+      "main_buy_component": 57.484499557130206,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-23",
+      "stock_alpha_score": 1228.903740373666,
+      "alpha_score_total": 50.852123834762935,
+      "sector_alpha_score": 1576.1792063215053,
+      "main_buy_component": 45.88859416445623,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-24",
+      "stock_alpha_score": 2683.8993603656836,
+      "alpha_score_total": 57.85293791949569,
+      "sector_alpha_score": 1200.0191602044326,
+      "main_buy_component": 76.07142857142857,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-25",
+      "stock_alpha_score": 2675.7992570783117,
+      "alpha_score_total": 58.17952739534927,
+      "sector_alpha_score": 1346.2247889098046,
+      "main_buy_component": 73.14159292035399,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-26",
+      "stock_alpha_score": 1048.4348610083464,
+      "alpha_score_total": 14.274491782923526,
+      "sector_alpha_score": 1342.4166947019178,
+      "main_buy_component": 34.73637571998228,
+      "risk_penalty": 30.0
+    },
+    {
+      "trade_date": "2026-06-29",
+      "stock_alpha_score": 3014.5941903671333,
+      "alpha_score_total": 55.49823654862533,
+      "sector_alpha_score": 1441.526107192528,
+      "main_buy_component": 80.37217545414266,
+      "risk_penalty": 0.0
+    },
+    {
+      "trade_date": "2026-06-30",
+      "stock_alpha_score": 446.6773965267819,
+      "alpha_score_total": 14.538350510878011,
+      "sector_alpha_score": 1509.4148906385064,
+      "main_buy_component": 17.0439414114514,
+      "risk_penalty": 30.0
+    },
+    {
+      "trade_date": "2026-07-01",
+      "stock_alpha_score": 1467.0592281763775,
+      "alpha_score_total": 51.43893824306528,
+      "sector_alpha_score": 1194.220905188763,
+      "main_buy_component": 51.57149181053563,
+      "risk_penalty": 0.0
+    }
+  ],
+  "recommendation": {
+    "first_recommend_date": "2026-06-24",
+    "recommend_close": 192.0,
+    "current_price": 202.0,
+    "post_recommend_return": 0.05208333333333326,
+    "post_recommend_max_drawdown": -0.15710723192019937,
+    "post_recommend_max_gain": 0.05208333333333326,
+    "still_recommended": true
+  }
+}

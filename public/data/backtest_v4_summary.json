@@ -3,7 +3,7 @@
   "version": "backtest-v4-summary-formal-v1",
   "data_timestamp": "2026-07-01",
   "as_of_date": "2026-07-01",
-  "generated_at": "2026-07-02T07:46:55+08:00",
+  "generated_at": "2026-07-02T08:37:31+08:00",
   "source": [
     "backtest_alpha_v4.parquet",
     "backtest_alpha_v3.parquet",
@@ -20,8 +20,8 @@
       "dataset": "recommendation_backtest.parquet",
       "rows": 2,
       "source_latest_date": "2026-07-01",
-      "max_drawdown": -0.01,
-      "win_rate": 0.7
+      "max_drawdown": -0.03,
+      "win_rate": 0.69
     },
     {
       "dataset": "factor_effectiveness.parquet",

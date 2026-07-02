@@ -87,6 +87,40 @@ def _records_from_payload(payload: Any) -> List[Dict[str, Any]]:
     if isinstance(payload, dict):
         if "tables" in payload and isinstance(payload["tables"], list) and len(payload["tables"]) > 0:
             date_val = payload.get("date", payload["tables"][0].get("date", ""))
+            table = payload["tables"][0]
+            fields = table.get("fields")
+            data = table.get("data")
+            if isinstance(fields, list) and isinstance(data, list):
+                records = []
+                for row in data:
+                    record = {
+                        str(field).replace("<br>", "").strip(): _parse_number_or_str(row[index])
+                        for index, field in enumerate(fields)
+                        if index < len(row)
+                    }
+                    record["Date"] = table.get("date") or date_val
+                    if "代號" in record:
+                        record["SecuritiesCompanyCode"] = record["代號"]
+                    if "名稱" in record:
+                        record["CompanyName"] = record["名稱"]
+                    if "收盤" in record:
+                        record["Close"] = record["收盤"]
+                    if "漲跌" in record:
+                        record["Change"] = record["漲跌"]
+                    if "開盤" in record:
+                        record["Open"] = record["開盤"]
+                    if "最高" in record:
+                        record["High"] = record["最高"]
+                    if "最低" in record:
+                        record["Low"] = record["最低"]
+                    if "成交股數" in record:
+                        record["TradingShares"] = record["成交股數"]
+                    if "成交金額(元)" in record:
+                        record["TransactionAmount"] = record["成交金額(元)"]
+                    if "成交筆數" in record:
+                        record["TransactionNumber"] = record["成交筆數"]
+                    records.append(record)
+                return records
             records = []
             for row in payload["tables"][0].get("data", []):
                 if len(row) >= 24:
@@ -153,6 +187,10 @@ def _get_with_official_ssl_retry(
 
 
 def _to_ad_date(raw: str) -> date:
+    if "/" in raw:
+        parts = raw.split("/")
+        if len(parts) == 3 and parts[0].isdigit():
+            return date(int(parts[0]) + 1911, int(parts[1]), int(parts[2]))
     if len(raw) == 7 and raw.isdigit():
         return date(int(raw[:3]) + 1911, int(raw[3:5]), int(raw[5:7]))
     if len(raw) == 8 and raw.isdigit():

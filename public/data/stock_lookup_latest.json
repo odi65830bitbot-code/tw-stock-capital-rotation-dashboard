@@ -4,7 +4,7 @@
   "data_mode": "prepost_batch",
   "data_timestamp": "2026-07-01",
   "as_of_date": "2026-07-01",
-  "generated_at": "2026-07-02T07:46:54+08:00",
+  "generated_at": "2026-07-02T08:37:30+08:00",
   "source": [
     "daily_price.parquet",
     "sector_classification.parquet"
@@ -994,11 +994,11 @@
       "market": "TWSE",
       "sector_name": "ETF",
       "industry": "ETF",
-      "close": 329.55,
-      "change": 22.8,
-      "change_pct": 7.43,
-      "trade_value_yi": 19.73,
-      "price_date": "2026-06-22"
+      "close": 306.0,
+      "change": 17.65,
+      "change_pct": 6.12,
+      "trade_value_yi": 26.78,
+      "price_date": "2026-06-30"
     },
     {
       "stock_code": "00686R",
