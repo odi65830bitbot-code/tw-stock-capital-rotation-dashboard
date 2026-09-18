@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { readWatchlist, toggleWatchLabel } from "./integrations/openstock/model";
 import { createPortal } from "react-dom";
 import type { CSSProperties } from "react";
 import { Area, AreaChart, LineChart, Line, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from "recharts";
@@ -7,7 +8,10 @@ import type { Sector, SectorStock } from "./types";
 import { CreatureCard } from "./components/CreatureCard";
 import type { CreatureCardData, FlowStatus, RecommendationStatus } from "./lib/creatureCardModel";
 
+const OpenStockPage = lazy(() => import("./integrations/openstock/OpenStockPage"));
+
 type MenuKey =
+  | "openstock"
   | "charts"
   | "rotation"
   | "flow"
@@ -193,6 +197,7 @@ type GlobalNews = {
 };
 
 const MENU: Array<{ key: MenuKey; label: string; desc: string }> = [
+  { key: "openstock", label: "OpenStock 研究室", desc: "台股搜尋、圖表與公司研究" },
   { key: "rotation", label: "輪動儀表板", desc: "總覽、CP、抄底" },
   { key: "charts", label: "資金圖表", desc: "行星圖、河流與法人流向" },
   { key: "flow", label: "資金流向", desc: "1/5/20/60 日法人淨流" },
@@ -597,6 +602,12 @@ function PageRouter({
   globalNews
 }: PageRouterProps) {
   switch (active) {
+    case "openstock":
+      return <Suspense fallback={<p role="status">正在載入 OpenStock 研究室…</p>}>
+        <OpenStockPage lookup={datasets.stockLookup?.data ?? null}
+          lookupStatus={datasets.stockLookup?.status ?? "loading"}
+          watchlist={watchlist} toggleWatch={toggleWatch} onNavigateToStock={onNavigateToStock} />
+      </Suspense>;
     case "rotation":
       return (
         <RotationDashboard
@@ -718,16 +729,10 @@ function App() {
   const [selectedSector, setSelectedSector] = useState<string>("");
   const [stockId, setStockId] = useState(initialStockId());
 
+  const watchlistTouched = useRef(false);
+  const [watchStorageError, setWatchStorageError] = useState(false);
   const [watchlist, setWatchlist] = useState<string[]>(() => {
-    const saved = localStorage.getItem("tw_stock_watchlist");
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch {
-        return [];
-      }
-    }
-    return [];
+    try { return readWatchlist(localStorage) ?? []; } catch { return []; }
   });
 
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
@@ -784,14 +789,15 @@ function App() {
       loadDataset(item)
         .then(({ status, data }) => {
           setDatasets((prev) => ({ ...prev, [item.key]: { ...item, status, data } }));
-          if (item.key === "watchlist" && status === "ready" && data && watchlist.length === 0) {
+          if (item.key === "watchlist" && status === "ready" && data && !watchlistTouched.current) {
+            try { if (readWatchlist(localStorage) !== null) return; } catch { /* storage unavailable */ }
             const defaultRows = Array.isArray(data.records) ? data.records : Array.isArray(data.items) ? data.items : [];
             const defaultWatch = defaultRows.map(
               (r: any) => `${r.stock_code || r.stock_id} ${r.stock_name || ""}`.trim()
             );
             if (defaultWatch.length > 0) {
               setWatchlist(defaultWatch);
-              localStorage.setItem("tw_stock_watchlist", JSON.stringify(defaultWatch));
+              try { localStorage.setItem("tw_stock_watchlist", JSON.stringify(defaultWatch)); } catch { setWatchStorageError(true); }
             }
           }
         })
@@ -834,16 +840,13 @@ function App() {
   }, [datasets.recommendations, stockId]);
 
   const toggleWatch = (codeAndName: string) => {
-    setWatchlist((prev) => {
-      let next;
-      if (prev.includes(codeAndName)) {
-        next = prev.filter((x) => x !== codeAndName);
-      } else {
-        next = [...prev, codeAndName];
-      }
+    watchlistTouched.current = true;
+    const next = toggleWatchLabel(watchlist, codeAndName);
+    setWatchlist(next);
+    try {
       localStorage.setItem("tw_stock_watchlist", JSON.stringify(next));
-      return next;
-    });
+      setWatchStorageError(false);
+    } catch { setWatchStorageError(true); }
   };
 
   const navigateToStock = (code: string) => {
@@ -883,6 +886,7 @@ function App() {
       </aside>
       <main className="alpha-main">
         <TopBar active={active} datasets={datasets} />
+        {watchStorageError && <p role="alert">此瀏覽器無法儲存自選清單，重新整理後變更可能遺失。</p>}
         <PageRouter
           active={active}
           datasets={datasets}
