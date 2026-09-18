@@ -128,3 +128,15 @@ scripts/start_dashboard.sh
 ```text
 http://127.0.0.1:8503
 ```
+
+## OpenStock 研究室
+
+已在 React 網頁整合 OpenStock 圖表元件與台股／ETF 研究入口，共用原本自選清單，並標示每檔行情日期。
+
+```bash
+cd web
+npm ci
+npm run dev
+```
+
+開啟 `http://127.0.0.1:5173/openstock`。操作、整合範圍與測試見 [OpenStock 整合說明](docs/openstock-integration.md)，第三方授權見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。帳號同步、郵件通知及雲端部署未包含在此次整合。

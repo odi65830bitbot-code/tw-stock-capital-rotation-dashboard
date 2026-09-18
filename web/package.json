@@ -8,7 +8,9 @@
     "test:phase3-ui": "node scripts/verify-phase3-ui.mjs",
     "test:phase8-ui": "node scripts/verify-phase8-ui.mjs",
     "build": "tsc -b && vite build",
-    "preview": "vite preview --host 127.0.0.1 --port 4173"
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "test:openstock": "node --experimental-strip-types --test scripts/openstock-model.test.mjs",
+    "test:openstock-ui": "node scripts/verify-openstock-ui.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.0",
